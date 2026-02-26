@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@use "base" as *;
+@use "abstracts" as *;
+
+a:focus {
+  outline: solid 2px #191b1e !important;
+}
+
+//font-size: calc(16px + (22 - 16) * ((100vw - 768px) / (1200 - 768)));
+/*
+@media (min-width: 1200px) {
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  font-size: 16px;
+}
+*/

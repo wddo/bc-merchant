@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "esbuild-build",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": ["--watch"]
+    },
+    {
+      "label": "esbuild-serve",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": ["--watch", "--servedir=.", "--serve=3000"]
+    }
+  ]
+}

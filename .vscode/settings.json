@@ -1,0 +1,32 @@
+{
+  "[scss]": {
+    //"editor.codeActionsOnSave": [] // 비활성화용
+  },
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/static/styles"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": ["/**/index.scss"],
+  "liveSassCompile.settings.generateMap": false,
+  "chat.tools.terminal.autoApprove": {
+    "/^node - <<'NODE'\nconst fs = require\\('fs'\\);\nconst path = 'c:/Develoments/bc-merchant/guide/pubList\\.html';\nlet text = fs\\.readFileSync\\(path, 'utf8'\\);\n\ntext = text\\.replace\\(/\\(<td\\\\s\\+class=\"listDate\">\\)\\(\\[\\\\s\\\\S\\]\\*\\?\\)\\(<\\\\/td>\\)/g, '\\$1\\$3'\\);\n\ntext = text\\.replace\\(/<tr>\\[\\\\s\\\\S\\]\\*\\?<\\\\/tr>/g, \\(tr\\) => \\{\n  const matches = \\[\\.\\.\\.tr\\.matchAll\\(/<td\\(\\?:\\\\s\\+class=\"\\[\\^\"\\]\\*\"\\)\\?>\\[\\\\s\\\\S\\]\\*\\?<\\\\/td>/g\\)\\];\n  if \\(!matches\\.length\\) return tr;\n  const last = matches\\[matches\\.length - 1\\];\n  const td = last\\[0\\]\\.replace\\(/\\(<td\\(\\?:\\\\s\\+class=\"\\[\\^\"\\]\\*\"\\)\\?>\\)\\(\\[\\\\s\\\\S\\]\\*\\?\\)\\(<\\\\/td>\\)/, '\\$1\\$3'\\);\n  return tr\\.slice\\(0, last\\.index\\) \\+ td \\+ tr\\.slice\\(last\\.index \\+ last\\[0\\]\\.length\\);\n\\}\\);\n\nfs\\.writeFileSync\\(path, text, 'utf8'\\);\nconsole\\.log\\('updated'\\);\nNODE$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^node -e \"const fs=require\\('fs'\\);const p='c:/Develoments/bc-merchant/guide/pubList\\.html';let t=fs\\.readFileSync\\(p,'utf8'\\);t=t\\.replace\\(/\\(<td\\\\\\\\s\\+class=\\\\\"listDate\\\\\">\\)\\(\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?\\)\\(<\\\\\\\\/td>\\)/g,'\\$1\\$3'\\);t=t\\.replace\\(/<tr>\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?<\\\\\\\\/tr>/g,\\(tr\\)=>\\{const m=\\[\\.\\.\\.tr\\.matchAll\\(/<td\\(\\?:\\\\\\\\s\\+class=\\\\\"\\[\\^\\\\\"\\]\\*\\\\\"\\)\\?>\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?<\\\\\\\\/td>/g\\)\\];if\\(!m\\.length\\)return tr;const last=m\\[m\\.length-1\\];const c=last\\[0\\]\\.replace\\(/\\(<td\\(\\?:\\\\\\\\s\\+class=\\\\\"\\[\\^\\\\\"\\]\\*\\\\\"\\)\\?>\\)\\(\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?\\)\\(<\\\\\\\\/td>\\)/,'\\$1\\$3'\\);return tr\\.slice\\(0,last\\.index\\)\\+c\\+tr\\.slice\\(last\\.index\\+last\\[0\\]\\.length\\);\\}\\);fs\\.writeFileSync\\(p,t,'utf8'\\);console\\.log\\('updated'\\);\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^set \\+H && node -e \"const fs=require\\('fs'\\);const p='c:/Develoments/bc-merchant/guide/pubList\\.html';let t=fs\\.readFileSync\\(p,'utf8'\\);t=t\\.replace\\(/\\(<td\\\\\\\\s\\+class=\\\\\"listDate\\\\\">\\)\\(\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?\\)\\(<\\\\\\\\/td>\\)/g,'\\$1\\$3'\\);t=t\\.replace\\(/<tr>\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?<\\\\\\\\/tr>/g,\\(tr\\)=>\\{const m=\\[\\.\\.\\.tr\\.matchAll\\(/<td\\(\\?:\\\\\\\\s\\+class=\\\\\"\\[\\^\\\\\"\\]\\*\\\\\"\\)\\?>\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?<\\\\\\\\/td>/g\\)\\];if\\(m\\.length===0\\)return tr;const last=m\\[m\\.length-1\\];const c=last\\[0\\]\\.replace\\(/\\(<td\\(\\?:\\\\\\\\s\\+class=\\\\\"\\[\\^\\\\\"\\]\\*\\\\\"\\)\\?>\\)\\(\\[\\\\\\\\s\\\\\\\\S\\]\\*\\?\\)\\(<\\\\\\\\/td>\\)/,'\\$1\\$3'\\);return tr\\.slice\\(0,last\\.index\\)\\+c\\+tr\\.slice\\(last\\.index\\+last\\[0\\]\\.length\\);\\}\\);fs\\.writeFileSync\\(p,t,'utf8'\\);console\\.log\\('updated'\\);\"$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^command -v perl \\|\\| command -v sed \\|\\| command -v awk \\|\\| command -v node$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

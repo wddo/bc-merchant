@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>가이드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="styles/guide.css">
+    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <script src="scripts/common.ui.js"></script>
+    <script src="scripts/guide.js"></script>
+    <!-- modal-style start -->
+    <style>
+        [class^="_modal"]  {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(25, 27, 30, 0.4);
+            z-index: 10;
+        }
+        [class^="_modal"].open { display: flex; }
+    </style>
+    <!-- modal-style end -->
+    <!-- modal-popup-style start -->
+    <style>
+        .hidden{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); border: 0; white-space: nowrap; }
+        .guide-table .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        [class^="_modal"][class*="-popup"] .content .guide-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:100%;
+            height:125px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--red-500);
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        [class^="_modal"][class*="-popup"] .inner {
+            position: relative;
+            min-width: 320px;
+            max-width: 600px;
+            max-height: 80vh;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: var(--white);
+            border-radius: 16px;
+        }
+
+        [class^="_modal"][class*="-popup"] .header {
+            margin-bottom: 16px;
+        }
+
+        [class^="_modal"][class*="-popup"] .header .title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: -0.04em;
+            color: var(--gray-900);
+        }
+
+        [class^="_modal"][class*="-popup"] .header .description {
+            display: block;
+            margin-top: 2px;
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: -0.04em;
+            color: var(--gray-600);
+        }
+
+        [class^="_modal"][class*="-popup"] .content {
+            overflow-y: auto;
+            max-height: 488px;
+        }
+
+        [class^="_modal"][class*="-popup"] .button-box {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        [class^="_modal"][class*="-popup"] .button-box button {
+            flex: 1;
+        }
+
+        [class^="_modal"][class*="-popup"] .btn-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 24px;
+            height: 24px;
+            background: url(images/icons/x.svg) no-repeat center / 24px auto;
+            border: 0;
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+
+        [class^="_modal"][class*="-popup"][class*="-large"] .inner { min-width: 600px; }
+        [class^="_modal"][class*="-popup"][class*="-medium"] .inner { min-width: 480px; }
+        [class^="_modal"][class*="-popup"][class*="-small"] .inner { min-width: 420px; }
+        [class^="_modal"][class*="-popup"][class*="-xsmall"] .inner { min-width: 320px; }
+
+        [class^="_modal"][class*="-popup"] .selectmenu {
+            padding: 20px 0;
+        }
+
+        [class^="_modal"][class*="-popup"] .selectmenu .header {
+            margin-bottom: 16px;
+            padding: 0 20px;
+        }
+
+        [class^="_modal"][class*="-popup"] .selectmenu .selectmenu-list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;    
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4B515D;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        [class^="_modal"][class*="-popup"] .selectmenu .selectmenu-list-item.on {
+            background-color: var(--gray-40);
+        }
+
+        [class^="_modal"][class*="-popup"] .selectmenu .selectmenu-list-item.on::after {
+            content: "";
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+            background: url(./images/common/check-sub-selected.svg) no-repeat center / 24px auto;
+        }
+
+        @media (max-width: 767px) {          
+            [class^="_modal"][class*="-popup"][class*="-large"] .inner,
+            [class^="_modal"][class*="-popup"][class*="-medium"] .inner,
+            [class^="_modal"][class*="-popup"][class*="-small"] .inner,
+            [class^="_modal"][class*="-popup"][class*="-xsmall"] .inner {
+                min-width: 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            [class^="_modal"][class*="-popup"] {
+                align-items: flex-end;
+            }
+
+            [class^="_modal"][class*="-popup"] .inner{
+                width: 100%;
+                max-height: calc(100vh - 56px);
+                flex-direction: column;
+                padding: 20px 20px 0px;
+                border-radius: 24px 24px 0 0;
+            }
+
+            [class^="_modal"][class*="-popup"] .header {
+                margin-bottom: 17px;
+            }
+
+            [class^="_modal"][class*="-popup"] .header .title {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            [class^="_modal"][class*="-popup"] .header .description {
+                font-size: 14px;
+            }
+
+            [class^="_modal"][class*="-popup"] .content {
+                flex: 1;
+                overflow-y: auto;
+                max-height: none;
+            }
+
+            [class^="_modal"][class*="-popup"] .button-box {
+                margin-top: 24px;
+            }
+
+            [class^="_modal"][class*="-popup"] .btn-close {
+                top: 20px;
+                right: 20px;
+            }
+
+            [class^="_modal"][class*="-popup"] .selectmenu {
+                padding: 0;
+            }
+
+            [class^="_modal"][class*="-popup"] .selectmenu .header {
+                padding-top: 40px;
+                margin-bottom: 0px;
+            }
+
+            [class^="_modal"][class*="-popup"] .selectmenu .header .title, 
+            [class^="_modal"][class*="-popup"] .selectmenu .header .description, 
+            [class^="_modal"][class*="-popup"] .selectmenu .btn-close {
+                display: none;
+            }
+
+            [class^="_modal"][class*="-popup"] .selectmenu .header::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 12px;
+                width: 60px;
+                height: 5px;
+                border-radius: 5px;
+                background: #E7E9EF;
+            }
+        }
+    </style>
+    <!-- modal-popup-style end -->
+    <!-- modal-alert-style start -->
+     <style>
+        [class^="_modal"][class*="-alert"] .inner {
+            position: relative;
+            width:320px;
+            padding: 24px 20px 20px 20px;
+            background-color: var(--white);
+            border-radius: 16px;
+        }
+
+        [class^="_modal"][class*="-alert"] .header {
+            margin-bottom: 8px;
+        }
+
+        [class^="_modal"][class*="-alert"] .header .title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: -0.04em;
+            color: var(--gray-900);
+        }
+
+        /* [class^="_popup"] .content {
+            overflow-y: auto;
+            max-height: 488px;
+        } */
+
+        [class^="_modal"][class*="-alert"] .button-box {
+            display: flex;
+            margin-top: 24px;
+            gap: 8px;
+        }
+
+        [class^="_modal"][class*="-alert"] .button-box button {
+            flex: 1;
+        }
+
+        [class^="_modal"][class*="-alert"] .btn-close {
+            position: absolute;
+            top: 25.5px;
+            right: 20px;
+            width: 24px;
+            height: 24px;
+            background: url(images/icons/x.svg) no-repeat center / 24px auto;
+            border: 0;
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+
+        /* =========================
+        Mobile (Alert)
+        ========================= */
+
+        @media (max-width: 767px) {
+            [class^="_modal"][class*="-alert"] {
+                align-items: center
+            }   
+        }
+     </style>
+    <!-- modal-alert-style end -->
+</head>
+<body>
+    <div class="wrap" style="background-color: #fff;">
+        <a href="javascript:void(0);" class="btn-menu">메뉴보기</a>
+        <div class="side">
+            <ul></ul>
+        </div><!-- //side [e] -->
+        <div class="cont">
+            <h1>Overlay</h1>
+            <!-- Popup -->
+            <div class="cont-item">
+                <div class="head">
+                    <h2>Popup</h2>
+                </div>
+                <div class="div" style="background-color:var(--gray-40);border-radius: 12px;">
+                    <table class="guide-table">
+                        <colgroup>
+                            <col style="width:25%;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td>Modal Size</td>
+                                <td>
+                                    <div class="btn-group exception-copy">
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#xsmall-popup').show();">xsmall</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#small-popup').show();">small</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#medium-popup').show();">medium</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#large-popup').show();">large</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Type</td>
+                                <td>
+                                    <div class="btn-group exception-copy">
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#default-popup').show();">default</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#btn-one-popup').show();">1btn</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#btn-two-popup').show();">2btn</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#selectmenu-popup').show();">select menu</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                            <td>Contents Size</td>
+                                <td>
+                                    <div class="btn-group exception-copy">
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#content-size-type1').show();">height:200px</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#content-size-type2').show();">height:400px</button>
+                                        <button type="button" class="_btn-medium-primary" onClick="pbui.BsCtl('#content-size-type3').show();">height:800px</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--// Popup -->
+            <!-- Alert -->
+            <div class="cont-item">
+                <div class="head">
+                    <h2>Alert</h2>
+                </div>
+                <div class="div" style="background-color:var(--gray-40);border-radius: 12px;">
+                <table class="guide-table exception-copy">
+                        <colgroup>
+                            <col style="width:auto;">
+                            <col style="width:26%;">
+                            <col style="width:26%;">
+                            <col style="width:26%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>1btn</th>
+                                <th>2btn(50:50)</th>
+                                <th>2btn(30:70)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>Title X</p>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary" onClick="pbui.DialogCtl('\'pbui.DialogCtl(내용).show();\' 형태입니다.<br>\'확인\' 버튼 1개가 기본입니다.').show();">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary" onClick="pbui.DialogCtl('\'pbui.DialogCtl(내용).show();\' 형태입니다.<br>\'확인\' 버튼 1개가 기본입니다.').show();">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary" onClick="pbui.DialogCtl('\'pbui.DialogCtl(내용).show();\' 형태입니다.<br>\'확인\' 버튼 1개가 기본입니다.').show();">Button</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Title O</p>
+                                    <p>Close Icon O</p>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Title O</p>
+                                    <p>Close Icon X</p>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                                <td class="tac">
+                                    <button type="button" class="_btn-medium-primary">Button</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--// Alert -->
+        </div><!-- //cont [e] -->
+    </div><!-- //wrap [e] -->
+
+    <div class="_modal-popup-xsmall" id="xsmall-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-small" id="small-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="medium-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-large" id="large-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="default-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="btn-one-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="btn-two-popup">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="selectmenu-popup">
+        <div class="inner selectmenu" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="selectmenu-list-wrap">
+                    <ul>
+                        <li class="selectmenu-list-item on">
+                            <div>인기순</div>
+                            <span class="hidden">선택됨</span>
+                        </li>
+                        <li class="selectmenu-list-item">
+                            <div>업데이트순</div>
+                        </li>
+                        <li class="selectmenu-list-item">
+                            <div>업데이트순</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="content-size-type1">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content" style="height:200px">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="content-size-type2">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content" style="height:400px">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-popup-medium" id="content-size-type3">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">타이틀 24 B</p>
+                <span class="description">텍스트 16 R</span>
+            </div>
+            <div class="content">
+                <div class="guide-content" style="height:800px">
+                    Contents area
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-secondary">Button</button>
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="button">닫기</button>
+        </div>
+    </div>
+
+    <div class="_modal-alert" id="btn1-type1-alert" stlye="display:flex">
+        <div class="inner" tabindex="0">
+            <div class="content">
+                <div class="guide-content">
+                    <p>설명을 입력하세요.</p>
+                    <p>설명을 입력하세요.</p>
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+        </div>
+    </div>
+    <div class="_modal-alert" id="btn1-type2-alert">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">비교지역</p>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    <p>설명을 입력하세요.</p>
+                    <p>설명을 입력하세요.</p>
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+            <button class="btn-close" type="but ton">닫기</button>
+        </div>
+    </div>
+    <div class="_modal-alert" id="btn1-type3-alert">
+        <div class="inner" tabindex="0">
+            <div class="header">
+                <p class="title">비교지역</p>
+            </div>
+            <div class="content">
+                <div class="guide-content">
+                    <p>설명을 입력하세요.</p>
+                    <p>설명을 입력하세요.</p>
+                </div>
+            </div>
+            <div class="button-box">
+                <button type="button" class="_btn-medium-primary">Button</button>
+            </div>
+        </div>
+    </div>
+<script>
+    // var alert2 = new pbui.DialogCtl({
+    //     form:{		// 다이알로그 내용을 만들 경우
+    //         content : `<div class="header"><p class="title">비교지역</p></div>
+    //             <div class="content"><div class="guide-content"><p>설명을 입력하세요.</p><p>설명을 입력하세요.</p></div></div>` , 
+    //         button : [
+    //             {el : '._btn-medium-primary', btnText : 'Button', elCallback : function(){alert('확인')}}
+    //         ]
+    //     }, 
+    //     customButtons : [
+    //         // 다이알로그 content 안에서 요소에 이벤트 바인딩 필요할 때
+    //         {el : '.inner-test-btn',  elCallback : function(){alert('링크 클릭')}},
+    //     ],
+    // //	callBtn : '.test-btn3',	//트리거 할 요소에 DialogCtl를 bind 시켜 줌
+    // });
+</script>
+</body>
+</html>

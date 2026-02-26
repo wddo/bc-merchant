@@ -1,0 +1,70 @@
+@use "variables" as *;
+
+@mixin respond-md {
+  @media (max-width: calc($breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin respond-sm {
+  @media (max-width: calc($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+@mixin visually-hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px !important;
+  clip: rect(0 0 0 0);
+}
+
+@mixin icon($name, $size: 24px) {
+  width: $size;
+  height: $size;
+  background: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
+}
+
+@mixin ellipsis($line, $height) {
+  @if ($line == 1) {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+    max-height: $height;
+  }
+}
+
+@mixin background-size($size) {
+  @if length($size) == 1 {
+    background-size: $size + px;
+    background-size: $size * 0.0625 + rem;
+  }
+  @if length($size) == 2 {
+    background-size: nth($size, 1) + px nth($size, 2) + px;
+    background-size: nth($size, 1) * 0.0625 + rem nth($size, 2) * 0.0625 + rem;
+  }
+}
+
+@mixin line-height($size) {
+  line-height: $size + px;
+  line-height: ($size * 0.0625) + rem;
+}
+
+@mixin background-position($pos, $size, $pos2) {
+  background-position: $pos $size + px $pos2;
+  background-position: $pos ($size * 0.0625) + rem $pos2;
+}
+
+@mixin word-spacing($size) {
+  word-spacing: $size + px;
+  word-spacing: ($size * 0.0625) + rem;
+}

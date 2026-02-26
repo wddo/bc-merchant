@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>가이드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="No-Cache">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="./styles/guide.css">
+    <script src="./scripts/jquery-2.2.3.min.js"></script>
+    <script src="./scripts/guide.js"></script>
+    <style>
+        .wrap {background-color:#fff;}
+        .side {background-color:#F3F5F8;}
+        .container {max-width: 1000px; margin: 0 auto; background: var(--white); padding: 40px;}
+        .container header {border-bottom: 2px solid var(--gray-900); margin-bottom: 40px;}
+        .container h1 {color: var(--gray-900); font-size: 2.2rem; font-weight: 700; margin: 0;}
+        .container h2 {color: var(--gray-900); margin-top: 50px; padding-bottom: 4px; margin-bottom: 14px; font-weight: 700; font-size:1.1rem; border-bottom:1px solid var(--gray-100)}
+        .container h3 {color: var(--gray-700); margin-top: 30px; margin-bottom: 12px; margin-left: 8px; font-weight: 700;}
+        .container p { margin-bottom: 15px; color: var(--gray-700); margin-left: 8px;}
+        .container ul {margin-bottom: 20px; padding-left: 20px;}
+        .container li {position: relative; padding-left: 13px; color: var(--gray-700);}
+        .container li + li {margin-top: 8px;}
+        .container li::before {content:''; position: absolute; top: 9px;left: 0; display: inline-block; width: 3px;height: 3px;border-radius: 2px; background-color: currentColor;}
+        .container .code-block {background-color: var(--gray-600); color: var(--gray-20); padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; margin: 15px 0;}
+        .container .directory-tree {background-color: var(--gray-40); padding: 20px; border-radius: 6px; white-space: pre; line-height: 1.4;}
+        .container table {width: 100%; border-collapse: collapse; margin: 20px 0;}
+        .container th, .container td {border: 1px solid var(--gray-100); padding: 12px; text-align: left; font-size: .9rem;}
+        .container th {background-color: var(--point-100); font-weight: bold;}
+        .container .warning {background-color: var(--gray-40); padding: 15px; border-radius: 6px; margin: 12px 0;}
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="javascript:void(0);" class="btn-menu">메뉴보기</a>
+
+        <div class="side">
+            <ul></ul>
+        </div><!-- //side [e] -->
+
+        <div class="container">
+            <header>
+                <h1>Front-end Standardization Guide</h1>
+                <p>본 문서는 프로젝트의 일관된 품질과 유지보수 효율성을 위해 작성된 퍼블리싱/개발 표준 가이드입니다.</p>
+            </header>
+            <section>
+                <h2>브라우저 호환성 및 환경</h2>
+                <div class="warning">
+                    <strong>Target Browser: Chrome 78+</strong><br>
+                    최신 문법 사용 시 해당 버전 지원 여부를 반드시 확인해야 합니다.
+                </div>
+                <h3>주요 제한 사항 (사용 금지 문법)</h3>
+                <ul>
+                    <li><strong>CSS:</strong> <code>:has()</code> 가상 클래스 선택자 사용 불가</li>
+                    <li><strong>JavaScript:</strong> Optional Chaining (<code>?.</code>) 연산자 사용 불가</li>
+                    <li>그 외 ES2020 이상의 최신 문법 사용 시 Polyfill 필요 여부 체크 필수</li>
+                </ul>
+            </section>
+            <section>
+                <h2>웹접근성 준수</h2>
+                <ul>
+                    <li>본 프로젝트의 모든 웹 콘텐츠는 「웹 접근성 지침(KWCAG)」을 준수하여 제작한다.</li>
+                    <li>퍼블리싱 단계에서 시맨틱 구조, 키보드 접근성, 대체 텍스트, 명도 대비 등을 필수적으로 검토한다.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>디렉토리 구조 및 배포 정책</h2>
+                <p>디렉토리는 배포 주체와 역할을 기준으로 엄격히 분리하여 운영합니다.</p>
+                <div class="directory-tree">
+                    Root
+                    ├── _dev/ <span class="note"># [개발 전달용 html 폴더]</span>
+                    │ ├── sub1/ <span class="note"># 카테고리 등 필요시 폴더 구조</span>
+                    │ └── ...
+                    │
+                    ├── static/ <span class="note"># [정적 리소스 폴더, 퍼블리셔가 배포할 대상]</span>
+                    │ ├── styles/ <span class="note"># 필요 시 서브 폴더 구성</span>
+                    │ ├── scripts/
+                    │ ├── images/
+                    │ └── html/ <span class="note"># 개발 연동 없는 정적 html 파일</span>
+                    │
+                    ├── src/ <span class="note"># [필요 시 구성하며 배포 대상 아님]</span>
+                    │ └── styles/ <span class="note"># SCSS 원본 파일</span>
+                    │
+                    ├── guide/ <span class="note"># [퍼블 가이드용 파일]</span>
+                    │ ├── filelist.html <span class="note"># 퍼블리스트 등을 자유롭게 작성 합니다.</span>
+                    │ └── images, styles, js ...
+                </div>
+                <h3>구조 원칙</h3>
+                <ul>
+                    <li><strong>_dev 폴더(필수):</strong> 개발자에게 전달하는 html 파일이 위치합니다.</li>
+                    <li><strong>static 폴더(필수):</strong> 정적 리소스 파일들이 위치하며 추후 퍼블리셔가 배포 할 대상입니다.</li>
+                    <li><strong>src 폴더(선택):</strong> 필요시 구성하며 <code>static</code> 폴더로 컴파일하여 배포합니다.</li>
+                    <li><strong>guide 폴더(필요):</strong> 퍼블리스트와 퍼블 가이드 등을 위한 파일들이 위치합니다.</li>
+                    <li>그 외 필요 시 하위 폴더 생성 가능</li>
+                </ul>
+            </section>
+            <section>
+                <h2>CSS 가이드라인</h2>
+                <h3>Design Token (Variables)</h3>
+                <p><code>reset.css</code> 혹은 공통 CSS 파일 내 <code>:root</code> 영역에 주요 컬러를 변수로 정의합니다. 변수명은 Figma 상의 네이밍과 일치시킵니다.</p>
+                <div class="code-block">
+                    /* reset.css example */<br>
+                    :root {<br>
+                    --primary-p50:#E6EAF0;<br>
+                    --primary-p100:#C0CADC;<br>
+                    --primary-p200:#98A8C4;<br>
+                    --primary-p300:#7186AC;<br>
+                    --primary-p400:#516D9C;<br>
+                    }
+                </div>
+                <h3>CSS 파일 분리 전략</h3>
+                <p>유지보수와 배포의 용이성을 위해 CSS는 공통 영역과 각 메뉴별 영역으로 분리합니다.</p>
+                <ul>
+                    <li><strong>Common:</strong> <code>common.css</code>, <code>layout.css</code> (헤더, 푸터, 공통 컴포넌트)</li>
+                    <li><strong>Page Specific:</strong> 1 Depth 메뉴(또는 카테고리) 기준으로 CSS 파일을 생성합니다.</li>
+                </ul>
+                <div class="code-block">
+                    /* 파일 생성 예시 */<br>
+                    common.css /* 공통 */<br>
+                    main.css /* 메인 페이지 */<br>
+                    product.css /* 쇼핑/상품 관련 (1 Depth) */<br>
+                    myroom.css /* 마이페이지 관련 (1 Depth) */<br>
+                    event_newyear.css /* 새해 이벤트 (1 페이지 용) */<br>
+                </div>
+            </section>
+            <section>
+                <h2>JavaScript 및 공통 요소 처리</h2>
+                <h3>공통 요소 Include 방식</h3>
+                <p>Server Side Include(SSI) 사용이 불가하므로, 클라이언트 사이드 방식을 사용합니다.</p>
+                <ul>
+                    <li>성능 최적화를 위해 <code>&lt;link rel="preload"&gt;</code>를 사용하여 리소스를 미리 로드합니다.</li>
+                    <li><code>fetch()</code> API를 사용하여 공통 HTML 조각(Header, Footer 등)을 주입합니다.</li>
+                </ul>
+                <h3>JS 모듈화 전략</h3>
+                <ul>
+                    <li><strong>Common 용 JS:</strong> 사이트 전역에서 사용되는 유틸리티 함수 모음.</li>
+                    <li><strong>Page 용 JS:</strong> 특정 페이지나 메뉴에서만 사용되는 기능은 별도 JS 파일로 분리하여 로딩 속도를 개선합니다.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>UI 및 자산(Assets) 관리</h2>
+                <h3>반응형 브레이크 포인트</h3>
+                <p>반응형 작업을 위한 Break Point는 임의로 설정하지 않으며, <strong>기획 및 디자인 팀과 협의된 수치</strong>를 사용합니다.</p>
+                <h3>이미지 최적화 가이드</h3>
+                <p>고해상도 디스플레이 대응 및 로딩 속도 최적화를 위해 아래 규칙을 준수합니다.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>규격 / 설정값</th>
+                            <th>비고</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>이미지 사이즈</td>
+                            <td>3배수 (@3x) 저장</td>
+                            <td>Retina 디스플레이 대응</td>
+                        </tr>
+                        <tr>
+                            <td>JPEG 압축률</td>
+                            <td>70%</td>
+                            <td>사진, 그라데이션이 많은 이미지</td>
+                        </tr>
+                        <tr>
+                            <td>PNG 압축률</td>
+                            <td>80%</td>
+                            <td>투명 배경, 단순한 그래픽</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>svg 사용</h3>
+                <p>가이드 내의 css에서는 서버 구성 없이 svg를 표현하기 위해 base64로 만들기도 했지만 퍼블 서버를 만드는 경우 svg 그대로 로딩 해서 사용해도 됩니다.</p>
+            </section>
+        </div>
+        <!-- //cont [e] -->
+    </div><!-- //wrap [e] -->
+</body>
+</html>

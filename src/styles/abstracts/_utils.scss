@@ -1,0 +1,33 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.hidden {
+  @include visually-hidden;
+}
+
+.noData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+  padding: 100px 0;
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gray-700);
+    text-align: center;
+    &:before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 20px;
+      background: url(#{$img_url}/common/ico_nodata.png) no-repeat 50% 50% /
+        100% auto;
+    }
+  }
+  .btnArea {
+    margin-top: 20px;
+  }
+}
