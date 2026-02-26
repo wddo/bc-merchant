@@ -34,6 +34,42 @@
     contain;
 }
 
+@mixin bullet-list($type: dot, $color: var(--black), $font: 16px, $gap: 12px) {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  li {
+    position: relative;
+    font-size: $font;
+    color: $color;
+    letter-spacing: calc($font * -0.04);
+    display: flex;
+    align-items: center;
+
+    &::before {
+      position: relative;
+      margin-right: 10px;
+
+      @if $type == star {
+        content: "*";
+        top: 1px;
+        font-size: 9px;
+      } @else {
+        content: "";
+        width: 2px;
+        height: 2px;
+        background-color: $color;
+        border-radius: 100%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
 @mixin ellipsis($line, $height) {
   @if ($line == 1) {
     display: block;

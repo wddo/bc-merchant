@@ -5,6 +5,14 @@
   @include visually-hidden;
 }
 
+.notice-list {
+  @include bullet-list($font: 14px, $gap: 12px);
+}
+
+.reference-list {
+  @include bullet-list($type: star, $font: 14px);
+}
+
 .noData {
   display: flex;
   flex-direction: column;

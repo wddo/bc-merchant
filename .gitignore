@@ -1,2 +1,2 @@
-dist/js/*.js
-dist/css/*.css
+static/scripts/*.js
+static/styles/*.css

@@ -7,6 +7,57 @@
   clip: rect(0 0 0 0);
 }
 
+.notice-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.notice-list li {
+  position: relative;
+  font-size: 14px;
+  color: var(--black);
+  letter-spacing: -0.56px;
+  display: flex;
+  align-items: center;
+}
+.notice-list li::before {
+  position: relative;
+  margin-right: 10px;
+  content: "";
+  width: 2px;
+  height: 2px;
+  background-color: var(--black);
+  border-radius: 100%;
+  transform: translateY(-50%);
+}
+
+.reference-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reference-list li {
+  position: relative;
+  font-size: 14px;
+  color: var(--black);
+  letter-spacing: -0.56px;
+  display: flex;
+  align-items: center;
+}
+.reference-list li::before {
+  position: relative;
+  margin-right: 10px;
+  content: "*";
+  top: 1px;
+  font-size: 9px;
+}
+
 .noData {
   display: flex;
   flex-direction: column;
@@ -51,11 +102,11 @@ body {
   left: 0;
   overflow: hidden;
   background-color: #fff;
+  z-index: 1000;
 }
 @media (max-width: 1199px) {
   #header {
     overflow: visible;
-    z-index: 1000;
   }
 }
 
