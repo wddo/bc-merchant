@@ -27,6 +27,13 @@
   background: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
 }
 
+@mixin icon_mc($name, $size: 24px) {
+  width: $size;
+  height: $size;
+  background: url("#{$icon_mc_url}/#{$name}.svg") no-repeat center center /
+    contain;
+}
+
 @mixin ellipsis($line, $height) {
   @if ($line == 1) {
     display: block;

@@ -4,25 +4,6 @@
   .header-inner {
     min-width: $breakpoint-lg;
 
-    @at-root .header.opened#{&} {
-      .icon-menu {
-        &::before,
-        &::after {
-          top: 50%;
-          bottom: auto;
-          box-shadow: none;
-        }
-
-        &::before {
-          transform: translateY(-50%) rotate(45deg);
-        }
-
-        &::after {
-          transform: translateY(-50%) rotate(-45deg);
-        }
-      }
-    }
-
     &::after {
       content: "";
       position: absolute;
@@ -232,24 +213,7 @@
     }
 
     .icon-search {
-      &::before {
-        top: 2px;
-        left: 2px;
-        width: 14px;
-        height: 14px;
-        border: 2px solid #191b1e;
-        border-radius: 50%;
-      }
-
-      &::after {
-        right: 3px;
-        bottom: 4px;
-        width: 7px;
-        height: 2px;
-        background: #191b1e;
-        transform: rotate(45deg);
-        transform-origin: right center;
-      }
+      @include icon("search");
     }
 
     .icon-menu {
@@ -269,6 +233,15 @@
       &::after {
         bottom: 6px;
       }
+
+      @at-root .header.opened#{&} {
+        @include icon("x");
+
+        &::after,
+        &::before {
+          content: none;
+        }
+      }
     }
   }
 }
@@ -278,12 +251,6 @@
   .header {
     .header-inner {
       min-width: $breakpoint-sm;
-
-      @at-root .header.opened#{&} {
-        .header-nav {
-          display: block;
-        }
-      }
 
       &::after {
         content: none;
@@ -321,6 +288,10 @@
         background-color: #fff;
         transform: translateX(100%);
         transition: transform 0.3s ease;
+
+        @at-root .header.opened#{&} {
+          display: block;
+        }
 
         &:focus-within,
         &:hover {
@@ -391,9 +362,14 @@
                 top: 50%;
                 height: auto;
                 margin-top: 0;
+                transition: transform 0.3s ease;
                 transform: translateY(-50%);
-                @include icon("chevron-right", 16px);
+                @include icon_mc("chevron-right-16", 16px);
               }
+            }
+
+            &.active .depth2::after {
+              transform: translateY(-50%) rotate(-90deg);
             }
           }
 
@@ -413,6 +389,7 @@
               padding: 12px 6px;
               font-size: 16px;
               text-align: left;
+              color: var(--gray-500);
             }
           }
 
@@ -435,6 +412,7 @@
               padding: 6px 0;
               font-size: 16px;
               text-align: left;
+              color: var(--gray-500);
             }
           }
         }

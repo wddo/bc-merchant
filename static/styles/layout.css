@@ -116,18 +116,6 @@ body {
 .header .header-inner {
   min-width: 1200px;
 }
-.header.opened.header .header-inner .icon-menu::before, .header.opened.header .header-inner .icon-menu::after {
-  top: 50%;
-  bottom: auto;
-  box-shadow: none;
-}
-.header.opened.header .header-inner .icon-menu::before {
-  transform: translateY(-50%) rotate(45deg);
-}
-.header.opened.header .header-inner .icon-menu::after {
-  transform: translateY(-50%) rotate(-45deg);
-}
-
 .header .header-inner::after {
   content: "";
   position: absolute;
@@ -301,22 +289,10 @@ body {
   content: "";
   position: absolute;
 }
-.header .header-inner .icon-search::before {
-  top: 2px;
-  left: 2px;
-  width: 14px;
-  height: 14px;
-  border: 2px solid #191b1e;
-  border-radius: 50%;
-}
-.header .header-inner .icon-search::after {
-  right: 3px;
-  bottom: 4px;
-  width: 7px;
-  height: 2px;
-  background: #191b1e;
-  transform: rotate(45deg);
-  transform-origin: right center;
+.header .header-inner .icon-search {
+  width: 24px;
+  height: 24px;
+  background: url("/guide/images/icons/search.svg") no-repeat center center/contain;
 }
 .header .header-inner .icon-menu::before, .header .header-inner .icon-menu::after {
   left: 3px;
@@ -331,13 +307,18 @@ body {
 .header .header-inner .icon-menu::after {
   bottom: 6px;
 }
+.header.opened.header .header-inner .icon-menu {
+  width: 24px;
+  height: 24px;
+  background: url("/guide/images/icons/x.svg") no-repeat center center/contain;
+}
+.header.opened.header .header-inner .icon-menu::after, .header.opened.header .header-inner .icon-menu::before {
+  content: none;
+}
 
 @media (max-width: 1199px) {
   .header .header-inner {
     min-width: 360px;
-  }
-  .header.opened.header .header-inner .header-nav {
-    display: block;
   }
   .header .header-inner::after {
     content: none;
@@ -371,6 +352,9 @@ body {
     background-color: #fff;
     transform: translateX(100%);
     transition: transform 0.3s ease;
+  }
+  .header.opened.header .header-inner .header-nav {
+    display: block;
   }
   .header .header-inner .header-nav:focus-within, .header .header-inner .header-nav:hover {
     height: calc(100vh - 56px);
@@ -426,10 +410,14 @@ body {
     top: 50%;
     height: auto;
     margin-top: 0;
+    transition: transform 0.3s ease;
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    background: url("/guide/images/icons/chevron-right.svg") no-repeat center center/contain;
+    background: url("/static/images/icons/chevron-right-16.svg") no-repeat center center/contain;
+  }
+  .header .header-inner .header-nav .depth1-list > li .depth2-list > li.active .depth2::after {
+    transform: translateY(-50%) rotate(-90deg);
   }
   .header .header-inner .header-nav .depth1-list > li .depth3-list {
     display: none;
@@ -447,6 +435,7 @@ body {
     padding: 12px 6px;
     font-size: 16px;
     text-align: left;
+    color: var(--gray-500);
   }
   .header .header-inner .header-nav .depth1-list > li .depth3-list > li.active .depth4-list {
     display: flex;
@@ -464,6 +453,7 @@ body {
     padding: 6px 0;
     font-size: 16px;
     text-align: left;
+    color: var(--gray-500);
   }
   .header .header-inner .header-actions {
     height: auto;
