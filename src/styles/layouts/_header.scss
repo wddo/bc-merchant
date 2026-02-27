@@ -263,7 +263,7 @@
       .header-gnb {
         width: 100%;
         margin: 0;
-        padding: 14px $side-space-sm;
+        padding: 14px $page-side-sm;
         align-items: center;
         justify-content: flex-end;
         gap: 20px;
@@ -309,8 +309,8 @@
             content: "";
             position: absolute;
             display: block;
-            left: $side-space-sm;
-            width: calc(100% - #{$side-space-sm} * 2);
+            left: $page-side-sm;
+            width: calc(100% - #{$page-side-sm} * 2);
             height: 1px;
             background-color: var(--gray-60);
             margin-top: 16px;
@@ -326,7 +326,7 @@
           }
 
           .depth1 {
-            padding: 13px $side-space-sm;
+            padding: 13px $page-side-sm;
             min-height: 59px;
             font-size: 18px;
             justify-content: flex-start;
@@ -349,7 +349,7 @@
             .depth2 {
               position: relative;
               width: 100%;
-              padding: 16px $side-space-sm;
+              padding: 16px $page-side-sm;
               font-size: 16px;
               font-weight: 700;
               text-align: left;

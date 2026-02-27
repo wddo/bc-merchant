@@ -1,14 +1,46 @@
+// =========================
+// Breakpoint
+// =========================
+
 $breakpoint-lg: 1200px;
 $breakpoint-md: 768px;
 $breakpoint-sm: 360px;
 
-$side-space-md: 24px;
-$side-space-sm: 20px;
+// =========================
+// Dimensions
+// =========================
 
+// 네비게이션 바 높이
 $nav-height-lg: 102px;
 $nav-height-md: 56px;
 
+// 페이지 좌우 여백
+$page-side-lg: 0;
+$page-side-md: 24px;
+$page-side-sm: 20px;
+
+// 페이지 상하 여백
+$page-top-lg: 50px;
+$page-top-md: 50px;
+$page-top-sm: 0;
+$page-bottom-lg: 50px;
+$page-bottom-md: 50px;
+$page-bottom-sm: 0;
+
+// 페이지 타이틀 하단 여백
+$page-title-gap-lg: 56px;
+$page-title-gap-md: 56px;
+$page-title-gap-sm: 0;
+
+// =========================
+// z-index
+// =========================
+
 $zindex-header: 1000;
+
+// =========================
+// URL
+// =========================
 
 $img_url: "/static/images";
 $icon_url: "/static/images/icons";

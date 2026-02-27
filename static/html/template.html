@@ -4,8 +4,10 @@
     <title>BC카드 가맹점</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="preload" href="/static/styles/base.css" as="style" />
     <link rel="preload" href="/static/styles/common.css" as="style" />
     <link rel="preload" href="/static/styles/layout.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
     <link rel="stylesheet" href="/static/styles/common.css" />
     <link rel="stylesheet" href="/static/styles/layout.css" />
     <style>
@@ -40,61 +42,64 @@
       <div id="header"></div>
 
       <main id="container">
-        <h2 class="hidden">템플릿 페이지</h2>
+        <div class="page">
+          <div class="title">
+            <h2 class="hidden">템플릿 페이지</h2>
+          </div>
+          <div class="contents">
+            <h3 class="_font-title-3">Bullet List</h3>
 
-        <div class="contents">
-          <h3 class="_font-title-3">Bullet List</h3>
+            <section>
+              <h4 class="_font-title-4">type dot</h4>
+              <div>
+                <ul class="notice-list">
+                  <li>리스트 아이템 1</li>
+                  <li>리스트 아이템 2</li>
+                  <li>리스트 아이템 3</li>
+                </ul>
+              </div>
+            </section>
+            <section>
+              <h4 class="_font-title-4">type star</h4>
+              <div>
+                <ul class="reference-list">
+                  <li>참고 리스트 아이템 1</li>
+                  <li>참고 리스트 아이템 2</li>
+                  <li>참고 리스트 아이템 3</li>
+                </ul>
+              </div>
+            </section>
 
-          <section>
-            <h4 class="_font-title-4">type dot</h4>
-            <div>
-              <ul class="notice-list">
-                <li>리스트 아이템 1</li>
-                <li>리스트 아이템 2</li>
-                <li>리스트 아이템 3</li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h4 class="_font-title-4">type star</h4>
-            <div>
-              <ul class="reference-list">
-                <li>참고 리스트 아이템 1</li>
-                <li>참고 리스트 아이템 2</li>
-                <li>참고 리스트 아이템 3</li>
-              </ul>
-            </div>
-          </section>
+            <h3 class="_font-title-3">Accordion</h3>
 
-          <h3 class="_font-title-3">Accordion</h3>
-
-          <section>
-            <div class="accordion" data-options='{"animation": true, "animationSpeed": 0.4, "openType": "multi"}'>
-              <div class="accordion-item">
-                <div class="accordion-header _font-title-4">
-                  <span class="depth01">아코디언 메뉴 열린 상태</span>
-                  <button type="button" class="accordion-btn" aria-expanded="true">
-                    <span data-text='{"text":"열기|닫기", "show":2}'></span>
-                  </button>
+            <section>
+              <div class="accordion" data-options='{"animation": true, "animationSpeed": 0.4, "openType": "multi"}'>
+                <div class="accordion-item">
+                  <div class="accordion-header _font-title-4">
+                    <span class="depth01">아코디언 메뉴 열린 상태</span>
+                    <button type="button" class="accordion-btn" aria-expanded="true">
+                      <span data-text='{"text":"열기|닫기", "show":2}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="false">
+                    <div class="accordion-cont">내용 내용 내용 내용 내용 내용 내용 내용</div>
+                  </div>
                 </div>
-                <div class="accordion-panel" aria-hidden="false">
-                  <div class="accordion-cont">내용 내용 내용 내용 내용 내용 내용 내용</div>
+
+                <div class="accordion-item">
+                  <div class="accordion-header _font-title-4">
+                    <span class="depth01">아코디언 메뉴 닫힌 상태</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">내용 내용 내용 내용 내용 내용 내용 내용</div>
+                  </div>
                 </div>
               </div>
-
-              <div class="accordion-item">
-                <div class="accordion-header _font-title-4">
-                  <span class="depth01">아코디언 메뉴 닫힌 상태</span>
-                  <button type="button" class="accordion-btn" aria-expanded="false">
-                    <span data-text='{"text":"열기|닫기", "show":1}'></span>
-                  </button>
-                </div>
-                <div class="accordion-panel" aria-hidden="true">
-                  <div class="accordion-cont">내용 내용 내용 내용 내용 내용 내용 내용</div>
-                </div>
-              </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
       </main>
 

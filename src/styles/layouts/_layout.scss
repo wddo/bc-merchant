@@ -30,22 +30,28 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 80px auto 100px;
+  margin: 0 auto;
   padding-top: $nav-height-lg;
   flex: 1;
 
-  @include respond-sm {
-    margin: 40px auto 60px;
-  }
-
-  .contents {
+  .page {
     display: flex;
     flex-direction: column;
+    padding: $page-top-lg $page-side-lg $page-bottom-lg;
+    min-height: 500px;
+  }
+
+  .page > div {
     min-width: $breakpoint-lg;
     max-width: $breakpoint-lg;
-    min-height: 500px;
-    margin: 0 auto;
-    padding: 25px 0;
+
+    &.title {
+      padding-bottom: $page-title-gap-lg;
+    }
+
+    &:not(.full) {
+      margin: 0 auto;
+    }
   }
 }
 
@@ -61,21 +67,27 @@ body {
   #container {
     padding-top: $nav-height-md;
 
-    .contents {
+    .page {
       min-width: 100%;
       max-width: 100%;
       margin: 0;
-      padding: 0 $side-space-md;
+      padding: $page-top-md $page-side-md $page-bottom-md;
     }
   }
 }
 
-// Mobile0
+// Mobile
 @include respond-sm {
   #container {
-    .contents {
+    .page {
       min-width: $breakpoint-sm;
-      padding: 0 $side-space-sm;
+      padding: $page-top-sm $page-side-sm $page-bottom-sm;
+    }
+
+    .page > div {
+      &.title {
+        @include visually-hidden;
+      }
     }
   }
 }

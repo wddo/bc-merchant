@@ -1,0 +1,118 @@
+@use "../abstracts" as *;
+
+.merchant-guide > .contents {
+  margin-top: 80px;
+}
+
+.step-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  + .step-section {
+    margin-top: 80px;
+  }
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-20);
+  color: $text-white;
+  background-color: $bg-black;
+}
+
+.step-body {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    color: $text-primary;
+  }
+}
+
+.step-accordion {
+  margin-top: 40px;
+
+  .accordion-item {
+    border-top: 0;
+
+    &:first-child {
+      border-top: 1px solid $line-gray-60;
+    }
+  }
+
+  .accordion-header {
+    padding: 24px 0;
+  }
+
+  .depth01 {
+    display: block;
+    padding-right: 44px;
+    color: $text-primary;
+  }
+
+  .accordion-btn::before,
+  .accordion-btn::after {
+    right: 8px;
+  }
+
+  .accordion-cont {
+    padding: 0 0 24px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .merchant-guide {
+    padding: 60px $page-side-md 80px;
+  }
+
+  .merchant-guide > .contents {
+    margin-top: 60px;
+  }
+
+  .step-section {
+    + .step-section {
+      margin-top: 60px;
+    }
+  }
+
+  .step-accordion {
+    margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .merchant-guide {
+    padding: 40px $page-side-sm 64px;
+  }
+
+  .merchant-guide > .contents {
+    margin-top: 40px;
+  }
+
+  .step-section {
+    gap: 10px;
+
+    + .step-section {
+      margin-top: 40px;
+    }
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-16);
+  }
+
+  .step-accordion {
+    margin-top: 24px;
+
+    .accordion-header {
+      padding: 20px 0;
+    }
+  }
+}
