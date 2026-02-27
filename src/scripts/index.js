@@ -1,6 +1,6 @@
 import Header from "@layout/Header";
-import { datepickerController } from "@library/Datepicker";
-import { selectmenuController } from "@library/Selectmenu";
+import { accordionController } from "@library/Accordion";
+import { dataTextController } from "@library/DataText";
 
 import Co from "@pages/co";
 
@@ -24,8 +24,8 @@ export let device = null;
   function contentReady() {
     console.log("ready");
 
-    selectmenuController.init(".select-wrap > select");
-    datepickerController.init(".datepickerInner");
+    dataTextController.init("[data-text]"); // 타 라이브러리에서 사용하므로 상단 유지
+    accordionController.init(".accordion");
 
     bind();
 

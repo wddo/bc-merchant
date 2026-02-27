@@ -5,12 +5,14 @@ const Header = (function () {
 
   const el = {
     header: null,
+    nav: null,
     opener: null,
     items: null,
   };
 
   const selectors = {
     header: ".header",
+    nav: ".header-nav",
     opener: "#menu-toggle",
     items: ".depth1-list > li",
   };
@@ -54,16 +56,14 @@ const Header = (function () {
     clickOpener: () => {
       el.header.classList.toggle("opened");
 
-      const headerNav = el.header.querySelector(".header-nav");
-
-      if (headerNav) {
+      if (el.nav) {
         const opened = el.header.classList.contains("opened");
 
         requestAnimationFrame(() => {
           if (opened) {
-            headerNav.style.setProperty("transform", "translateX(0)");
+            el.nav.style.setProperty("transform", "translateX(0)");
           } else {
-            headerNav.style.setProperty("transform", "translateX(100%)");
+            el.nav.style.setProperty("transform", "translateX(100%)");
           }
         });
       }
@@ -133,6 +133,9 @@ const Header = (function () {
 
     el.header.removeEventListener("mouseleave", handler.mouseleave);
     el.opener.removeEventListener("click", handler.clickOpener);
+
+    el.header.classList.remove("opened");
+    el.nav.style.setProperty("transform", "");
   };
 
   function breakpointChecker() {
@@ -148,6 +151,7 @@ const Header = (function () {
   const setProperty = () => {
     el.header = document.querySelector(selectors.header);
     el.opener = el.header ? el.header.querySelector(selectors.opener) : null;
+    el.nav = el.header ? el.header.querySelector(selectors.nav) : null;
     el.items = el.header ? el.header.querySelectorAll(selectors.items) : null;
   };
 

@@ -1,0 +1,36 @@
+// Semantic color tokens
+
+// text
+$text-point: var(--primary-p800);
+$text-white: var(--white);
+$text-primary: var(--gray-900);
+$text-secondary: var(--gray-700);
+$text-tertiary: var(--gray-600);
+$text-quaternary: var(--gray-500);
+$text-placeholder: var(--gray-500);
+$text-disabled: var(--gray-300);
+$text-dark: var(--gray-60);
+$text-warning: var(--red-800);
+
+// bg
+$bg-white: var(--white);
+$bg-gray-20: var(--gray-20);
+$bg-gray-40: var(--gray-40);
+$bg-gray-60: var(--gray-60);
+$bg-primary-50: var(--primary-p50);
+$bg-primary-100: var(--primary-p100);
+$bg-point: var(--primary-p800);
+$bg-glass-60: var(--bg-glass-60);
+$bg-glass-80: var(--bg-glass-80);
+$bg-black: var(--gray-900);
+$bg-hover: #e6e6f4;
+
+// line
+$line-gray-60: var(--gray-60);
+$line-gray-100: var(--gray-100);
+$line-gray-300: var(--gray-300);
+$line-gray-500: var(--gray-500);
+$line-gray-700: var(--gray-700);
+$line-gray-900: var(--gray-900);
+$line-point: var(--primary-p300);
+$line-primary-50: var(--primary-p50);

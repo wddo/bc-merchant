@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+.accordion-item {
+  text-align: left;
+  border-bottom: 1px solid $line-gray-60;
+  background-color: $bg-white;
+
+  &:first-child {
+    border-top: 1px solid $line-gray-60;
+  }
+}
+.accordion-header {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: left;
+}
+.accordion-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.accordion-btn span {
+  @include visually-hidden;
+}
+.accordion-btn::before,
+.accordion-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 13px;
+  height: 2px;
+  background-color: $line-gray-900;
+  transform: rotate(90deg) scale(0.9);
+  transition: transform $trans-time-short ease;
+}
+.accordion-btn::after {
+  transform: rotate(0deg) scale(0.9);
+}
+.accordion-btn[aria-expanded="true"]::before {
+  transform: rotate(0deg) scale(0.9);
+}
+.accordion-panel {
+  overflow: hidden;
+}
+.accordion-cont {
+  padding: 0 20px 20px;
+}

@@ -1,10 +1,27 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// =========================
+// Atomic / Utility
+// =========================
+
+/* .w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+} */
+
+// =========================
+// Component / Semantic
+// =========================
+
 .hidden {
   @include visually-hidden;
 }
 
+// Bullet List
 .notice-list {
   @include bullet-list($font: 14px, $gap: 12px);
 }

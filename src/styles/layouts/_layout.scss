@@ -12,7 +12,7 @@ body {
 }
 
 #header {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   left: 0;
@@ -21,6 +21,7 @@ body {
   z-index: $zindex-header;
 
   @include respond-md {
+    position: fixed;
     overflow: visible;
   }
 }
@@ -32,7 +33,6 @@ body {
   margin: 0 auto;
   padding-top: $nav-height-lg;
   flex: 1;
-  background-color: #f1f1f1;
 
   .contents {
     display: flex;
