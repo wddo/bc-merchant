@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="No-Cache">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="./styles/guide.css">
-    <script src="./scripts/jquery-2.2.3.min.js"></script>
+    <script src="../static/scripts/jquery-2.2.3.min.js"></script>
     <script src="./scripts/guide.js"></script>
     <style>
         .wrap {background-color:#fff;}
@@ -26,6 +26,7 @@
         .container li::before {content:''; position: absolute; top: 9px;left: 0; display: inline-block; width: 3px;height: 3px;border-radius: 2px; background-color: currentColor;}
         .container .code-block {background-color: var(--gray-600); color: var(--gray-20); padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; margin: 15px 0;}
         .container .directory-tree {background-color: var(--gray-40); padding: 20px; border-radius: 6px; white-space: pre; line-height: 1.4;}
+        .container .directory-tree .note {margin-left: 24px;color: var(--gray-400); font-size:.9em;}
         .container table {width: 100%; border-collapse: collapse; margin: 20px 0;}
         .container th, .container td {border: 1px solid var(--gray-100); padding: 12px; text-align: left; font-size: .9rem;}
         .container th {background-color: var(--point-100); font-weight: bold;}
@@ -47,17 +48,13 @@
                 <p>본 문서는 프로젝트의 일관된 품질과 유지보수 효율성을 위해 작성된 퍼블리싱/개발 표준 가이드입니다.</p>
             </header>
             <section>
+                <p>본 CSS 및 JS는 기본 가이드를 제시하기 위한 예시이며, 기획과 디자인의 요구를 구현할 때 제약 없이 수정, 확장 및 재구성하여 사용할 수 있습니다.</p>
+                <p>단, 파일 구조와 일부 문법에는 제약이 있으므로 세부 사항은 본문 내용을 참고하시기 바랍니다.</p>
                 <h2>브라우저 호환성 및 환경</h2>
                 <div class="warning">
                     <strong>Target Browser: Chrome 78+</strong><br>
                     최신 문법 사용 시 해당 버전 지원 여부를 반드시 확인해야 합니다.
                 </div>
-                <h3>주요 제한 사항 (사용 금지 문법)</h3>
-                <ul>
-                    <li><strong>CSS:</strong> <code>:has()</code> 가상 클래스 선택자 사용 불가</li>
-                    <li><strong>JavaScript:</strong> Optional Chaining (<code>?.</code>) 연산자 사용 불가</li>
-                    <li>그 외 ES2020 이상의 최신 문법 사용 시 Polyfill 필요 여부 체크 필수</li>
-                </ul>
             </section>
             <section>
                 <h2>웹접근성 준수</h2>
@@ -71,20 +68,20 @@
                 <p>디렉토리는 배포 주체와 역할을 기준으로 엄격히 분리하여 운영합니다.</p>
                 <div class="directory-tree">
                     Root
-                    ├── _dev/ <span class="note"># [개발 전달용 html 폴더]</span>
+                    ├── _dev/ <span class="note"># [개발 전달용 html 폴더, 배포 대상 아님]</span>
                     │ ├── sub1/ <span class="note"># 카테고리 등 필요시 폴더 구조</span>
-                    │ └── ...
+                    │ └── my/myinfo.html
                     │
                     ├── static/ <span class="note"># [정적 리소스 폴더, 퍼블리셔가 배포할 대상]</span>
                     │ ├── styles/ <span class="note"># 필요 시 서브 폴더 구성</span>
                     │ ├── scripts/
                     │ ├── images/
-                    │ └── html/ <span class="note"># 개발 연동 없는 정적 html 파일</span>
+                    │ └── html/contact.html <span class="note"># 개발 연동 없는 정적 html 파일</span>
                     │
                     ├── src/ <span class="note"># [필요 시 구성하며 배포 대상 아님]</span>
                     │ └── styles/ <span class="note"># SCSS 원본 파일</span>
                     │
-                    ├── guide/ <span class="note"># [퍼블 가이드용 파일]</span>
+                    ├── guide/ <span class="note"># [퍼블 가이드용 파일, 배포 대상 아님]</span>
                     │ ├── filelist.html <span class="note"># 퍼블리스트 등을 자유롭게 작성 합니다.</span>
                     │ └── images, styles, js ...
                 </div>
@@ -98,19 +95,16 @@
                 </ul>
             </section>
             <section>
+                <h2>HTML 가이드라인</h2>
+                <h3>리소스 경로</h3>
+                <p>실제 프로젝트에서는 리소스는 절대경로로 변경해 주세요. 가이드는 로컬에서 볼 수 있도록 상대경로로 제작했습니다.</p>
+                <h3>인클루드</h3>
+                <p>반복되는 공통 레이아웃(header, aside, footer 등) 요소는 fetch 또는 innerHTML 등 js로 구현 (node 또는 서버 언어 X)</p>
+            </section>
+            <section>
                 <h2>CSS 가이드라인</h2>
-                <h3>Design Token (Variables)</h3>
-                <p><code>reset.css</code> 혹은 공통 CSS 파일 내 <code>:root</code> 영역에 주요 컬러를 변수로 정의합니다. 변수명은 Figma 상의 네이밍과 일치시킵니다.</p>
-                <div class="code-block">
-                    /* reset.css example */<br>
-                    :root {<br>
-                    --primary-p50:#E6EAF0;<br>
-                    --primary-p100:#C0CADC;<br>
-                    --primary-p200:#98A8C4;<br>
-                    --primary-p300:#7186AC;<br>
-                    --primary-p400:#516D9C;<br>
-                    }
-                </div>
+                <h3>Variables</h3>
+                <p><code>reset.css</code> 혹은 공통 CSS 파일 내 <code>:root</code> 영역에 주요 컬러를 변수로 정의합니다.</p>
                 <h3>CSS 파일 분리 전략</h3>
                 <p>유지보수와 배포의 용이성을 위해 CSS는 공통 영역과 각 메뉴별 영역으로 분리합니다.</p>
                 <ul>
@@ -125,19 +119,20 @@
                     myroom.css /* 마이페이지 관련 (1 Depth) */<br>
                     event_newyear.css /* 새해 이벤트 (1 페이지 용) */<br>
                 </div>
+                <h3>주의사항</h3>
+                <p>has() 가상 클래스 선택자 사용 불가 (크롬 78 버전 미지원)</p>
+                <p>디자인 위한 유틸리티 선택자 지양 (.mt10, .point-color, .bold, .d-flex, align-center 등)</p>
+                <p>important 지양</p>
             </section>
             <section>
                 <h2>JavaScript 및 공통 요소 처리</h2>
-                <h3>공통 요소 Include 방식</h3>
-                <p>Server Side Include(SSI) 사용이 불가하므로, 클라이언트 사이드 방식을 사용합니다.</p>
-                <ul>
-                    <li>성능 최적화를 위해 <code>&lt;link rel="preload"&gt;</code>를 사용하여 리소스를 미리 로드합니다.</li>
-                    <li><code>fetch()</code> API를 사용하여 공통 HTML 조각(Header, Footer 등)을 주입합니다.</li>
-                </ul>
+                <div class="warning">
+                    <p>Optional Chaining (?.) 연산자 사용 불가 (크롬 78 버전 미지원)</p>
+                </div>
                 <h3>JS 모듈화 전략</h3>
                 <ul>
                     <li><strong>Common 용 JS:</strong> 사이트 전역에서 사용되는 유틸리티 함수 모음.</li>
-                    <li><strong>Page 용 JS:</strong> 특정 페이지나 메뉴에서만 사용되는 기능은 별도 JS 파일로 분리하여 로딩 속도를 개선합니다.</li>
+                    <li><strong>특정 타겟 페이지 용 JS:</strong> 유지보수와 배포의 용이성을 위해 특정 페이지나 메뉴에서만 사용되는 기능은 별도 JS 파일로 분리합니다.</li>
                 </ul>
             </section>
             <section>
@@ -155,11 +150,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>이미지 사이즈</td>
-                            <td>3배수 (@3x) 저장</td>
-                            <td>Retina 디스플레이 대응</td>
-                        </tr>
                         <tr>
                             <td>JPEG 압축률</td>
                             <td>70%</td>

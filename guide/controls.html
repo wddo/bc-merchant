@@ -9,7 +9,11 @@
     <meta http-equiv="Cache-Control" content="No-Cache">
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="styles/guide.css">
-    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="../static/styles/air-datepicker-custom.css">
+    <script src="../static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="../static/scripts/air-datepicker.js"></script>
+    <script src="../static/scripts/jquery-ui.min.js"></script>
+    <script src="../static/scripts/common.ui.js"></script>
     <script src="scripts/guide.js"></script>
 </head>
 <body>
@@ -137,6 +141,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <p class="info">toggle alarm : fn_toggleAlarm(); (예시용)</p>
                     <div class="scroll-wrap">
                         <table class="guide-table">
                             <colgroup>
@@ -164,8 +169,8 @@
                                     </td>
                                     <td>
                                         <div class="toggle-group">
-                                            <button type="button" class="_btn-alarm selected">알람설정</button>
-                                            <button type="button" class="_btn-alarm-small selected">알람설정</button>
+                                            <button type="button" class="_btn-alarm on">알람설정</button>
+                                            <button type="button" class="_btn-alarm-small on">알람설정</button>
                                         </div>
                                     </td>
                                     <td>
@@ -177,6 +182,16 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <script>
+                            //alarm, UI 확인 용입니다. 실제 프로젝트에선 필요에 맞게 구현 해주세요.
+                            function fn_toggleAlarm(){
+                                $('[class*="_btn-alarm"]').off('click.alarm').on('click.alarm', function (e) {
+                                    e.preventDefault();
+                                    e.target.classList.toggle('on');
+                                });
+                            }
+                            fn_toggleAlarm();
+                        </script>
                     </div>
                     <div class="scroll-wrap">
                         <table class="guide-table">
@@ -198,18 +213,18 @@
                                 <tr>
                                     <td>Group Button</td>
                                     <td>
-                                        <div class="btn-wrap">
+                                        <div class="_btn-wrap">
                                             <button type="button" class="_btn-large-primary">Button</button>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="btn-wrap">
+                                        <div class="_btn-wrap">
                                             <button type="button" class="_btn-large-tertiary p50">Button</button>
                                             <button type="button" class="_btn-large-quaternery p50">Button</button>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="btn-wrap">
+                                        <div class="_btn-wrap">
                                             <button type="button" class="_btn-large-tertiary p35">Button</button>
                                             <button type="button" class="_btn-large-quaternery p65">Button</button>
                                         </div>
@@ -236,12 +251,12 @@
                                 <tr>
                                     <td>Scroll dim</td>
                                     <td style="background-color:var(--gray-60);">
-                                        <div class="btn-wrap fixed" style="position:relative;">
+                                        <div class="_btn-wrap fixed" style="position:relative;">
                                             <button type="button" class="_btn-large-primary">Button</button>
                                         </div>
                                     </td>
                                     <td style="background-color:var(--gray-60);">
-                                        <div class="btn-wrap">
+                                        <div class="_btn-wrap">
                                             <button type="button" class="_btn-large-primary">Button</button>
                                         </div>
                                     </td>
@@ -684,7 +699,7 @@
                                     <th></th>
                                     <th>Default</th>
                                     <th>Selected</th>
-                                    <th>Disabled Selected</th>
+                                    <th>Disabled Default</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -721,370 +736,6 @@
                 </div>
             </div>
             <!--// Radio -->
-
-            <!-- Text Fields -->
-            <div class="cont-item">
-                <div class="head">
-                    <h2>Text Fields</h2>
-                </div>
-                <div class="div">
-                    <h3>Text Fields / innerBtn</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input1-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input1-1" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="_btn-xsmall-tertiary">Button</button>
-                                            </div>
-                                        </div>
-                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input1-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="text" id="input1-2" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="_btn-xsmall-tertiary">Button</button>
-                                            </div>
-                                        </div>
-                                        <p class="input-help is-error">헬프텍스트를 입력해주세요</p>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input1-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input1-3" placeholder="텍스트" disabled>
-                                            <div class="util-box">
-                                                <button type="button" class="_btn-xsmall-tertiary">Button</button>
-                                            </div>
-                                        </div>
-                                        <p class="input-help is-disabled">헬프텍스트를 입력해주세요</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Text Fields / Icon</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input2-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input2-1" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="icon-search">검색</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input2-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="text" id="input2-2" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="icon-search">검색</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input2-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input2-3" placeholder="텍스트" disabled>
-                                            <div class="util-box">
-                                                <button type="button" class="icon-search">검색</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Text Fields / Suffix, Count</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input3-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input3-1" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <strong class="count">3:00</strong>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input3-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="text" id="input3-2" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <strong class="count">3:00</strong>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input3-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input3-3" placeholder="텍스트" disabled>
-                                            <div class="util-box">
-                                                <strong class="count">3:00</strong>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Text Fields / Password</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input4-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="password" id="input4-1" placeholder="password">
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask on">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input4-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="password" id="input4-2" placeholder="password">
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask on">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input4-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="password" id="input4-3" placeholder="password" disabled>
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask on">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Text Fields / TextCount</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="count-title">
-                                            <div class="tooltip-title">
-                                                <label for="input5-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                                <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                            </div>
-                                            <p class="count">000/000</p>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input5-1" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="count-title">
-                                            <div class="tooltip-title">
-                                                <label for="input5-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                                <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                            </div>
-                                            <p class="count">000/000</p>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="text" id="input5-2" placeholder="텍스트">
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="count-title">
-                                            <div class="tooltip-title">
-                                                <label for="input5-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                                <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                            </div>
-                                            <p class="count">000/000</p>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input5-3" placeholder="텍스트" disabled>
-                                            <div class="util-box">
-                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h3>Text Fields / Calendar</h3>
-                    <div class="scroll-wrap">
-                        <table class="guide-table">
-                            <colgroup>
-                                <col style="width:auto;">
-                                <col style="width:33.33%;">
-                                <col style="width:33.33%;">
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th>Default</th>
-                                    <th>Error</th>
-                                    <th>Disabled</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input5-4" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input5-4" placeholder="YYYY.MM.DD">
-                                            <div class="util-box">
-                                                <button type="button" class="calendar">달력보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input5-5" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box is-error">
-                                            <input type="text" id="input5-5" placeholder="YYYY.MM.DD">
-                                            <div class="util-box">
-                                                <button type="button" class="calendar">달력보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tooltip-title">
-                                            <label for="input5-6" class="input-title">레이블 <span class="sub">(선택)</span></label>
-                                            <button type="button" class="tooltip-trigger" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                        </div>
-                                        <div class="input-box">
-                                            <input type="text" id="input5-6" placeholder="YYYY.MM.DD" disabled>
-                                            <div class="util-box">
-                                                <button type="button" class="calendar">달력보기</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!--// Text Fields -->
 
             <!-- Chips -->
             <div class="cont-item">
@@ -1188,6 +839,474 @@
                 </div>
             </div>
             <!--// Chips -->
+
+            <!-- Text Fields -->
+            <div class="cont-item">
+                <div class="head">
+                    <h2>Text Fields</h2>
+                </div>
+                <div class="div">
+                    <h3>Text Fields / innerBtn</h3>
+                    <p class="info">input delete button : pbui.iptSetFocus();<br>
+                        password view button : pbui.passwordMask();</p>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input1-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide1" data-tooltip-cont="툴팁 안내1">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input1-1" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <button type="button" class="_btn-xsmall-tertiary">Button</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input1-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide2" data-tooltip-cont="툴팁 안내2">안내</button>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="text" id="input1-2" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <button type="button" class="_btn-xsmall-tertiary">Button</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help is-error">헬프텍스트를 입력해주세요</p>
+                                        <p class="input-help is-pass">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input1-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide3" data-tooltip-cont="툴팁 안내3">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input1-3" placeholder="텍스트" disabled>
+                                            <div class="util-box">
+                                                <button type="button" class="_btn-xsmall-tertiary" disabled>Button</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help is-disabled">헬프텍스트를 입력해주세요</p>
+                                        <p class="input-help is-disabled">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Text Fields / Icon</h3>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input2-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide4" data-tooltip-cont="툴팁 안내4">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input2-1" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <button type="button" class="icon-search">검색</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input2-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide5" data-tooltip-cont="툴팁 안내5">안내</button>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="text" id="input2-2" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <button type="button" class="icon-search">검색</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input2-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide6" data-tooltip-cont="툴팁 안내6">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input2-3" placeholder="텍스트" disabled>
+                                            <div class="util-box">
+                                                <button type="button" class="icon-search">검색</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help is-disabled">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Text Fields / Suffix, Count</h3>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input3-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide7" data-tooltip-cont="툴팁 안내7">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input3-1" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <strong class="count">3:00</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input3-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide8" data-tooltip-cont="툴팁 안내8">안내</button>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="text" id="input3-2" placeholder="텍스트">
+                                            <div class="util-box">
+                                                <strong class="count">3:00</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input3-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide9" data-tooltip-cont="툴팁 안내9">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input3-3" placeholder="텍스트" disabled>
+                                            <div class="util-box">
+                                                <strong class="count">3:00</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Text Fields / Password</h3>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input4-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide10" data-tooltip-cont="툴팁 안내10">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="password" id="input4-1" placeholder="password">
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help">비밀번호를 입력하세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input4-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide11" data-tooltip-cont="툴팁 안내11">안내</button>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="password" id="input4-2" placeholder="password">
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help">비밀번호를 입력하세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input4-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide12" data-tooltip-cont="툴팁 안내12">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="password" id="input4-3" placeholder="password" disabled>
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-mask">비밀번호 보기</button>
+                                            </div>
+                                        </div>
+                                        <p class="input-help is-disabled">비밀번호를 입력하세요</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Text Fields / TextCount</h3>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="count-title">
+                                            <div class="tooltip-title">
+                                                <label for="input5-1" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                                <button type="button" class="tooltip-trigger tooltip-guide13" data-tooltip-cont="툴팁 안내13">안내</button>
+                                            </div>
+                                            <p class="count">000/000</p>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input5-1" placeholder="텍스트">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="count-title">
+                                            <div class="tooltip-title">
+                                                <label for="input5-2" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                                <button type="button" class="tooltip-trigger tooltip-guide14" data-tooltip-cont="툴팁 안내14">안내</button>
+                                            </div>
+                                            <p class="count">000/000</p>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="text" id="input5-2" placeholder="텍스트">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="count-title">
+                                            <div class="tooltip-title">
+                                                <label for="input5-3" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                                <button type="button" class="tooltip-trigger tooltip-guide15" data-tooltip-cont="툴팁 안내15">안내</button>
+                                            </div>
+                                            <p class="count">000/000</p>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input5-3" placeholder="텍스트" disabled>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3>Text Fields / Calendar</h3>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input5-4" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide16" data-tooltip-cont="툴팁 안내16">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input5-4" placeholder="YYYY.MM.DD">
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-calendar">달력보기</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input5-5" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide17" data-tooltip-cont="툴팁 안내17">안내</button>
+                                        </div>
+                                        <div class="input-box is-error">
+                                            <input type="text" id="input5-5" placeholder="YYYY.MM.DD">
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-calendar">달력보기</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="tooltip-title">
+                                            <label for="input5-6" class="input-title">레이블 <span class="sub">(선택)</span></label>
+                                            <button type="button" class="tooltip-trigger tooltip-guide18" data-tooltip-cont="툴팁 안내18">안내</button>
+                                        </div>
+                                        <div class="input-box">
+                                            <input type="text" id="input5-6" placeholder="YYYY.MM.DD" disabled>
+                                            <div class="util-box">
+                                                <button type="button" class="ipt-calendar">달력보기</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <script>
+                    const tooltip = document.querySelectorAll('.tooltip-trigger');
+                    tooltip.forEach((item, i) => {
+                        pbui.tooltip.init(`.tooltip-guide${i+1}`, {
+                            content: `<span>텍스트</span>`,
+                            position: 'top-left'
+                        });
+                    });
+                </script>
+            </div>
+            <!--// Text Fields -->
+
+            <!-- Date Picker -->
+            <div class="cont-item">
+                <div class="head">
+                    <h2>Date Picker</h2>
+                </div>
+                <div class="div">
+                    <p class="info">calendar setting : pbui.calendar();</p>
+                    <div class="input-box" style="max-width:300px;">
+                        <input type="text" id="date1" placeholder="YYYY.MM.DD" readonly>
+                        <div class="util-box">
+                            <span class="ipt-calendar">달력보기</span>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    pbui.datepicker.init('#date1');
+                </script>
+            </div>
+            <!--// Date Picker -->
+
+            <!-- Dropdown -->
+            <div class="cont-item">
+                <div class="head">
+                    <h2>Dropdown</h2>
+                </div>
+                <div class="div">
+                    <p class="info">dropdown setting : pbui.selectIpt();</p>
+                    <div class="scroll-wrap">
+                        <table class="guide-table">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:33.33%;">
+                                <col style="width:33.33%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>Default</th>
+                                    <th>Error</th>
+                                    <th>Disabled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="input-box">
+                                            <select id="select1">
+                                                <option value="텍스트1">텍스트1</option>
+                                                <option value="텍스트2">텍스트2</option>
+                                                <option value="텍스트3">텍스트3</option>
+                                                <option value="텍스트4">텍스트4</option>
+                                                <option value="텍스트5">텍스트5</option>
+                                                <option value="텍스트6">텍스트6</option>
+                                                <option value="텍스트7">텍스트7</option>
+                                                <option value="텍스트8">텍스트8</option>
+                                                <option value="텍스트9">텍스트9</option>
+                                                <option value="텍스트10">텍스트10</option>
+                                            </select>
+                                        </div>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="input-box is-error">
+                                            <select id="select2">
+                                                <option value="텍스트1">텍스트1</option>
+                                                <option value="텍스트2">텍스트2</option>
+                                                <option value="텍스트3">텍스트3</option>
+                                                <option value="텍스트4">텍스트4</option>
+                                            </select>
+                                        </div>
+                                        <p class="input-help is-error">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                    <td>
+                                        <div class="input-box">
+                                            <select id="select3" disabled>
+                                                <option value="텍스트1">텍스트1</option>
+                                                <option value="텍스트2">텍스트2</option>
+                                                <option value="텍스트3">텍스트3</option>
+                                                <option value="텍스트4">텍스트4</option>
+                                            </select>
+                                        </div>
+                                        <p class="input-help">헬프텍스트를 입력해주세요</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <script>
+                    pbui.selectmenu.init('.input-box select');
+                </script>
+            </div>
+            <!--// Dropdown -->
 
             <!-- Indicator -->
             <div class="cont-item">
@@ -1349,6 +1468,7 @@
                 </div>
                 <div class="div">
                     <h3>Tabs / Default</h3>
+                    <p class="info">tab setting : fn_tabs(); (예시용)</p>
                     <table class="guide-table">
                         <colgroup>
                             <col style="width:25%;">
@@ -1360,7 +1480,7 @@
                                 <td>
                                     <div class="tab-box">
                                         <ul class="_tabs-main">
-                                            <li class="on"><a href="#link">텍스트</a></li>
+                                            <li class="is-on"><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
@@ -1376,7 +1496,7 @@
                                 <td>
                                     <div class="tab-box">
                                         <ul class="_tabs-main">
-                                            <li class="on"><a href="#link">텍스트</a></li>
+                                            <li class="is-on"><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
@@ -1405,7 +1525,7 @@
                                 <td>
                                     <div class="tab-box">
                                         <ul class="_tabs-sub">
-                                            <li class="on"><a href="#link">텍스트</a></li>
+                                            <li class="is-on"><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
@@ -1421,7 +1541,7 @@
                                 <td>
                                     <div class="tab-box">
                                         <ul class="_tabs-sub">
-                                            <li class="on"><a href="#link">텍스트</a></li>
+                                            <li class="is-on"><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
                                             <li><a href="#link">텍스트</a></li>
@@ -1459,6 +1579,7 @@
                 </div>
                 <div class="div">
                     <h3>Segment / Default</h3>
+                    <p class="info">Segment setting : fn_tabs();</p>
                     <div class="scroll-wrap">
                         <table class="guide-table">
                             <colgroup>
@@ -1474,23 +1595,67 @@
                             <tbody>
                                 <tr>
                                     <td class="tac">
-                                        <ul class="_segment">
-                                            <li class="on"><a href="#link">텍스트</a></li>
-                                            <li><a href="#link">텍스트</a></li>
-                                        </ul>
+                                        <div class="tab-box" style="width:100%; max-width:360px;">
+                                            <ul class="_segment">
+                                                <li class="is-on"><a href="#link">텍스트</a></li>
+                                                <li><a href="#link">텍스트</a></li>
+                                            </ul>
+                                        </div>
                                     </td>
                                     <td class="tac">
-                                        <ul class="_segment-small">
-                                            <li class="on"><a href="#link">텍스트</a></li>
-                                            <li><a href="#link">텍스트</a></li>
-                                            <li><a href="#link">텍스트</a></li>
-                                        </ul>
+                                        <div class="tab-box" style="width:100%; max-width:360px;">
+                                            <ul class="_segment-small">
+                                                <li class="is-on"><a href="#link">텍스트</a></li>
+                                                <li><a href="#link">텍스트</a></li>
+                                                <li><a href="#link">텍스트</a></li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <script>
+                    //tab, UI 확인 용입니다. 실제 프로젝트에선 필요에 맞게 구현 해주세요.
+                    function fn_tabs(){
+                        const tabs = document.querySelectorAll('.tab-box');
+                        if (!tabs) return false;
+
+                        tabs.forEach(function(tab){
+                            const tabLinks = tab.querySelectorAll('li a');
+
+                            for ( const tabLink of tabLinks ) {
+                                $(tabLink).off('click.tabs').on('click.tabs', function(e){
+                                    e.preventDefault();
+                                    const _this = this;
+                                    const current = _this.parentElement;
+                                    const currentClassName = 'is-on';
+                                    const prev = current.parentElement.querySelector('.'+currentClassName);
+                                    prev.classList.remove(currentClassName);
+                                    current.classList.add(currentClassName);
+
+                                    const currentTabId = _this.getAttribute('href');
+                                    const currentTabContentId = currentTabId.substr(1);
+                                    const currentTabContent = document.getElementById(currentTabContentId);
+                                    const prevTabId = prev.firstChild.getAttribute('href');
+                                    const prevTabContentId = prevTabId.substr(1);
+                                    const prevTabContent = document.getElementById(prevTabContentId);
+
+                                    if ( !currentTabContent || !prevTabContent) {
+                                        return false;
+                                    } else {
+                                        prevTabContent.style.display = 'none';
+                                        prevTabContent.tabindex = '-1';
+                                        currentTabContent.style.display = 'block';
+                                        currentTabContent.tabindex = '0';
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    fn_tabs();
+                </script>
             </div>
             <!--// Segment -->
         </div><!-- //cont [e] -->

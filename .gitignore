@@ -1,2 +1,2 @@
-static/scripts/*.js
-static/styles/*.css
+static/styles/common.css
+static/styles/layout.css

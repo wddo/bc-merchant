@@ -1,13 +1,11 @@
 $(function(){
     setMenu();
-    initElementCopyBtn();
-    initElementEvent();
 });
 
 function setMenu(){
     const menu = {
         'Foundation' : ['Color', 'Typography', 'Iconography', 'Shape & Shadow'],
-        'Controls' : ['Button', 'Text Button', 'Checkbox', 'Radio', 'Text Fields', 'Chips', 'Indicator', 'Switch', 'Tabs', 'Segment'],
+        'Controls' : ['Button', 'Text Button', 'Checkbox', 'Radio', 'Chips', 'Text Fields', 'Date Picker', 'Dropdown', 'Indicator', 'Switch', 'Tabs', 'Segment'],
         'Views' : ['Divider', 'Progress Step', 'Badge', 'Table'],
         'Overlay' : ['Popup', 'Alert', 'Toast', 'Tooltip'],
         'Module' : ['Feedback']
@@ -53,37 +51,12 @@ function fnThrottle(fn, delay) {
 }
 
 // =========================
-// 설정 영역 (최상단 정의)
-// =========================
-
-const CONTAINER_SELECTOR = '.wrap .cont';
-const EXCEPTION_SELECTOR = '.exception-copy, [class^="_modal"] .inner .btn-close, [class^="_modal"] .inner .button-box';
-let container;
-
-// 대상 요소 셀렉터들
-const TARGET_SELECTORS = [
-    '[class^="_btn"]',
-    '[class^="_textbtn"]',
-    '[class^="_ipt"]',
-    '[class^="_chip"]',
-    '[class^="_switch"]',
-    '[class^="_indicator"]',
-    '[class^="_segment"]',
-    '[class^="_divider"]',
-    '[class^="_badge"]',
-    '[class^="_modal"] .inner',
-    '.color-item .value',
-	'[class^="_table"]',
-    '.input-box', '.tab-box', '.step-hor', '.step-button', '.paging'
-].join(',');
-
+// 설정 영역
+const EXCEPTION_SELECTOR = '.side';
 let isActive = false;
 let currentTarget = null;
 
-
-// =========================
 // css 생성
-// =========================
 const style = document.createElement('style');
 style.type = 'text/css';
 const css = `
@@ -93,7 +66,7 @@ const css = `
         position: fixed; top: 20px; right: 20px; z-index: 10001; padding: 0; cursor: pointer;
         width: 24px; height: 24px; overflow: hidden; line-height: 14px; color:transparent;
         opacity:.3; filter:grayscale(1);
-        background: url(./images/icons/inspector.svg) no-repeat center/100%;
+        background: url(./images/inspector.svg) no-repeat center/100%;
     }
     .element-copy-on .tobblecopyBtn {
         opacity:1; filter:grayscale(0);
@@ -105,9 +78,7 @@ const css = `
 style.textContent = css;
 
 
-// =========================
 // 오버레이 생성
-// =========================
 const overlay = document.createElement('div');
 overlay.style.position = 'absolute';
 overlay.style.background = 'rgba(0, 128, 255, 0.25)';
@@ -117,10 +88,21 @@ overlay.style.display = 'none';
 overlay.style.boxSizing = 'border-box';
 overlay.style.pointerEvents = 'auto';
 
+// overlay label 생성
+const overlayLabel = document.createElement('div');
+overlayLabel.style.position = 'absolute';
+overlayLabel.style.top = '0';
+overlayLabel.style.left = '0';
+overlayLabel.style.transform = 'translateY(-100%)';
+overlayLabel.style.background = 'rgba(0, 128, 255, 0.95)';
+overlayLabel.style.color = '#fff';
+overlayLabel.style.fontSize = '12px';
+overlayLabel.style.padding = '2px 6px';
+overlayLabel.style.borderRadius = '4px 4px 0 0';
+overlayLabel.style.whiteSpace = 'nowrap';
+overlayLabel.style.pointerEvents = 'none';
 
-// =========================
 // 토스트 UI 생성
-// =========================
 const toast = document.createElement('div');
 toast.style.position = 'fixed';
 toast.style.bottom = '30px';
@@ -145,23 +127,22 @@ function showToast(message = 'Copied!') {
     }, 1200);
 }
 
-// =========================
 // 토글 버튼 생성
-// =========================
 function initElementCopyBtn () {
-    container = document.querySelector(CONTAINER_SELECTOR);
     document.head.appendChild(style);
     document.body.appendChild(overlay);
     document.body.appendChild(toast);
-
+    overlay.appendChild(overlayLabel);
 
     const toggleBtn = document.createElement('button');
     toggleBtn.innerText = 'Copy Mode: OFF';
     document.body.appendChild(toggleBtn);
     toggleBtn.classList.add('tobblecopyBtn');
+
     toggleBtn.addEventListener('click', () => {
         isActive = !isActive;
         toggleBtn.innerText = `Copy Mode: ${isActive ? 'ON' : 'OFF'}`;
+
         if (!isActive) {
             document.body.classList.remove('element-copy-on');
             overlay.style.display = 'none';
@@ -170,26 +151,42 @@ function initElementCopyBtn () {
             document.body.classList.add('element-copy-on');
         }
     });
+
+    // 전역에서 접근 가능하도록
+    window._elementCopyToggleBtn = toggleBtn;
 }
 
 
-// =========================
 // 유틸 함수
-// =========================
-
 function isInException(el) {
     return el.closest(EXCEPTION_SELECTOR);
 }
 
-function getValidTarget(el) {
+function getValidTarget(el, originalEvent) {
     if (!isActive) return null;
-    if (!container.contains(el)) return null;
+    if (!el) return null;
+    if (el === overlay) return null;
+    if (el === document.body || el === document.documentElement) return null;
+    if (isInException(el)) return null;
 
-    const matched = el.closest(TARGET_SELECTORS);
-    if (!matched) return null;
-    if (isInException(matched)) return null;
+    let target = el;
 
-    return matched;
+    // Shift 누르면 부모 선택
+    if (originalEvent && originalEvent.shiftKey && el.parentElement) {
+        target = el.parentElement;
+
+        // 부모가 html/body 인 경우 제외
+        if (target === document.body || target === document.documentElement) {
+            return null;
+        }
+    }
+    return target;
+}
+
+function formatHTML(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    return doc.body.innerHTML;
 }
 
 function updateOverlay(el) {
@@ -199,75 +196,78 @@ function updateOverlay(el) {
     overlay.style.width = `${rect.width}px`;
     overlay.style.height = `${rect.height}px`;
     overlay.style.display = 'block';
+
+    // 라벨 업데이트
+    overlayLabel.textContent = getElementLabel(el);
+}
+
+function getElementLabel(el) {
+    if (!el) return '';
+    const tag = el.tagName.toLowerCase();
+    const classList = Array.from(el.classList);
+    if (classList.length === 0) {
+        return tag;
+    }
+    return `${tag}.${classList.join('.')}`;
 }
 
 async function copyHTML(el) {
     try {
-        await navigator.clipboard.writeText(el.outerHTML);
+        const formatted = formatHTML(el.outerHTML);
+        await navigator.clipboard.writeText(formatted);        
         showToast('HTML copied!');
+
+        // 자동 비활성화
+        deactivate();
     } catch (err) {
+        console.log(err);
         showToast('Copy failed');
     }
 }
+
 
 function deactivate() {
     isActive = false;
     overlay.style.display = 'none';
     currentTarget = null;
-    toggleBtn.innerText = 'Copy Mode: OFF';
+    if (window._elementCopyToggleBtn) {
+        window._elementCopyToggleBtn.innerText = 'Copy Mode: OFF';
+    }
+    document.body.classList.remove('element-copy-on');
 }
 
-// =========================
 // 이벤트 처리
-// =========================
 function initElementEvent(){
-    if (container) {
-        overlay.addEventListener('click', (e) => {
-            if (!isActive || !currentTarget) return;
+    // overlay.addEventListener('click', (e) => {
+    //     if (!isActive || !currentTarget) return;
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     copyHTML(currentTarget);
+    // });
 
-            e.preventDefault();
-            e.stopPropagation();
-
-            copyHTML(currentTarget);
-        });
-
-        container.addEventListener('mousemove', (e) => {
-            if (!isActive) return;
-
-            const el = document.elementFromPoint(e.clientX, e.clientY);
-            if (!el) {
+    document.addEventListener('mousemove', (e) => {
+        if (!isActive) return;
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        const matched = getValidTarget(el, e);
+        if (!matched) {
             overlay.style.display = 'none';
             currentTarget = null;
             return;
-            }
-
-            // container 내부에서 대상 셀렉터 검색
-            const targetNodes = Array.from(container.querySelectorAll(TARGET_SELECTORS));
-            const matched = targetNodes.find(node => node === el || node.contains(el));
-
-            if (!matched || isInException(matched)) {
-            overlay.style.display = 'none';
-            currentTarget = null;
-            return;
-            }
-
-            if (currentTarget !== matched) {
+        }
+        if (currentTarget !== matched) {
             currentTarget = matched;
             updateOverlay(matched);
-            }
-        });
+        }
+    });
 
-
-        document.addEventListener('mousedown', (e) => {
-            if (!isActive || !currentTarget) return;
-            e.preventDefault();
-            e.stopPropagation();
-
-            copyHTML(currentTarget);
-        });
-    }
+    document.addEventListener('mousedown', (e) => {
+        // console.log(isActive, currentTarget);
+        if (!isActive || !currentTarget) return;
+        e.preventDefault();
+        e.stopPropagation();
+        copyHTML(currentTarget);
+    });
 }
-
 
 // ESC 키로 종료
 document.addEventListener('keydown', (e) => {
