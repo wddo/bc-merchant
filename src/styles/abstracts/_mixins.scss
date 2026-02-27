@@ -27,13 +27,6 @@
   background: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
 }
 
-@mixin icon_mc($name, $size: 24px) {
-  width: $size;
-  height: $size;
-  background: url("#{$icon_mc_url}/#{$name}.svg") no-repeat center center /
-    contain;
-}
-
 @mixin bullet-list($type: dot, $color: var(--black), $font: 16px, $gap: 12px) {
   list-style: none;
   padding-left: 0;

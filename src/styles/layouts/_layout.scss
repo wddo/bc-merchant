@@ -30,9 +30,13 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 auto;
+  margin: 80px auto 100px;
   padding-top: $nav-height-lg;
   flex: 1;
+
+  @include respond-sm {
+    margin: 40px auto 60px;
+  }
 
   .contents {
     display: flex;
