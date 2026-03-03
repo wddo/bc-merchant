@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build JavaScript bundles
+        shell: pwsh
+        run: |
+          .\bin\esbuild.exe bundle=./src/scripts/index.js pd=./src/scripts/pages/pd.js --bundle --outdir=static/scripts --alias:@root=./src/scripts --alias:@config=./src/scripts/config --alias:@pages=./src/scripts/pages --alias:@components=./src/scripts/components --alias:@layout=./src/scripts/layout --alias:@library=./src/scripts/library --alias:@utils=./src/scripts/utils --alias:@vendors=./src/scripts/vendors
+
+      - name: Prepare Pages artifact
+        shell: pwsh
+        run: |
+          New-Item -Path pages-dist -ItemType Directory -Force | Out-Null
+          Copy-Item -Path static -Destination pages-dist -Recurse -Force
+          if (Test-Path _dev) {
+            Copy-Item -Path _dev -Destination pages-dist -Recurse -Force
+          }
+          if (Test-Path guide) {
+            Copy-Item -Path guide -Destination pages-dist -Recurse -Force
+          }
+          if (Test-Path images) {
+            Copy-Item -Path images -Destination pages-dist -Recurse -Force
+          }
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages-dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
