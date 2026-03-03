@@ -75,6 +75,10 @@
   color: #0E1013 !important;
 }
 
+.air-datepicker-cell.-focus- {
+  background: var(--gray-60);
+}
+
 .air-datepicker-cell.-range-from- {
   background-color: var(--adp-cell-background-color-selected);
   border-radius: var(--adp-cell-border-radius) 0 0 var(--adp-cell-border-radius);
@@ -91,9 +95,6 @@
   border-radius: var(--adp-cell-border-radius);
 }
 
-.air-datepicker-cell.-today- {
-  border-radius: var(--adp-cell-border-radius);
-}
 
 .air-datepicker-cell.-selected- {
   color: var(--white) !important;
@@ -106,7 +107,7 @@
 }
 
 .air-datepicker-cell.-selected-.-focus- {
-  background: var(--adp-cell-background-color-selected-hover);
+  background: var(--adp-cell-background-color-selected-hover) !important;
 }
 
 .air-datepicker-body {
@@ -559,7 +560,7 @@
   --adp-cell-border-radius: 12px;
   --adp-cell-background-color-hover: var(--primary-p800);
   --adp-cell-background-color-selected: var(--primary-p800);
-  --adp-cell-background-color-selected-hover: var(--primary-p800);
+  --adp-cell-background-color-selected-hover: var(--primary-p900);
   --adp-cell-background-color-in-range: var(--gray-40);
   --adp-cell-background-color-in-range-hover: rgba(92, 196, 239, 0.2);
   --adp-cell-border-color-in-range: var(--primary-p800);

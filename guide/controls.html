@@ -1230,7 +1230,10 @@
                     </div>
                 </div>
                 <script>
-                    pbui.datepicker.init('#date1');
+                    pbui.datepicker.init('#date1', {
+                        range: true,
+                        selectedDates: ['2026-03-03', '2026-03-10']
+                    });
                 </script>
             </div>
             <!--// Date Picker -->

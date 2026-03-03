@@ -1162,29 +1162,10 @@ const pbui = (function() {
 
 			let option = {
 				firstDay: 0,
-				range: true,
+				range: false,
 				navTitles: { days: '<i>yyyy</i>.MMMM' },
 				selectedDates: [startDate],
 				multipleDatesSeparator: '-',
-				onRenderCell({ date, cellType }) {
-					if (cellType !== 'day') return;
-
-					const today = new Date();
-					const isToday =
-						date.getFullYear() === today.getFullYear() &&
-						date.getMonth() === today.getMonth() &&
-						date.getDate() === today.getDate();
-
-					if (isToday) {
-						return {
-							classes: '-today-'
-						};
-					}
-				},
-				onFocus({ datepicker }) {
-					const el = datepicker.$datepicker.querySelector('.-today-');
-					if (el) el.classList.remove('-today-');
-				}
 			};
 
 			option = Object.assign(option, obj);
@@ -1345,7 +1326,7 @@ const pbui = (function() {
 
 	//input delete
 	const fn_iptSetFocus = function () {
-		$(document).on('focusin', 'input[type=text], input[type=password]', function () {
+		$(document).on('focusin', 'input[type=text]:not([readonly]), input[type=password]:not([readonly])', function () {
 			const $input = $(this);
 			const $parent = $input.parent();
 
