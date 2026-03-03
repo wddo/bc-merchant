@@ -1,4 +1,6 @@
 @use "variables" as *;
+@use "colors" as *;
+@use "animation" as *;
 
 @mixin respond-md {
   @media (max-width: calc($breakpoint-lg - 1px)) {
@@ -27,7 +29,7 @@
   background: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
 }
 
-@mixin bullet-list($type: dot, $color: var(--black), $font: 16px, $gap: 12px) {
+@mixin bullet-list($type: dot, $color: var(--black), $gap: 12px) {
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -37,9 +39,7 @@
 
   li {
     position: relative;
-    font-size: $font;
     color: $color;
-    letter-spacing: calc($font * -0.04);
     display: block;
     padding-left: 12px;
 
