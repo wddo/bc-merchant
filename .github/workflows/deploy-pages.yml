@@ -71,6 +71,15 @@ jobs:
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
 
+          $jsFiles = Get-ChildItem -Path pages-dist -Recurse -File -Include *.js
+          foreach ($file in $jsFiles) {
+            $content = Get-Content -Path $file.FullName -Raw
+            $content = $content.Replace('"/static/', ('"' + $basePath + 'static/'))
+            $content = $content.Replace("'/static/", ("'" + $basePath + "static/"))
+            $content = $content.Replace('`/static/', ('`' + $basePath + 'static/'))
+            Set-Content -Path $file.FullName -Value $content -NoNewline
+          }
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
