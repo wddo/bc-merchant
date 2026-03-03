@@ -24,6 +24,10 @@
         padding-top: 0;
       }
 
+      article {
+        margin-left: 20px;
+      }
+
       [class^="_font-title"] {
         padding: 10px 0;
       }
@@ -50,7 +54,7 @@
             <h3 class="_font-title-3">Bullet List</h3>
 
             <section>
-              <h4 class="_font-title-4">type dot</h4>
+              <h4 class="_font-title-4">.notice-list</h4>
               <div>
                 <ul class="notice-list">
                   <li>리스트 아이템 1</li>
@@ -60,7 +64,7 @@
               </div>
             </section>
             <section>
-              <h4 class="_font-title-4">type star</h4>
+              <h4 class="_font-title-4">.reference-list</h4>
               <div>
                 <ul class="reference-list">
                   <li>참고 리스트 아이템 1</li>
@@ -68,6 +72,27 @@
                   <li>참고 리스트 아이템 3</li>
                 </ul>
               </div>
+            </section>
+            <section>
+              <h4 class="_font-title-4">variation</h4>
+
+              <article>
+                <h5 class="_font-title-5">.warning-box + .notice-list</h5>
+                <div>
+                  <div class="warning-box">
+                    <p class="warning-title _font-body-1-semi"><span class="icon">!</span>유의사항</p>
+                    <ul class="notice-list">
+                      <li class="_font-body-2">공동대표자의 경우 공동대표자들의 신분증이 필요합니다.</li>
+                      <li class="_font-body-2">필요에 따라 추가 서류를 요청할 수 있습니다.</li>
+                      <li class="_font-body-2">신분증 사본 제출 시 지문정보가 없는 앞면만 제출 하거나, 뒷면의 주소 정보 등을 확인하여야 하는 경우 지문정보를 삭제한 후 제출하여야 합니다.</li>
+                      <li class="_font-body-2">
+                        <strong>대리인 접수 시 필요 사항은 다음과 같습니다.</strong><br />
+                        가맹점 대표자의 위임장(원본), 대리인 신분증 사본이 필요합니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
             </section>
 
             <h3 class="_font-title-3">Accordion</h3>

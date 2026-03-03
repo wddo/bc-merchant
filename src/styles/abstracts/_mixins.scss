@@ -40,19 +40,21 @@
     font-size: $font;
     color: $color;
     letter-spacing: calc($font * -0.04);
-    display: flex;
-    align-items: center;
+    display: block;
+    padding-left: 12px;
 
     &::before {
-      position: relative;
-      margin-right: 10px;
+      position: absolute;
+      left: 0;
 
       @if $type == star {
         content: "*";
-        top: 1px;
+        top: 50%;
         font-size: 9px;
+        transform: translateY(-50%);
       } @else {
         content: "";
+        top: 50%;
         width: 2px;
         height: 2px;
         background-color: $color;
