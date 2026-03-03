@@ -43,6 +43,34 @@ jobs:
             Copy-Item -Path images -Destination pages-dist -Recurse -Force
           }
 
+      - name: Rewrite absolute asset paths for Pages base path
+        shell: pwsh
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_OWNER: ${{ github.repository_owner }}
+        run: |
+          $basePath = "/$env:REPO_NAME/"
+          if ($env:REPO_NAME -eq "$env:REPO_OWNER.github.io") {
+            $basePath = "/"
+          }
+
+          $htmlFiles = Get-ChildItem -Path pages-dist -Recurse -File -Include *.html
+          foreach ($file in $htmlFiles) {
+            $content = Get-Content -Path $file.FullName -Raw
+            $content = $content.Replace('href="/static/', "href=\"$($basePath)static/")
+            $content = $content.Replace('src="/static/', "src=\"$($basePath)static/")
+            $content = $content.Replace('src="/guide/', "src=\"$($basePath)guide/")
+            Set-Content -Path $file.FullName -Value $content -NoNewline
+          }
+
+          $cssFiles = Get-ChildItem -Path pages-dist -Recurse -File -Include *.css
+          foreach ($file in $cssFiles) {
+            $content = Get-Content -Path $file.FullName -Raw
+            $content = $content.Replace('url("/static/', "url(\"$($basePath)static/")
+            $content = $content.Replace("url('/static/", "url('$($basePath)static/")
+            Set-Content -Path $file.FullName -Value $content -NoNewline
+          }
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
