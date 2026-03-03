@@ -29,7 +29,7 @@
   clip: rect(0 0 0 0);
 }
 
-.notice-list {
+.list-noti {
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -37,7 +37,7 @@
   flex-direction: column;
   gap: 12px;
 }
-.notice-list li {
+.list-noti li {
   position: relative;
   font-size: 14px;
   color: var(--black);
@@ -45,7 +45,7 @@
   display: block;
   padding-left: 12px;
 }
-.notice-list li::before {
+.list-noti li::before {
   position: absolute;
   left: 0;
   content: "";
@@ -57,7 +57,7 @@
   transform: translateY(-50%);
 }
 
-.reference-list {
+.list-ref {
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -65,7 +65,7 @@
   flex-direction: column;
   gap: 12px;
 }
-.reference-list li {
+.list-ref li {
   position: relative;
   font-size: 14px;
   color: var(--black);
@@ -73,7 +73,7 @@
   display: block;
   padding-left: 12px;
 }
-.reference-list li::before {
+.list-ref li::before {
   position: absolute;
   left: 0;
   content: "*";
@@ -92,35 +92,33 @@
   align-items: center;
   color: var(--gray-600);
 }
-.warning-box .warning-title .icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  margin-right: 2px;
-  border: 1px solid var(--gray-600);
-  border-radius: 50%;
-  font-size: 12px;
-  line-height: 1;
-  color: var(--gray-600);
+.warning-box .warning-title::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 2px 4px 2px 2px;
+  background: url(/static/images/icons/alert-circle.svg) no-repeat center center/contain;
 }
-.warning-box .notice-list {
+.warning-box .list-noti {
+  margin-top: 12px;
+  gap: 6px;
   margin-top: 12px;
   gap: 6px;
 }
-.warning-box .notice-list li {
+.warning-box .list-noti li {
   color: var(--gray-600);
 }
-.warning-box .notice-list li::before {
+.warning-box .list-noti li::before {
   width: 3px;
   height: 3px;
   top: 9px;
   transform: none;
   background-color: var(--gray-600);
 }
-.warning-box .notice-list li strong {
+.warning-box .list-noti li strong {
   color: var(--red-800);
+  font-weight: 400;
 }
 
 .noData {

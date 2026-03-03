@@ -23,11 +23,11 @@
 }
 
 // Bullet List
-.notice-list {
+.list-noti {
   @include bullet-list($font: 14px, $gap: 12px);
 }
 
-.reference-list {
+.list-ref {
   @include bullet-list($type: star, $font: 14px);
 }
 
@@ -41,22 +41,20 @@
     align-items: center;
     color: $text-tertiary;
 
-    .icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      margin-right: 2px;
-      border: 1px solid $text-tertiary;
-      border-radius: 50%;
-      font-size: 12px;
-      line-height: 1;
-      color: $text-tertiary;
+    &::before {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin: 2px 4px 2px 2px;
+      background: url(#{$icon_url}/alert-circle.svg) no-repeat center center /
+        contain;
     }
   }
 
-  .notice-list {
+  .list-noti {
+    margin-top: 12px;
+    gap: 6px;
     margin-top: 12px;
     gap: 6px;
 
@@ -73,6 +71,7 @@
 
       strong {
         color: $text-warning;
+        font-weight: 400;
       }
     }
   }
