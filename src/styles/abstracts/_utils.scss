@@ -24,11 +24,11 @@
 
 // Bullet List
 .list-noti {
-  @include bullet-list($font: 14px, $gap: 12px);
+  @include bullet-list();
 }
 
 .list-ref {
-  @include bullet-list($type: star, $font: 14px);
+  @include bullet-list($type: star);
 }
 
 .warning-box {

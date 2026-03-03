@@ -39,9 +39,9 @@
 }
 .list-noti li {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--black);
-  letter-spacing: -0.56px;
+  letter-spacing: -0.64px;
   display: block;
   padding-left: 12px;
 }
@@ -67,9 +67,9 @@
 }
 .list-ref li {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--black);
-  letter-spacing: -0.56px;
+  letter-spacing: -0.64px;
   display: block;
   padding-left: 12px;
 }
