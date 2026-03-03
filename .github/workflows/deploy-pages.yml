@@ -57,17 +57,17 @@ jobs:
           $htmlFiles = Get-ChildItem -Path pages-dist -Recurse -File -Include *.html
           foreach ($file in $htmlFiles) {
             $content = Get-Content -Path $file.FullName -Raw
-            $content = $content.Replace('href="/static/', "href=\"$($basePath)static/")
-            $content = $content.Replace('src="/static/', "src=\"$($basePath)static/")
-            $content = $content.Replace('src="/guide/', "src=\"$($basePath)guide/")
+            $content = $content.Replace('href="/static/', ('href="' + $basePath + 'static/'))
+            $content = $content.Replace('src="/static/', ('src="' + $basePath + 'static/'))
+            $content = $content.Replace('src="/guide/', ('src="' + $basePath + 'guide/'))
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
 
           $cssFiles = Get-ChildItem -Path pages-dist -Recurse -File -Include *.css
           foreach ($file in $cssFiles) {
             $content = Get-Content -Path $file.FullName -Raw
-            $content = $content.Replace('url("/static/', "url(\"$($basePath)static/")
-            $content = $content.Replace("url('/static/", "url('$($basePath)static/")
+            $content = $content.Replace('url("/static/', ('url("' + $basePath + 'static/'))
+            $content = $content.Replace("url('/static/", ("url('" + $basePath + "static/"))
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
 
