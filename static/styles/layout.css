@@ -41,13 +41,13 @@ body {
 }
 #container .page > div {
   min-width: 1200px;
-  max-width: 1200px;
 }
 #container .page > div.title {
   padding-bottom: 56px;
 }
 #container .page > div:not(.full) {
   margin: 0 auto;
+  max-width: 1200px;
 }
 
 #footer {

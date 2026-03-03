@@ -43,7 +43,6 @@ body {
 
   .page > div {
     min-width: $breakpoint-lg;
-    max-width: $breakpoint-lg;
 
     &.title {
       padding-bottom: $page-title-gap-lg;
@@ -51,6 +50,7 @@ body {
 
     &:not(.full) {
       margin: 0 auto;
+      max-width: $breakpoint-lg;
     }
   }
 }

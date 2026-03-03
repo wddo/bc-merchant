@@ -29,6 +29,13 @@
 .step-accordion {
   margin-top: 40px;
 }
+.step-accordion .list-noti li p {
+  margin-top: 4px;
+  color: var(--gray-600);
+}
+.step-accordion .list-noti li p:first-child {
+  margin-top: 6px;
+}
 .step-accordion .accordion-item {
   border-top: 0;
 }

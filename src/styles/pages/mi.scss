@@ -33,6 +33,19 @@
 .step-accordion {
   margin-top: 40px;
 
+  .list-noti {
+    li {
+      p {
+        margin-top: 4px;
+        color: $text-tertiary;
+
+        &:first-child {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+
   .accordion-item {
     border-top: 0;
 
