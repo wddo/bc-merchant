@@ -37,7 +37,7 @@
   flex-direction: column;
   gap: $gap;
 
-  li {
+  > li {
     position: relative;
     color: $color;
     display: block;
@@ -50,6 +50,11 @@
       @if $type == star {
         content: "*";
         top: 13px;
+        font-size: 9px;
+        transform: translateY(-50%);
+      } @else if $type == dash {
+        content: "-";
+        top: 11px;
         font-size: 9px;
         transform: translateY(-50%);
       } @else {

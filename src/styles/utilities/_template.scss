@@ -29,6 +29,10 @@
   @include bullet-list($type: star);
 }
 
+.list-dash {
+  @include bullet-list($type: dash, $gap: 6px);
+}
+
 .warning-box {
   padding: 20px;
   border-radius: var(--radius-16);
