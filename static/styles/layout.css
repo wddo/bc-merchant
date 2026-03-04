@@ -18,7 +18,7 @@ body {
   background-color: #fff;
   z-index: 1000;
 }
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   #header {
     position: fixed;
     overflow: visible;
@@ -57,7 +57,7 @@ body {
   background-color: #fff;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   #container {
     padding-top: 56px;
   }
@@ -296,7 +296,7 @@ body {
   content: none;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   .header .header-inner {
     min-width: 360px;
   }
@@ -618,7 +618,7 @@ body {
   background-color: #e7e9ef;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   .footer .footer-inner {
     min-width: 360px;
   }

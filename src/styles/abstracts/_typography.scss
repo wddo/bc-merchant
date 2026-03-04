@@ -1,167 +1,219 @@
+@use "sass:map";
+
+@mixin font-token($token) {
+  $desktop: map.get($token, desktop);
+
+  font-size: map.get($desktop, size);
+  font-weight: map.get($desktop, weight);
+  letter-spacing: map.get($desktop, letter-spacing);
+
+  @if map.has-key($token, mobile) {
+    $mobile: map.get($token, mobile);
+
+    @media screen and (max-width: 767px) {
+      font-size: map.get($mobile, size);
+      font-weight: map.get($mobile, weight);
+      letter-spacing: map.get($mobile, letter-spacing);
+    }
+  }
+}
+
 // =========================
-// Body (Desktop)
+// Body
 // =========================
 
 $font-body-0: (
-  size: 18px,
-  weight: 400,
-  letter-spacing: -0.72px,
+  desktop: (
+    size: 18px,
+    weight: 400,
+    letter-spacing: -0.72px,
+  ),
 );
 $font-body-0-medi: (
-  size: 18px,
-  weight: 500,
-  letter-spacing: -0.72px,
+  desktop: (
+    size: 18px,
+    weight: 500,
+    letter-spacing: -0.72px,
+  ),
 );
 $font-body-0-semi: (
-  size: 18px,
-  weight: 600,
-  letter-spacing: -0.72px,
+  desktop: (
+    size: 18px,
+    weight: 600,
+    letter-spacing: -0.72px,
+  ),
 );
 
 $font-body-1: (
-  size: 16px,
-  weight: 400,
-  letter-spacing: -0.32px,
+  desktop: (
+    size: 16px,
+    weight: 400,
+    letter-spacing: -0.32px,
+  ),
+  mobile: (
+    size: 16px,
+    weight: 400,
+    letter-spacing: -0.64px,
+  ),
 );
 $font-body-1-medi: (
-  size: 16px,
-  weight: 500,
-  letter-spacing: -0.32px,
+  desktop: (
+    size: 16px,
+    weight: 500,
+    letter-spacing: -0.32px,
+  ),
+  mobile: (
+    size: 16px,
+    weight: 500,
+    letter-spacing: -0.64px,
+  ),
 );
 $font-body-1-semi: (
-  size: 16px,
-  weight: 600,
-  letter-spacing: -0.32px,
+  desktop: (
+    size: 16px,
+    weight: 600,
+    letter-spacing: -0.32px,
+  ),
+  mobile: (
+    size: 16px,
+    weight: 600,
+    letter-spacing: -0.64px,
+  ),
 );
 
 $font-body-2: (
-  size: 14px,
-  weight: 400,
-  letter-spacing: -0.56px,
+  desktop: (
+    size: 14px,
+    weight: 400,
+    letter-spacing: -0.56px,
+  ),
+  mobile: (
+    size: 14px,
+    weight: 400,
+    letter-spacing: -0.56px,
+  ),
 );
 $font-body-2-medi: (
-  size: 14px,
-  weight: 500,
-  letter-spacing: -0.56px,
+  desktop: (
+    size: 14px,
+    weight: 500,
+    letter-spacing: -0.56px,
+  ),
+  mobile: (
+    size: 14px,
+    weight: 500,
+    letter-spacing: -0.56px,
+  ),
 );
 $font-body-2-semi: (
-  size: 14px,
-  weight: 600,
-  letter-spacing: -0.56px,
+  desktop: (
+    size: 14px,
+    weight: 600,
+    letter-spacing: -0.56px,
+  ),
+  mobile: (
+    size: 14px,
+    weight: 600,
+    letter-spacing: -0.56px,
+  ),
 );
 
 $font-body-3: (
-  size: 12px,
-  weight: 400,
-  letter-spacing: -0.48px,
+  desktop: (
+    size: 12px,
+    weight: 400,
+    letter-spacing: -0.48px,
+  ),
 );
 $font-body-3-medi: (
-  size: 12px,
-  weight: 500,
-  letter-spacing: -0.48px,
+  desktop: (
+    size: 12px,
+    weight: 500,
+    letter-spacing: -0.48px,
+  ),
 );
 $font-body-3-semi: (
-  size: 12px,
-  weight: 600,
-  letter-spacing: -0.48px,
+  desktop: (
+    size: 12px,
+    weight: 600,
+    letter-spacing: -0.48px,
+  ),
 );
 
+// =========================
+// Caption
+// =========================
+
 $font-caption-1: (
-  size: 11px,
-  weight: 400,
-  letter-spacing: -0.44px,
+  desktop: (
+    size: 11px,
+    weight: 400,
+    letter-spacing: -0.44px,
+  ),
+  mobile: (
+    size: 13px,
+    weight: 400,
+    letter-spacing: -0.52px,
+  ),
 );
 $font-caption-1-medi: (
-  size: 11px,
-  weight: 500,
-  letter-spacing: -0.44px,
+  desktop: (
+    size: 11px,
+    weight: 500,
+    letter-spacing: -0.44px,
+  ),
+  mobile: (
+    size: 13px,
+    weight: 500,
+    letter-spacing: -0.52px,
+  ),
 );
 $font-caption-1-semi: (
-  size: 11px,
-  weight: 600,
-  letter-spacing: -0.44px,
+  desktop: (
+    size: 11px,
+    weight: 600,
+    letter-spacing: -0.44px,
+  ),
+  mobile: (
+    size: 13px,
+    weight: 600,
+    letter-spacing: -0.52px,
+  ),
 );
 
 $font-caption-2: (
-  size: 10px,
-  weight: 400,
-  letter-spacing: -0.4px,
+  desktop: (
+    size: 10px,
+    weight: 400,
+    letter-spacing: -0.4px,
+  ),
+  mobile: (
+    size: 12px,
+    weight: 400,
+    letter-spacing: -0.48px,
+  ),
 );
 $font-caption-2-medi: (
-  size: 10px,
-  weight: 500,
-  letter-spacing: -0.4px,
+  desktop: (
+    size: 10px,
+    weight: 500,
+    letter-spacing: -0.4px,
+  ),
+  mobile: (
+    size: 12px,
+    weight: 500,
+    letter-spacing: -0.48px,
+  ),
 );
 $font-caption-2-semi: (
-  size: 10px,
-  weight: 600,
-  letter-spacing: -0.4px,
-);
-
-// =========================
-// Mobile
-// =========================
-
-$font-body-1-sm: (
-  size: 16px,
-  weight: 400,
-  letter-spacing: -0.64px,
-);
-$font-body-1-medi-sm: (
-  size: 16px,
-  weight: 500,
-  letter-spacing: -0.64px,
-);
-$font-body-1-semi-sm: (
-  size: 16px,
-  weight: 600,
-  letter-spacing: -0.64px,
-);
-
-$font-body-2-sm: (
-  size: 14px,
-  weight: 400,
-  letter-spacing: -0.56px,
-);
-$font-body-2-medi-sm: (
-  size: 14px,
-  weight: 500,
-  letter-spacing: -0.56px,
-);
-$font-body-2-semi-sm: (
-  size: 14px,
-  weight: 600,
-  letter-spacing: -0.56px,
-);
-
-$font-caption-1-sm: (
-  size: 13px,
-  weight: 400,
-  letter-spacing: -0.52px,
-);
-$font-caption-1-medi-sm: (
-  size: 13px,
-  weight: 500,
-  letter-spacing: -0.52px,
-);
-$font-caption-1-semi-sm: (
-  size: 13px,
-  weight: 600,
-  letter-spacing: -0.52px,
-);
-
-$font-caption-2-sm: (
-  size: 12px,
-  weight: 400,
-  letter-spacing: -0.48px,
-);
-$font-caption-2-medi-sm: (
-  size: 12px,
-  weight: 500,
-  letter-spacing: -0.48px,
-);
-$font-caption-2-semi-sm: (
-  size: 12px,
-  weight: 600,
-  letter-spacing: -0.48px,
+  desktop: (
+    size: 10px,
+    weight: 600,
+    letter-spacing: -0.4px,
+  ),
+  mobile: (
+    size: 12px,
+    weight: 600,
+    letter-spacing: -0.48px,
+  ),
 );

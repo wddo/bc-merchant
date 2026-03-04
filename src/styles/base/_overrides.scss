@@ -18,6 +18,15 @@
   --space-56: 56px;
 }
 
-[class^="_btn"] {
+button[class^="_btn"] {
   gap: 4px;
+}
+
+._btn-wrap {
+  justify-content: flex-start;
+}
+
+._btn-wrap [class^="_btn"]:only-child {
+  -ms-flex-preferred-size: auto;
+  flex-basis: auto;
 }

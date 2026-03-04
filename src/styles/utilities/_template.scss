@@ -41,7 +41,19 @@ $icon-class-list: (download);
 }
 
 .list-dash {
-  @include bullet-list($type: dash, $gap: 6px);
+  @include bullet-list($type: dash);
+}
+
+.list-dash,
+.list-ref,
+.list-noti {
+  > li > [class^="list-"] {
+    gap: 6px;
+
+    &:first-child {
+      margin-top: 4px;
+    }
+  }
 }
 
 .warning-box {
@@ -50,6 +62,7 @@ $icon-class-list: (download);
   background-color: var(--gray-40);
 
   .warning-title {
+    @include font-token($font-body-1-semi);
     display: flex;
     align-items: center;
     color: $text-tertiary;
@@ -68,10 +81,9 @@ $icon-class-list: (download);
   .list-noti {
     margin-top: 12px;
     gap: 6px;
-    margin-top: 12px;
-    gap: 6px;
 
     li {
+      @include font-token($font-body-2);
       color: $text-tertiary;
 
       &::before {

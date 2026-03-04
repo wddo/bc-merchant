@@ -42,7 +42,7 @@ body {
   }
 
   .page > div {
-    min-width: $breakpoint-lg;
+    min-width: $page-max-width;
 
     &.title {
       padding-bottom: $page-title-gap-lg;
@@ -50,7 +50,7 @@ body {
 
     &:not(.full) {
       margin: 0 auto;
-      max-width: $breakpoint-lg;
+      max-width: $page-max-width;
     }
   }
 }
@@ -80,7 +80,7 @@ body {
 @include respond-sm {
   #container {
     .page {
-      min-width: $breakpoint-sm;
+      min-width: $page-min-width;
       padding: $page-top-sm $page-side-sm $page-bottom-sm;
     }
 

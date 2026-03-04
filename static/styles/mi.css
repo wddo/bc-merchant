@@ -20,139 +20,23 @@
 
 .step-body {
   flex: 1;
-  min-width: 0;
 }
-.step-body h3 {
-  color: var(--gray-900);
-}
-.step-body li > .list-dash:first-child {
-  margin-top: 4px;
-}
-.step-body [class^=_table] th,
-.step-body [class^=_table] td {
+.step-body ._table th,
+.step-body ._table td {
+  padding: 20px;
   text-align: left;
+  vertical-align: top;
+}
+.step-body ._table td > .list-noti {
+  gap: 8px;
+}
+.step-body ._table .warning-box {
+  margin-top: 20px;
+}
+.step-body .list-noti li {
+  color: var(--gray-500);
 }
 
-.step-accordion {
+.accordion {
   margin-top: 40px;
-}
-.step-accordion .accordion-item {
-  border-top: 0;
-}
-.step-accordion .accordion-item:first-child {
-  border-top: 1px solid var(--gray-60);
-}
-.step-accordion .accordion-header {
-  padding: 24px 0;
-}
-.step-accordion .depth01 {
-  display: block;
-  padding-right: 44px;
-  color: var(--gray-900);
-}
-.step-accordion .accordion-btn::before,
-.step-accordion .accordion-btn::after {
-  right: 8px;
-}
-.step-accordion .accordion-cont {
-  padding: 0 0 24px;
-}
-.step-accordion .step-sample-btn {
-  margin-top: 24px;
-}
-.step-accordion .mi-doc-btns {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-.step-accordion .mi-required-table th,
-.step-accordion .mi-required-table td {
-  vertical-align: top;
-}
-.step-accordion .mi-required-table th {
-  background-color: var(--gray-20);
-}
-.step-accordion .mi-required-table td .list-noti {
-  gap: 8px;
-}
-.step-accordion .mi-required-table .tooltip-title {
-  margin-bottom: 0;
-}
-.step-accordion .mi-required-note {
-  margin-top: 20px;
-}
-.step-accordion .mi-required-note .list-noti {
-  gap: 6px;
-}
-.step-accordion .mi-required-note .list-noti li {
-  color: var(--gray-500);
-}
-.step-accordion .mi-required-note .list-noti li::before {
-  top: 8px;
-}
-.step-accordion .mi-terminate-table th,
-.step-accordion .mi-terminate-table td {
-  vertical-align: top;
-}
-.step-accordion .mi-terminate-table th {
-  background-color: var(--gray-20);
-}
-.step-accordion .mi-terminate-table td .list-noti {
-  gap: 8px;
-}
-.step-accordion .mi-terminate-note {
-  margin-top: 20px;
-}
-.step-accordion .mi-terminate-note .list-noti {
-  gap: 6px;
-}
-.step-accordion .mi-terminate-note .list-noti li {
-  color: var(--gray-500);
-}
-.step-accordion .mi-terminate-note .list-noti li::before {
-  top: 8px;
-}
-
-@media screen and (max-width: 1199px) {
-  .merchant-guide {
-    padding: 60px 24px 80px;
-  }
-  .merchant-guide > .contents {
-    margin-top: 60px;
-  }
-  .step-section + .step-section {
-    margin-top: 60px;
-  }
-  .step-accordion {
-    margin-top: 32px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .merchant-guide {
-    padding: 40px 20px 64px;
-  }
-  .merchant-guide > .contents {
-    margin-top: 40px;
-  }
-  .step-section {
-    gap: 10px;
-  }
-  .step-section + .step-section {
-    margin-top: 40px;
-  }
-  .step-num {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-16);
-  }
-  .step-accordion {
-    margin-top: 24px;
-  }
-  .step-accordion .accordion-header {
-    padding: 20px 0;
-  }
-  .step-accordion .mi-doc-btns {
-    flex-wrap: wrap;
-  }
 }

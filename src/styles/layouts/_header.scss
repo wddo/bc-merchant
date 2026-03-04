@@ -2,7 +2,7 @@
 
 .header {
   .header-inner {
-    min-width: $breakpoint-lg;
+    min-width: $page-max-width;
 
     &::after {
       content: "";
@@ -16,7 +16,7 @@
 
     .header-util,
     .header-gnb {
-      width: $breakpoint-lg;
+      width: $page-max-width;
       margin: 0 auto;
     }
 
@@ -250,7 +250,7 @@
 @include respond-md {
   .header {
     .header-inner {
-      min-width: $breakpoint-sm;
+      min-width: $page-min-width;
 
       &::after {
         content: none;

@@ -66,9 +66,7 @@
 // _base.scss
 - 컬러 적용 시 1차적으로 :root 의 -- 로 정의된 변수를 활용
 - 타이틀 성격의 마크업을 작성할 때 _.font-headline-*, _font-title-* 클래스를 활용하여 폰트 스타일을 적용한다.
-- 캡션의 경우 _.font-caption-* 클래스를 활용하여 폰트 스타일을 적용한다.
-- 그 외 텍스트는 _.font-body-*
-- _.font-* 의 suffix 로는 -medi, -semi 연결해 사용 가능
+- _.font-body-*, _.font-caption-* 는 인라인 정의를 지양하고 font-token() 믹스인을 활용하여 스타일을 적용한다.
 - raidus 는 :root 의 --radius-* 변수를 활용하여 적용한다.
 - box-shadow 는 .shadow-* 클래스를 활용하여 적용한다.
 - 폼 요소는 guide/controls.html 정리되어있으니 참고하여 작성한다.
@@ -77,6 +75,7 @@
 - 스탭 ui는 ._step-* 클래스를 활용하여 스타일을 적용한다.
 - 벳지 ui는 ._badge-* 클래스를 활용하여 스타일을 적용한다.
 - 테이블은 ._table-* 클래스를 활용하여 스타일을 적용한다.
+- 버튼은 ._btn-* 클래스를 활용하여 스타일을 적용하고 ._btn-wrap 클래스로 버튼 그룹핑하여 스타일을 적용한다.
 ```
 
 #### JavaScript

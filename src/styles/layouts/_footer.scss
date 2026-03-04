@@ -4,13 +4,13 @@
   border-top: 1px solid var(--gray-60);
 
   .footer-inner {
-    min-width: $breakpoint-lg;
+    min-width: $page-max-width;
   }
 
   .footer-top {
     display: flex;
     align-items: center;
-    width: $breakpoint-lg;
+    width: $page-max-width;
     margin: 0 auto;
     padding: 16px 0;
   }
@@ -69,7 +69,7 @@
   }
 
   .footer-content {
-    width: $breakpoint-lg;
+    width: $page-max-width;
     margin: 0 auto;
     padding: 0 0 60px;
   }
@@ -217,7 +217,7 @@
 @include respond-md {
   .footer {
     .footer-inner {
-      min-width: $breakpoint-sm;
+      min-width: $page-min-width;
     }
 
     .footer-top {
