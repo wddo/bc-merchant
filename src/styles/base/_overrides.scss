@@ -1,3 +1,5 @@
+@use "../abstracts/" as *;
+
 // _base.scss 수정 없이 확장성 있게 오버라이딩
 
 :root {
@@ -14,4 +16,8 @@
   --space-40: 40px;
   --space-48: 48px;
   --space-56: 56px;
+}
+
+[class^="_btn"] {
+  gap: 4px;
 }

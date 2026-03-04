@@ -13,6 +13,10 @@
   --space-56: 56px;
 }
 
+[class^=_btn] {
+  gap: 4px;
+}
+
 /* .w-full {
   width: 100%;
 }
@@ -27,6 +31,14 @@
   height: 1px;
   margin: -1px !important;
   clip: rect(0 0 0 0);
+}
+
+.ico-download::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("/static/images/icons/download.svg") no-repeat center center/contain;
 }
 
 .list-noti {
@@ -54,6 +66,9 @@
   border-radius: 100%;
   transform: translateY(-50%);
 }
+.list-noti > li > ul[class^=list-]:first-child {
+  margin-top: 4px;
+}
 
 .list-ref {
   list-style: none;
@@ -77,6 +92,9 @@
   font-size: 9px;
   transform: translateY(-50%);
 }
+.list-ref > li > ul[class^=list-]:first-child {
+  margin-top: 4px;
+}
 
 .list-dash {
   list-style: none;
@@ -99,6 +117,9 @@
   top: 11px;
   font-size: 9px;
   transform: translateY(-50%);
+}
+.list-dash > li > ul[class^=list-]:first-child {
+  margin-top: 4px;
 }
 
 .warning-box {
@@ -166,6 +187,17 @@
   margin-top: 20px;
 }
 
+/* 
+button.download {
+  &::after {
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 4px;
+    @include icon("download", 16px);
+  }
+} */
 .accordion-item {
   text-align: left;
   border-bottom: 1px solid var(--gray-60);

@@ -20,6 +20,17 @@
   @include visually-hidden;
 }
 
+// Pseudo-Class Icon
+$icon-class-list: (download);
+
+@each $icon-name in $icon-class-list {
+  .ico-#{$icon-name}::after {
+    content: "";
+    display: inline-block;
+    @include icon($icon-name, 1em);
+  }
+}
+
 // Bullet List
 .list-noti {
   @include bullet-list();

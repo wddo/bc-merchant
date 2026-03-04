@@ -28,14 +28,19 @@
   h3 {
     color: $text-primary;
   }
-}
-
-.step-accordion {
-  margin-top: 40px;
 
   li > .list-dash:first-child {
     margin-top: 4px;
   }
+
+  [class^="_table"] th,
+  [class^="_table"] td {
+    text-align: left;
+  }
+}
+
+.step-accordion {
+  margin-top: 40px;
 
   .accordion-item {
     border-top: 0;
@@ -62,6 +67,88 @@
 
   .accordion-cont {
     padding: 0 0 24px;
+  }
+
+  .step-sample-btn {
+    margin-top: 24px;
+  }
+
+  .mi-doc-btns {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .mi-required-table {
+    th,
+    td {
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--gray-20);
+    }
+
+    td {
+      .list-noti {
+        gap: 8px;
+      }
+    }
+
+    .tooltip-title {
+      margin-bottom: 0;
+    }
+  }
+
+  .mi-required-note {
+    margin-top: 20px;
+
+    .list-noti {
+      gap: 6px;
+    }
+
+    .list-noti li {
+      color: $text-quaternary;
+    }
+
+    .list-noti li::before {
+      top: 8px;
+    }
+
+  }
+
+  .mi-terminate-table {
+    th,
+    td {
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--gray-20);
+    }
+
+    td {
+      .list-noti {
+        gap: 8px;
+      }
+    }
+  }
+
+  .mi-terminate-note {
+    margin-top: 20px;
+
+    .list-noti {
+      gap: 6px;
+    }
+
+    .list-noti li {
+      color: $text-quaternary;
+    }
+
+    .list-noti li::before {
+      top: 8px;
+    }
   }
 }
 
@@ -113,6 +200,10 @@
 
     .accordion-header {
       padding: 20px 0;
+    }
+
+    .mi-doc-btns {
+      flex-wrap: wrap;
     }
   }
 }

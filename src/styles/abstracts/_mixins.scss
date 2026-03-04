@@ -67,6 +67,10 @@
         transform: translateY(-50%);
       }
     }
+
+    > ul[class^="list-"]:first-child {
+      margin-top: 4px;
+    }
   }
 }
 

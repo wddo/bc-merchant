@@ -25,12 +25,16 @@
 .step-body h3 {
   color: var(--gray-900);
 }
+.step-body li > .list-dash:first-child {
+  margin-top: 4px;
+}
+.step-body [class^=_table] th,
+.step-body [class^=_table] td {
+  text-align: left;
+}
 
 .step-accordion {
   margin-top: 40px;
-}
-.step-accordion li > .list-dash:first-child {
-  margin-top: 4px;
 }
 .step-accordion .accordion-item {
   border-top: 0;
@@ -52,6 +56,62 @@
 }
 .step-accordion .accordion-cont {
   padding: 0 0 24px;
+}
+.step-accordion .step-sample-btn {
+  margin-top: 24px;
+}
+.step-accordion .mi-doc-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.step-accordion .mi-required-table th,
+.step-accordion .mi-required-table td {
+  vertical-align: top;
+}
+.step-accordion .mi-required-table th {
+  background-color: var(--gray-20);
+}
+.step-accordion .mi-required-table td .list-noti {
+  gap: 8px;
+}
+.step-accordion .mi-required-table .tooltip-title {
+  margin-bottom: 0;
+}
+.step-accordion .mi-required-note {
+  margin-top: 20px;
+}
+.step-accordion .mi-required-note .list-noti {
+  gap: 6px;
+}
+.step-accordion .mi-required-note .list-noti li {
+  color: var(--gray-500);
+}
+.step-accordion .mi-required-note .list-noti li::before {
+  top: 8px;
+}
+.step-accordion .mi-terminate-table th,
+.step-accordion .mi-terminate-table td {
+  vertical-align: top;
+}
+.step-accordion .mi-terminate-table th {
+  background-color: var(--gray-20);
+}
+.step-accordion .mi-terminate-table td .list-noti {
+  gap: 8px;
+}
+.step-accordion .mi-terminate-note {
+  margin-top: 20px;
+}
+.step-accordion .mi-terminate-note .list-noti {
+  gap: 6px;
+}
+.step-accordion .mi-terminate-note .list-noti li {
+  color: var(--gray-500);
+}
+.step-accordion .mi-terminate-note .list-noti li::before {
+  top: 8px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -91,5 +151,8 @@
   }
   .step-accordion .accordion-header {
     padding: 20px 0;
+  }
+  .step-accordion .mi-doc-btns {
+    flex-wrap: wrap;
   }
 }
