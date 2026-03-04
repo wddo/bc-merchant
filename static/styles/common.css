@@ -187,17 +187,6 @@
   margin-top: 20px;
 }
 
-/* 
-button.download {
-  &::after {
-    content: "";
-    display: inline-block;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-left: 4px;
-    @include icon("download", 16px);
-  }
-} */
 .accordion-item {
   text-align: left;
   border-bottom: 1px solid var(--gray-60);
