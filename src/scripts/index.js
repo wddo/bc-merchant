@@ -28,14 +28,12 @@ export let device = null;
     accordionController.init(".accordion");
 
     if (pbui) {
-      document.querySelectorAll(".tooltip-trigger").forEach((el) => {
-        if (pbui.tooltip) {
-          pbui.tooltip.init(el, {
-            position: "bottom-center",
-            content: `<span>텍스트</span>`,
-          });
-        }
-      });
+      if (pbui.tooltip) {
+        pbui.tooltip.init(".tooltip-trigger", {
+          position: "bottom-center",
+          content: `<span>텍스트</span>`,
+        });
+      }
 
       if (pbui.selectmenu) {
         pbui.selectmenu.init(".input-box select");
