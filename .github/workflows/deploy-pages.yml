@@ -58,7 +58,9 @@ jobs:
           foreach ($file in $htmlFiles) {
             $content = Get-Content -Path $file.FullName -Raw
             $content = $content.Replace('href="/static/', ('href="' + $basePath + 'static/'))
+            $content = $content.Replace('href="/_dev/', ('href="' + $basePath + '_dev/'))
             $content = $content.Replace('src="/static/', ('src="' + $basePath + 'static/'))
+            $content = $content.Replace('src="/_dev/', ('src="' + $basePath + '_dev/'))
             $content = $content.Replace('src="/guide/', ('src="' + $basePath + 'guide/'))
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
@@ -75,8 +77,11 @@ jobs:
           foreach ($file in $jsFiles) {
             $content = Get-Content -Path $file.FullName -Raw
             $content = $content.Replace('"/static/', ('"' + $basePath + 'static/'))
+            $content = $content.Replace('"/_dev/', ('"' + $basePath + '_dev/'))
             $content = $content.Replace("'/static/", ("'" + $basePath + "static/"))
+            $content = $content.Replace("'/_dev/", ("'" + $basePath + "_dev/"))
             $content = $content.Replace('`/static/', ('`' + $basePath + 'static/'))
+            $content = $content.Replace('`/_dev/', ('`' + $basePath + '_dev/'))
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
 
