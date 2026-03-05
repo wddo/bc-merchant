@@ -199,6 +199,38 @@
   }
 }
 
+.step-guide {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+  .text-area {
+    .text {
+      margin-top: var(--space-1 6);
+      color: $text-secondary;
+      @include font-token($font-body-0-medi);
+    }
+  }
+  .step-area {
+    flex-basis: 335px;
+  }
+}
+
+.store-infor {
+  background-color: $bg-gray-20;
+  padding: 40px 0;
+  > .inner {
+    max-width: $page-max-width;
+    margin: 0 auto;
+  }
+  .store-name {
+    display: block;
+    @include font-token($font-body-2-medi);
+    color: $text-secondary;    
+    margin-bottom: 8px;
+  }
+}
+
+
 @media screen and (max-width: 1199px) {
 
 }

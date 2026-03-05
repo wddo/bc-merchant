@@ -197,3 +197,45 @@
 .floating-btn ._btn-large-primary {
   min-width: 320px;
 }
+
+.step-guide {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+.step-guide .text-area .text {
+  margin-top: var(--space-1 6);
+  color: var(--gray-700);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+}
+.step-guide .step-area {
+  flex-basis: 335px;
+}
+
+.store-infor {
+  background-color: var(--gray-20);
+  padding: 40px 0;
+}
+.store-infor > .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.store-infor .store-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .store-infor .store-name {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+}
+.store-infor .store-name {
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
