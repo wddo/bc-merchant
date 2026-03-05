@@ -402,7 +402,7 @@ body {
   min-height: 500px;
 }
 #container .page > div {
-  min-width: 1200px;
+  width: 100%;
 }
 #container .page > div.title {
   padding-bottom: 56px;
@@ -456,7 +456,9 @@ body {
 }
 
 .header .header-inner {
-  min-width: 1200px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .header .header-inner::after {
   content: "";
@@ -469,7 +471,6 @@ body {
 }
 .header .header-inner .header-util,
 .header .header-inner .header-gnb {
-  width: 1200px;
   margin: 0 auto;
 }
 .header .header-inner .header-util {
@@ -810,13 +811,9 @@ body {
 .footer {
   border-top: 1px solid var(--gray-60);
 }
-.footer .footer-inner {
-  min-width: 1200px;
-}
 .footer .footer-top {
   display: flex;
   align-items: center;
-  width: 1200px;
   margin: 0 auto;
   padding: 16px 0;
 }
@@ -867,7 +864,7 @@ body {
   background-position: center;
 }
 .footer .footer-content {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 0 60px;
 }

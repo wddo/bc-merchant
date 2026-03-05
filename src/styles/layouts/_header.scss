@@ -2,7 +2,9 @@
 
 .header {
   .header-inner {
-    min-width: $page-max-width;
+    max-width: $page-max-width;
+    width: 100%;
+    margin: 0 auto;
 
     &::after {
       content: "";
@@ -16,7 +18,6 @@
 
     .header-util,
     .header-gnb {
-      width: $page-max-width;
       margin: 0 auto;
     }
 

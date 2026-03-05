@@ -42,7 +42,7 @@ body {
   }
 
   .page > div {
-    min-width: $page-max-width;
+    width: 100%;
 
     &.title {
       padding-bottom: $page-title-gap-lg;
