@@ -68,6 +68,7 @@
 - 타이틀 성격의 마크업을 작성할 때 _.font-headline-*, _font-title-* 클래스를 활용하여 폰트 스타일을 적용한다.
 - _.font-body-*, _.font-caption-* 는 인라인 정의를 지양하고 font-token() 믹스인을 활용하여 스타일을 적용한다.
 - raidus 는 :root 의 --radius-* 변수를 활용하여 적용한다.
+- 간격은 --space-* 변수를 활용하여 적용한다.
 - box-shadow 는 .shadow-* 클래스를 활용하여 적용한다.
 - 폼 요소는 guide/controls.html 정리되어있으니 참고하여 작성한다.
 - 모바일 탭은 ._segment 클래스를 활용하여 스타일을 적용한다.

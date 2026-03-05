@@ -66,6 +66,14 @@ button[class^=_btn] {
   background: url("/static/images/icons/download.svg") no-repeat center center/contain;
 }
 
+.ico-external-link::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
+}
+
 .list-noti {
   list-style: none;
   padding-left: 0;
