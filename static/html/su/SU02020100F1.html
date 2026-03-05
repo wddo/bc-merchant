@@ -60,9 +60,9 @@
 
           <div class="store-infor full">
             <div class="inner">
-              <span class="store-name">가맹점명</span>
+              <label for="label-stroename" class="store-name">가맹점명</label>
               <div class="input-box">
-                <select id="select1">
+                <select id="label-stroename">
                   <option value="BC카드(주)[760123451]">BC카드(주)[760123451]</option>
                   <option value="BC카드(주)[760123452]">BC카드(주)[760123452]</option>
                   <option value="BC카드(주)[760123453]">BC카드(주)[760123453]</option>
@@ -90,7 +90,440 @@
           <!-- //store-infor -->
 
           <div class="contents">            
-            
+            <div class="writing-stage">
+              <div class="stage-item is-end"> <!-- [D] 등록 완료 일 경우 is-end, 등록 중 일 경우 is-on 클래스 추가 -->
+                <div class="writing-infor">
+                  <h3 class="_font-title-3">홍보 대상 설정</h3>
+                  <p class="text">가맹점에서 <br><span>#마이태그 서비스를 <br>제공할 고객을 선택</span>해주세요</p>  
+                  <div class="customers-number">
+                    <span class="title">마이태그 예상 노출 고객 수</span>
+                    <strong class="number"><em>73,124,113</em>명</strong>
+                    <p class="text">* 고객님이 선택하신 조건을 반영한 노출 고객수 입니다.</p>
+                  </div>
+                </div>
+                <div class="writing-box">
+                  <div class="writing-area">
+                    <div class="item">
+                      <strong class="_font-title-4">고객 성별</strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="sex-entire" class="_ipt-radio-box">
+                              <input type="radio" name="radio-sex" id="sex-entire">
+                              <i>전체</i>
+                          </label>
+                          <label for="sex-man" class="_ipt-radio-box">
+                              <input type="radio" name="radio-sex" id="sex-man">
+                              <i>남자</i>
+                          </label>
+                          <label for="sex-female" class="_ipt-radio-box">
+                              <input type="radio" name="radio-sex" id="sex-female">
+                              <i>여자</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">고객 연령</strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="years-entire" class="_ipt-radio-box">
+                              <input type="radio" name="radio-years" id="years-entire">
+                              <i>전체</i>
+                          </label>
+                          <label for="years-select" class="_ipt-radio-box">
+                              <input type="radio" name="radio-years" id="years-select">
+                              <i>선택</i>
+                          </label>
+                        </div>
+                        <div class="add-field">
+                          <div class="input-box">
+                            <select>
+                              <option value="">선택</option>
+                            </select>
+                          </div>
+                          <span class="wave">~</span>
+                          <div class="input-box">
+                            <select>
+                              <option value="">선택</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">고객 거주지역</strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="residence-entire" class="_ipt-radio-box">
+                              <input type="radio" name="radio-residence" id="residence-entire">
+                              <i>전체</i>
+                          </label>
+                          <label for="residence-select" class="_ipt-radio-box">
+                              <input type="radio" name="radio-residence" id="residence-select">
+                              <i>선택</i>
+                          </label>
+                        </div>
+                        <div class="add-field">
+                          <div class="input-box">
+                            <select>
+                              <option value="">시/도</option>
+                            </select>
+                          </div>
+                          <span class="wave">~</span>
+                          <div class="input-box">
+                            <select>
+                              <option value="">시/군/구</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">
+                        고객 주 이용 업종
+                        <span class="tooltip-title">
+                          <button type="button" class="tooltip-trigger" data-tooltip-pos="top-center" data-tooltip-cont="툴팁 내용">안내</button>
+                          <span>최대 <em>1개 이상 선택</em>해주세요</span>
+                        </span>
+                      </strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap col05">
+                          <label for="industry-entire" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry-entire">
+                              <i>전체</i>
+                          </label>
+                          <label for="industry01" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry01">
+                              <i>외식/식음료</i>
+                          </label>
+                          <label for="industry02" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry02">
+                              <i>업종1234</i>
+                          </label>
+                          <label for="industry03" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry03">
+                              <i>쇼핑(오프라인)</i>
+                          </label>
+                          <label for="industry04" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry04">
+                              <i>생활/통신요금</i>
+                          </label>
+                          <label for="industry05" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry05">
+                              <i>쇼핑(온라인)</i>
+                          </label>
+                          <label for="industry06" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry06">
+                              <i>배달</i>
+                          </label>
+                          <label for="industry07" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry07">
+                              <i>반려동물</i>
+                          </label>
+                          <label for="industry08" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry08">
+                              <i>주유/카쉐어링</i>
+                          </label>
+                          <label for="industry09" class="_ipt-radio-box">
+                              <input type="radio" name="radio-industry" id="industry09">
+                              <i>업종 텍스트</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //stage-item -->
+              <div class="stage-item is-on"> <!-- [D] 등록 완료 일 경우 is-end, 등록 중 일 경우 is-on 클래스 추가 -->
+                <div class="writing-infor">
+                  <h3 class="_font-title-3">마이태그 <br>마케팅 조건 설정</h3>
+                  <p class="text">가맹점의 <span>#마이태그 마케팅 <br>상세 조건을 설정</span>해주세요</p>  
+                  <div class="marketing-period">
+                    <span class="title">마이태그 마케팅 기간</span>
+                    <strong class="date-range">YYYY.MM.DD ~ YYYY.MM.DD</strong>
+                  </div>
+                </div>
+                <div class="writing-box">
+                  <div class="writing-area">
+                    <div class="item">
+                      <label for="label-name" class="_font-title-4">
+                        상호명
+                        <span class="tooltip-title">
+                          <button type="button" class="tooltip-trigger" data-tooltip-pos="top-center" data-tooltip-cont="툴팁 내용">안내</button>
+                        </span>
+                      </label>
+                      <div class="input-box">
+                        <input type="text" id="label-name" value="비씨카드(주)">
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">할인 방식</strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="method01" class="_ipt-radio-box">
+                              <input type="radio" name="radio-method" id="method01">
+                              <i>할인율 지정 방식(%)</i>
+                          </label>
+                          <label for="method02" class="_ipt-radio-box">
+                              <input type="radio" name="radio-method" id="method02">
+                              <i>할인액 지정 방식(₩)</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">
+                        기간 설정
+                        <span class="tooltip-title">
+                          <button type="button" class="tooltip-trigger" data-tooltip-pos="top-center" data-tooltip-cont="툴팁 내용">안내</button>
+                        </span>
+                      </strong>
+                      <div class="date-area">
+                        <div class="date-inner">
+                          <div class="date-ipt">
+                            <div class="tooltip-title">
+                                <label for="date-start" class="input-title">시작일</label>
+                            </div>
+                            <div class="input-box">
+                              <input type="text" id="date-start" placeholder="YYYY.MM.DD">
+                              <div class="util-box">
+                                  <button type="button" class="ipt-calendar">달력보기</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="date-ipt">
+                            <div class="tooltip-title">
+                                <label for="date-end" class="input-title">종료일</label>
+                            </div>
+                            <div class="input-box">
+                              <input type="text" id="date-end" placeholder="YYYY.MM.DD">
+                              <div class="util-box">
+                                  <button type="button" class="ipt-calendar">달력보기</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ipt-inner">
+                          <div class="ipt-wrap">
+                            <label for="months01" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months01">
+                                <i>3개월</i>
+                            </label>
+                            <label for="months02" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months02">
+                                <i>4개월</i>
+                            </label>
+                            <label for="months03" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months03">
+                                <i>5개월</i>
+                            </label>
+                            <label for="months04" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months04">
+                                <i>6개월</i>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">비씨카드 청구할인 조건선택</strong>
+                      <div class="input-wrap">
+                        <div class="dropdown-wrap">
+                          <label for="conditions01" class="label-title">결제 조건 금액</label>
+                          <div class="input-box">
+                            <select id="conditions01">
+                              <option value="">선택</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="dropdown-wrap">
+                          <label for="conditions02" class="label-title">할인율</label>
+                          <div class="input-box">
+                            <select id="conditions02">
+                              <option value="">선택</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="dropdown-wrap">
+                          <label for="conditions03" class="label-title">최대 할인 한도</label>
+                          <div class="input-box">
+                            <select id="conditions03">
+                              <option value="">선택</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-box-wrap">
+                        <label for="people-number" class="label-title">태그 가능 인원 수</label>
+                        <div class="input-box">
+                          <input type="text" id="people-number" placeholder="최소 1,000명 이상 입력해주세요">
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="warning-box">
+                      <ul class="list-noti">
+                        <li>월 최대 청구 할인 금액 : 마이태그 이용 고객이 이용 횟수에 상관없이 받을 수 있는 월 최대 할인 금액입니다.</li>
+                        <li>청구할인이란 : 고객이 ‘마이태그’ 후 결제 시 청구 시점에 할인 적용됩니다.</li>
+                        <li>청구할인 금액은 가맹점 입금 대금에서 차감 처리 됩니다.</li>
+                      </ul>
+                      <div class="btn">
+                        <button type="button" class="_btn-xsmall-primary" disabled="">마이태그 미리보기</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- //stage-item -->
+              <div class="stage-item">
+                <div class="writing-infor">
+                  <h3 class="_font-title-3">가맹점 소개 <br>정보 입력</h3>
+                  <p class="text">우리 가맹점을 소개할 <br><span>기본 정보를 입력</span>해주세요</p>  
+                  <div class="intro-infor">
+                    <p class="text">* 가맹점 소개 정보에 입력하신 정보는 마이태그 마케팅에만 적용되며, <br>기입하신 내용은 마이태그 마케팅 대상 고객에게 보여지게 됩니다.</p>
+                  </div>
+                </div>
+                <div class="writing-box">
+                  <div class="writing-area">
+                    <div class="item">
+                      <div class="count-wrap">
+                        <div class="count-title">
+                            <label for="merchant-intro" class="_font-title-4">가맹점 소개</label>
+                            <p class="count">000/000</p>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="merchant-intro" placeholder="가맹점 소개 문구는 띄어쓰기 포함 50자 까지 입력해주세요">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="label-address" class="_font-title-4">주소</label>
+                      <div class="input-box">
+                        <input type="text" id="label-address" placeholder="가맹점 주소를 입력해주세요">
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="label-phonenumber" class="_font-title-4">전화번호</label>
+                      <div class="input-box">
+                        <input type="text" id="label-phonenumber" placeholder="- 없이 숫자만 입력해주세요">
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">영업일 및 영업시간</strong>
+                      <div class="inner">
+                        <div class="business-day">
+                          <strong class="label-title">영업일</strong>
+                          <div class="day-box">
+                            <label for="business-day01" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day01">
+                                <i><span class="day-text">Mon</span>월</i>
+                            </label>
+                            <label for="business-day02" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day02">
+                                <i><span class="day-text">Tue</span>화</i>
+                            </label>
+                            <label for="business-day03" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day03">
+                                <i><span class="day-text">Wen</span>수</i>
+                            </label>
+                            <label for="business-day04" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day04">
+                                <i><span class="day-text">Thu</span>목</i>
+                            </label>
+                            <label for="business-day05" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day05">
+                                <i><span class="day-text">Fri</span>금</i>
+                            </label>
+                            <label for="business-day06" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day06">
+                                <i><span class="day-text">Sat</span>토</i>
+                            </label>
+                            <label for="business-day07" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day07">
+                                <i><span class="day-text">Sun</span>일</i>
+                            </label>
+                            <label for="business-day08" class="_ipt-radio-box">
+                                <input type="checkbox" id="business-day08">
+                                <i><span class="day-text">Holiday</span>공휴일</i>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="inner">
+                        <label for="weekdays-hours" class="label-title">평일</label>
+                        <div class="input-box">
+                          <input type="text" id="weekdays-hours" placeholder="예) 09:00 ~ 21:00">
+                        </div>
+                      </div>
+                      <div class="inner">
+                        <label for="saturday-hours" class="label-title">토요일</label>
+                        <div class="input-box">
+                          <input type="text" id="saturday-hours" placeholder="예) 09:00 ~ 21:00">
+                        </div>
+                      </div>
+                      <div class="inner">
+                        <label for="sunday-hours" class="label-title">일요일</label>
+                        <div class="input-box">
+                          <input type="text" id="sunday-hours" placeholder="예) 09:00 ~ 21:00" disabled>
+                        </div>
+                      </div>
+                      <div class="inner">
+                        <label for="holidays-hours" class="label-title">공휴일</label>
+                        <div class="input-box">
+                          <input type="text" id="holidays-hours" placeholder="예) 09:00 ~ 21:00" disabled>
+                        </div>
+                      </div>
+                      <div class="inner">
+                        <label for="break-time" class="label-title">브레이크타임</label>
+                        <div class="input-box">
+                          <input type="text" id="break-time" placeholder="예) 09:00 ~ 21:00" disabled>
+                        </div>
+                        <label id="checkbox-breaktime" class="_ipt-check-main-small">
+                          <input id="checkbox-breaktime" type="checkbox">
+                          <i>없음</i>
+                        </label>
+                      </div>
+
+                    </div>
+                    <div class="item">
+                      <label for="homepage-sns" class="_font-title-4">홈페이지/SNS 계정</label>
+                      <div class="input-box">
+                        <input type="text" id="homepage-sns" placeholder="홈페이지 또는 SNS계정을 입력해주세요">
+                      </div>
+                      <p class="bl-star">* 홈페이지/SNS 계정 입력은 선택사항 입니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //stage-item -->
+               <div class="stage-item">
+                <div class="writing-infor">
+                  <h3 class="_font-title-3">대표자 정보 및 <br>추가정보 입력</h3>
+                  <p class="text">마이태그 서비스 운영 및 <br>결과 안내를 위한 대표자 정보와 <br>추천인이 있는 경우 추천인 코드를 <br>함께 입력해주세요</p>  
+                </div>
+                <div class="writing-box">
+                  <div class="writing-area">
+                    <div class="item">
+                      <label for="exponent-phonenumber" class="_font-title-4">대표자 휴대폰 번호</label>
+                      <div class="input-box">
+                        <input type="text" id="exponent-phonenumber" placeholder="- 없이 숫자만 입력해주세요">
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="referral-code" class="_font-title-4">추천인 코드</label>
+                      <div class="input-box">
+                        <input type="text" id="referral-code" placeholder="추천인이 있는 경우 코드 N자리를 입력해주세요">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //stage-item -->
+            </div>
+            <!-- //writing-stage -->
 
           </div>
           <!-- //contents -->
