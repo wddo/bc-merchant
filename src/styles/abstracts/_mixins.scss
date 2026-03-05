@@ -24,10 +24,13 @@
   clip: rect(0 0 0 0);
 }
 
-@mixin icon($name, $size: 24px) {
+@mixin icon($name, $size: 24px, $color: currentColor) {
   width: $size;
   height: $size;
-  background: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
+  background-color: $color;
+  mask: url("#{$icon_url}/#{$name}.svg") no-repeat center center / contain;
+  -webkit-mask: url("#{$icon_url}/#{$name}.svg") no-repeat center center /
+    contain;
 }
 
 @mixin bullet-list($type: dot, $color: $text-tertiary) {

@@ -63,7 +63,9 @@ button[class^=_btn] {
   display: inline-block;
   width: 1em;
   height: 1em;
-  background: url("/static/images/icons/download.svg") no-repeat center center/contain;
+  background-color: currentColor;
+  mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
 }
 
 .ico-external-link::after {
@@ -71,7 +73,9 @@ button[class^=_btn] {
   display: inline-block;
   width: 1em;
   height: 1em;
-  background: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
+  background-color: currentColor;
+  mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
 }
 
 .list-noti {
