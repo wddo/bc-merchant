@@ -1278,8 +1278,7 @@ const pbui = (function() {
     }
 
 	const tooltipCtl = {
-		init: function(selector, obj = {}) {
-			const el = document.querySelector(selector);
+		init: function(el, obj = {}) {
 
 			if (!el) return;
 

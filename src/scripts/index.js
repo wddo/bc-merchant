@@ -27,6 +27,17 @@ export let device = null;
     dataTextController.init("[data-text]"); // 타 라이브러리에서 사용하므로 상단 유지
     accordionController.init(".accordion");
 
+    if (pbui) {
+      document.querySelectorAll(".tooltip-trigger").forEach((el) => {
+        if (pbui.tooltip) {
+          pbui.tooltip.init(el, {
+            position: "bottom-center",
+            content: `<span>텍스트</span>`,
+          });
+        }
+      });
+    }
+
     bind();
 
     if (Header) Header.init();
