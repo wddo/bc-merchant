@@ -1,0 +1,123 @@
+@use "../abstracts" as *;
+
+.faq {
+  .title.full {
+    background-color: var(--gray-20);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-48);
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-48) 0;
+
+    .search-box {
+      width: 100%;
+      padding: 0 var(--space-20);
+      max-width: $page-max-width;
+    }
+  }
+
+  .category {
+    padding: var(--space-32) 0 var(--space-40);
+
+    .tab-box {
+      margin: 0 auto;
+      width: 100%;
+      max-width: $page-max-width;
+    }
+  }
+
+  .contents {
+    .faq-total {
+      @include font-token($font-body-2-medi);
+
+      display: flex;
+      justify-content: flex-end;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+      color: $text-secondary;
+
+      em {
+        color: $text-warning;
+        font-style: normal;
+      }
+    }
+
+    .accordion {
+      margin-top: 0;
+    }
+
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      padding: var(--space-20) 120px var(--space-20) 0;
+    }
+
+    .faq-no,
+    .faq-category {
+      @include font-token($font-body-1);
+
+      flex: 0 0 auto;
+      text-align: center;
+      color: $text-secondary;
+    }
+
+    .faq-no {
+      width: 100px;
+    }
+
+    .faq-category {
+      width: 120px;
+    }
+
+    .depth01 {
+      @include font-token($font-body-1-semi);
+
+      flex: 1;
+      min-width: 0;
+      padding-left: var(--space-40);
+      color: $text-secondary;
+    }
+
+    .accordion-btn::before,
+    .accordion-btn::after {
+      right: 54px;
+    }
+
+    .accordion-cont {
+      padding: var(--space-20) 0 var(--space-40) 260px;
+    }
+
+    @include respond-sm {
+      .accordion-header {
+        flex-wrap: wrap;
+        row-gap: var(--space-8);
+        padding: var(--space-20) var(--space-40) var(--space-20) 0;
+      }
+
+      .faq-no,
+      .faq-category {
+        width: auto;
+        text-align: left;
+      }
+
+      .faq-category {
+        margin-left: var(--space-8);
+      }
+
+      .depth01 {
+        flex: 0 0 100%;
+        padding-left: 0;
+      }
+
+      .accordion-btn::before,
+      .accordion-btn::after {
+        right: var(--space-8);
+      }
+
+      .accordion-cont {
+        padding-left: 0;
+      }
+    }
+  }
+}
