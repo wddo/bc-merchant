@@ -186,7 +186,7 @@
                 <div class="head">
                     <h2>Tooltip</h2>
                 </div>
-                <h3>Tooltip / Default</h3>  
+                <h3>Tooltip / Default</h3>
                 <div class="div" style="background-color:var(--gray-40);border-radius: 12px;">
                     <table class="guide-table exception-copy">
                         <colgroup>
@@ -249,12 +249,22 @@
                                 </td>
                                 <td class="tac">
                                     <button type="button" class="tooltip-trigger tooltip-guide8" data-tooltip-cont="툴팁 안내입니다.">안내</button>
+                                    <div class="tooltip-contents">
+                                        <ul class='listDep1'>
+                                            <li>- TooltipCtl(selector, obj)</li>
+                                            <li>- obj.content = '태그를 이용한 컨텐츠'</li>
+                                            <li>- obj.addSelector = 'some-add-class' 커스텀을 위해 추가하고 싶은 class</li>
+                                            <li>- obj.width = 별도 width</li>
+                                            <li>- obj.arroyw = true, false</li>
+                                            <li>- obj.position = 'top'</li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <h3>Tooltip / layer</h3>  
+                <h3>Tooltip / layer</h3>
                 <div class="div" style="background-color:var(--gray-40);border-radius: 12px;">
                     <table class="guide-table exception-copy">
                         <colgroup>
@@ -278,12 +288,12 @@
                                 </td>
                                 <td class="tac">
                                     <div class="tooltip-title">
-                                        <button type="button" class="tooltip-trigger" id="pop_tooltip1" >안내</button>
+                                        <button type="button" class="tooltip-trigger" id="pop_tooltip1">안내</button>
                                     </div>
                                 </td>
                                 <td class="tac">
                                     <div class="tooltip-title">
-                                        <button type="button" class="tooltip-trigger" id="pop_tooltip2" >안내</button>
+                                        <button type="button" class="tooltip-trigger" id="pop_tooltip2">안내</button>
                                     </div>
                                 </td>
                                 <td class="tac">
@@ -328,7 +338,7 @@
     </div><!-- //wrap [e] -->
 
     <div class="_modal-popup xsmall" id="xsmall-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -346,7 +356,7 @@
         </div>
     </div>
     <div class="_modal-popup small" id="small-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -364,7 +374,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="medium-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -382,7 +392,7 @@
         </div>
     </div>
     <div class="_modal-popup large" id="large-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -400,7 +410,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="default-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -414,7 +424,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="btn-one-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -431,7 +441,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="btn-two-popup">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -474,7 +484,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="content-size-type1">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -492,7 +502,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="content-size-type2">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -510,7 +520,7 @@
         </div>
     </div>
     <div class="_modal-popup medium all-close" id="content-size-type3">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -528,7 +538,7 @@
         </div>
     </div>
     <div class="_modal-popup medium" id="toast-guide">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">타이틀 24 B</p>
                 <span class="description">텍스트 16 R</span>
@@ -546,7 +556,7 @@
     </div>
 
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide1">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -573,7 +583,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide2">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -600,7 +610,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide3">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -627,7 +637,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide4">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -654,7 +664,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide5">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -681,7 +691,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide6">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -708,7 +718,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide7">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -735,7 +745,7 @@
         </div>
     </div>
     <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide8">
-        <div class="inner" tabindex="0">
+        <div class="inner">
             <div class="header">
                 <p class="title">세부정보</p>
             </div>
@@ -761,8 +771,8 @@
             <button class="btn-close" type="button">닫기</button>
         </div>
     </div>
-<script>
-    
+    <script>
+
     $('#xsmall-popup').on('openbefore', () => {console.log('openbefore')})
     $('#xsmall-popup').on('openafter', () => {console.log('openafter')})
     $('#xsmall-popup').on('closebefore', () => {console.log('closebefore')})
@@ -890,14 +900,7 @@
         position: 'bottom-center'
     });
     pbui.tooltip.init('.tooltip-guide8', {
-        content: `<ul class='listDep1'>
-                <li>- TooltipCtl(selector, obj)</li>
-                <li>- obj.content = '태그를 이용한 컨텐츠'</li>
-                <li>- obj.addSelector = 'some-add-class' 커스텀을 위해 추가하고 싶은 class</li>
-                <li>- obj.width = 별도 width</li>
-                <li>- obj.arroyw = true, false</li>
-                <li>- obj.position = 'top'</li>
-            </ul>`,
+        content: $('.tooltip-guide8').next('.tooltip-contents')[0],
         addClass : 'some-add-class',
         position: 'bottom-right'
     });
