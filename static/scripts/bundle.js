@@ -508,6 +508,19 @@
       console.log("ready");
       dataTextController.init("[data-text]");
       accordionController.init(".accordion");
+      if (pbui) {
+        document.querySelectorAll(".tooltip-trigger").forEach((el) => {
+          if (pbui.tooltip) {
+            pbui.tooltip.init(el, {
+              position: "bottom-center",
+              content: `<span>\uD14D\uC2A4\uD2B8</span>`
+            });
+          }
+        });
+        if (pbui.selectmenu) {
+          pbui.selectmenu.init(".input-box select");
+        }
+      }
       bind();
       if (Header_default) Header_default.init();
       if (co_default) co_default.init();
