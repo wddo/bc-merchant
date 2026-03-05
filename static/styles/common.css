@@ -14,15 +14,32 @@
 }
 
 button[class^=_btn] {
-  gap: 4px;
+  gap: var(--space-4);
 }
 
 ._btn-wrap {
   justify-content: flex-start;
 }
-
 ._btn-wrap [class^=_btn]:only-child {
   flex-basis: auto;
+}
+
+._table.tb-tl th,
+._table.tb-tl td {
+  text-align: left;
+  vertical-align: top;
+}
+._table.tb-tl th {
+  padding: var(--space-12) var(--space-20);
+}
+._table.tb-tl td {
+  padding: var(--space-20);
+}
+._table.tb-tl tbody td > *[class^=list-] {
+  gap: var(--space-8);
+}
+._table.tb-tl tbody td > *:not(:first-child) {
+  margin-top: var(--space-20);
 }
 
 /* .w-full {
@@ -55,7 +72,7 @@ button[class^=_btn] {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-12);
 }
 .list-noti > li {
   font-size: 16px;
@@ -73,7 +90,7 @@ button[class^=_btn] {
   position: relative;
   color: var(--gray-600);
   display: block;
-  padding-left: 12px;
+  padding-left: var(--space-12);
 }
 .list-noti > li::before {
   position: absolute;
@@ -87,7 +104,7 @@ button[class^=_btn] {
   transform: translateY(-50%);
 }
 .list-noti > li > ul[class^=list-]:first-child {
-  margin-top: 4px;
+  margin-top: var(--space-4);
 }
 
 .list-ref {
@@ -96,7 +113,7 @@ button[class^=_btn] {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-12);
 }
 .list-ref > li {
   font-size: 16px;
@@ -114,7 +131,7 @@ button[class^=_btn] {
   position: relative;
   color: var(--gray-600);
   display: block;
-  padding-left: 12px;
+  padding-left: var(--space-12);
 }
 .list-ref > li::before {
   position: absolute;
@@ -125,7 +142,7 @@ button[class^=_btn] {
   transform: translateY(-50%);
 }
 .list-ref > li > ul[class^=list-]:first-child {
-  margin-top: 4px;
+  margin-top: var(--space-4);
 }
 
 .list-dash {
@@ -134,7 +151,7 @@ button[class^=_btn] {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-12);
 }
 .list-dash > li {
   font-size: 16px;
@@ -152,7 +169,7 @@ button[class^=_btn] {
   position: relative;
   color: var(--gray-600);
   display: block;
-  padding-left: 12px;
+  padding-left: var(--space-12);
 }
 .list-dash > li::before {
   position: absolute;
@@ -163,7 +180,7 @@ button[class^=_btn] {
   transform: translateY(-50%);
 }
 .list-dash > li > ul[class^=list-]:first-child {
-  margin-top: 4px;
+  margin-top: var(--space-4);
 }
 
 .list-dash > li > [class^=list-],
@@ -178,7 +195,7 @@ button[class^=_btn] {
 }
 
 .warning-box {
-  padding: 20px;
+  padding: var(--space-20);
   border-radius: var(--radius-16);
   background-color: var(--gray-40);
 }
@@ -208,8 +225,8 @@ button[class^=_btn] {
   background: url(/static/images/icons/alert-circle.svg) no-repeat center center/contain;
 }
 .warning-box .list-noti {
-  margin-top: 12px;
-  gap: 6px;
+  margin-top: var(--space-12);
+  gap: var(--space-6);
 }
 .warning-box .list-noti li {
   font-size: 14px;

@@ -18,15 +18,44 @@
   --space-56: 56px;
 }
 
+// button - child spacing
 button[class^="_btn"] {
-  gap: 4px;
+  gap: var(--space-4);
 }
 
+// button - left aligned
 ._btn-wrap {
   justify-content: flex-start;
+
+  [class^="_btn"]:only-child {
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+  }
 }
 
-._btn-wrap [class^="_btn"]:only-child {
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
+// table - top left
+._table.tb-tl {
+  th,
+  td {
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    padding: var(--space-12) var(--space-20);
+  }
+
+  td {
+    padding: var(--space-20);
+  }
+
+  tbody td > * {
+    &[class^="list-"] {
+      gap: var(--space-8);
+    }
+
+    &:not(:first-child) {
+      margin-top: var(--space-20);
+    }
+  }
 }

@@ -57,7 +57,7 @@ $icon-class-list: (download);
 }
 
 .warning-box {
-  padding: 20px;
+  padding: var(--space-20);
   border-radius: var(--radius-16);
   background-color: var(--gray-40);
 
@@ -79,8 +79,8 @@ $icon-class-list: (download);
   }
 
   .list-noti {
-    margin-top: 12px;
-    gap: 6px;
+    margin-top: var(--space-12);
+    gap: var(--space-6);
 
     li {
       @include font-token($font-body-2);

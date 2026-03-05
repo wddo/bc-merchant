@@ -21,18 +21,6 @@
 .step-body {
   flex: 1;
 }
-.step-body ._table th,
-.step-body ._table td {
-  padding: 20px;
-  text-align: left;
-  vertical-align: top;
-}
-.step-body ._table td > .list-noti {
-  gap: 8px;
-}
-.step-body ._table .warning-box {
-  margin-top: 20px;
-}
 .step-body .list-noti li {
   color: var(--gray-500);
 }

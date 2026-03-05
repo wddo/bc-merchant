@@ -36,7 +36,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-12);
 
   > li {
     @include font-token($font-body-1);
@@ -44,7 +44,7 @@
     position: relative;
     color: $color;
     display: block;
-    padding-left: 12px;
+    padding-left: var(--space-12);
 
     &::before {
       position: absolute;
@@ -72,7 +72,7 @@
     }
 
     > ul[class^="list-"]:first-child {
-      margin-top: 4px;
+      margin-top: var(--space-4);
     }
   }
 }
@@ -91,30 +91,4 @@
     -webkit-line-clamp: $line;
     max-height: $height;
   }
-}
-
-@mixin background-size($size) {
-  @if length($size) == 1 {
-    background-size: $size + px;
-    background-size: $size * 0.0625 + rem;
-  }
-  @if length($size) == 2 {
-    background-size: nth($size, 1) + px nth($size, 2) + px;
-    background-size: nth($size, 1) * 0.0625 + rem nth($size, 2) * 0.0625 + rem;
-  }
-}
-
-@mixin line-height($size) {
-  line-height: $size + px;
-  line-height: ($size * 0.0625) + rem;
-}
-
-@mixin background-position($pos, $size, $pos2) {
-  background-position: $pos $size + px $pos2;
-  background-position: $pos ($size * 0.0625) + rem $pos2;
-}
-
-@mixin word-spacing($size) {
-  word-spacing: $size + px;
-  word-spacing: ($size * 0.0625) + rem;
 }

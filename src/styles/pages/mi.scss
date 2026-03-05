@@ -24,23 +24,6 @@
 .step-body {
   flex: 1;
 
-  ._table {
-    th,
-    td {
-      padding: 20px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    td > .list-noti {
-      gap: 8px;
-    }
-
-    .warning-box {
-      margin-top: 20px;
-    }
-  }
-
   .list-noti li {
     color: $text-quaternary;
   }
