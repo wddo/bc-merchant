@@ -239,3 +239,39 @@
   color: var(--gray-700);
   margin-bottom: 8px;
 }
+.store-infor .store-data {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+  margin-top: var(--space-12);
+}
+.store-infor .store-data .item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  background-color: var(--white);
+  padding: var(--space-16);
+  border-radius: var(--radius-12);
+}
+.store-infor .store-data .item .text {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .store-infor .store-data .item .text {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.store-infor .store-data .item .text {
+  color: var(--gray-600);
+}
+.store-infor .store-data .item .data {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+  margin-left: auto;
+}

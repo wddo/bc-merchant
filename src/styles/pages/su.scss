@@ -228,6 +228,29 @@
     color: $text-secondary;    
     margin-bottom: 8px;
   }
+  .store-data {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-12); 
+    margin-top: var(--space-12);
+    .item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+      background-color: $bg-white;
+      padding: var(--space-16);
+      border-radius: var(--radius-12);
+      .text {
+        @include font-token($font-body-2);
+        color: $text-tertiary;
+      }
+      .data {
+        @include font-token($font-body-0-medi);
+        margin-left: auto;
+      }
+    }
+  }
 }
 
 
