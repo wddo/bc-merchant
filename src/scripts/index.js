@@ -36,6 +36,10 @@ export let device = null;
           });
         }
       });
+
+      if (pbui.selectmenu) {
+        pbui.selectmenu.init(".input-box select");
+      }
     }
 
     bind();
