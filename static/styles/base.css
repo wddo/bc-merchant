@@ -424,6 +424,7 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 /* tooltip */
 .tooltip-title {position:relative; display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; margin-bottom:8px;}
 .tooltip-trigger {width:16px; height:16px; margin-left:4px; text-indent:-9999px; background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z' stroke='%237A8394' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A"); color:transparent; font-size:0;}
+.tooltip-trigger + .tooltip-contents {display:none;}
 .tooltip-title .input-title {margin-bottom:0;}
 .count-title {display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; -webkit-box-pack:justify; -ms-flex-pack:justify; justify-content:space-between;}
 .count-title .count {color:var(--gray-500); font-size:14px; font-weight:400; line-height:21px; letter-spacing:-0.56px;} 

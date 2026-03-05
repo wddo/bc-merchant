@@ -307,7 +307,7 @@ button[class^=_btn] {
   position: relative;
   display: block;
   width: 100%;
-  padding: 24px 0;
+  padding: var(--space-24) var(--space-32) var(--space-24) 0;
   text-align: left;
 }
 
@@ -354,10 +354,15 @@ button[class^=_btn] {
 }
 
 .accordion-cont {
-  padding: 0 0 24px;
+  padding: 0 0 var(--space-24);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--space-24);
+  background-color: var(--gray-20);
+}
+
+.full ._tabs-sub {
+  padding: 0 var(--space-20);
 }
 
 html,
@@ -398,18 +403,26 @@ body {
 #container .page {
   display: flex;
   flex-direction: column;
-  padding: 50px 0 50px;
+  padding-bottom: 50px;
   min-height: 500px;
 }
 #container .page > div {
-  min-width: 1200px;
-}
-#container .page > div.title {
-  padding-bottom: 56px;
+  width: 100%;
 }
 #container .page > div:not(.full) {
+  padding-left: 0;
+  padding-right: 0;
   margin: 0 auto;
   max-width: 1200px;
+}
+#container .page > div:not(.full):first-child {
+  margin-top: 50px;
+}
+#container .page > div:not(.full).title {
+  padding-bottom: 56px;
+}
+#container .page > div.full:first-child {
+  margin-top: 0;
 }
 
 #footer {
@@ -427,15 +440,32 @@ body {
     min-width: 100%;
     max-width: 100%;
     margin: 0;
-    padding: 50px 24px 50px;
+    padding-bottom: 50px;
+  }
+  #container .page > div:not(.full) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  #container .page > div:not(.full):first-child {
+    margin-top: 50px;
+  }
+  #container .page > div:not(.full).title {
+    padding-bottom: 56px;
   }
 }
 @media (max-width: 767px) {
   #container .page {
     min-width: 360px;
-    padding: 0 20px 0;
+    padding-bottom: 0;
   }
-  #container .page > div.title {
+  #container .page > div:not(.full) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #container .page > div:not(.full):first-child {
+    margin-top: 0;
+  }
+  #container .page > div:not(.full).title {
     overflow: hidden;
     position: absolute;
     width: 1px;
@@ -456,7 +486,9 @@ body {
 }
 
 .header .header-inner {
-  min-width: 1200px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .header .header-inner::after {
   content: "";
@@ -469,7 +501,6 @@ body {
 }
 .header .header-inner .header-util,
 .header .header-inner .header-gnb {
-  width: 1200px;
   margin: 0 auto;
 }
 .header .header-inner .header-util {
@@ -811,12 +842,13 @@ body {
   border-top: 1px solid var(--gray-60);
 }
 .footer .footer-inner {
-  min-width: 1200px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .footer .footer-top {
   display: flex;
   align-items: center;
-  width: 1200px;
   margin: 0 auto;
   padding: 16px 0;
 }
@@ -867,7 +899,7 @@ body {
   background-position: center;
 }
 .footer .footer-content {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 0 60px;
 }

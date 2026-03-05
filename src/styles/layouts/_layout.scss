@@ -37,20 +37,32 @@ body {
   .page {
     display: flex;
     flex-direction: column;
-    padding: $page-top-lg $page-side-lg $page-bottom-lg;
+    padding-bottom: $page-bottom-lg;
     min-height: 500px;
   }
 
   .page > div {
-    min-width: $page-max-width;
-
-    &.title {
-      padding-bottom: $page-title-gap-lg;
-    }
+    width: 100%;
 
     &:not(.full) {
+      padding-left: $page-side-lg;
+      padding-right: $page-side-lg;
       margin: 0 auto;
       max-width: $page-max-width;
+
+      &:first-child {
+        margin-top: $page-top-lg;
+      }
+
+      &.title {
+        padding-bottom: $page-title-gap-lg;
+      }
+    }
+
+    &.full {
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -71,7 +83,22 @@ body {
       min-width: 100%;
       max-width: 100%;
       margin: 0;
-      padding: $page-top-md $page-side-md $page-bottom-md;
+      padding-bottom: $page-bottom-md;
+    }
+
+    .page > div {
+      &:not(.full) {
+        padding-left: $page-side-md;
+        padding-right: $page-side-md;
+
+        &:first-child {
+          margin-top: $page-top-md;
+        }
+
+        &.title {
+          padding-bottom: $page-title-gap-md;
+        }
+      }
     }
   }
 }
@@ -81,12 +108,21 @@ body {
   #container {
     .page {
       min-width: $page-min-width;
-      padding: $page-top-sm $page-side-sm $page-bottom-sm;
+      padding-bottom: $page-bottom-sm;
     }
 
     .page > div {
-      &.title {
-        @include visually-hidden;
+      &:not(.full) {
+        padding-left: $page-side-sm;
+        padding-right: $page-side-sm;
+
+        &:first-child {
+          margin-top: $page-top-sm;
+        }
+        
+        &.title {
+          @include visually-hidden;
+        }
       }
     }
   }
