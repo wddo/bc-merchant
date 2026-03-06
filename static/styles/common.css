@@ -409,16 +409,16 @@ body {
 #container .page > div {
   width: 100%;
 }
-#container .page > div:not(.full) {
+#container .page > div:not[class^=full] {
   padding-left: 0;
   padding-right: 0;
   margin: 0 auto;
   max-width: 1200px;
 }
-#container .page > div:not(.full):first-child {
+#container .page > div:not[class^=full]:first-child {
   margin-top: 50px;
 }
-#container .page > div:not(.full).title {
+#container .page > div:not[class^=full].title {
   padding-bottom: 56px;
 }
 #container .page > div.full:first-child {

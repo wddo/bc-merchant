@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/su.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/su.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page">
+          <div class="title">
+            <h1 class="_font-headline-1">마이태그 서비스</h1>
+          </div>
+          <div class="tab-wrapper full">
+            <div class="tab-box">
+              <ul class="_tabs-main">
+                <li><a href="#link">마이태그 안내</a></li>
+                <li><a href="#link">서비스 신청</a></li>
+                <li class="is-on"><a href="#link">신청조회 및 마케팅 결과</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="contents">
+            <div class="store-infor">
+              <div class="inner">
+                <label for="label-stroename" class="store-name">가맹점명</label>
+                <div class="input-box">
+                  <select id="label-stroename">
+                    <option value="BC카드(주)[760123451]">BC카드(주)[760123451]</option>
+                    <option value="BC카드(주)[760123452]">BC카드(주)[760123452]</option>
+                    <option value="BC카드(주)[760123453]">BC카드(주)[760123453]</option>
+                    <option value="BC카드(주)[760123454]">BC카드(주)[760123454]</option>
+                    <option value="BC카드(주)[760123455]">BC카드(주)[760123455]</option>
+                    <option value="BC카드(주)[760123456]">BC카드(주)[760123456]</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- //store-infor -->
+          </div>
+
+          <div class="full-bg">
+            <div class="feedback-wrap no-data">
+              <p class="title">마이태그 서비스 신청정보가 없습니다</p>
+              <p class="desc">고객님의 가맹점 홍보를 위해 <br><span>#마이태그 서비스</span>를 신청하세요.</p>
+              <div class="_btn-wrap">
+                <button type="button" class="_btn-large-secondary">마이태그 서비스 신청</button>
+              </div>
+            </div>
+          </div>
+          <!-- // -->
+
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

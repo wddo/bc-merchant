@@ -44,7 +44,7 @@ body {
   .page > div {
     width: 100%;
 
-    &:not(.full) {
+    &:not[class^="full"] {
       padding-left: $page-side-lg;
       padding-right: $page-side-lg;
       margin: 0 auto;

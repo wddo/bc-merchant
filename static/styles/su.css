@@ -206,8 +206,10 @@
   flex-basis: 335px;
 }
 
+.store-infor.full {
+  background-color: var(--gray-40);
+}
 .store-infor {
-  background-color: var(--gray-20);
   padding: 40px 0;
 }
 .store-infor > .inner {
@@ -636,4 +638,9 @@
   display: flex;
   justify-content: center;
   margin-top: 32px;
+}
+
+.full-bg {
+  background-color: var(--gray-40);
+  max-width: none;
 }

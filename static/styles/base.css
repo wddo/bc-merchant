@@ -598,8 +598,10 @@ caption {overflow:hidden; position:absolute; width:1px; height:1px; margin:-1px;
 .feedback-wrap::before {content:''; display:block; width:64px; height:64px; margin:0 auto; background:url(../images/common/feedback_check.svg) no-repeat center / 100% auto;}
 .feedback-wrap .title {margin-top:12px; color:var(--gray-900); font-size:24px; font-weight:700; line-height:36px; letter-spacing:-0.96px;}
 .feedback-wrap .desc {margin-top:8px; color:var(--gray-600); font-size:18px; font-weight:400; line-height:27px; letter-spacing:-0.72px;}
-.feedback-wrap .btn-wrap {margin-top:24px;}
+.feedback-wrap .desc span {color: #f70537;}
+.feedback-wrap ._btn-wrap {margin-top:24px;}
 .feedback-wrap .btn-wrap button {display:inline-flex;}
+.feedback-wrap.no-data::before {background:url(../images/common/feedback_nodata.svg) no-repeat center / 100% auto;}
 
 @media screen and (max-width:767px) {
   .feedback-wrap .title {font-size:18px; line-height:27px; letter-spacing:-0.72px;}

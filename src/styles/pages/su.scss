@@ -206,7 +206,9 @@
 }
 
 .store-infor {
-  background-color: $bg-gray-20;
+  &.full {
+    background-color: $bg-gray-40;
+  }
   padding: 40px 0;
   > .inner {
     max-width: $page-max-width;
@@ -517,6 +519,11 @@
     justify-content: center;
     margin-top: 32px;
   }
+}
+
+.full-bg {
+  background-color: $bg-gray-40;
+  max-width: none;
 }
 
 // Tablet
