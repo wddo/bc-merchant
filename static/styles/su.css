@@ -627,3 +627,13 @@
 .writing-stage .stage-item .writing-box .warning-box .btn {
   margin-top: var(--space-16);
 }
+
+.mytag-caution {
+  padding: var(--space-40);
+  margin: var(--space-48) 0 var(--space-40);
+}
+.mytag-caution .check-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}

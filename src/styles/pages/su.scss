@@ -509,11 +509,22 @@
   }
 }
 
+.mytag-caution {
+  padding: var(--space-40);
+  margin: var(--space-48) 0 var(--space-40);
+  .check-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+}
 
-@media screen and (max-width: 1199px) {
+// Tablet
+@include respond-md {
 
 }
 
-@media screen and (max-width: 767px) {
+// Mobile
+@include respond-sm {
   
 }
