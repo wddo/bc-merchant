@@ -510,10 +510,7 @@
       accordionController.init(".accordion");
       if (pbui) {
         if (pbui.tooltip) {
-          pbui.tooltip.init(".tooltip-trigger", {
-            position: "bottom-center",
-            content: `<span>\uD14D\uC2A4\uD2B8</span>`
-          });
+          pbui.tooltip.init(".tooltip-trigger");
         }
         if (pbui.selectmenu) {
           pbui.selectmenu.init(".input-box select");

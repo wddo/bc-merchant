@@ -13,6 +13,12 @@
   --space-56: 56px;
 }
 
+@media screen and (max-width: 767px) {
+  ._font-title-4 {
+    font-size: 16px;
+    letter-spacing: -0.64px;
+  }
+}
 button[class^=_btn] {
   gap: var(--space-4);
 }
@@ -21,6 +27,10 @@ button[class^=_btn] {
   justify-content: flex-start;
 }
 ._btn-wrap.left [class^=_btn]:only-child {
+  flex-basis: auto;
+}
+
+._btn-wrap.fit > [class^=_btn] {
   flex-basis: auto;
 }
 
@@ -67,6 +77,16 @@ button[class^=_btn] {
   background-color: currentColor;
   mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
   -webkit-mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
+}
+
+.ico-chevron-right::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/chevron-right.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/chevron-right.svg") no-repeat center center/contain;
 }
 
 .ico-external-link::after {
@@ -301,7 +321,7 @@ button[class^=_btn] {
   background-color: var(--white);
 }
 .accordion-item:first-child {
-  border-top: 1px solid var(--gray-60);
+  border-top: 1px solid var(--gray-900);
 }
 
 .accordion-header {
@@ -310,6 +330,11 @@ button[class^=_btn] {
   width: 100%;
   padding: var(--space-24) var(--space-32) var(--space-24) 0;
   text-align: left;
+}
+@media (max-width: 767px) {
+  .accordion-header {
+    padding: var(--space-20) var(--space-32) var(--space-20) 0;
+  }
 }
 
 .accordion-btn {
@@ -335,7 +360,7 @@ button[class^=_btn] {
   content: "";
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 0;
   width: 13px;
   height: 2px;
   background-color: var(--gray-900);
@@ -356,11 +381,16 @@ button[class^=_btn] {
 }
 
 .accordion-cont {
-  padding: 0 0 var(--space-24);
+  padding: var(--space-32) var(--space-40) var(--space-40);
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-20);
   background-color: var(--gray-20);
+}
+@media (max-width: 767px) {
+  .accordion-cont {
+    padding: var(--space-24) var(--space-20) var(--space-40);
+  }
 }
 
 html,
@@ -467,14 +497,14 @@ body {
 @media (max-width: 767px) {
   #container .page {
     min-width: 360px;
-    padding-bottom: 0;
+    padding-bottom: 64px;
   }
   #container .page > div:not(.full) {
     padding-left: 20px;
     padding-right: 20px;
   }
-  #container .page > div:not(.full):first-child {
-    margin-top: 0;
+  #container .page > div:not(.full):first-child.title + * {
+    margin-top: 40px;
   }
   #container .page > div:not(.full).title {
     overflow: hidden;

@@ -9,7 +9,6 @@
 }
 .faq .title.full .search-box {
   width: 100%;
-  padding: 0 var(--space-20);
   max-width: 1200px;
 }
 .faq .category {

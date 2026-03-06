@@ -7,7 +7,7 @@
   background-color: $bg-white;
 
   &:first-child {
-    border-top: 1px solid $line-gray-60;
+    border-top: 1px solid $line-gray-900;
   }
 }
 .accordion-header {
@@ -16,6 +16,10 @@
   width: 100%;
   padding: var(--space-24) var(--space-32) var(--space-24) 0;
   text-align: left;
+
+  @include respond-sm {
+    padding: var(--space-20) var(--space-32) var(--space-20) 0;
+  }
 }
 .accordion-btn {
   position: absolute;
@@ -32,7 +36,7 @@
   content: "";
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 0;
   width: 13px;
   height: 2px;
   background-color: $line-gray-900;
@@ -49,9 +53,13 @@
   overflow: hidden;
 }
 .accordion-cont {
-  padding: 0 0 var(--space-24);
+  padding: var(--space-32) var(--space-40) var(--space-40);
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
+  gap: var(--space-20);
   background-color: var(--gray-20);
+
+  @include respond-sm {
+    padding: var(--space-24) var(--space-20) var(--space-40);
+  }
 }
