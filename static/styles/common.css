@@ -17,10 +17,10 @@ button[class^=_btn] {
   gap: var(--space-4);
 }
 
-._btn-wrap {
+._btn-wrap.left {
   justify-content: flex-start;
 }
-._btn-wrap [class^=_btn]:only-child {
+._btn-wrap.left [class^=_btn]:only-child {
   flex-basis: auto;
 }
 
@@ -371,10 +371,6 @@ button[class^=_btn] {
   background-color: var(--gray-20);
 }
 
-.full ._tabs-sub {
-  padding: 0 var(--space-20);
-}
-
 html,
 body {
   height: 100%;
@@ -420,10 +416,10 @@ body {
   width: 100%;
 }
 #container .page > div:not(.full) {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1240px;
 }
 #container .page > div:not(.full):first-child {
   margin-top: 50px;
@@ -431,8 +427,17 @@ body {
 #container .page > div:not(.full).title {
   padding-bottom: 56px;
 }
+#container .page > div.full > * {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1240px;
+}
 #container .page > div.full:first-child {
   margin-top: 0;
+}
+#container .page > div.full.title {
+  text-align: center;
 }
 
 #footer {
@@ -462,6 +467,10 @@ body {
   #container .page > div:not(.full).title {
     padding-bottom: 56px;
   }
+  #container .page > div.full > * {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 @media (max-width: 767px) {
   #container .page {
@@ -482,6 +491,10 @@ body {
     height: 1px;
     margin: -1px !important;
     clip: rect(0 0 0 0);
+  }
+  #container .page > div.full > * {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 .dimmed {
