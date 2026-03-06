@@ -24,7 +24,7 @@ button[class^="_btn"] {
 }
 
 // button - left aligned
-._btn-wrap {
+._btn-wrap.left {
   justify-content: flex-start;
 
   [class^="_btn"]:only-child {
