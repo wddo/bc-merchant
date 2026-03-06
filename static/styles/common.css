@@ -99,6 +99,16 @@ button[class^=_btn] {
   -webkit-mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
 }
 
+.ico-edit::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/edit.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/edit.svg") no-repeat center center/contain;
+}
+
 .list-noti {
   list-style: none;
   padding-left: 0;

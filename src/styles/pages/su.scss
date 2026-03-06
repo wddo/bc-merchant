@@ -524,6 +524,41 @@
 .full-bg {
   background-color: $bg-gray-40;
   max-width: none !important;
+  .contents {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.cardtype {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  padding: var(--space-48) 0;
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    background-color: $bg-white;
+    border-radius: var(--radius-24);
+    padding: var(--space-24);
+    .top-area {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .date {
+        @include font-token($font-body-2);
+        color: $text-quaternary;
+      }
+    }
+    .middle-area {
+      .text {
+        @include font-token($font-body-1-medi);
+        color: $text-secondary;
+        margin-top: 6px;
+      }
+    }
+  }
 }
 
 // Tablet
