@@ -642,5 +642,5 @@
 
 .full-bg {
   background-color: var(--gray-40);
-  max-width: none;
+  max-width: none !important;
 }
