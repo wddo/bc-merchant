@@ -308,6 +308,10 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 [class^="_ipt-check-box"] input:disabled + i::after {background:url(../images/common/check-sub-disabled.svg) no-repeat center/100%;}
 [class^="_ipt-check-box"] input:checked:disabled + i::after {background:url(../images/common/check-sub-disabled-selected.svg) no-repeat center/100%;}
 
+@media screen and (max-width:767px) {
+  [class^="_ipt-check-main"] {font-size:14px; letter-spacing:-0.56px;}
+}
+
 /* radio */
 [class^="_ipt-radio-main"] {position:relative; display:-webkit-inline-box; display:-ms-inline-flexbox; display:inline-flex; cursor:pointer;}
 [class^="_ipt-radio-main"] input {position:absolute; width:100%; height:100%; margin:0;-webkit-appearance:none; -moz-appearance:none; appearance:none; z-index:-1;}
