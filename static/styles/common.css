@@ -55,6 +55,7 @@ button[class^=_btn] {
   width: 1px;
   height: 1px;
   margin: -1px !important;
+  padding: 0;
   clip: rect(0 0 0 0);
 }
 
@@ -325,6 +326,7 @@ button[class^=_btn] {
   width: 1px;
   height: 1px;
   margin: -1px !important;
+  padding: 0;
   clip: rect(0 0 0 0);
 }
 
@@ -480,6 +482,7 @@ body {
     width: 1px;
     height: 1px;
     margin: -1px !important;
+    padding: 0;
     clip: rect(0 0 0 0);
   }
   #container .page > div.full > * {
