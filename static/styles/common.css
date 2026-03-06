@@ -403,6 +403,11 @@ button[class^=_btn] {
   width: 100%;
 }
 
+@media (max-width: 1023px) {
+  .tab-wrapper {
+    top: 56px;
+  }
+}
 html,
 body {
   height: 100%;
