@@ -29,10 +29,7 @@ export let device = null;
 
     if (pbui) {
       if (pbui.tooltip) {
-        pbui.tooltip.init(".tooltip-trigger", {
-          position: "bottom-center",
-          content: `<span>텍스트</span>`,
-        });
+        pbui.tooltip.init(".tooltip-trigger");
       }
 
       if (pbui.selectmenu) {

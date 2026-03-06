@@ -143,7 +143,10 @@ body {
         padding-right: $page-side-sm;
 
         &:first-child {
-          margin-top: $page-top-sm;
+          // 타이틀은 숨겨지므로 그 다음 요소가 상단 여백을 가지도록 설정
+          &.title + * {
+            margin-top: $page-top-sm;
+          }
         }
 
         &.title {

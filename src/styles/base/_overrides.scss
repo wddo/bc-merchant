@@ -18,6 +18,14 @@
   --space-56: 56px;
 }
 
+// typegraphy tokens
+@media screen and (max-width: 767px) {
+  ._font-title-4 {
+    font-size: 16px;
+    letter-spacing: -0.64px;
+  }
+}
+
 // button - child spacing
 button[class^="_btn"] {
   gap: var(--space-4);
@@ -36,6 +44,13 @@ button[class^="_btn"] {
 // button - right aligned
 ._btn-wrap.right {
   justify-content: flex-end;
+}
+
+// button - fit content
+._btn-wrap.fit {
+  > [class^="_btn"] {
+    flex-basis: auto;
+  }
 }
 
 // table - top left
