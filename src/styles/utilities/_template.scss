@@ -21,7 +21,7 @@
 }
 
 // Pseudo-Class Icon
-$icon-class-list: (download, external-link);
+$icon-class-list: (download, external-link, edit);
 
 @each $icon-name in $icon-class-list {
   .ico-#{$icon-name}::after {
