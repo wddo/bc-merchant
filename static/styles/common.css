@@ -254,7 +254,7 @@ button[class^=_btn] {
   left: 0;
   content: "*";
   top: 0.81em;
-  font-size: 9px;
+  font-size: 1em;
   transform: translateY(-50%);
 }
 .list-ref > li > ul[class^=list-]:first-child {
@@ -306,7 +306,7 @@ button[class^=_btn] {
   left: 0;
   content: "-";
   top: 0.69em;
-  font-size: 9px;
+  font-size: 1em;
   transform: translateY(-50%);
 }
 .list-dash > li > ul[class^=list-]:first-child {
