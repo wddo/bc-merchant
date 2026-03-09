@@ -55,6 +55,14 @@ button[class^="_btn"] {
   }
 }
 
+// clips
+[class^="_chip-box"] input + i {
+  min-width: 78px;
+}
+[class^="_chip-box"][class*="-small"] input + i {
+  min-width: 62px;
+}
+
 // tooltip
 .tooltip-trigger {
   @include icon("info", 16px);

@@ -40,6 +40,14 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
+[class^=_chip-box] input + i {
+  min-width: 78px;
+}
+
+[class^=_chip-box][class*=-small] input + i {
+  min-width: 62px;
+}
+
 .tooltip-trigger {
   width: 16px;
   height: 16px;
