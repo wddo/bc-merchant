@@ -29,9 +29,6 @@
 .step-body {
   width: 100%;
 }
-.step-body .list-noti li {
-  color: var(--gray-500);
-}
 
 .accordion {
   margin-top: 40px;
