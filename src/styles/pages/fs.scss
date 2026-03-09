@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+.merchant-loan-service {
+  background-color: #fff2f6;
+}
+
+// Tablet
+@include respond-md {
+  
+}
+
+// Mobile
+@include respond-sm {
+  
+}
