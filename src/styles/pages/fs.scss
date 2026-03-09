@@ -17,6 +17,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
+  padding-bottom: var(--space-32);
+  margin-bottom: var(--space-48);
+  border-bottom: 1px solid $line-gray-60;
   .guide-item {
     width: 100%;
     .inner {
@@ -27,23 +30,24 @@
         ._font-title-2 {
           > span {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: var(--space-8);
             @include font-token($font-body-0-medi);
             color: $text-quaternary;
           }
         }
         .loan-infor {
-          gap: var(--space-20);
           margin-top: var(--space-56);
-          dt {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-20);
+          .item {
+            gap: var(--space-4);
+          }
+          .title {
             @include font-token($font-body-1-medi);
             color: $text-primary;
-            margin-top: var(--space-20);
-            &:first-child {
-              margin-top: 0;
-            }
           }
-          dd {
+          ._font-title-4 {
             color: var(--point-600);
           }
         }
@@ -74,8 +78,8 @@
             width: 292px;
             height: 180px;
             background-repeat: no-repeat;
-            background-position: 0 0;
-            background-size: 100% auto;
+            background-position: 50% 50%;
+            background-size: auto 100%;
           }
           &:nth-child(1) {
             &::after {
@@ -117,6 +121,7 @@
           }
           .text-right {
             @include font-token($font-body-1);
+            margin-bottom: var(--space-24);
             text-align: right;
             margin-top: var(--space-12);
             color: $text-quaternary;
@@ -127,12 +132,124 @@
   }
 }
 
+.popup-content {
+  .text-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    > .item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      .title {
+        @include font-token($font-body-0-semi);
+        color: $text-secondary;
+      }
+      .text {
+        @include font-token($font-body-1);
+        color: $text-secondary;
+      }
+    }
+  }
+  .qr-img {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .list-noti {
+    gap: var(--space-8);
+  }
+  .warning-box {
+    .list-noti {
+      margin-top: 0;
+    }
+  }
+}
+
 // Tablet
 @include respond-md {
+  .merchant-loan-guide {
+    gap: var(--space-40);
+    .guide-item {
+      .inner {
+        flex-direction: column;
+        gap: var(--space-24);
+        > .text-area {
+          ._font-title-2 {
+            > span {
+              margin-bottom: var(--space-4);
+            }
+          }
+
+          .loan-infor {
+            margin-top: var(--space-16);
+            gap: var(--space-8);
+            .item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+          }
+        }
+        .item-wrap {
+          flex-basis: auto;
+          max-width: none;
+          gap: var(--space-12);
+          .item {
+            padding: var(--space-24);
+            > .text-area {
+              gap: var(--space-4);
+            }
+            &::after {
+              content: '';
+              display: block;
+              margin: var(--space-40) 0 0 auto;
+              width: 120px;
+              height: 120px;
+            }
+          }
+          
+          .bg-item {
+            padding: var(--space-24);
+          }
+        }
+      }
+    }
+  }
   
 }
 
 // Mobile
 @include respond-sm {
-  
+  .merchant-loan-guide {
+    padding-bottom: var(--space-40);
+    margin-bottom: var(--space-40);
+    .guide-item {
+      .inner {
+        .item-wrap {
+          .bg-item {
+            margin-top: -8px;
+            ._table {
+              > table {
+                min-width: 560px;
+              }
+            }
+            ._btn-wrap {
+              flex-wrap: wrap;
+              justify-content: flex-start;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .popup-content {
+    .qr-img {
+      margin-bottom: var(--space-8);
+    }
+    .list-noti {
+      gap: var(--space-6);
+    }
+  }
 }
+
