@@ -248,7 +248,13 @@
               e.currentTarget.dataText ? e.currentTarget.dataText.show(2) : null;
               method.open(elId);
             }
-          } else if (el.openType === "single" && btnArrow === "false") {
+          } else if (el.openType === "single") {
+            if (btnArrow === "true") {
+              e.currentTarget.setAttribute("aria-expanded", "false");
+              e.currentTarget.dataText ? e.currentTarget.dataText.show(1) : null;
+              method.close(elId);
+              return;
+            }
             const accSingleEl = el.target.querySelectorAll(selector.accItem);
             const thisItem = e.currentTarget.closest(selector.accItem);
             [...accSingleEl].forEach((element) => {
@@ -344,6 +350,14 @@
         close: (elId) => {
           const activePanelElement = el.target.querySelector("#" + elId);
           if (!activePanelElement) {
+            return;
+          }
+          const isAlreadyClosed = activePanelElement.getAttribute("aria-hidden") === "true" && (activePanelElement.style.height === "0px" || activePanelElement.offsetHeight === 0);
+          if (isAlreadyClosed) {
+            util.clearTransition(activePanelElement);
+            activePanelElement.style.overflow = "hidden";
+            activePanelElement.style.height = "0px";
+            activePanelElement.setAttribute("aria-hidden", "true");
             return;
           }
           activePanelElement.style.overflow = "hidden";

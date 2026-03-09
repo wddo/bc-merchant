@@ -181,8 +181,17 @@ const pbui = (function () {
         },
 
         resize: (e) => {
-          if (isTooltipType)
-            el.$popup.is(":visible") && el.$popup.css(method.getPosition());
+          if (isTooltipType) {
+            if (el.$popup.is(":visible")) {
+              el.$popup.css(method.getPosition());
+               
+              if (pbut.getDeviceType() === "mobile") {
+                pbut.scrollLock();
+              } else {
+                pbut.scrollUnLock();
+              }
+            }
+          }
         },
       };
 
@@ -208,7 +217,7 @@ const pbui = (function () {
           this.state = Popup.STATE_OPEN;
 
           if (isTooltipType)
-            el.$popup.css({ left: 0, top: $(window).scrollTop() + "px" });
+            el.$popup.css({ left: 0, top: $(window).scrollTop() + "px" });
 
           method.show();
           el.$popup.focus();
@@ -217,6 +226,7 @@ const pbui = (function () {
             el.$popup.css(method.getPosition());
             if (pbut.getDeviceType() === "mobile") {
               layerStack.push(this);
+              pbut.scrollLock();
             }
 
             // el.$popup
