@@ -5,15 +5,8 @@
   background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
 }
 .mytag-service .visual-item .bg-text {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.72px;
   background-color: var(--white);
-  border-radius: var(--radius-4);
   color: var(--red-800);
-  padding: 0 var(--space-4);
-  min-height: 27px;
 }
 
 .mytag-guide {

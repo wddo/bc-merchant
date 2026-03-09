@@ -1,7 +1,95 @@
 @use "../abstracts" as *;
 
 .merchant-loan-service {
-  background-color: #fff2f6;
+  background-color: #ededff;
+  .visual-item {
+    &::after {
+      background: url(#{$img_url}/fs/bg_visual_merchantloan.png) no-repeat 0 0 / auto 100%;
+    }
+    .bg-text {
+      background-color: $bg-white;
+      color: var(--point-800);
+    }
+  }
+}
+
+.merchant-loan-guide {
+  .guide-item {
+    .inner {
+      display: flex;
+      gap: var(--space-48);
+      > .text-area {
+        ._font-title-2 {
+          > span {
+            display: block;
+            margin-bottom: 8px;
+            @include font-token($font-body-0-medi);
+            color: $text-quaternary;
+          }
+        }
+        .loan-infor {
+          gap: var(--space-20);
+          margin-top: var(--space-56);
+          dt {
+            @include font-token($font-body-1-medi);
+            color: $text-primary;
+            margin-top: var(--space-20);
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+          dd {
+            color: var(--point-600);
+          }
+        }
+      }
+      .item-wrap {
+        display: flex;
+        flex-basis: 832px;
+        flex-direction: column;
+        gap: var(--space-16);
+        .item {
+          background-color: $bg-gray-20;
+          border-radius: var(--radius-16);
+          padding: var(--space-48);
+          > .text-area {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+            .point-text {
+              @include font-token($font-body-0-semi);
+              color: var(--red-700);
+            }
+          }
+          &::after {
+            content: '';
+            display: block;
+            margin: var(--space-24) 0 0 auto;
+            width: 292px;
+            height: 180px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 100% auto;
+          }
+          &:nth-child(1) {
+            &::after {
+              background-image: url(#{$img_url}/fs/img_merchantloan01.png);
+            }
+          }
+          &:nth-child(2) {
+            &::after {
+              background-image: url(#{$img_url}/fs/img_merchantloan02.png);
+            }
+          }
+          &:nth-child(3) {
+            &::after {
+              background-image: url(#{$img_url}/fs/img_merchantloan03.png);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // Tablet

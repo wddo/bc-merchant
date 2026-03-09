@@ -7,13 +7,8 @@
       background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
     }
     .bg-text {
-      display: inline-block;
-      @include font-token($font-body-0-medi);
       background-color: $bg-white;
-      border-radius: var(--radius-4);
       color: $text-warning;
-      padding: 0 var(--space-4);
-      min-height: 27px;
     }
   }
 }

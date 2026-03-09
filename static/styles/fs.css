@@ -1,3 +1,90 @@
 .merchant-loan-service {
-  background-color: #fff2f6;
+  background-color: #ededff;
+}
+.merchant-loan-service .visual-item::after {
+  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
+}
+.merchant-loan-service .visual-item .bg-text {
+  background-color: var(--white);
+  color: var(--point-800);
+}
+
+.merchant-loan-guide .guide-item .inner {
+  display: flex;
+  gap: var(--space-48);
+}
+.merchant-loan-guide .guide-item .inner > .text-area ._font-title-2 > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+  color: var(--gray-500);
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor {
+  gap: var(--space-20);
+  margin-top: var(--space-56);
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+  color: var(--gray-900);
+  margin-top: var(--space-20);
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt:first-child {
+  margin-top: 0;
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dd {
+  color: var(--point-600);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap {
+  display: flex;
+  flex-basis: 832px;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item {
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+  padding: var(--space-48);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area .point-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
+  color: var(--red-700);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item::after {
+  content: "";
+  display: block;
+  margin: var(--space-24) 0 0 auto;
+  width: 292px;
+  height: 180px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% auto;
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(1)::after {
+  background-image: url(/static/images/fs/img_merchantloan01.png);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(2)::after {
+  background-image: url(/static/images/fs/img_merchantloan02.png);
+}
+.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(3)::after {
+  background-image: url(/static/images/fs/img_merchantloan03.png);
 }
