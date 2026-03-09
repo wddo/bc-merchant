@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --space-2: 2px;
   --space-4: 4px;
@@ -342,19 +343,77 @@ button[class^=_btn] {
   font-weight: 400;
 }
 
+.list-ast {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.list-ast > li {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .list-ast > li {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 767px) {
+  .list-ast > li {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .list-ast > li {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.list-ast > li {
+  position: relative;
+  color: inherit;
+  display: block;
+  padding-left: var(--space-12);
+}
+.list-ast > li::before {
+  position: absolute;
+  left: 0;
+  content: "※";
+  top: 0.03em;
+  font-size: 1em;
+}
+.list-ast > li > ul[class^=list-]:first-child {
+  margin-top: var(--space-4);
+}
+.list-ast strong {
+  color: var(--red-800);
+  font-weight: 400;
+}
+
 .list-dash > li > [class^=list-],
 .list-ref > li > [class^=list-],
-.list-noti > li > [class^=list-] {
+.list-noti > li > [class^=list-],
+.list-ast > li > [class^=list-] {
   gap: 6px;
 }
 .list-dash > li > [class^=list-]:first-child,
 .list-ref > li > [class^=list-]:first-child,
-.list-noti > li > [class^=list-]:first-child {
+.list-noti > li > [class^=list-]:first-child,
+.list-ast > li > [class^=list-]:first-child {
   margin-top: 4px;
 }
 .list-dash .text-point600,
 .list-ref .text-point600,
-.list-noti .text-point600 {
+.list-noti .text-point600,
+.list-ast .text-point600 {
   color: var(--point-600);
 }
 

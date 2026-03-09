@@ -97,6 +97,30 @@
           background-color: $bg-gray-20;
           border-radius: var(--radius-16);
           padding: var(--space-48);
+          .list-noti {
+            gap: var(--space-6);
+          }
+          .list-ast {
+            gap: var(--space-6);
+            margin-top: var(--space-16);
+            > li {
+              color: var(--point-600);
+            }
+            + .list-noti {
+              margin-top: var(--space-6);
+            }
+          }
+          .list-noti {
+            > .underline {
+              text-decoration: underline;
+            }
+          }
+          .text-right {
+            @include font-token($font-body-1);
+            text-align: right;
+            margin-top: var(--space-12);
+            color: $text-quaternary;
+          }
         }
       }
     }

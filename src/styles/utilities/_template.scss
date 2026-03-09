@@ -44,9 +44,14 @@ $icon-class-list: (download, chevron-right, external-link, edit);
   @include bullet-list($type: dash);
 }
 
+.list-ast {
+  @include bullet-list($type: asterisk);
+}
+
 .list-dash,
 .list-ref,
-.list-noti {
+.list-noti,
+.list-ast {
   > li > [class^="list-"] {
     gap: 6px;
 
