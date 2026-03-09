@@ -1,43 +1,47 @@
 @use "../abstracts" as *;
 
-.visual-item {
+.visual-wrap {
   position: relative;
   margin: 0 0 var(--space-56);
-  background-color: #fff2f6;
-  .mytag-service {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    max-width: $page-max-width;
-    margin: 0 auto;
-    .bg-text {
-      display: inline-block;
-      @include font-token($font-body-0-medi);
-      background-color: $bg-white;
-      border-radius: var(--radius-4);
-      color: $text-warning;
-      padding: 0 var(--space-4);
-      min-height: 27px;
-    }
-    ._font-title-1 {
-      margin: var(--space-12) 0 0;
-      color: $text-primary;
-    }
-    .text {
-      @include font-token($font-body-0-medi);
-      color: $text-tertiary;
-      margin: var(--space-20) 0 0;
-    }    
-    &::after {
-      content: '';
-      display: block;
-      width: 600px;
-      height: 320px;
-      background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
-    }
-  }  
 }
+
+.mytag-service {
+  background-color: #fff2f6;
+}
+
+.visual-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  max-width: $page-max-width;
+  margin: 0 auto;
+  .bg-text {
+    display: inline-block;
+    @include font-token($font-body-0-medi);
+    background-color: $bg-white;
+    border-radius: var(--radius-4);
+    color: $text-warning;
+    padding: 0 var(--space-4);
+    min-height: 27px;
+  }
+  ._font-title-1 {
+    margin: var(--space-12) 0 0;
+    color: $text-primary;
+  }
+  .text {
+    @include font-token($font-body-0-medi);
+    color: $text-tertiary;
+    margin: var(--space-20) 0 0;
+  }    
+  &::after {
+    content: '';
+    display: block;
+    width: 600px;
+    height: 320px;
+    background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
+  }
+}  
 
 .mytag-guide {
   display: flex;
@@ -750,16 +754,16 @@
 
 // Tablet
 @include respond-md {
-  .visual-item {
+  .visual-wrap {
     padding: var(--space-40) 0;
-    .mytag-service {
-      &::after {
-        width: 320px;
-        height: 160px;
-        background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
-      }
-    }  
   }
+  .visual-item {
+    &::after {
+      width: 320px;
+      height: 160px;
+      background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
+    }
+  }  
 
   .mytag-guide {
     gap: var(--space-40);
@@ -890,15 +894,17 @@
 
 // Mobile
 @include respond-sm {
-  .visual-item {
+  .visual-wrap {
+    margin: 0 0 var(--space-40);
     padding: 32px 0;
-    .mytag-service {   
-      flex-direction: column;
-      gap: var(--space-24);
-      .text {
-        br {
-          display: none;
-        }
+  }
+
+  .visual-item {   
+    flex-direction: column;
+    gap: var(--space-24);
+    .text {
+      br {
+        display: none;
       }
     }
   }
