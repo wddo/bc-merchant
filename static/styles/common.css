@@ -68,22 +68,6 @@ button[class^=_btn] {
   text-align: left;
   vertical-align: top;
 }
-@media (max-width: 767px) {
-  ._table.tb-tl th,
-  ._table.tb-tl td {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  ._table.tb-tl th,
-  ._table.tb-tl td {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
 ._table.tb-tl th {
   padding: var(--space-12) var(--space-20);
 }
@@ -181,32 +165,6 @@ button[class^=_btn] {
   gap: var(--space-12);
 }
 .list-noti > li {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .list-noti > li {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-@media (max-width: 767px) {
-  .list-noti > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .list-noti > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-.list-noti > li {
   position: relative;
   color: inherit;
   display: block;
@@ -240,32 +198,6 @@ button[class^=_btn] {
   gap: var(--space-12);
 }
 .list-ref > li {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .list-ref > li {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-@media (max-width: 767px) {
-  .list-ref > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .list-ref > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-.list-ref > li {
   position: relative;
   color: inherit;
   display: block;
@@ -296,32 +228,6 @@ button[class^=_btn] {
   gap: var(--space-12);
 }
 .list-dash > li {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .list-dash > li {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-@media (max-width: 767px) {
-  .list-dash > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .list-dash > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-.list-dash > li {
   position: relative;
   color: inherit;
   display: block;
@@ -350,32 +256,6 @@ button[class^=_btn] {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
-}
-.list-ast > li {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .list-ast > li {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-@media (max-width: 767px) {
-  .list-ast > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .list-ast > li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
 }
 .list-ast > li {
   position: relative;
@@ -438,20 +318,9 @@ button[class^=_btn] {
   display: flex;
   align-items: center;
   color: var(--gray-600);
-}
-@media (max-width: 767px) {
-  .warning-box .warning-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .warning-box .warning-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
+  /* @include respond-sm {
+    @include font-token($font-body-2-semi);
+  } */
 }
 .warning-box .warning-title::before {
   content: "";
@@ -483,20 +352,6 @@ button[class^=_btn] {
 }
 .warning-box .list-noti li {
   color: var(--gray-600);
-}
-@media (max-width: 767px) {
-  .warning-box .list-noti li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .warning-box .list-noti li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
 }
 .warning-box .list-noti li::before {
   width: 3px;

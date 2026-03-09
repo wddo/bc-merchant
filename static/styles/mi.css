@@ -165,27 +165,11 @@
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .pg-url,
-  .merchant-guide .pg-tel {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .merchant-guide .pg-url,
-  .merchant-guide .pg-tel {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media (max-width: 767px) {
   ._table > table {
     min-width: 500px;
   }
   ._table > table colgroup col:nth-child(1) {
-    width: 66px;
+    width: 68px;
   }
   .step-num {
     position: absolute;
