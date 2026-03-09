@@ -978,7 +978,7 @@
 
 @media (max-width: 1023px) {
   .visual-item::after {
-    width: 320px;
+    width: 300px;
     height: 140px;
     background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
   }
