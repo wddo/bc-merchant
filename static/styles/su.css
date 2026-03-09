@@ -710,7 +710,7 @@
 }
 
 .progress-status .warning-box {
-  margin-top: 32px;
+  margin-top: var(--space-32);
 }
 
 .popup-content .round-item {
@@ -1227,5 +1227,79 @@
     width: 1px;
     height: 32px;
     background-color: var(--gray-60);
+  }
+  .progress-status .warning-box {
+    margin-top: var(--space-20);
+  }
+  .popup-content .round-item {
+    flex-wrap: wrap;
+  }
+  .popup-content .round-item > .item {
+    max-width: calc(50% - 4px);
+    min-width: calc(50% - 4px);
+  }
+  .popup-content .box-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+    padding: var(--space-24) var(--space-16);
+  }
+  .popup-content .box-item > * {
+    flex: 1;
+  }
+  .popup-content .box-item .round-box {
+    width: 100%;
+  }
+  .popup-content .box-item .data-wrap {
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .popup-content .box-item .data-wrap > .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 10px 0;
+  }
+  .popup-content .box-item .data-wrap > .item .title {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+    color: var(--gray-500);
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .popup-content .box-item .data-wrap > .item .title {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+}
+@media (max-width: 767px) {
+  .popup-content .box-item .data-wrap > .item .data {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.72px;
+    color: var(--gray-900);
+  }
+  .popup-content .box-item .data-wrap > .item .data em {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+    margin-left: 2px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .popup-content .box-item .data-wrap > .item .data em {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 767px) {
+  .popup-content .box-item .data-wrap .item + .item {
+    border-top: 1px solid var(--gray-60);
   }
 }

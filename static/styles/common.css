@@ -13,6 +13,10 @@
   --space-56: 56px;
 }
 
+.ui-selectmenu-menu {
+  max-width: 100%;
+}
+
 @media screen and (max-width: 767px) {
   ._font-title-4 {
     font-size: 16px;
