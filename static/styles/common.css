@@ -11,6 +11,8 @@
   --space-40: 40px;
   --space-48: 48px;
   --space-56: 56px;
+  --space-64: 64px;
+  --space-100: 100px;
 }
 
 .ui-selectmenu-menu {
@@ -192,7 +194,7 @@ button[class^=_btn] {
 }
 .list-noti > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -203,7 +205,7 @@ button[class^=_btn] {
   top: 0.69em;
   width: 3px;
   height: 3px;
-  background-color: var(--gray-600);
+  background-color: currentColor;
   border-radius: 100%;
   transform: translateY(-50%);
 }
@@ -247,7 +249,7 @@ button[class^=_btn] {
 }
 .list-ref > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -256,7 +258,7 @@ button[class^=_btn] {
   left: 0;
   content: "*";
   top: 0.81em;
-  font-size: 9px;
+  font-size: 1em;
   transform: translateY(-50%);
 }
 .list-ref > li > ul[class^=list-]:first-child {
@@ -299,7 +301,7 @@ button[class^=_btn] {
 }
 .list-dash > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -308,7 +310,7 @@ button[class^=_btn] {
   left: 0;
   content: "-";
   top: 0.69em;
-  font-size: 9px;
+  font-size: 1em;
   transform: translateY(-50%);
 }
 .list-dash > li > ul[class^=list-]:first-child {
@@ -365,10 +367,14 @@ button[class^=_btn] {
 .warning-box .warning-title::before {
   content: "";
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   margin: 2px 4px 2px 2px;
   background: url(/static/images/icons/alert-circle.svg) no-repeat center center/contain;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2em;
+  font-size: 1em;
 }
 .warning-box .list-noti {
   margin-top: var(--space-12);
@@ -508,11 +514,24 @@ button[class^=_btn] {
 }
 
 .accordion-cont {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .accordion-cont {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.accordion-cont {
   padding: var(--space-32) var(--space-40) var(--space-40);
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
   background-color: var(--gray-20);
+  color: var(--gray-600);
 }
 @media (max-width: 767px) {
   .accordion-cont {

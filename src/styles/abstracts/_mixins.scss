@@ -34,7 +34,7 @@
     contain;
 }
 
-@mixin bullet-list($type: dot, $color: $text-tertiary) {
+@mixin bullet-list($type: dot, $color: inherit) {
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -61,19 +61,19 @@
       @if $type == star {
         content: "*";
         top: 0.81em;
-        font-size: 9px;
+        font-size: 1em;
         transform: translateY(-50%);
       } @else if $type == dash {
         content: "-";
         top: 0.69em;
-        font-size: 9px;
+        font-size: 1em;
         transform: translateY(-50%);
       } @else {
         content: "";
         top: 0.69em;
         width: 3px;
         height: 3px;
-        background-color: $color;
+        background-color: currentColor;
         border-radius: 100%;
         transform: translateY(-50%);
       }

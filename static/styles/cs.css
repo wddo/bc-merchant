@@ -99,7 +99,16 @@
   right: 54px;
 }
 .faq .contents .accordion-cont {
-  padding: var(--space-20) 0 var(--space-40) 260px;
+  padding: var(--space-20) var(--space-20) var(--space-40) 260px;
+}
+.faq .contents .accordion-cont .is-warning {
+  color: var(--red-800);
+}
+.faq .contents .accordion-cont .is-warning::before {
+  background-color: var(--red-800);
+}
+.faq .contents .accordion-cont .is-warning [class^=list-] > li {
+  color: inherit;
 }
 @media (max-width: 767px) {
   .faq .contents .accordion-header {

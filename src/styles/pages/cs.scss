@@ -84,7 +84,19 @@
     }
 
     .accordion-cont {
-      padding: var(--space-20) 0 var(--space-40) 260px;
+      padding: var(--space-20) var(--space-20) var(--space-40) 260px;
+
+      .is-warning {
+        color: $text-warning;
+
+        &::before {
+          background-color: $text-warning;
+        }
+
+        [class^="list-"] > li {
+          color: inherit;
+        }
+      }
     }
 
     @include respond-sm {

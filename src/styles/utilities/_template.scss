@@ -74,11 +74,15 @@ $icon-class-list: (download, chevron-right, external-link, edit);
     &::before {
       content: "";
       display: block;
-      width: 16px;
-      height: 16px;
+      width: 1em;
+      height: 1em;
       margin: 2px 4px 2px 2px;
       background: url(#{$icon_url}/alert-circle.svg) no-repeat center center /
         contain;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 0.2em;
+      font-size: 1em;
     }
   }
 
