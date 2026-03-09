@@ -20,6 +20,10 @@
   --space-100: 100px;
 }
 
+.ui-selectmenu-menu {
+  max-width: 100%;
+}
+
 // typegraphy tokens
 @media screen and (max-width: 767px) {
   ._font-title-4 {

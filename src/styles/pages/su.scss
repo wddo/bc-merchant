@@ -184,7 +184,7 @@
     display: block;
     @include font-token($font-body-2-medi);
     color: $text-secondary;    
-    margin-bottom: 8px;
+    margin-bottom: var(--space-8);
   }
   .store-data {
     display: flex;
@@ -322,7 +322,7 @@
           .add-field {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-8);
             padding: var(--space-12);
             margin-top: 10px; 
             background-color: $bg-gray-20; 
@@ -339,13 +339,13 @@
           .date-area {
             .date-wrap {
               display: flex;
-              gap: 8px;
+              gap: var(--space-8);
             }
             .date-inner {
               flex: 1;
               display: flex;
               flex-direction: column;
-              gap: 8px;
+              gap: var(--space-8);
               > * {
                 flex: 1;
               }
@@ -353,7 +353,7 @@
           }
           .input-wrap {
             display: flex;
-            gap: 8px;
+            gap: var(--space-8);
             > * {
               flex: 1;
             }
@@ -361,7 +361,7 @@
           .dropdown-wrap {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: var(--space-8);
           }
           .label-title {
             @include font-token($font-body-2-medi);
@@ -370,7 +370,7 @@
           .input-box-wrap {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: var(--space-8);
           }
           .count-wrap {
             .count-title {
@@ -384,7 +384,7 @@
           > .inner {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: var(--space-8);
           }
           .business-day {
             > .day-box {
@@ -394,7 +394,7 @@
               background-color: $bg-gray-20;
               border: 1px solid $line-gray-60;
               border-radius: var(--radius-12);
-              margin-top: 8px;     
+              margin-top: var(--space-8);
               > * {
                 flex: 1;
               }
@@ -549,10 +549,10 @@
       .data-wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 8px var(--space-20);
+        gap: var(--space-8) var(--space-20);
         background-color: $bg-gray-20;
         padding: var(--space-20);
-        margin: var(--space-24) 0 8px;
+        margin: var(--space-24) 0 var(--space-8);
         .data-infor {
           display: flex;
           justify-content: space-between;
@@ -573,7 +573,7 @@
 
 .progress-status {
   .warning-box {
-    margin-top: 32px;
+    margin-top: var(--space-32);
   }
 }
 
@@ -581,7 +581,7 @@
   .round-item {
     display: flex;
     justify-content: space-between;    
-    gap: 8px;
+    gap: var(--space-8);
     > .item {
       flex: 1;
       display: flex;
@@ -739,14 +739,14 @@
       }
       .item-wrap {
         grid-template-columns: none;
-        gap: 8px;
+        gap: var(--space-8);
         flex-basis: auto;
         .item {
           flex-direction: row;
           gap: 0 var(--space-20);
           padding: var(--space-20);
           .text-area {
-            gap: 8px 0;
+            gap: var(--space-8) 0;
           }
           &::after {
             width: 40px;
@@ -797,7 +797,7 @@
   .store-infor {
     .store-data {
       flex-direction: column;
-      gap: 8px; 
+      gap: var(--space-8); 
       .item {
         flex-direction: row;
         align-items: center;
@@ -950,7 +950,7 @@
             }
             .count-wrap {
               .count-title {
-                margin-bottom: 8px;
+                margin-bottom: var(--space-8);
                 .count {
                   margin-bottom: -4px;
                 }
@@ -960,7 +960,7 @@
             .business-day {
               > .day-box {
                 flex-wrap: wrap;                
-                border-radius: 8px;
+                border-radius: var(--radius-8);
                 > * {
                   min-width: 45px;
                   max-width: 45px;
@@ -984,7 +984,7 @@
         .customers-number {
           margin-top: var(--space-24);
           padding: var(--space-16);
-          gap: 8px;
+          gap: var(--space-8);
           .data-area {
             flex-direction: column;
             align-items: flex-start;
@@ -1022,7 +1022,7 @@
       .middle-area {
         .data-wrap {
           grid-template-columns: auto;
-          gap: 8px;
+          gap: var(--space-8);
           margin: var(--space-24) 0 var(--space-12);
         }
       }
@@ -1074,6 +1074,80 @@
             height: 32px;
             background-color: $line-gray-60;
           }
+        }
+      }
+    }
+  }
+
+  .progress-status {
+    .warning-box {
+      margin-top: var(--space-20);
+    }
+  }
+
+  .popup-content {  
+    .round-item {
+      flex-wrap: wrap;
+      > .item {
+        max-width: calc(50% - 4px);
+        min-width: calc(50% - 4px);
+      }
+    }
+    .box-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-16);
+      padding: var(--space-24) var(--space-16);
+      > * {
+        flex: 1;
+      }
+      .round-box {
+        width: 100%;
+      }
+      .data-wrap {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: var(--space-24);
+        > .item {
+          flex: 1;
+          flex-direction: column;
+          align-items:inherit;
+          gap: var(--space-6);
+          padding: 0 var(--space-12);
+          text-align: center;
+          .title {
+            @include font-token($font-body-2-medi);
+            color: $text-quaternary;          
+          }
+          .data {
+            margin-left: auto;
+          }
+        }
+        .item + .item {
+          position: relative;
+          border-top: 0;
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 32px;
+            background-color: $line-gray-60;
+
+          }
+        }
+      }
+    }
+    &.view {
+      .round-item {
+        flex-direction: column;
+        > .item {
+          min-width: 100%;
+          max-width: 100%;          
         }
       }
     }
