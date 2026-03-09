@@ -59,6 +59,14 @@ button[class^="_btn"] {
   }
 }
 
+// clips
+[class^="_chip-box"] input + i {
+  min-width: 78px;
+}
+[class^="_chip-box"][class*="-small"] input + i {
+  min-width: 62px;
+}
+
 // tooltip
 .tooltip-trigger {
   @include icon("info", 16px);
@@ -114,4 +122,10 @@ button[class^="_btn"] {
       font-size: inherit;
     }
   }
+}
+
+// popup
+[class^="_modal"][class*="-popup"][class*="_type-tooltip"] .desc:first-child {
+  margin-top: 0;
+  margin-bottom: var(--space-16);
 }
