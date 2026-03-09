@@ -1218,9 +1218,6 @@
   .writing-stage .stage-item .writing-box .intro-infor .text br {
     display: none;
   }
-  .writing-stage .stage-item .writing-box .warning-box .btn {
-    margin-top: var(--space-16);
-  }
   .full-bg {
     margin-bottom: 0 !important;
   }

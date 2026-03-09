@@ -237,7 +237,7 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 [class^="_btn-alarm"][class*="-small"]::after {width:16px; height:16px; background-size:16px;}
 
 ._btn-wrap {display:-webkit-box; display:-ms-flexbox; display:flex; width:100%; gap:8px;}
-._btn-wrap [class^="_btn"]:only-child {-ms-flex-preferred-size:100%; flex-basis:100%;}
+._btn-wrap [class^="_btn"]:only-child {-ms-flex-preferred-size:100%; flex-basis:100%;max-width: 320px;}
 ._btn-wrap.fixed {position:fixed; left:0; bottom:0; right:0; background-color:#fff;}
 ._btn-wrap.fixed::before {content:''; position:absolute; top:-24px; left:0; right:0; height:24px; background:linear-gradient(180deg, rgba(248, 249, 252, 0.00) 0%, var(--gray-20) 100%);}
 [class^="_btn"].p35 {-ms-flex-preferred-size:35%; flex-basis:35%;}
@@ -257,6 +257,10 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 [class^="_textbtn-xsmall"].right-icon::after {width:16px; height:16px; margin-left:4px;}
 [class^="_textbtn"]:disabled,
 [class^="_textbtn"].disabled {background:transparent; color:var(--gray-300); pointer-events:none;}
+
+@media screen and (max-width:767px) {
+  ._btn-wrap [class^="_btn"]:only-child {max-width: none;}
+}
 
 @media (hover: hover) and (pointer: fine) {
   [class^="_btn-"][class*="-primary"]:hover {background:var(--primary-p900);}
