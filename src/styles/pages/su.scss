@@ -2,6 +2,7 @@
 
 .visual-wrap {
   position: relative;
+  padding: var(--space-40) 0;
   margin: 0 0 var(--space-56);
 }
 
@@ -754,13 +755,10 @@
 
 // Tablet
 @include respond-md {
-  .visual-wrap {
-    padding: var(--space-40) 0;
-  }
   .visual-item {
     &::after {
       width: 320px;
-      height: 160px;
+      height: 140px;
       background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
     }
   }  
