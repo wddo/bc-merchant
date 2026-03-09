@@ -53,10 +53,10 @@ $icon-class-list: (download, chevron-right, external-link, edit);
 .list-noti,
 .list-ast {
   > li > [class^="list-"] {
-    gap: 6px;
+    gap: var(--space-4);
 
     &:first-child {
-      margin-top: 4px;
+      margin-top: var(--space-6);
     }
   }
   .text-point600 {
@@ -100,7 +100,8 @@ $icon-class-list: (download, chevron-right, external-link, edit);
     gap: var(--space-6);
 
     li {
-      @include font-token($font-body-1);
+      // font 14 -> 16 되며 주석처리 - 추후 완전 제거
+      // @include font-token($font-body-1);
       color: $text-tertiary;
 
       &::before {

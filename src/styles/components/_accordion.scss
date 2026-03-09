@@ -54,6 +54,16 @@
 }
 .accordion-cont {
   @include font-token($font-body-1);
+
+  // 아코디언 내부 16px 고정 위해 bullet-list() 내부 고정값 상쇄
+  [class^="list-"] > li {
+    @include font-token($font-body-1);
+
+    @include respond-sm {
+      @include font-token($font-body-1);
+    }
+  }
+
   padding: var(--space-32) var(--space-40) var(--space-40);
   display: flex;
   flex-direction: column;
