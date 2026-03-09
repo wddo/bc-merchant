@@ -123,3 +123,9 @@ button[class^="_btn"] {
     }
   }
 }
+
+// popup
+[class^="_modal"][class*="-popup"][class*="_type-tooltip"] .desc:first-child {
+  margin-top: 0;
+  margin-bottom: var(--space-16);
+}

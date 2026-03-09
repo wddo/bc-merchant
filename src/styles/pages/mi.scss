@@ -35,6 +35,10 @@
 
 .accordion {
   margin-top: 40px;
+
+  .accordion-cont > .list-ref {
+    gap: var(--space-4);
+  }
 }
 
 ._table {

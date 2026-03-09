@@ -83,6 +83,11 @@
       margin-top: var(--space-4);
     }
   }
+
+  strong {
+    color: $text-warning;
+    font-weight: 400;
+  }
 }
 
 @mixin ellipsis($line, $height) {

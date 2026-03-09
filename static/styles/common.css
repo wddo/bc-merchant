@@ -109,6 +109,11 @@ button[class^=_btn] {
   font-size: inherit;
 }
 
+[class^=_modal][class*=-popup][class*=_type-tooltip] .desc:first-child {
+  margin-top: 0;
+  margin-bottom: var(--space-16);
+}
+
 /* .w-full {
   width: 100%;
 }
@@ -220,6 +225,10 @@ button[class^=_btn] {
 .list-noti > li > ul[class^=list-]:first-child {
   margin-top: var(--space-4);
 }
+.list-noti strong {
+  color: var(--red-800);
+  font-weight: 400;
+}
 
 .list-ref {
   list-style: none;
@@ -272,6 +281,10 @@ button[class^=_btn] {
 .list-ref > li > ul[class^=list-]:first-child {
   margin-top: var(--space-4);
 }
+.list-ref strong {
+  color: var(--red-800);
+  font-weight: 400;
+}
 
 .list-dash {
   list-style: none;
@@ -323,6 +336,10 @@ button[class^=_btn] {
 }
 .list-dash > li > ul[class^=list-]:first-child {
   margin-top: var(--space-4);
+}
+.list-dash strong {
+  color: var(--red-800);
+  font-weight: 400;
 }
 
 .list-dash > li > [class^=list-],
@@ -423,10 +440,6 @@ button[class^=_btn] {
   top: 9px;
   transform: none;
   background-color: var(--gray-600);
-}
-.warning-box .list-noti li strong {
-  color: var(--red-800);
-  font-weight: 400;
 }
 
 .noData {

@@ -33,6 +33,9 @@
 .accordion {
   margin-top: 40px;
 }
+.accordion .accordion-cont > .list-ref {
+  gap: var(--space-4);
+}
 
 ._table ._btn-wrap button.ico-download::after {
   background-color: var(--primary-p300);
