@@ -54,6 +54,10 @@ button[class^="_btn"] {
   td {
     text-align: left;
     vertical-align: top;
+
+    @include respond-sm {
+      @include font-token($font-body-2);
+    }
   }
 
   th {

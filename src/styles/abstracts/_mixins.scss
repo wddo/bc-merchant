@@ -45,6 +45,10 @@
   > li {
     @include font-token($font-body-1);
 
+    @include respond-sm {
+      @include font-token($font-body-2);
+    }
+
     position: relative;
     color: $color;
     display: block;

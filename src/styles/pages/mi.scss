@@ -30,6 +30,8 @@
 }
 
 .step-body {
+  width: 100%;
+
   .list-noti li {
     color: $text-quaternary;
   }
@@ -56,7 +58,7 @@
     }
   }
 
-  .tb-merchant-download {
+  ._table > table {
     colgroup {
       col {
         &:nth-child(1) {
@@ -93,6 +95,11 @@
     padding: var(--space-24) var(--space-20);
     background-color: $bg-white;
     border-radius: var(--radius-16);
+  }
+
+  .pg-content {
+    display: flex;
+    flex-direction: column;
   }
 
   .pg-logo {
@@ -139,13 +146,11 @@
 
 // Tablet
 @include respond-md {
-  ._table {
-    .tb-merchant-download {
-      colgroup {
-        col {
-          &:nth-child(1) {
-            width: 67px;
-          }
+  ._table > table {
+    colgroup {
+      col {
+        &:nth-child(1) {
+          width: 100px;
         }
       }
     }
@@ -154,9 +159,38 @@
 
 // Mobile
 @include respond-sm {
-  ._table {
-    .tb-merchant-download {
-      min-width: 500px;
+  .merchant-guide {
+    .pg-item {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-16);
+      padding: var(--space-16) var(--space-20);
+    }
+
+    .pg-content {
+      flex: 1;
+    }
+
+    .pg-name {
+      @include font-token($font-body-1-semi);
+      margin-top: 0;
+    }
+
+    .pg-url,
+    .pg-tel {
+      @include font-token($font-body-2);
+    }
+  }
+
+  ._table > table {
+    min-width: 500px;
+
+    colgroup {
+      col {
+        &:nth-child(1) {
+          width: 66px;
+        }
+      }
     }
   }
 

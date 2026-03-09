@@ -57,15 +57,15 @@ $icon-class-list: (download, chevron-right, external-link, edit);
 }
 
 .warning-box {
-  padding: var(--space-20);
-  border-radius: var(--radius-16);
-  background-color: var(--gray-40);
-
   .warning-title {
     @include font-token($font-body-1-semi);
     display: flex;
     align-items: center;
     color: $text-tertiary;
+
+    @include respond-sm {
+      @include font-token($font-body-2-semi);
+    }
 
     &::before {
       content: "";
@@ -83,8 +83,12 @@ $icon-class-list: (download, chevron-right, external-link, edit);
     gap: var(--space-6);
 
     li {
-      @include font-token($font-body-2);
+      @include font-token($font-body-1);
       color: $text-tertiary;
+
+      @include respond-sm {
+        @include font-token($font-body-2);
+      }
 
       &::before {
         width: 3px;
