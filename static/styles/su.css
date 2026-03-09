@@ -647,7 +647,6 @@
 .full-bg {
   background-color: var(--gray-40);
   max-width: none !important;
-  margin-bottom: -50px !important;
 }
 .full-bg .feedback-wrap {
   padding: 148px 0 200px;
@@ -1067,7 +1066,6 @@
   .full-bg {
     background-color: var(--gray-40);
     max-width: none !important;
-    margin-bottom: -50px !important;
   }
   .full-bg .feedback-wrap {
     padding: 148px 0 200px;
