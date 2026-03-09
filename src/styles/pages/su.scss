@@ -26,7 +26,6 @@
     }
     .text {
       @include font-token($font-body-0-medi);
-      width: 420px;
       color: $text-tertiary;
       margin: var(--space-20) 0 0;
     }    
@@ -35,7 +34,7 @@
       display: block;
       width: 600px;
       height: 320px;
-      background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / 100% auto;
+      background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
     }
   }  
 }
@@ -194,6 +193,7 @@
   }
   .step-area {
     flex-basis: 335px;
+    min-width: 335px;
   }
 }
 
@@ -201,7 +201,7 @@
   &.full {
     background-color: $bg-gray-40;
   }
-  padding: 40px 0;
+  padding: var(--space-40) 0;
   > .inner {
     max-width: $page-max-width;
     margin: 0 auto;
@@ -242,6 +242,7 @@
   .stage-item {
     display: flex;
     justify-content: space-between;
+    // gap: var(--space-24);
     position: relative;
     padding: 0 0 var(--space-40) 64px;
     &::before {
@@ -292,50 +293,6 @@
           color: var(--point-600);
         }
       }
-      .customers-number {
-        display: flex;
-        flex-direction: column;
-        margin-top: var(--space-56);
-        .title {
-          @include font-token($font-body-2);
-          color: $text-secondary;
-        }
-        .number {
-          display: block;
-          margin-top: 2px;
-          font-size: 28px;
-          color: var(--text-primary);
-          em {
-            color: var(--point-600);
-          }
-        }
-        .text {
-          @include font-token($font-caption-2);
-          margin-top: 8px;
-        }
-      }
-      .marketing-period {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-        margin-top: var(--space-56);
-        .title {
-          @include font-token($font-body-2);
-          color: $text-secondary;
-        }
-        .date-range {
-          @include font-token($font-body-1-semi);
-          color: var(--point-600);
-        }
-      }
-
-      .intro-infor {
-        margin-top: var(--space-56);
-        .text {
-          @include font-token($font-body-2-medi);
-          color: $text-quaternary;
-        }
-      }
     }
     .writing-box {
       flex-basis: 640px;
@@ -353,15 +310,20 @@
             display: inline-flex;
             margin-bottom: 0 ;
             @include font-token($font-body-2);
-            em {
-              color: var(--red-600);
-              @include font-token($font-body-2-medi);
-            }
             .tooltip-trigger {
               background: url(#{$icon_url}/alert-circle.svg);
+              background-size: 100% auto;
               width: 24px;
               height: 24px;
               margin: 0 6px;
+            }
+          }
+          .desc {
+            @include font-token($font-body-2-medi);
+            color: $text-secondary;
+            margin-left: auto;
+            span {
+              color: var(--red-600);
             }
           }
         }
@@ -401,20 +363,19 @@
             }
           }
           .date-area {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            .date-inner {
+            .date-wrap {
               display: flex;
+              gap: 8px;
+            }
+            .date-inner {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
               gap: 8px;
               > * {
                 flex: 1;
               }
             }
-            .ipt-inner {
-              width: calc(50% - 4px);
-              margin-left: auto;
-            }    
           }
           .input-wrap {
             display: flex;
@@ -493,7 +454,65 @@
             margin-top: -8px;
           }
         }
+        
+        
       }
+
+      .customers-number {
+        display: flex;
+        flex-direction: column;
+        margin-top: var(--space-40);
+        background-color: $bg-gray-20;
+        border-radius: var(--space-12);
+        padding: var(--space-20);
+        .title {
+          @include font-token($font-body-2-medi);
+          color: $text-secondary;
+        }
+        .data-area {
+          display: flex;
+          align-items: flex-end;
+          gap: 6px;
+        }
+        ._font-title-2 {
+          display: block;
+          margin-top: 2px;
+          color: var(--text-primary);
+          em {
+            color: var(--point-600);
+          }
+        }
+        .text {
+          @include font-token($font-body-2-medi);
+          color: $text-tertiary;
+        }
+      }
+
+      .marketing-period {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        background-color: $bg-gray-20;
+        border-radius: var(--space-12);
+        padding: var(--space-20);
+        .title {
+          @include font-token($font-body-2-medi);
+          color: $text-secondary;
+        }
+        .date-range {
+          @include font-token($font-body-1-semi);
+          color: var(--point-600);
+        }
+      }
+
+      .intro-infor {
+        margin-top: var(--space-16);
+        .text {
+          @include font-token($font-body-2-medi);
+          color: $text-quaternary;
+        }
+      }
+
       .warning-box {
         .btn {
           margin-top: var(--space-16);
@@ -516,7 +535,7 @@
 .full-bg {
   background-color: $bg-gray-40;
   max-width: none !important;
-  margin-bottom: -50px !important; //page 의 padding-bottom 숫자
+  // margin-bottom: -50px !important; //page 의 padding-bottom 숫자
   .feedback-wrap {
     padding: 148px 0 200px; //디자인 상 숫자
   }
@@ -731,6 +750,17 @@
 
 // Tablet
 @include respond-md {
+  .visual-item {
+    padding: var(--space-40) 0;
+    .mytag-service {
+      &::after {
+        width: 320px;
+        height: 160px;
+        background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
+      }
+    }  
+  }
+
   .mytag-guide {
     gap: var(--space-40);
     padding-bottom: var(--space-40);
@@ -790,24 +820,18 @@
   }
 
   .step-guide {
-    flex-direction: column;
-    gap: var(--space-20);
-    padding: 32px 0 var(--space-20);
+    gap: var(--space-40);
     .text-area {
       .text {
         br {
-          display: none;
+          display: none;;
         }
         margin-top: var(--space-4);
       }
     }
-    .step-area {
-      flex-basis: auto;
-    }
   }
 
   .store-infor {
-    padding: 32px 0;
     .store-data {
       flex-direction: column;
       gap: 8px; 
@@ -817,273 +841,24 @@
       }
     }
   }
-  /////////////////////////////////////////////////////////////
   
   .writing-stage {
-    margin-top: var(--space-20);
     .stage-item {
       flex-direction: column;
       padding: 0 0 var(--space-40) 64px;
-      &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 40px;
-        height: 40px;
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size: 100% auto;
-        background-image: url(#{$img_url}/su/bg_ico_stage.png);
-      }
-      &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 19px;
-        top: 40px;
-        width: 2px;
-        height: calc(100% - 40px);
-        border-radius: var(--radius-4);
-        background-color: $line-gray-100;
-      }
-      &.is-end::before {
-        background-image: url(#{$img_url}/su/bg_ico_stage_end.png);
-      }
-      &.is-end::after  {
-        background-color: var(--point-600);
-      }
-      &.is-on::before {
-        background-image: url(#{$img_url}/su/bg_ico_stage_on.png);
-      }
-      &:last-of-type {
-        &::after {
-          display: none;
-        }
-      }
-      
+      gap: var(--space-24);
       .writing-infor {
         > .text {
-          @include font-token($font-body-0);
-          color: $text-secondary;
-          margin-top: var(--space-16);
-          span {
-            color: var(--point-600);
-          }
-        }
-        .customers-number {
-          display: flex;
-          flex-direction: column;
-          margin-top: var(--space-56);
-          .title {
-            @include font-token($font-body-2);
-            color: $text-secondary;
-          }
-          .number {
-            display: block;
-            margin-top: 2px;
-            font-size: 28px;
-            color: var(--text-primary);
-            em {
-              color: var(--point-600);
-            }
-          }
-          .text {
-            @include font-token($font-caption-2);
-            margin-top: 8px;
-          }
-        }
-        .marketing-period {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-4);
-          margin-top: var(--space-56);
-          .title {
-            @include font-token($font-body-2);
-            color: $text-secondary;
-          }
-          .date-range {
-            @include font-token($font-body-1-semi);
-            color: var(--point-600);
-          }
-        }
-
-        .intro-infor {
-          margin-top: var(--space-56);
-          .text {
-            @include font-token($font-body-2-medi);
-            color: $text-quaternary;
+          br {
+            display: none;
           }
         }
       }
       .writing-box {
-        flex-basis: 640px;
-        border-radius: var(--radius-20);
-        border: 1px solid $line-gray-60;
-        padding: var(--space-40);
-        .writing-area {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-40);
-          ._font-title-4 {
-            display: flex;
-            align-items: center;
-            .tooltip-title {
-              display: inline-flex;
-              margin-bottom: 0 ;
-              @include font-token($font-body-2);
-              em {
-                color: var(--red-600);
-                @include font-token($font-body-2-medi);
-              }
-              .tooltip-trigger {
-                background: url(#{$icon_url}/info.svg);
-                width: 24px;
-                height: 24px;
-                margin: 0 6px;
-              }
-            }
-          }
-          .item {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-16);
-            .input-box {
-              min-width: auto;
-            }
-            .ipt-wrap {
-              display: flex;
-              justify-content: space-between;
-              > * {
-                flex: 1;
-              }
-              &.col05 {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-              }
-            }
-            .add-field {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              padding: var(--space-12);
-              margin-top: 10px; 
-              background-color: $bg-gray-20; 
-              border-radius: var(--radius-16);
-              > * {
-                flex: 1;
-              }
-              .wave {
-                flex: none;
-                @include font-token($font-body-1-semi);
-                color: $text-quaternary;              
-              }
-            }
-            .date-area {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-              .date-inner {
-                display: flex;
-                gap: 8px;
-                > * {
-                  flex: 1;
-                }
-              }
-              .ipt-inner {
-                width: calc(50% - 4px);
-                margin-left: auto;
-              }    
-            }
-            .input-wrap {
-              display: flex;
-              gap: 8px;
-              > * {
-                flex: 1;
-              }
-            }
-            .dropdown-wrap {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-            }
-            .label-title {
-              @include font-token($font-body-2-medi);
-              color: $text-secondary;
-            }
-            .input-box-wrap {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-            }
-            .count-wrap {
-              .count-title {
-                margin-bottom: var(--space-16);
-                align-items: flex-end;
-                .count {
-                  margin-bottom: -6px;
-                }
-              }
-            }
-            > .inner {
-              display: flex;
-              flex-direction: column;
-              gap: 8px;
-            }
-            .business-day {
-              > .day-box {
-                display: flex;
-                gap: var(--space-4);
-                padding: var(--space-12);
-                background-color: $bg-gray-20;
-                border: 1px solid $line-gray-60;
-                border-radius: var(--radius-12);
-                margin-top: 8px;     
-                > * {
-                  flex: 1;
-                }
-                i {
-                  flex-direction: column;
-                }
-                [class^="_ipt-radio-box"] input:checked + i {
-                  background-color: $bg-point;
-                  color: $text-white;
-                  .day-text {
-                    color: $text-disabled;  
-                  }
-                }
-                ._ipt-radio-box {
-                  &:nth-child(n+6) {
-                    .day-text {
-                      color: var(--red-400);
-                    }
-                  }
-                }              
-                .day-text {
-                  display: block;
-                  @include font-token($font-caption-2-medi);
-                  color: $text-disabled;
-                }
-              }
-            }
-            .bl-star {
-              @include font-token($font-body-3);
-              color: $text-quaternary;
-              margin-top: -8px;
-            }
-          }
-        }
-        .warning-box {
-          .btn {
-            margin-top: var(--space-16);
-          }
-        }
+        flex-basis: auto;
       }
     }
   }
-
-  /////////////////////////////////////////////////////////////
 
   .mytag-caution {
     padding: var(--space-24);
@@ -1097,7 +872,7 @@
   .full-bg {
     background-color: $bg-gray-40;
     max-width: none !important;
-    margin-bottom: -50px !important; //page 의 padding-bottom 숫자
+    // margin-bottom: -50px !important; //page 의 padding-bottom 숫자
     .feedback-wrap {
       padding: 148px 0 200px; //디자인 상 숫자
     }
@@ -1115,6 +890,174 @@
 
 // Mobile
 @include respond-sm {
+  .visual-item {
+    padding: 32px 0;
+    .mytag-service {   
+      flex-direction: column;
+      gap: var(--space-24);
+      .text {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .step-guide {
+    flex-direction: column;
+    gap: var(--space-20);
+    padding: 32px 0 var(--space-20);
+    .text-area {
+      .text {
+        br {
+          display: none;;
+        }
+        margin-top: var(--space-4);
+      }
+    }
+    .step-area {
+      flex-basis: auto;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 335px;
+    }
+  }
+
+  .store-infor {
+    padding: 32px 0;
+  }
+
+  .writing-stage {
+    margin-top: var(--space-20);
+    .stage-item {
+      padding: 0 0 var(--space-40) 44px;
+      &::before {
+        width: 32px;
+        height: 32px;
+      }
+      &::after {
+        left: 15px;
+        top: 32px;
+        height: calc(100% - 32px);
+      }
+      .writing-box {
+        border-radius: inherit;
+        border: none;
+        padding: 0;
+        .writing-area {
+          gap: var(--space-24);
+          ._font-title-4 {
+            .tooltip-title {
+              .tooltip-trigger {
+                width: 20px;
+                height: 20px;
+                margin: 0 var(--space-4);
+              }
+            }
+          }
+          .item {
+            gap: var(--space-12);
+            .ipt-wrap {
+              flex-wrap: wrap;
+              &.col05 {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            .add-field {
+              position: relative;
+              flex-direction: column;
+              align-items: flex-end;
+              margin-top: var(--space-12);
+              > * {
+                flex: 1;
+                width: 100%;
+              }
+              .wave {
+                position: absolute;
+                left: 12px;
+                bottom: 28px;
+                width: 11px;
+              }
+              &.has-wave {
+                .input-box {
+                  &:last-of-type {
+                    width: calc(100% - 20px);
+                  }
+                }
+              } 
+            }
+            .date-area {
+              .date-wrap {
+                flex-direction: column;
+                gap: var(--space-12);
+              }
+            }
+            .input-wrap {
+              flex-direction: column;
+              gap: var(--space-12);
+            }
+            .count-wrap {
+              .count-title {
+                margin-bottom: 8px;
+                .count {
+                  margin-bottom: -4px;
+                }
+              }
+            }
+            
+            .business-day {
+              > .day-box {
+                flex-wrap: wrap;                
+                border-radius: 8px;
+                > * {
+                  min-width: 45px;
+                  max-width: 45px;
+                  flex: 0 1 auto;
+                }
+                ._ipt-radio-box {
+                  &:nth-child(n+6) {
+                    .day-text {
+                      color: var(--red-400);
+                    }
+                  }
+                  &:last-child {
+                    max-width: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .customers-number {
+          margin-top: var(--space-24);
+          padding: var(--space-16);
+          gap: 8px;
+          .data-area {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+          }
+          ._font-title-2 {
+            display: block;
+            margin-top: 0;
+          }
+        }
+       
+        .intro-infor {
+          padding-top: var(--space-24);
+          margin-top: var(--space-24);
+          border-top: 1px solid $line-gray-60;
+          .text {
+            br {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
   .full-bg {
     margin-bottom: 0 !important; //page 의 padding-bottom 숫자
   }

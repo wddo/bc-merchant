@@ -94,12 +94,7 @@
               <div class="stage-item is-end"> <!-- [D] 등록 완료 일 경우 is-end, 등록 중 일 경우 is-on 클래스 추가 -->
                 <div class="writing-infor">
                   <h3 class="_font-title-3">홍보 대상 설정</h3>
-                  <p class="text">가맹점에서 <br><span>#마이태그 서비스를 <br>제공할 고객을 선택</span>해주세요</p>  
-                  <div class="customers-number">
-                    <span class="title">마이태그 예상 노출 고객 수</span>
-                    <strong class="number"><em>73,124,113</em>명</strong>
-                    <p class="text">* 고객님이 선택하신 조건을 반영한 노출 고객수 입니다.</p>
-                  </div>
+                  <p class="text">가맹점에서 <br><span>#마이태그 서비스를 <br>제공할 고객을 선택</span>해주세요</p>
                 </div>
                 <div class="writing-box">
                   <div class="writing-area">
@@ -135,7 +130,7 @@
                               <i>선택</i>
                           </label>
                         </div>
-                        <div class="add-field">
+                        <div class="add-field has-wave">
                           <div class="input-box">
                             <select>
                               <option value="">선택</option>
@@ -169,7 +164,6 @@
                               <option value="">시/도</option>
                             </select>
                           </div>
-                          <span class="wave">~</span>
                           <div class="input-box">
                             <select>
                               <option value="">시/군/구</option>
@@ -183,8 +177,8 @@
                         고객 주 이용 업종
                         <span class="tooltip-title">
                           <button type="button" class="tooltip-trigger" data-tooltip-pos="top-center" data-tooltip-cont="툴팁 내용">안내</button>
-                          <span>최대 <em>1개 이상 선택</em>해주세요</span>
                         </span>
+                        <p class="desc">최대 <span>1개 이상 선택</span>해주세요</p>
                       </strong>
                       <div class="ipt-inner">
                         <div class="ipt-wrap col05">
@@ -230,6 +224,14 @@
                           </label>
                         </div>
                       </div>
+                      
+                    </div>
+                  </div>
+                  <div class="customers-number">
+                    <p class="title">마이태그 예상 노출 고객 수</p>
+                    <div class="data-area">
+                      <strong class="_font-title-2"><em>73,124,113</em>명</strong>
+                      <p class="text">* 고객님이 선택하신 조건을 반영한 노출 고객수 입니다.</p>
                     </div>
                   </div>
                 </div>
@@ -238,11 +240,7 @@
               <div class="stage-item is-on"> <!-- [D] 등록 완료 일 경우 is-end, 등록 중 일 경우 is-on 클래스 추가 -->
                 <div class="writing-infor">
                   <h3 class="_font-title-3">마이태그 <br>마케팅 조건 설정</h3>
-                  <p class="text">가맹점의 <span>#마이태그 마케팅 <br>상세 조건을 설정</span>해주세요</p>  
-                  <div class="marketing-period">
-                    <span class="title">마이태그 마케팅 기간</span>
-                    <strong class="date-range">YYYY.MM.DD ~ YYYY.MM.DD</strong>
-                  </div>
+                  <p class="text">가맹점의 <span>#마이태그 마케팅 <br>상세 조건을 설정</span>해주세요</p>
                 </div>
                 <div class="writing-box">
                   <div class="writing-area">
@@ -280,52 +278,60 @@
                         </span>
                       </strong>
                       <div class="date-area">
-                        <div class="date-inner">
-                          <div class="date-ipt">
-                            <div class="tooltip-title">
-                                <label for="date-start" class="input-title">시작일</label>
-                            </div>
-                            <div class="input-box">
-                              <input type="text" id="date-start" placeholder="YYYY.MM.DD">
-                              <div class="util-box">
-                                  <button type="button" class="ipt-calendar">달력보기</button>
+                        <div class="date-wrap">
+                          <div class="date-inner">
+                            <div class="date-ipt">
+                              <div class="tooltip-title">
+                                  <label for="date-start" class="input-title">시작일</label>
+                              </div>
+                              <div class="input-box">
+                                <input type="text" id="date-start" placeholder="YYYY.MM.DD">
+                                <div class="util-box">
+                                    <button type="button" class="ipt-calendar">달력보기</button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                          <div class="date-ipt">
-                            <div class="tooltip-title">
-                                <label for="date-end" class="input-title">종료일</label>
+                          <div class="date-inner">
+                            <div class="date-ipt">
+                              <div class="tooltip-title">
+                                  <label for="date-end" class="input-title">종료일</label>
+                              </div>
+                              <div class="input-box">
+                                <input type="text" id="date-end" placeholder="YYYY.MM.DD">
+                                <div class="util-box">
+                                    <button type="button" class="ipt-calendar">달력보기</button>
+                                </div>
+                              </div>
                             </div>
-                            <div class="input-box">
-                              <input type="text" id="date-end" placeholder="YYYY.MM.DD">
-                              <div class="util-box">
-                                  <button type="button" class="ipt-calendar">달력보기</button>
+                            <div class="ipt-inner">
+                              <div class="ipt-wrap">
+                                <label for="months01" class="_ipt-radio-box">
+                                    <input type="radio" name="radio-months" id="months01">
+                                    <i>3개월</i>
+                                </label>
+                                <label for="months02" class="_ipt-radio-box">
+                                    <input type="radio" name="radio-months" id="months02">
+                                    <i>4개월</i>
+                                </label>
+                                <label for="months03" class="_ipt-radio-box">
+                                    <input type="radio" name="radio-months" id="months03">
+                                    <i>5개월</i>
+                                </label>
+                                <label for="months04" class="_ipt-radio-box">
+                                    <input type="radio" name="radio-months" id="months04">
+                                    <i>6개월</i>
+                                </label>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="ipt-inner">
-                          <div class="ipt-wrap">
-                            <label for="months01" class="_ipt-radio-box">
-                                <input type="radio" name="radio-months" id="months01">
-                                <i>3개월</i>
-                            </label>
-                            <label for="months02" class="_ipt-radio-box">
-                                <input type="radio" name="radio-months" id="months02">
-                                <i>4개월</i>
-                            </label>
-                            <label for="months03" class="_ipt-radio-box">
-                                <input type="radio" name="radio-months" id="months03">
-                                <i>5개월</i>
-                            </label>
-                            <label for="months04" class="_ipt-radio-box">
-                                <input type="radio" name="radio-months" id="months04">
-                                <i>6개월</i>
-                            </label>
-                          </div>
-                        </div>
+                        
                       </div>
-                      
+                      <div class="marketing-period">
+                        <span class="title">마이태그 마케팅 기간</span>
+                        <strong class="date-range">YYYY.MM.DD ~ YYYY.MM.DD</strong>
+                      </div>
                     </div>
                     <div class="item">
                       <strong class="_font-title-4">비씨카드 청구할인 조건선택</strong>
@@ -381,9 +387,7 @@
                 <div class="writing-infor">
                   <h3 class="_font-title-3">가맹점 소개 <br>정보 입력</h3>
                   <p class="text">우리 가맹점을 소개할 <br><span>기본 정보를 입력</span>해주세요</p>  
-                  <div class="intro-infor">
-                    <p class="text">* 가맹점 소개 정보에 입력하신 정보는 마이태그 마케팅에만 적용되며, <br>기입하신 내용은 마이태그 마케팅 대상 고객에게 보여지게 됩니다.</p>
-                  </div>
+                  
                 </div>
                 <div class="writing-box">
                   <div class="writing-area">
@@ -494,6 +498,9 @@
                       </div>
                       <p class="bl-star">* 홈페이지/SNS 계정 입력은 선택사항 입니다.</p>
                     </div>
+                  </div>
+                  <div class="intro-infor">
+                    <p class="text">* 가맹점 소개 정보에 입력하신 정보는 마이태그 마케팅에만 적용되며, <br>기입하신 내용은 마이태그 마케팅 대상 고객에게 보여지게 됩니다.</p>
                   </div>
                 </div>
               </div>
