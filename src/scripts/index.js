@@ -29,7 +29,7 @@ export let device = null;
 
     if (pbui) {
       if (pbui.tooltip) {
-        pbui.tooltip.init(".tooltip-trigger");
+        pbui.tooltip.init(".tooltip-trigger:not([id])");
       }
 
       if (pbui.selectmenu) {

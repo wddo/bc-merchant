@@ -56,14 +56,15 @@
 
 #### Stylesheet
 
-- \_base.scss 의 정의된 스타일을 기반으로 작성한다.
+- /static/styles/base.css 의 정의된 스타일을 기반으로 작성한다.
+- 위 base.css 의 스타일을 오버라이딩한 이 프로젝트 전용 base 는 /src/styles/base 이므로 같이 참조하여 작성한다.
 - 클래스명의 하이픈(-) 은 3개 까지 제한한다.
 - 불필요한 class 속성 최소화 (ul, li 등 시멘틱 태그 활용)
 - &::before, &::after, &:hover 등 nested 보다 상위에서 작성한다.
 - .page 처럼 고유 클래스가 존재하면 더블 클래스로 페이지를 구분하고 그 안에서 스타일을 작성한다. 그 안 스타일 네이밍에 추가로 더블 클래스 네이밍이 들어가지 않도록 한다. 필요 이상으로 클래스명이 길어지는 것을 지양한다.
 
 ```
-// _base.scss
+// base.css 및 /src/styles/base
 - 컬러 적용 시 1차적으로 :root 의 -- 로 정의된 변수를 활용
 - 타이틀 성격의 마크업을 작성할 때 _.font-headline-*, _font-title-* 클래스를 활용하여 폰트 스타일을 적용한다.
 - _.font-body-*, _.font-caption-* 는 인라인 정의를 지양하고 font-token() 믹스인을 활용하여 스타일을 적용한다.

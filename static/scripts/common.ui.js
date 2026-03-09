@@ -208,7 +208,7 @@ const pbui = (function () {
           this.state = Popup.STATE_OPEN;
 
           if (isTooltipType)
-            el.$popup.css({ left: 0, top: $(window).scrollTop + "px" });
+            el.$popup.css({ left: 0, top: $(window).scrollTop() + "px" });
 
           method.show();
           el.$popup.focus();

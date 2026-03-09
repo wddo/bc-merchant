@@ -31,10 +31,6 @@
 
 .step-body {
   width: 100%;
-
-  .list-noti li {
-    color: $text-quaternary;
-  }
 }
 
 .accordion {
@@ -53,12 +49,13 @@
     text-decoration: underline;
 
     &::after {
+      margin-left: var(--space-2);
       vertical-align: middle;
       -webkit-mask-position-y: -0.1rem;
     }
   }
 
-  ._table > table {
+  table {
     colgroup {
       col {
         &:nth-child(1) {
