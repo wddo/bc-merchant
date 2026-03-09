@@ -246,10 +246,13 @@
                                 </td>
                                 <td class="tac">
                                     <button type="button" class="tooltip-trigger tooltip-guide7" data-tooltip-cont="툴팁 안내입니다.">안내</button>
+                                    <div class="tooltip7-con" style="display:none">
+                                        <span>툴팁 테스트</span>
+                                    </div>
                                 </td>
                                 <td class="tac">
                                     <button type="button" class="tooltip-trigger tooltip-guide8" data-tooltip-cont="툴팁 안내입니다.">안내</button>
-                                    <div class="tooltip-contents">
+                                    <div class="tooltip-content">
                                         <ul class='listDep1'>
                                             <li>- TooltipCtl(selector, obj)</li>
                                             <li>- obj.content = '태그를 이용한 컨텐츠'</li>
@@ -896,11 +899,10 @@
         position: 'bottom-left'
     });
     pbui.tooltip.init('.tooltip-guide7', {
-        content: `<span>텍스트</span>`,
+        contentClass: '.tooltip7-con',
         position: 'bottom-center'
     });
     pbui.tooltip.init('.tooltip-guide8', {
-        content: $('.tooltip-guide8').next('.tooltip-contents')[0],
         addClass : 'some-add-class',
         position: 'bottom-right'
     });

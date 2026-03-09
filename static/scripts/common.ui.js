@@ -734,11 +734,11 @@ const pbui = (function () {
       };
 
       let option = {
-        content: "",
+        content: null,
         position: "bottom",
         container: "body",
         id: null,
-        addSelector: null,
+        contentClass: '.tooltip-content'
       };
 
       option = Object.assign(option, obj);
@@ -830,12 +830,12 @@ const pbui = (function () {
           el.$tooltip = $("#" + id);
           el.$closeBtn = el.$tooltip.find(".tooltip-close");
           
-          let tolltipContent = option.content;
-          if (option.content instanceof Element) {
-            tolltipContent = option.content.innerHTML
+          let tooltipContent = option.content;
+          if (!tooltipContent) {
+            tooltipContent = el.$opener.siblings(option.contentClass).html() || '';
           }
 
-          el.$tooltip.find(".tooltip-content").html(tolltipContent);
+          el.$tooltip.find(".tooltip-content").html(tooltipContent);
           el.$opener.attr("aria-describedby", id);
 
           if (option.addClass) el.$tooltip.addClass(option.addClass);
