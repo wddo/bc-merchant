@@ -176,9 +176,9 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 [class^="_font-caption-2"][class*="-semi"] {font-weight:600;}
 
 @media screen and (max-width:767px) {
-  ._font-title-1 {font-size:24px; letter-spacing:-0.96px;}
-  ._font-title-2 {font-size:20px; letter-spacing:-0.8px;}
-  ._font-title-3 {font-size:18px; letter-spacing:-0.72px;}
+  ._font-title-1 {font-size:24px; line-height: 32px; letter-spacing:-0.96px;}
+  ._font-title-2 {font-size:20px; line-height: 28px; letter-spacing:-0.8px;}
+  ._font-title-3 {font-size:18px; line-height: 26px; letter-spacing:-0.72px;}
 
   [class^="_font-caption-1"] {font-size:13px; letter-spacing:-0.52px;}
   [class^="_font-caption-2"] {font-size:12px; letter-spacing:-0.48px;}
