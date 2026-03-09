@@ -57,6 +57,10 @@ $icon-class-list: (download, chevron-right, external-link, edit);
 }
 
 .warning-box {
+  padding: var(--space-16) var(--space-20);
+  border-radius: var(--radius-16);
+  background-color: var(--gray-20);
+
   .warning-title {
     @include font-token($font-body-1-semi);
     display: flex;

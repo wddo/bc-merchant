@@ -45,13 +45,14 @@
   text-decoration: underline;
 }
 ._table a.ico-download::after {
+  margin-left: var(--space-2);
   vertical-align: middle;
   -webkit-mask-position-y: -0.1rem;
 }
-._table ._table > table colgroup col:nth-child(1) {
+._table table colgroup col:nth-child(1) {
   width: 200px;
 }
-._table ._table > table colgroup col {
+._table table colgroup col {
   width: 50%;
 }
 

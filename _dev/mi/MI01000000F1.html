@@ -99,8 +99,8 @@
                             <thead>
                               <tr>
                                 <th scope="col">구분</th>
-                                <th scope="col">개인사업자</th>
-                                <th scope="col">법인사업자</th>
+                                <th scope="col">공통 구비서류</th>
+                                <th scope="col">법인사업자 추가 구비서류</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -111,21 +111,16 @@
                                     <li><a href="#" class="ico-download">가맹점 가입신청서</a></li>
                                     <li>사업자등록증 사본</li>
                                     <li>
+                                      대표자 신분증 사본
                                       <div class="tooltip-title">
-                                        <span>대표자 신분증 사본</span>
-                                        <button type="button" class="tooltip-trigger" data-tooltip-pos="middle-right">안내</button>
-                                        <div class="tooltip-content">
-                                          <p>툴팁 내용</p>
-                                        </div>
+                                        <button type="button" class="tooltip-trigger" id="pop_tooltip_1-1">안내</button>
                                       </div>
                                     </li>
                                     <li>
+                                      업종별 인허가증 사본(해당사항이 있는 경우에 한함)
+
                                       <div class="tooltip-title">
-                                        <span>업종별 인허가증 사본(해당사항이 있는 경우에 한함)</span>
-                                        <button type="button" class="tooltip-trigger" data-tooltip-pos="middle-right">안내</button>
-                                        <div class="tooltip-content">
-                                          <p>툴팁 내용</p>
-                                        </div>
+                                        <button type="button" class="tooltip-trigger" id="pop_tooltip_1-2">안내</button>
                                       </div>
                                     </li>
                                     <li>입금계좌 사본</li>
@@ -134,14 +129,11 @@
                                 </td>
                                 <td>
                                   <ul class="list-noti">
-                                    <li>기본서류 (개인사업자 청구서류와 동일함)</li>
                                     <li>법인등기부등본</li>
                                     <li>법인인감증명서</li>
                                     <li>사용인감 사용 시 ‘사용인감계’ 첨부</li>
-                                    <li>입금계좌 사본</li>
-                                    <li>특약 체결 시 별도의 특약서</li>
                                   </ul>
-                                  <div class="warning-box mi-required-note">
+                                  <div class="warning-box">
                                     <p class="warning-title">유의사항</p>
                                     <ul class="list-noti">
                                       <li>공동대표자의 경우 공동대표자들의 신분증이 필요합니다.</li>
@@ -479,6 +471,99 @@
 
       <div id="footer"></div>
     </div>
+
+    <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-1-2">
+      <div class="inner">
+        <div class="header">
+          <p class="title">업종별 인허가증 안내</p>
+        </div>
+        <div class="content">
+          <dl class="info">
+            <dt>미곡상</dt>
+            <dd>미곡상 영업허가증</dd>
+          </dl>
+          <dl class="info">
+            <dt>보훈매장</dt>
+            <dd>보훈매점승인서</dd>
+          </dl>
+          <dl class="info">
+            <dt>농가공품센터</dt>
+            <dd>농가공업 승인서</dd>
+          </dl>
+          <dl class="info">
+            <dt>농협식품점</dt>
+            <dd>가맹체인계약서</dd>
+          </dl>
+          <dl class="info">
+            <dt>보험대리점</dt>
+            <dd>대리점 계약서</dd>
+          </dl>
+          <dl class="info">
+            <dt>요식업소</dt>
+            <dd>요식업영업허가증</dd>
+          </dl>
+          <dl class="info">
+            <dt>자사카드 발행 백화점</dt>
+            <dd>신용카드 영업인가증</dd>
+          </dl>
+          <dl class="info">
+            <dt>요식업소 (일반음식, 구내식당 등)</dt>
+            <dd>영업신고증</dd>
+          </dl>
+          <dl class="info">
+            <dt>호텔</dt>
+            <dd>호텔등급인정증</dd>
+          </dl>
+          <dl class="info">
+            <dt>종합병원</dt>
+            <dd>의료기관 개설 허가증</dd>
+          </dl>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-1-1">
+      <div class="inner">
+        <div class="header">
+          <p class="title">신분증 안내</p>
+        </div>
+        <div class="content">
+          <div class="desc">
+            <dl>
+              <dt>대표자 신분증 사본이란?</dt>
+              <dd>국가 기관이 발행하고 성명/주민등록번호가 기재되어 있으며 사진이 부착된 증표</dd>
+            </dl>
+          </div>
+          <dl class="info">
+            <dt>일반인</dt>
+            <dd>주민등록증, 운전면허증, 경로우대증,장애인등록증, 공무원증</dd>
+          </dl>
+          <dl class="info">
+            <dt>군인</dt>
+            <dd>부사관 신분증, 장교 신분증</dd>
+          </dl>
+          <dl class="info">
+            <dt>외국인</dt>
+            <dd>여권, 외국인등록증</dd>
+          </dl>
+          <dl class="info">
+            <dt>재외동포</dt>
+            <dd>여권, 재외국인 (외국국적동포), 국내거소신고증</dd>
+          </dl>
+          <dl class="info">
+            <dt>주민등록 미발급자</dt>
+            <dd>주민등록등본 + 법정대리인의 상기 신분증</dd>
+          </dl>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script>
+      pbui.popup.init("#tooltip-layer-1-1", { position: "middle-right", opener: "#pop_tooltip_1-1" });
+      pbui.popup.init("#tooltip-layer-1-2", { position: "middle-right", opener: "#pop_tooltip_1-2" });
+    </script>
 
     <script src="/guide/dev/js/include.js"></script>
   </body>

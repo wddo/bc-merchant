@@ -53,33 +53,59 @@ button[class^="_btn"] {
   }
 }
 
-// table - top left
-._table.tb-tl {
-  th,
-  td {
-    text-align: left;
-    vertical-align: top;
+// tooltip
+.tooltip-trigger {
+  @include icon("info", 16px);
+  background-image: none;
+  color: inherit;
+}
 
-    @include respond-sm {
-      @include font-token($font-body-2);
+// table
+._table {
+  // top left aligned
+  &.tb-tl {
+    th,
+    td {
+      text-align: left;
+      vertical-align: top;
+
+      @include respond-sm {
+        @include font-token($font-body-2);
+      }
+    }
+
+    th {
+      padding: var(--space-12) var(--space-20);
+    }
+
+    td {
+      padding: var(--space-20);
+    }
+
+    tbody td > * {
+      &[class^="list-"] {
+        gap: var(--space-8);
+      }
+
+      &:not(:first-child) {
+        margin-top: var(--space-20);
+      }
     }
   }
 
-  th {
-    padding: var(--space-12) var(--space-20);
-  }
+  // tooltip in table
+  .tooltip-title {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    margin-top: -0.1em;
 
-  td {
-    padding: var(--space-20);
-  }
-
-  tbody td > * {
-    &[class^="list-"] {
-      gap: var(--space-8);
-    }
-
-    &:not(:first-child) {
-      margin-top: var(--space-20);
+    > button {
+      margin-left: 0;
+      width: 1em;
+      height: 1em;
+      font-size: inherit;
     }
   }
 }

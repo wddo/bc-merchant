@@ -38,6 +38,16 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
+.tooltip-trigger {
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  mask: url("/static/images/icons/info.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/info.svg") no-repeat center center/contain;
+  background-image: none;
+  color: inherit;
+}
+
 ._table.tb-tl th,
 ._table.tb-tl td {
   text-align: left;
@@ -70,6 +80,19 @@ button[class^=_btn] {
 }
 ._table.tb-tl tbody td > *:not(:first-child) {
   margin-top: var(--space-20);
+}
+._table .tooltip-title {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  margin-top: -0.1em;
+}
+._table .tooltip-title > button {
+  margin-left: 0;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
 }
 
 /* .w-full {
@@ -299,6 +322,11 @@ button[class^=_btn] {
   margin-top: 4px;
 }
 
+.warning-box {
+  padding: var(--space-16) var(--space-20);
+  border-radius: var(--radius-16);
+  background-color: var(--gray-20);
+}
 .warning-box .warning-title {
   font-size: 16px;
   font-weight: 600;

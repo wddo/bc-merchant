@@ -510,7 +510,7 @@
       accordionController.init(".accordion");
       if (pbui) {
         if (pbui.tooltip) {
-          pbui.tooltip.init(".tooltip-trigger");
+          pbui.tooltip.init(".tooltip-trigger:not([id])");
         }
         if (pbui.selectmenu) {
           pbui.selectmenu.init(".input-box select");
