@@ -190,7 +190,7 @@
 }
 .store-infor .store-name {
   color: var(--gray-700);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-8);
 }
 .store-infor .store-data {
   display: flex;
@@ -361,7 +361,7 @@
 .writing-stage .stage-item .writing-box .writing-area .item .add-field {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-8);
   padding: var(--space-12);
   margin-top: 10px;
   background-color: var(--gray-20);
@@ -388,20 +388,20 @@
 }
 .writing-stage .stage-item .writing-box .writing-area .item .date-area .date-wrap {
   display: flex;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .date-area .date-inner {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .date-area .date-inner > * {
   flex: 1;
 }
 .writing-stage .stage-item .writing-box .writing-area .item .input-wrap {
   display: flex;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .input-wrap > * {
   flex: 1;
@@ -409,7 +409,7 @@
 .writing-stage .stage-item .writing-box .writing-area .item .dropdown-wrap {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .label-title {
   font-size: 14px;
@@ -429,7 +429,7 @@
 .writing-stage .stage-item .writing-box .writing-area .item .input-box-wrap {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .count-wrap .count-title {
   margin-bottom: var(--space-16);
@@ -441,7 +441,7 @@
 .writing-stage .stage-item .writing-box .writing-area .item > .inner {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .business-day > .day-box {
   display: flex;
@@ -450,7 +450,7 @@
   background-color: var(--gray-20);
   border: 1px solid var(--gray-60);
   border-radius: var(--radius-12);
-  margin-top: 8px;
+  margin-top: var(--space-8);
 }
 .writing-stage .stage-item .writing-box .writing-area .item .business-day > .day-box > * {
   flex: 1;
@@ -677,10 +677,10 @@
 .cardtype > .item .middle-area .data-wrap {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px var(--space-20);
+  gap: var(--space-8) var(--space-20);
   background-color: var(--gray-20);
   padding: var(--space-20);
-  margin: var(--space-24) 0 8px;
+  margin: var(--space-24) 0 var(--space-8);
 }
 .cardtype > .item .middle-area .data-wrap .data-infor {
   display: flex;
@@ -716,7 +716,7 @@
 .popup-content .round-item {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-8);
 }
 .popup-content .round-item > .item {
   flex: 1;
@@ -953,7 +953,7 @@
   }
   .mytag-guide .guide-item .item-wrap {
     grid-template-columns: none;
-    gap: 8px;
+    gap: var(--space-8);
     flex-basis: auto;
   }
   .mytag-guide .guide-item .item-wrap .item {
@@ -962,7 +962,7 @@
     padding: var(--space-20);
   }
   .mytag-guide .guide-item .item-wrap .item .text-area {
-    gap: 8px 0;
+    gap: var(--space-8) 0;
   }
   .mytag-guide .guide-item .item-wrap .item::after {
     width: 40px;
@@ -998,7 +998,7 @@
   }
   .store-infor .store-data {
     flex-direction: column;
-    gap: 8px;
+    gap: var(--space-8);
   }
   .store-infor .store-data .item {
     flex-direction: row;
@@ -1124,14 +1124,14 @@
     gap: var(--space-12);
   }
   .writing-stage .stage-item .writing-box .writing-area .item .count-wrap .count-title {
-    margin-bottom: 8px;
+    margin-bottom: var(--space-8);
   }
   .writing-stage .stage-item .writing-box .writing-area .item .count-wrap .count-title .count {
     margin-bottom: -4px;
   }
   .writing-stage .stage-item .writing-box .writing-area .item .business-day > .day-box {
     flex-wrap: wrap;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
   }
   .writing-stage .stage-item .writing-box .writing-area .item .business-day > .day-box > * {
     min-width: 45px;
@@ -1147,7 +1147,7 @@
   .writing-stage .stage-item .writing-box .customers-number {
     margin-top: var(--space-24);
     padding: var(--space-16);
-    gap: 8px;
+    gap: var(--space-8);
   }
   .writing-stage .stage-item .writing-box .customers-number .data-area {
     flex-direction: column;
@@ -1178,7 +1178,7 @@
   }
   .cardtype > .item .middle-area .data-wrap {
     grid-template-columns: auto;
-    gap: 8px;
+    gap: var(--space-8);
     margin: var(--space-24) 0 var(--space-12);
   }
   .marketing-results .round-item {
