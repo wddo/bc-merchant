@@ -30,6 +30,10 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
+._btn-wrap.right {
+  justify-content: flex-end;
+}
+
 ._btn-wrap.fit > [class^=_btn] {
   flex-basis: auto;
 }
@@ -484,6 +488,39 @@ button[class^=_btn] {
   }
 }
 
+.tab-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--white);
+}
+.tab-wrapper::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  background-color: var(--gray-100);
+  max-width: 1200px;
+  transform: translateX(-50%);
+}
+.tab-wrapper.shadow {
+  box-shadow: 0px 16px 32px 0px rgba(35, 34, 88, 0.08);
+}
+.tab-wrapper .tab-box {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tab-wrapper .tab-box ._tabs-main {
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .tab-wrapper {
+    top: 56px;
+  }
+}
 html,
 body {
   height: 100%;

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/su.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/su.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <button type="button" onClick="pbui.popup.open('#large-popup');">마이태그 미리보기 팝업</button>
+    <div class="_modal-popup large" id="large-popup">
+      <div class="inner">
+        <div class="header">
+          <p class="title">#마이태그 행사조건 미리보기</p>
+        </div>
+        <div class="content">
+          <div class="popup-content">
+            <div class="round-item">
+              <div class="item">
+                <span class="title">홍보 예상 고객 수</span>
+                <strong class="data">37,013,311명</strong>
+              </div>
+              <div class="item">
+                <span class="title">최대 예상 소요비용</span>
+                <strong class="data">49,975,000원</strong>
+              </div>
+            </div>
+            <div class="coupon">
+              <span class="store-name">BC카드(주)</span>
+              <p class="text">마이태그하면 무조건!</p>
+              <strong class="_font-title-4">최대 30% 청구할인</strong>
+              <span class="date">2026.02.28까지</span>
+            </div>
+            <p class="info-text">비씨카드가 자체 분석한 예상 고객수 및 비용으로 실제와 다를 수 있습니다.</p>
+          </div>
+          <!-- //popup-content -->
+        </div>
+        <div class="button-box">
+          <button type="button" class="_btn-medium-primary">확인</button>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

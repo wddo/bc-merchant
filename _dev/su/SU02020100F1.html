@@ -36,7 +36,7 @@
           <div class="step-guide">
             <div class="text-area">
               <h2 class="_font-title-2">마이태그 서비스 신청정보 입력</h2>
-              <p class="text">마이태그 신청정보를 입력하면 가맹점 홍보를 위해 입력한 조건에 따라 <br />고객 대상 마케팅이 진행됩니다</p>
+              <p class="text"><span>마이태그 신청정보를 입력하면 가맹점 홍보를 위해</span> 입력한 조건에 따라 <br />고객 대상 마케팅이 진행됩니다</p>
             </div>
             <div class="step-area">
               <div class="step-hor">
@@ -370,7 +370,7 @@
                         <li>청구할인 금액은 가맹점 입금 대금에서 차감 처리 됩니다.</li>
                       </ul>
                       <div class="btn">
-                        <button type="button" class="_btn-xsmall-primary" disabled="">마이태그 미리보기</button>
+                        <button type="button" class="_btn-xsmall-primary" disabled="" onClick="pbui.popup.open('#large-popup');">마이태그 미리보기</button>
                       </div>
                     </div>
                   </div>
@@ -585,3 +585,38 @@
     <script src="/guide/dev/js/include.js"></script>
   </body>
 </html>
+
+<!-- 미리보기 Popup -->
+<div class="_modal-popup large" id="large-popup">
+  <div class="inner">
+    <div class="header">
+      <p class="title">#마이태그 행사조건 미리보기</p>
+    </div>
+    <div class="content">
+      <div class="popup-content">
+        <div class="round-item">
+          <div class="item">
+            <span class="title">홍보 예상 고객 수</span>
+            <strong class="data">37,013,311명</strong>
+          </div>
+          <div class="item">
+            <span class="title">최대 예상 소요비용</span>
+            <strong class="data">49,975,000원</strong>
+          </div>
+        </div>
+        <div class="coupon">
+          <span class="store-name">BC카드(주)</span>
+          <p class="text">마이태그하면 무조건!</p>
+          <strong class="_font-title-4">최대 30% 청구할인</strong>
+          <span class="date">2026.02.28까지</span>
+        </div>
+        <p class="info-text">비씨카드가 자체 분석한 예상 고객수 및 비용으로 실제와 다를 수 있습니다.</p>
+      </div>
+      <!-- //popup-content -->
+    </div>
+    <div class="button-box">
+      <button type="button" class="_btn-medium-primary">확인</button>
+    </div>
+    <button class="btn-close" type="button">닫기</button>
+  </div>
+</div>

@@ -41,6 +41,11 @@ button[class^="_btn"] {
   }
 }
 
+// button - right aligned
+._btn-wrap.right {
+  justify-content: flex-end;
+}
+
 // button - fit content
 ._btn-wrap.fit {
   > [class^="_btn"] {

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/su.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/su.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <button type="button" onClick="pbui.popup.open('#large-popup');">마케팅 결과 팝업</button>
+    <div class="_modal-popup large" id="large-popup">
+      <div class="inner">
+        <div class="header">
+          <p class="title">마케팅 결과</p>
+          <span class="description">2026.01.31 기준</span>
+        </div>
+        <div class="content">
+          <div class="popup-content">
+            <div class="round-item">
+              <div class="item">
+                <span class="title">연령대</span>
+                <strong class="data">19~59세</strong>
+              </div>
+              <div class="item">
+                <span class="title">성별</span>
+                <strong class="data">전체</strong>
+              </div>
+              <div class="item">
+                <span class="title">지역</span>
+                <strong class="data">경기 부천시</strong>
+              </div>
+              <div class="item">
+                <span class="title">선호업종</span>
+                <strong class="data">외식, 주류, 의류</strong>
+              </div>
+            </div>
+            <div class="box-item">
+              <div class="round-box">
+                <div class="tooltip-title">
+                  매출액
+                  <button type="button" class="tooltip-trigger tooltip-guide1" data-tooltip-cont="툴팁 안내입니다.">안내</button>
+                </div>
+                <strong class="_font-title-2">9,999,999<em>원</em></strong>
+              </div>
+              <div class="data-wrap">
+                <div class="item">
+                  <span class="title">#마이태그 응모고객</span>
+                  <strong class="data">9,999<em>명</em></strong>
+                </div>
+                <div class="item">
+                  <span class="title">할인혜택 받은 고객</span>
+                  <strong class="data">9,999<em>명</em></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- //popup-content -->
+        </div>
+        <div class="button-box">
+          <button type="button" class="_btn-medium-primary">확인</button>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>
