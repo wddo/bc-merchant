@@ -162,7 +162,7 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 ._font-title-4 {font-size:20px; line-height:30px; letter-spacing:-0.4px;}
 
 [class^="_font-body-0"] {font-size:18px; font-weight:400; letter-spacing:-0.72px;}
-[class^="_font-body-1"] {font-size:16px; font-weight:400; letter-spacing:-0.32px;}
+[class^="_font-body-1"] {font-size:16px; font-weight:400; letter-spacing:-0.64px;}
 [class^="_font-body-2"] {font-size:14px; font-weight:400; letter-spacing:-0.56px;}
 [class^="_font-body-3"] {font-size:12px; font-weight:400; letter-spacing:-0.48px;}
 [class^="_font-body-"][class*="-medi"] {font-weight:500;}
@@ -179,9 +179,6 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
   ._font-title-1 {font-size:24px; letter-spacing:-0.96px;}
   ._font-title-2 {font-size:20px; letter-spacing:-0.8px;}
   ._font-title-3 {font-size:18px; letter-spacing:-0.72px;}
-
-  [class^="_font-body-1"] {letter-spacing:-0.64px;}
-  [class^="_font-body-2"] {letter-spacing:-0.56px;}
 
   [class^="_font-caption-1"] {font-size:13px; letter-spacing:-0.52px;}
   [class^="_font-caption-2"] {font-size:12px; letter-spacing:-0.48px;}
