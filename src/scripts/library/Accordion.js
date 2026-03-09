@@ -258,6 +258,19 @@ class Accordion {
           return;
         }
 
+        const isAlreadyClosed =
+          activePanelElement.getAttribute("aria-hidden") === "true" &&
+          (activePanelElement.style.height === "0px" ||
+            activePanelElement.offsetHeight === 0);
+
+        if (isAlreadyClosed) {
+          util.clearTransition(activePanelElement);
+          activePanelElement.style.overflow = "hidden";
+          activePanelElement.style.height = "0px";
+          activePanelElement.setAttribute("aria-hidden", "true");
+          return;
+        }
+
         activePanelElement.style.overflow = "hidden";
 
         if (el.animation) {
