@@ -14,9 +14,14 @@
 }
 
 .merchant-loan-guide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
   .guide-item {
+    width: 100%;
     .inner {
       display: flex;
+      justify-content: space-between;
       gap: var(--space-48);
       > .text-area {
         ._font-title-2 {
@@ -46,6 +51,7 @@
       .item-wrap {
         display: flex;
         flex-basis: 832px;
+        max-width: 832px;
         flex-direction: column;
         gap: var(--space-16);
         .item {
@@ -86,6 +92,11 @@
               background-image: url(#{$img_url}/fs/img_merchantloan03.png);
             }
           }
+        }
+        .bg-item {
+          background-color: $bg-gray-20;
+          border-radius: var(--radius-16);
+          padding: var(--space-48);
         }
       }
     }

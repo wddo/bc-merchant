@@ -327,6 +327,11 @@ button[class^=_btn] {
 .list-noti > li > [class^=list-]:first-child {
   margin-top: 4px;
 }
+.list-dash .text-point600,
+.list-ref .text-point600,
+.list-noti .text-point600 {
+  color: var(--point-600);
+}
 
 .warning-box {
   padding: var(--space-16) var(--space-20);
