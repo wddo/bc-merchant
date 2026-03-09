@@ -132,7 +132,14 @@ class Accordion {
 
             method.open(elId);
           }
-        } else if (el.openType === "single" && btnArrow === "false") {
+        } else if (el.openType === "single") {
+          if (btnArrow === "true") {
+            e.currentTarget.setAttribute("aria-expanded", "false");
+            e.currentTarget.dataText ? e.currentTarget.dataText.show(1) : null;
+            method.close(elId);
+            return;
+          }
+
           const accSingleEl = el.target.querySelectorAll(selector.accItem);
           const thisItem = e.currentTarget.closest(selector.accItem);
 
