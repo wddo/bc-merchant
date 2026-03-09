@@ -11,6 +11,8 @@
   --space-40: 40px;
   --space-48: 48px;
   --space-56: 56px;
+  --space-64: 64px;
+  --space-100: 100px;
 }
 
 @media screen and (max-width: 767px) {
@@ -361,10 +363,14 @@ button[class^=_btn] {
 .warning-box .warning-title::before {
   content: "";
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   margin: 2px 4px 2px 2px;
   background: url(/static/images/icons/alert-circle.svg) no-repeat center center/contain;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.2em;
+  font-size: 1em;
 }
 .warning-box .list-noti {
   margin-top: var(--space-12);
