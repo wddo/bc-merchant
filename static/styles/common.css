@@ -188,7 +188,7 @@ button[class^=_btn] {
 }
 .list-noti > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -199,7 +199,7 @@ button[class^=_btn] {
   top: 0.69em;
   width: 3px;
   height: 3px;
-  background-color: var(--gray-600);
+  background-color: currentColor;
   border-radius: 100%;
   transform: translateY(-50%);
 }
@@ -243,7 +243,7 @@ button[class^=_btn] {
 }
 .list-ref > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -295,7 +295,7 @@ button[class^=_btn] {
 }
 .list-dash > li {
   position: relative;
-  color: var(--gray-600);
+  color: inherit;
   display: block;
   padding-left: var(--space-12);
 }
@@ -504,11 +504,24 @@ button[class^=_btn] {
 }
 
 .accordion-cont {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .accordion-cont {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.accordion-cont {
   padding: var(--space-32) var(--space-40) var(--space-40);
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
   background-color: var(--gray-20);
+  color: var(--gray-600);
 }
 @media (max-width: 767px) {
   .accordion-cont {
