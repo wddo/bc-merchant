@@ -45,14 +45,20 @@
                       <span>24시간 365일 쉽고 편리하게 </span>
                       BC카드 가맹점 운영중인 <br>개인사업자만 빌려드려요
                     </h3>
-                    <dl class="loan-infor">
-                      <dt>대출기간</dt>
-                      <dd class="_font-title-4">최대 60개월</dd>
-                      <dt>최대한도</dt>
-                      <dd class="_font-title-4">5천만원</dd>
-                      <dt>대출금리</dt>
-                      <dd class="_font-title-4">연 4.9 ~ 19.9%</dd>
-                    </dl>
+                    <div class="loan-infor">
+                      <div class="item">
+                        <strong class="title">대출기간</strong>
+                        <p class="_font-title-4">최대 60개월</p>
+                      </div>
+                      <div class="item">
+                        <strong class="title">최대한도</strong>
+                        <p class="_font-title-4">5천만원</p>
+                      </div>
+                      <div class="item">
+                        <strong class="title">대출금리</strong>
+                        <p class="_font-title-4">연 4.9 ~ 19.9%</p>
+                      </div>
+                    </div>
                   </div>
                   <div class="item-wrap">
                     <div class="item">
@@ -81,7 +87,7 @@
               <div class="guide-item">
                 <div class="inner">
                   <div class="text-area">
-                    <h3 class="_font-title-2"> </h3>
+                    <h3 class="_font-title-2">상품안내</h3>
                   </div>
                   <div class="item-wrap">
                     <div class="bg-item">
@@ -89,7 +95,7 @@
                         <table summary="BC카드 가맹점 대출 상품 안내">
                             <caption>BC카드 가맹점 대출 상품 안내</caption>
                             <colgroup>
-                                <col width="184px" style="min-width:100px;">
+                                <col style="width:25%" />
                                 <col />
                             </colgroup>
                             <tbody>
@@ -154,8 +160,11 @@
                             </tbody>
                         </table>
                       </div>
-                      <div class="text-right">
-                        <p class="">준법감시인 2025-2393호<br>여신금융협회 심의필 제 2025-L1h-15364호 (2025.10.22 ~ 2026.10.21)</p>
+                      <p class="text-right">준법감시인 2025-2393호<br>여신금융협회 심의필 제 2025-L1h-15364호 (2025.10.22 ~ 2026.10.21)</p>
+                      <div class="_btn-wrap">
+                        <button type="button" class="_btn-xsmall-secondary">FAQ 바로가기</button>
+                        <button type="button" class="_btn-xsmall-secondary" onClick="pbui.popup.open('#large-popup02');">거래약관 보기</button>
+                        <button type="button" class="_btn-xsmall-secondary" onClick="pbui.popup.open('#large-popup');">금융상품공시</button>
                       </div>
                     </div>
                   </div>
@@ -181,3 +190,71 @@
     <script src="/guide/dev/js/include.js"></script>
   </body>
 </html>
+
+<!-- 금융 상품 공시 Popup -->
+<div class="_modal-popup large" id="large-popup">
+  <div class="inner">
+    <div class="header">
+      <p class="title">금융 상품 공시</p>
+    </div>
+    <div class="content">
+      <div class="popup-content">
+        <div class="text-item">
+          <div class="item">
+            <strong class="title">공시 안내</strong>
+            <p class="text">금융서비스 상품공시는 금융소비자가 금융상품을 이해하고 선택하는데 유용한 정보를 제공함으로써 금융소비자를 보호하기 위한 제도입니다.</p>
+          </div>
+          <div class="item">
+            <strong class="title">공시 근거 규정</strong>
+            <p class="text">여신전문금융업법 : 18조 동법 시행규칙 제 3조</p>
+          </div>
+          <div class="item">
+            <strong class="title">유의사항</strong>
+            <p class="text">금융상품에 가입하기 전 약정서, 거래 약관, 상품설명서 등을 통해서 상품 내용을 반드시 확인하여 주시기 바랍니다. 금융회사 금융상품 등 모든 정보를 한눈에 통합 비교할 수 있습니다.</p>
+          </div>
+          <div class="item">
+            <strong class="title">공시안내</strong>
+            <ul class="list-noti">
+              <li>금융감독원 e-금융민원센터 : 전화 국번없이 1332 / http://www.fcsc.kr</li>
+              <li>여신금융협협회 소비자지원센터 : https://www.crefia.or.kr</li>
+              <li>금융감독원 금융소비자보호처 민원상담조회서비스 : http://consumer.fss.or.kr</li>
+              <li>여신금융협협회 심의필 제 2016-L1a-02135호 (2016.12.19)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- //popup-content -->
+    </div>
+    <div class="button-box">
+      <button type="button" class="_btn-medium-primary">확인</button>
+    </div>
+    <button class="btn-close" type="button">닫기</button>
+  </div>
+</div>
+
+<!-- 대출한도조회/신청 Popup -->
+<div class="_modal-popup large" id="large-popup02">
+  <div class="inner">
+    <div class="header">
+      <p class="title">대출한도조회/신청</p>
+    </div>
+    <div class="content">
+      <div class="popup-content">
+        <div class="qr-img">
+          <img src="/static/images/fs/dummy_qr.png" alt="한도조회/신청 QR 이미지">
+        </div>
+        <div class="warning-box">
+          <ul class="list-noti">
+            <li>BC카드 가맹점 대출은 모바일 전용상품으로 모바일에서 대출 신청이 가능합니다.</li>
+            <li>QR코드를 휴대폰 카메라로 스캔하시면 모바일로 쉽고 편리하게 한도조회/신청이 가능합니다.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- //popup-content -->
+    </div>
+    <div class="button-box">
+      <button type="button" class="_btn-medium-primary">확인</button>
+    </div>
+    <button class="btn-close" type="button">닫기</button>
+  </div>
+</div>

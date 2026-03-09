@@ -13,6 +13,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
+  padding-bottom: var(--space-32);
+  margin-bottom: var(--space-48);
+  border-bottom: 1px solid var(--gray-60);
 }
 .merchant-loan-guide .guide-item {
   width: 100%;
@@ -24,36 +27,37 @@
 }
 .merchant-loan-guide .guide-item .inner > .text-area ._font-title-2 > span {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-8);
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.72px;
   color: var(--gray-500);
 }
 .merchant-loan-guide .guide-item .inner > .text-area .loan-infor {
-  gap: var(--space-20);
   margin-top: var(--space-56);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor .item {
+  gap: var(--space-4);
+}
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor .title {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
 }
 @media screen and (max-width: 767px) {
-  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor .title {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.64px;
   }
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt {
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor .title {
   color: var(--gray-900);
-  margin-top: var(--space-20);
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dt:first-child {
-  margin-top: 0;
-}
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor dd {
+.merchant-loan-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
   color: var(--point-600);
 }
 .merchant-loan-guide .guide-item .inner .item-wrap {
@@ -86,8 +90,8 @@
   width: 292px;
   height: 180px;
   background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: 100% auto;
+  background-position: 50% 50%;
+  background-size: auto 100%;
 }
 .merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(1)::after {
   background-image: url(/static/images/fs/img_merchantloan01.png);
@@ -132,7 +136,115 @@
   }
 }
 .merchant-loan-guide .guide-item .inner .item-wrap .bg-item .text-right {
+  margin-bottom: var(--space-24);
   text-align: right;
   margin-top: var(--space-12);
   color: var(--gray-500);
+}
+
+.popup-content .text-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+.popup-content .text-item > .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.popup-content .text-item > .item .title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
+  color: var(--gray-700);
+}
+.popup-content .text-item > .item .text {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .popup-content .text-item > .item .text {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.popup-content .text-item > .item .text {
+  color: var(--gray-700);
+}
+.popup-content .qr-img {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+.popup-content .list-noti {
+  gap: var(--space-8);
+}
+.popup-content .warning-box .list-noti {
+  margin-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .merchant-loan-guide {
+    gap: var(--space-40);
+  }
+  .merchant-loan-guide .guide-item .inner {
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+  .merchant-loan-guide .guide-item .inner > .text-area ._font-title-2 > span {
+    margin-bottom: var(--space-4);
+  }
+  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor {
+    margin-top: var(--space-16);
+    gap: var(--space-8);
+  }
+  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap {
+    flex-basis: auto;
+    max-width: none;
+    gap: var(--space-12);
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .item {
+    padding: var(--space-24);
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area {
+    gap: var(--space-4);
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .item::after {
+    content: "";
+    display: block;
+    margin: var(--space-40) 0 0 auto;
+    width: 120px;
+    height: 120px;
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item {
+    padding: var(--space-24);
+  }
+}
+@media (max-width: 767px) {
+  .merchant-loan-guide {
+    padding-bottom: var(--space-40);
+    margin-bottom: var(--space-40);
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item {
+    margin-top: -8px;
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item ._table > table {
+    min-width: 560px;
+  }
+  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item ._btn-wrap {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .popup-content .qr-img {
+    margin-bottom: var(--space-8);
+  }
+  .popup-content .list-noti {
+    gap: var(--space-6);
+  }
 }

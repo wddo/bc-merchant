@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <button type="button" onClick="pbui.popup.open('#large-popup02');">대출한도조회/신청 팝업</button>
+    <div class="_modal-popup large" id="large-popup02">
+      <div class="inner">
+        <div class="header">
+          <p class="title">대출한도조회/신청</p>
+        </div>
+        <div class="content">
+          <div class="popup-content">
+            <div class="qr-img">
+              <img src="/static/images/fs/dummy_qr.png" alt="한도조회/신청 QR 이미지">
+            </div>
+            <div class="warning-box">
+              <ul class="list-noti">
+                <li>BC카드 가맹점 대출은 모바일 전용상품으로 모바일에서 대출 신청이 가능합니다.</li>
+                <li>QR코드를 휴대폰 카메라로 스캔하시면 모바일로 쉽고 편리하게 한도조회/신청이 가능합니다.</li>
+              </ul>
+            </div>
+          </div>
+          <!-- //popup-content -->
+        </div>
+        <div class="button-box">
+          <button type="button" class="_btn-medium-primary">확인</button>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

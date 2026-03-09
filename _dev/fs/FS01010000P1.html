@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <button type="button" onClick="pbui.popup.open('#large-popup');">금융 상품 공시 팝업</button>
+    <div class="_modal-popup large" id="large-popup">
+      <div class="inner">
+        <div class="header">
+          <p class="title">금융 상품 공시</p>
+        </div>
+        <div class="content">
+          <div class="popup-content">
+            <div class="text-item">
+              <div class="item">
+                <strong class="title">공시 안내</strong>
+                <p class="text">금융서비스 상품공시는 금융소비자가 금융상품을 이해하고 선택하는데 유용한 정보를 제공함으로써 금융소비자를 보호하기 위한 제도입니다.</p>
+              </div>
+              <div class="item">
+                <strong class="title">공시 근거 규정</strong>
+                <p class="text">여신전문금융업법 : 18조 동법 시행규칙 제 3조</p>
+              </div>
+              <div class="item">
+                <strong class="title">유의사항</strong>
+                <p class="text">금융상품에 가입하기 전 약정서, 거래 약관, 상품설명서 등을 통해서 상품 내용을 반드시 확인하여 주시기 바랍니다. 금융회사 금융상품 등 모든 정보를 한눈에 통합 비교할 수 있습니다.</p>
+              </div>
+              <div class="item">
+                <strong class="title">공시안내</strong>
+                <ul class="list-noti">
+                  <li>금융감독원 e-금융민원센터 : 전화 국번없이 1332 / http://www.fcsc.kr</li>
+                  <li>여신금융협협회 소비자지원센터 : https://www.crefia.or.kr</li>
+                  <li>금융감독원 금융소비자보호처 민원상담조회서비스 : http://consumer.fss.or.kr</li>
+                  <li>여신금융협협회 심의필 제 2016-L1a-02135호 (2016.12.19)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- //popup-content -->
+        </div>
+        <div class="button-box">
+          <button type="button" class="_btn-medium-primary">확인</button>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>
