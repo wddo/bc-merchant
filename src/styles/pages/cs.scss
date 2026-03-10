@@ -16,8 +16,13 @@
     }
   }
 
-  .category {
-    padding: var(--space-32) 0 var(--space-40);
+  .tab-wrapper {
+    padding: var(--space-12) 0;
+    margin: var(--space-20) 0;
+
+    &::after {
+      height: 0;
+    }
 
     .tab-box {
       margin: 0 auto;
@@ -33,6 +38,7 @@
       display: flex;
       justify-content: flex-end;
       gap: var(--space-4);
+      margin-top: var(--space-8);
       margin-bottom: var(--space-8);
       color: $text-secondary;
 
@@ -98,22 +104,39 @@
         }
       }
     }
+  }
+}
 
-    @include respond-sm {
+@include respond-sm {
+  .faq {
+    .tab-wrapper {
+      padding: var(--space-12) 0;
+      margin: var(--space-20) 0;
+    }
+
+    .contents {
+      .faq-total {
+        margin-top: 0;
+      }
+
       .accordion-header {
         flex-wrap: wrap;
-        row-gap: var(--space-8);
+        row-gap: var(--space-4);
         padding: var(--space-20) var(--space-40) var(--space-20) 0;
+      }
+
+      .faq-no {
+        display: none;
+      }
+
+      .faq-category {
+        margin-left: 0;
       }
 
       .faq-no,
       .faq-category {
         width: auto;
         text-align: left;
-      }
-
-      .faq-category {
-        margin-left: var(--space-8);
       }
 
       .depth01 {

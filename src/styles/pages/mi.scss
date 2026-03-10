@@ -176,11 +176,6 @@
       @include font-token($font-body-1-semi);
       margin-top: 0;
     }
-
-    .pg-url,
-    .pg-tel {
-      @include font-token($font-body-2);
-    }
   }
 
   ._table > table {
@@ -189,7 +184,7 @@
     colgroup {
       col {
         &:nth-child(1) {
-          width: 66px;
+          width: 68px;
         }
       }
     }

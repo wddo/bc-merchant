@@ -86,10 +86,6 @@ button[class^="_btn"] {
     td {
       text-align: left;
       vertical-align: top;
-
-      @include respond-sm {
-        @include font-token($font-body-2);
-      }
     }
 
     th {
@@ -101,9 +97,10 @@ button[class^="_btn"] {
     }
 
     tbody td > * {
-      &[class^="list-"] {
+      // 디자인 간격 정리하며 제거 - 추후 완전 제거
+      /* &[class^="list-"] {
         gap: var(--space-8);
-      }
+      } */
 
       &:not(:first-child) {
         margin-top: var(--space-20);

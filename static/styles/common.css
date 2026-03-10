@@ -77,30 +77,16 @@ button[class^=_btn] {
   text-align: left;
   vertical-align: top;
 }
-@media (max-width: 767px) {
-  ._table.tb-tl th,
-  ._table.tb-tl td {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  ._table.tb-tl th,
-  ._table.tb-tl td {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
 ._table.tb-tl th {
   padding: var(--space-12) var(--space-20);
 }
 ._table.tb-tl td {
   padding: var(--space-20);
 }
-._table.tb-tl tbody td > *[class^=list-] {
-  gap: var(--space-8);
+._table.tb-tl tbody td > * {
+  /* &[class^="list-"] {
+    gap: var(--space-8);
+  } */
 }
 ._table.tb-tl tbody td > *:not(:first-child) {
   margin-top: var(--space-20);
@@ -232,8 +218,10 @@ button[class^=_btn] {
   border-radius: 100%;
   transform: translateY(-50%);
 }
-.list-noti > li > ul[class^=list-]:first-child {
-  margin-top: var(--space-4);
+.list-noti > li {
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 .list-noti strong {
   color: var(--red-800);
@@ -288,8 +276,10 @@ button[class^=_btn] {
   font-size: 1em;
   transform: translateY(-50%);
 }
-.list-ref > li > ul[class^=list-]:first-child {
-  margin-top: var(--space-4);
+.list-ref > li {
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 .list-ref strong {
   color: var(--red-800);
@@ -344,8 +334,10 @@ button[class^=_btn] {
   font-size: 1em;
   transform: translateY(-50%);
 }
-.list-dash > li > ul[class^=list-]:first-child {
-  margin-top: var(--space-4);
+.list-dash > li {
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 .list-dash strong {
   color: var(--red-800);
@@ -399,8 +391,10 @@ button[class^=_btn] {
   top: 0.03em;
   font-size: 1em;
 }
-.list-ast > li > ul[class^=list-]:first-child {
-  margin-top: var(--space-4);
+.list-ast > li {
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 .list-ast strong {
   color: var(--red-800);
@@ -411,13 +405,13 @@ button[class^=_btn] {
 .list-ref > li > [class^=list-],
 .list-noti > li > [class^=list-],
 .list-ast > li > [class^=list-] {
-  gap: 6px;
+  gap: var(--space-4);
 }
 .list-dash > li > [class^=list-]:first-child,
 .list-ref > li > [class^=list-]:first-child,
 .list-noti > li > [class^=list-]:first-child,
 .list-ast > li > [class^=list-]:first-child {
-  margin-top: 4px;
+  margin-top: var(--space-6);
 }
 .list-dash .text-point600,
 .list-ref .text-point600,
@@ -447,20 +441,9 @@ button[class^=_btn] {
   display: flex;
   align-items: center;
   color: var(--gray-600);
-}
-@media (max-width: 767px) {
-  .warning-box .warning-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .warning-box .warning-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -0.56px;
-  }
+  /* @include respond-sm {
+    @include font-token($font-body-2-semi);
+  } */
 }
 .warning-box .warning-title::before {
   content: "";
@@ -479,33 +462,7 @@ button[class^=_btn] {
   gap: var(--space-6);
 }
 .warning-box .list-noti li {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .warning-box .list-noti li {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-.warning-box .list-noti li {
   color: var(--gray-600);
-}
-@media (max-width: 767px) {
-  .warning-box .list-noti li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .warning-box .list-noti li {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
 }
 .warning-box .list-noti li::before {
   width: 3px;
@@ -557,6 +514,7 @@ button[class^=_btn] {
   width: 100%;
   padding: var(--space-24) var(--space-32) var(--space-24) 0;
   text-align: left;
+  line-height: 150%;
 }
 @media (max-width: 767px) {
   .accordion-header {
@@ -614,6 +572,32 @@ button[class^=_btn] {
 }
 @media screen and (max-width: 767px) {
   .accordion-cont {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.accordion-cont [class^=list-] > li {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .accordion-cont [class^=list-] > li {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-cont [class^=list-] > li {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .accordion-cont [class^=list-] > li {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;

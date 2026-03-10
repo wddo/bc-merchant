@@ -34,6 +34,9 @@
     contain;
 }
 
+// 첫번째 블릿 리스트 간 간격 - 12px
+// ----- 사이 간격 ------ 6px
+// 하위 블릿 리스트 간 간격 - 4px
 @mixin bullet-list($type: dot, $color: inherit) {
   list-style: none;
   padding-left: 0;
@@ -83,9 +86,10 @@
       }
     }
 
-    > ul[class^="list-"]:first-child {
-      margin-top: var(--space-4);
-    }
+    // 디자인 간격 정리하며 제거 - 추후 완전 제거
+    /* > ul[class^="list-"]:first-child {
+      margin-top: var(--space-6);
+    } */
   }
 
   strong {
