@@ -1046,7 +1046,7 @@
     max-width: 335px;
   }
   .store-infor {
-    padding: 32px 0;
+    padding: var(--space-32) 0;
   }
   .writing-stage {
     margin-top: var(--space-20);
