@@ -20,11 +20,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
-  padding-bottom: var(--space-32);
-  margin-bottom: var(--space-48);
-  border-bottom: 1px solid $line-gray-60;
   .guide-item {
     width: 100%;
+    .text-area {
+      min-width: 270px;
+      ._font-title-2 {
+        white-space: pre;
+      }
+    }
     .inner {
       display: flex;
       justify-content: space-between;
@@ -158,6 +161,33 @@
 
       }
     }
+    .list-noti {
+      & + .text-noti {
+        margin-top: var(--space-20);
+      }
+    }
+    .text-noti {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-20);
+      dl {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12); 
+        flex: 1;
+        dt {
+          @include font-token($font-body-0-semi);
+          color: $text-secondary;
+        }
+        dd {
+          @include font-token($font-body-1);
+          color: $text-secondary;
+        }
+      }      
+    }
+  }
+  + ._btn-wrap {
+    margin-top: var(--space-56);
   }
 }
 
@@ -194,9 +224,9 @@
   }
 }
 
-.store-infor {
+.dropdown-area {
   padding: var(--space-32) 0 var(--space-48);
-  .store-name {
+  .label-title {
     display: block;
     @include font-token($font-body-2-medi);
     color: $text-secondary;    
@@ -478,8 +508,6 @@
 // Mobile
 @include respond-sm {
   .fs-intro-guide {
-    padding-bottom: var(--space-40);
-    margin-bottom: var(--space-40);
     .guide-item {
       .inner {
         .item-wrap {
@@ -498,6 +526,9 @@
         }
       }
     }
+    + ._btn-wrap {
+      margin-top: var(--space-40);
+    }
   }
 
   .popup-content {
@@ -509,7 +540,7 @@
     }
   }
 
-  .store-infor {
+  .dropdown-area {
     padding: var(--space-32) 0;
   }
 

@@ -174,7 +174,7 @@
   }
 }
 
-.store-infor {
+.dropdown-area {
   &.full {
     background-color: $bg-gray-40;
   }
@@ -183,13 +183,13 @@
     max-width: $page-max-width;
     margin: 0 auto;
   }
-  .store-name {
+  .label-title {
     display: block;
     @include font-token($font-body-2-medi);
     color: $text-secondary;    
     margin-bottom: var(--space-8);
   }
-  .store-data {
+  .data-area {
     display: flex;
     justify-content: space-between;
     gap: var(--space-12); 
@@ -789,7 +789,7 @@
     }
   }
 
-  .store-infor {
+  .dropdown-area {
     .store-data {
       flex-direction: column;
       gap: var(--space-8); 
@@ -860,7 +860,7 @@
     }
   }
 
-  .store-infor {
+  .dropdown-area {
     padding: var(--space-32) 0;
   }
 

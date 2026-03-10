@@ -14,12 +14,15 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
-  padding-bottom: var(--space-32);
-  margin-bottom: var(--space-48);
-  border-bottom: 1px solid var(--gray-60);
 }
 .fs-intro-guide .guide-item {
   width: 100%;
+}
+.fs-intro-guide .guide-item .text-area {
+  min-width: 270px;
+}
+.fs-intro-guide .guide-item .text-area ._font-title-2 {
+  white-space: pre;
 }
 .fs-intro-guide .guide-item .inner {
   display: flex;
@@ -166,6 +169,44 @@
   margin-top: var(--space-12);
   color: var(--gray-500);
 }
+.fs-intro-guide .guide-item .list-noti + .text-noti {
+  margin-top: var(--space-20);
+}
+.fs-intro-guide .guide-item .text-noti {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+.fs-intro-guide .guide-item .text-noti dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  flex: 1;
+}
+.fs-intro-guide .guide-item .text-noti dl dt {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
+  color: var(--gray-700);
+}
+.fs-intro-guide .guide-item .text-noti dl dd {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .fs-intro-guide .guide-item .text-noti dl dd {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.fs-intro-guide .guide-item .text-noti dl dd {
+  color: var(--gray-700);
+}
+.fs-intro-guide + ._btn-wrap {
+  margin-top: var(--space-56);
+}
 
 .popup-content .text-item {
   display: flex;
@@ -209,23 +250,23 @@
   margin-top: 0;
 }
 
-.store-infor {
+.dropdown-area {
   padding: var(--space-32) 0 var(--space-48);
 }
-.store-infor .store-name {
+.dropdown-area .label-title {
   display: block;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
 }
 @media screen and (max-width: 767px) {
-  .store-infor .store-name {
+  .dropdown-area .label-title {
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.56px;
   }
 }
-.store-infor .store-name {
+.dropdown-area .label-title {
   color: var(--gray-700);
   margin-bottom: var(--space-8);
 }
@@ -518,10 +559,6 @@
   }
 }
 @media (max-width: 767px) {
-  .fs-intro-guide {
-    padding-bottom: var(--space-40);
-    margin-bottom: var(--space-40);
-  }
   .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
     margin-top: -8px;
   }
@@ -532,13 +569,16 @@
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+  .fs-intro-guide + ._btn-wrap {
+    margin-top: var(--space-40);
+  }
   .popup-content .qr-img {
     margin-bottom: var(--space-8);
   }
   .popup-content .list-noti {
     gap: var(--space-6);
   }
-  .store-infor {
+  .dropdown-area {
     padding: var(--space-32) 0;
   }
   .full-bg .contents {
