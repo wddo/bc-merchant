@@ -20,6 +20,16 @@
   @include visually-hidden;
 }
 
+// only mobile invisible
+.mo-invisible {
+  display: block;
+
+  @include respond-sm {
+    display: none;
+  }
+}
+
+
 // only mobile visible
 .mo-visible {
   display: none;

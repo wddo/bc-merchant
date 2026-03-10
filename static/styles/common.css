@@ -54,6 +54,15 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
+._btn-wrap [class^=_btn]:only-child {
+  max-width: 320px;
+}
+@media (max-width: 767px) {
+  ._btn-wrap [class^=_btn]:only-child {
+    max-width: none;
+  }
+}
+
 [class^=_chip-box] input + i {
   min-width: 78px;
 }
@@ -131,6 +140,15 @@ button[class^=_btn] {
   margin: -1px !important;
   padding: 0;
   clip: rect(0 0 0 0);
+}
+
+.mo-invisible {
+  display: block;
+}
+@media (max-width: 767px) {
+  .mo-invisible {
+    display: none;
+  }
 }
 
 .mo-visible {

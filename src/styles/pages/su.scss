@@ -514,7 +514,7 @@
     padding: 148px 0 200px; //디자인 상 숫자
   }
   .contents {
-    max-width: 1200px;
+    max-width: $page-max-width;
     margin: 0 auto;
   }
 }
@@ -728,11 +728,6 @@
     gap: var(--space-40);
     padding-bottom: var(--space-40);
     .guide-item {
-      ._font-title-2 {
-        br {
-          display: none;
-        }
-      }
       .inner {
         flex-direction: column;
         gap: var(--space-16) 0;
@@ -786,9 +781,6 @@
     gap: var(--space-40);
     .text-area {
       .text {
-        br {
-          display: none;;
-        }
         margin-top: var(--space-4);
       }
     }
@@ -810,13 +802,6 @@
       flex-direction: column;
       padding: 0 0 var(--space-40) 64px;
       gap: var(--space-24);
-      .writing-infor {
-        > .text {
-          br {
-            display: none;
-          }
-        }
-      }
       .writing-box {
         flex-basis: auto;
       }
@@ -861,9 +846,6 @@
     padding: 32px 0 var(--space-20);
     .text-area {
       .text {
-        br {
-          display: none;;
-        }
         margin-top: var(--space-4);
       }
     }

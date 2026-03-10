@@ -944,9 +944,6 @@
     gap: var(--space-40);
     padding-bottom: var(--space-40);
   }
-  .mytag-guide .guide-item ._font-title-2 br {
-    display: none;
-  }
   .mytag-guide .guide-item .inner {
     flex-direction: column;
     gap: var(--space-16) 0;
@@ -990,9 +987,6 @@
   .step-guide {
     gap: var(--space-40);
   }
-  .step-guide .text-area .text br {
-    display: none;
-  }
   .step-guide .text-area .text {
     margin-top: var(--space-4);
   }
@@ -1008,9 +1002,6 @@
     flex-direction: column;
     padding: 0 0 var(--space-40) 64px;
     gap: var(--space-24);
-  }
-  .writing-stage .stage-item .writing-infor > .text br {
-    display: none;
   }
   .writing-stage .stage-item .writing-box {
     flex-basis: auto;
@@ -1043,9 +1034,6 @@
     flex-direction: column;
     gap: var(--space-20);
     padding: 32px 0 var(--space-20);
-  }
-  .step-guide .text-area .text br {
-    display: none;
   }
   .step-guide .text-area .text {
     margin-top: var(--space-4);
