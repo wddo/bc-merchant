@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .faq {
-  .title.full {
+  /* .title.full {
     background-color: var(--gray-20);
     display: flex;
     flex-direction: column;
@@ -9,19 +9,30 @@
     align-items: center;
     justify-content: center;
     padding: var(--space-48) 0;
+  } */
 
-    .search-box {
-      width: 100%;
-      max-width: $page-max-width;
+  .search-box.underline {
+    width: 100%;
+    max-width: $page-max-width;
+
+    .input-box {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid $line-gray-100;
+
+      input {
+        padding: var(--space-16) 0;
+      }
     }
   }
 
   .tab-wrapper {
-    padding: var(--space-12) 0;
-    margin: var(--space-20) 0;
+    padding: var(--space-12) 0; // sticky 영역
+    margin: var(--space-12) 0; // sticky 영역과 콘텐츠 간 간격
 
     &::after {
-      height: 0;
+      height: 0; // 라인 제거
     }
 
     .tab-box {
@@ -33,78 +44,72 @@
 
   .contents {
     .faq-total {
-      @include font-token($font-body-2-medi);
+      @include font-token($font-body-1);
 
       display: flex;
-      justify-content: flex-end;
-      gap: var(--space-4);
-      margin-top: var(--space-8);
-      margin-bottom: var(--space-8);
+      justify-content: flex-start;
+      margin-top: var(--space-24);
+      margin-bottom: var(--space-16);
       color: $text-secondary;
 
+      mark,
       em {
-        color: $text-warning;
+        color: $text-point-indigo;
         font-style: normal;
+        font-weight: 600;
+        margin-left: var(--space-4);
       }
     }
 
     .accordion {
-      margin-top: 0;
+      .accordion-cont {
+        .is-warning {
+          color: $text-warning;
+
+          &::before {
+            background-color: $text-warning;
+          }
+
+          [class^="list-"] > li {
+            color: inherit;
+          }
+        }
+      }
     }
 
-    .accordion-header {
+    .faq-title-wrap {
       display: flex;
-      align-items: center;
-      padding: var(--space-20) 120px var(--space-20) 0;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+      gap: var(--space-2);
     }
 
     .faq-no,
     .faq-category {
       @include font-token($font-body-1);
-
-      flex: 0 0 auto;
-      text-align: center;
-      color: $text-secondary;
     }
 
     .faq-no {
-      width: 100px;
-    }
-
-    .faq-category {
-      width: 120px;
-    }
-
-    .depth01 {
-      @include font-token($font-body-1-semi);
-
-      flex: 1;
-      min-width: 0;
-      padding-left: var(--space-40);
+      width: 40px;
+      text-align: left;
       color: $text-secondary;
     }
 
-    .accordion-btn::before,
-    .accordion-btn::after {
-      right: 54px;
+    .faq-category {
+      color: $text-tertiary;
     }
 
-    .accordion-cont {
-      padding: var(--space-20) var(--space-20) var(--space-40) 260px;
-
-      .is-warning {
-        color: $text-warning;
-
-        &::before {
-          background-color: $text-warning;
-        }
-
-        [class^="list-"] > li {
-          color: inherit;
-        }
-      }
+    mark {
+      padding: 0;
+      color: $text-point-indigo;
+      background-color: transparent;
     }
   }
+}
+
+.notice {
+  display: block;
 }
 
 @include respond-sm {
@@ -119,10 +124,9 @@
         margin-top: 0;
       }
 
-      .accordion-header {
-        flex-wrap: wrap;
-        row-gap: var(--space-4);
-        padding: var(--space-20) var(--space-40) var(--space-20) 0;
+      .faq-no,
+      .faq-category {
+        @include font-token($font-body-2);
       }
 
       .faq-no {
@@ -131,26 +135,6 @@
 
       .faq-category {
         margin-left: 0;
-      }
-
-      .faq-no,
-      .faq-category {
-        width: auto;
-        text-align: left;
-      }
-
-      .depth01 {
-        flex: 0 0 100%;
-        padding-left: 0;
-      }
-
-      .accordion-btn::before,
-      .accordion-btn::after {
-        right: var(--space-8);
-      }
-
-      .accordion-cont {
-        padding-left: 0;
       }
     }
   }
