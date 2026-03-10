@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
-.faq {
+.faq,
+.notice {
   /* .title.full {
     background-color: var(--gray-20);
     display: flex;
@@ -43,7 +44,7 @@
   }
 
   .contents {
-    .faq-total {
+    .list-total {
       @include font-token($font-body-1);
 
       display: flex;
@@ -77,7 +78,7 @@
       }
     }
 
-    .faq-title-wrap {
+    .list-title-wrap {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -85,18 +86,18 @@
       gap: var(--space-2);
     }
 
-    .faq-no,
-    .faq-category {
+    .list-no,
+    .list-category {
       @include font-token($font-body-1);
     }
 
-    .faq-no {
+    .list-no {
       width: 40px;
       text-align: left;
       color: $text-secondary;
     }
 
-    .faq-category {
+    .list-category {
       color: $text-tertiary;
       line-height: 1.5;
     }
@@ -110,7 +111,11 @@
 }
 
 .notice {
-  display: block;
+  .contents {
+    .list-total {
+      margin-top: var(--space-48);
+    }
+  }
 }
 
 .no-data {
@@ -138,27 +143,28 @@
 }
 
 @include respond-sm {
-  .faq {
+  .faq,
+  .notice {
     .tab-wrapper {
       padding: var(--space-12) 0;
       margin: var(--space-20) 0;
     }
 
     .contents {
-      .faq-total {
+      .list-total {
         margin-top: 0;
       }
 
-      .faq-no,
-      .faq-category {
+      .list-no,
+      .list-category {
         @include font-token($font-body-2);
       }
 
-      .faq-no {
+      .list-no {
         display: none;
       }
 
-      .faq-category {
+      .list-category {
         margin-left: 0;
       }
     }
