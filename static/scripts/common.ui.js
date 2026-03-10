@@ -26,11 +26,14 @@ const pbut = {
   scrollLock: function () {
     const $body = $("body");
     $body.addClass("stop-scroll");
+    pbut.scrollState = true;
   },
   scrollUnLock: function () {
     const $body = $("body");
     $body.removeClass("stop-scroll");
+    pbut.scrollState = false;
   },
+  scrollState: false,
   getFocusableElements: function (container) {
     const $container = $(container);
     if ($container.length === 0)
@@ -68,7 +71,7 @@ const pbui = (function () {
         $layerPopWrap: null,
         $opener: null,
       };
-
+      
       const isTooltipType = el.$popup.hasClass("_type-tooltip");
       let closeTimer;
 
@@ -181,14 +184,14 @@ const pbui = (function () {
         },
 
         resize: (e) => {
-          if (isTooltipType) {
-            if (el.$popup.is(":visible")) {
+          if (el.$popup.is(":visible")) {
+            if (isTooltipType) {
               el.$popup.css(method.getPosition());
-               
+
               if (pbut.getDeviceType() === "mobile") {
-                pbut.scrollLock();
+                if (pbut.scrollState === false) pbut.scrollLock();
               } else {
-                pbut.scrollUnLock();
+                if (pbut.scrollState === true) pbut.scrollUnLock();
               }
             }
           }
@@ -206,7 +209,9 @@ const pbui = (function () {
 
           const currentPopup = layerStack[layerStack.length - 1];
           if (currentPopup && currentPopup !== this) {
-            currentPopup.hide();
+            if (!(pbut.getDeviceType() !== 'mobile' && isTooltipType)) {
+                currentPopup.hide();
+            }
           }
 
           el.$opener = option.opener
@@ -218,15 +223,15 @@ const pbui = (function () {
 
           if (isTooltipType)
             el.$popup.css({ left: 0, top: $(window).scrollTop() + "px" });
-
+          
           method.show();
           el.$popup.focus();
 
           if (isTooltipType) {
             el.$popup.css(method.getPosition());
             if (pbut.getDeviceType() === "mobile") {
-              layerStack.push(this);
               pbut.scrollLock();
+              layerStack.push(this);
             }
 
             // el.$popup
