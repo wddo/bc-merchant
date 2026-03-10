@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page">
+          <div class="title">
+            <h1 class="_font-headline-1">대출이용 현황</h1>
+          </div>
+          <div class="tab-wrapper full">
+            <div class="tab-box">
+              <ul class="_tabs-main">
+                <li class="is-on"><a href="#link">대출이용 조회</a></li>
+                <li><a href="#link">납입금액조회</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contents">
+            <div class="store-infor">
+              <div class="inner">
+                <label for="label-stroename" class="store-name">가맹점명</label>
+                <div class="input-box">
+                  <select id="label-stroename">
+                    <option value="BC카드(주)[760123451]">BC카드(주)[760123451]</option>
+                    <option value="BC카드(주)[760123452]">BC카드(주)[760123452]</option>
+                    <option value="BC카드(주)[760123453]">BC카드(주)[760123453]</option>
+                    <option value="BC카드(주)[760123454]">BC카드(주)[760123454]</option>
+                    <option value="BC카드(주)[760123455]">BC카드(주)[760123455]</option>
+                    <option value="BC카드(주)[760123456]">BC카드(주)[760123456]</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- //store-infor -->
+          </div>
+          <!-- //contents -->
+
+          <div class="full-bg">
+            <div class="contents">
+              <div class="loan-infor-area">
+                <h3 class="_font-title-4">대출이용정보</h3>
+                <div class="item-wrap">
+                  <div class="item">
+                    <dl class="data-infor">
+                      <dt class="point-text">대출금액</dt>
+                      <dd><strong class="money">5,000,000원</strong></dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt class="point-text">대출금액</dt>
+                      <dd><strong class="money">5,000,000원</strong></dd>
+                    </dl>
+                  </div>
+                  <div class="item">
+                    <dl class="data-infor">
+                      <dt>대출금액</dt>
+                      <dd><span class="badge">12개월</span></dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출금액</dt>
+                      <dd><span class="badge">13.3%</span></dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출금액</dt>
+                      <dd><span class="badge">원리금균등분할상환</span></dd>
+                    </dl>
+                  </div>
+                </div>                
+              </div>
+              <div class="deposit-summary">
+                <h2 class="_font-title-2">입금요약</h2>
+                <div class="item-wrap">
+                  <dl class="data-infor">
+                    <dt>대출일자</dt>
+                    <dd>2026.01.12</dd>
+                  </dl>
+                  <dl class="data-infor">
+                    <dt>만기일자(상환일 : 매월 일)</dt>
+                    <dd>2027.01.26</dd>
+                  </dl>
+                  <dl class="data-infor">
+                    <dt>금리/상환</dt>
+                    <dd>연 13.3%(고정금리) / 원리금균등분할상환</dd>
+                  </dl>
+                  <dl class="data-infor">
+                    <dt>연체이율</dt>
+                    <dd>대출 건별 약정 이자율 + 3%, 법정 최고금리(20%) 이내</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="_btn-wrap">
+                <button type="button" class="_btn-large-tertiary p50">납입금액 조회</button>
+                <button type="button" class="_btn-large-quaternery p50">중도상환금액 조회</button>
+              </div>
+            </div>
+          </div>
+          <!-- //full-bg -->
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>
