@@ -31,9 +31,15 @@
     letter-spacing: -0.64px;
   }
 
-  ._font-title-1 {line-height: 32px;}
-  ._font-title-2 {line-height: 28px;}
-  ._font-title-3 {line-height: 26px;}
+  ._font-title-1 {
+    line-height: 32px;
+  }
+  ._font-title-2 {
+    line-height: 28px;
+  }
+  ._font-title-3 {
+    line-height: 26px;
+  }
 }
 
 // button - child spacing
@@ -93,14 +99,7 @@ button[class^="_btn"] {
     td {
       text-align: left;
       vertical-align: top;
-    }
-
-    th {
       padding: var(--space-12) var(--space-20);
-    }
-
-    td {
-      padding: var(--space-20);
     }
 
     tbody td > * {
