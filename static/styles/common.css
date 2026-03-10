@@ -138,6 +138,15 @@ button[class^=_btn] {
   clip: rect(0 0 0 0);
 }
 
+.mo-invisible {
+  display: block;
+}
+@media (max-width: 767px) {
+  .mo-invisible {
+    display: none;
+  }
+}
+
 .mo-visible {
   display: none;
 }
