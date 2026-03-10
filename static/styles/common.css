@@ -54,11 +54,11 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
-._btn-wrap [class^=_btn]:only-child {
+._btn-wrap [class^=_btn] {
   max-width: 320px;
 }
 @media (max-width: 767px) {
-  ._btn-wrap [class^=_btn]:only-child {
+  ._btn-wrap [class^=_btn] {
     max-width: none;
   }
 }
@@ -128,6 +128,10 @@ button[class^=_btn] {
 }
 [class^=_modal][class*=-popup][class*=_type-tooltip] .info > dt {
   align-self: flex-start;
+}
+
+.feedback-wrap.no-data::before {
+  background: url(/static/images/common/feedback_nodata.svg) no-repeat 0 0/auto 100%;
 }
 
 /* .w-full {
