@@ -991,11 +991,11 @@
   .step-guide .text-area .text {
     margin-top: var(--space-4);
   }
-  .dropdown-area .store-data {
+  .dropdown-area .data-area {
     flex-direction: column;
     gap: var(--space-8);
   }
-  .dropdown-area .store-data .item {
+  .dropdown-area .data-area .item {
     flex-direction: row;
     align-items: center;
   }

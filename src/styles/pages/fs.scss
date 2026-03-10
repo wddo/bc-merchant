@@ -384,20 +384,27 @@
       }
     }
   }
-  .search-area {
+  .function-area {
     flex: 1;
     // flex-basis: 496px;
     // min-width: 496px;
   }
 }
 
-.search-area {
+.function-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+
   background-color: var(--point-50);
   border-radius: var(--radius-20);
   padding: var(--space-32) var(--space-40);
-
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
   .date-area {
-    margin-top: var(--space-16);
     .date-wrap {
       display: flex;
       flex-direction: column;
@@ -623,7 +630,7 @@
       }
     }
 
-    .search-area {
+    .function-area {
       padding: var(--space-24) var(--space-20);
       .date-area {
         .date-wrap {

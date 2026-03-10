@@ -129,6 +129,20 @@ button[class^=_btn] {
   background: url(/static/images/common/feedback_nodata.svg) no-repeat 0 0/auto 100%;
 }
 
+.input-box.right input {
+  text-align: right;
+}
+.input-box.right .unit {
+  position: absolute;
+  right: var(--space-16);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-300);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+}
+
 /* .w-full {
   width: 100%;
 }
