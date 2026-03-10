@@ -54,6 +54,15 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
+._btn-wrap [class^=_btn]:only-child {
+  max-width: 320px;
+}
+@media (max-width: 767px) {
+  ._btn-wrap [class^=_btn]:only-child {
+    max-width: none;
+  }
+}
+
 [class^=_chip-box] input + i {
   min-width: 78px;
 }
