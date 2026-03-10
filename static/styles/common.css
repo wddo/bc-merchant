@@ -25,6 +25,15 @@
     font-size: 16px;
     letter-spacing: -0.64px;
   }
+  ._font-title-1 {
+    line-height: 32px;
+  }
+  ._font-title-2 {
+    line-height: 28px;
+  }
+  ._font-title-3 {
+    line-height: 26px;
+  }
 }
 button[class^=_btn] {
   gap: var(--space-4);
