@@ -45,7 +45,7 @@ body {
     width: 100%;
 
     // 일반 자식 요소
-    &:not(.full) {
+    &:not(.full):not(.loading) {
       // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
       padding-left: $page-side-lg;
       padding-right: $page-side-lg;
@@ -106,7 +106,7 @@ body {
     }
 
     .page > div {
-      &:not(.full) {
+      &:not(.full):not(.loading) {
         padding-left: $page-side-md;
         padding-right: $page-side-md;
 

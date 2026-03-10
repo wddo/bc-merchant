@@ -547,7 +547,8 @@ button[class^=_btn] {
 
 .accordion-header {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: var(--space-24) var(--space-32) var(--space-24) 0;
   text-align: left;
@@ -641,7 +642,7 @@ button[class^=_btn] {
   }
 }
 .accordion-cont {
-  padding: var(--space-32) var(--space-40) var(--space-40);
+  padding: var(--space-32) var(--space-40) var(--space-56);
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
@@ -685,6 +686,63 @@ button[class^=_btn] {
 @media (max-width: 1023px) {
   .tab-wrapper {
     top: 56px;
+  }
+}
+.loading {
+  position: relative;
+  display: flex;
+  gap: var(--space-8);
+  justify-content: center;
+  margin-top: var(--space-48);
+}
+.loading i {
+  display: inline-flex;
+  flex: 0 0 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #969dab;
+}
+.loading i.dot1 {
+  animation: loading1 1s linear infinite;
+}
+.loading i.dot2 {
+  animation: loading2 1s linear infinite;
+}
+.loading i.dot3 {
+  animation: loading3 1s linear infinite;
+}
+@keyframes loading1 {
+  0% {
+    transform: translateY(0);
+  }
+  16% {
+    transform: translateY(-8px);
+  }
+  33% {
+    transform: translateY(0);
+  }
+}
+@keyframes loading2 {
+  33% {
+    transform: translateY(0);
+  }
+  49% {
+    transform: translateY(-8px);
+  }
+  66% {
+    transform: translateY(0);
+  }
+}
+@keyframes loading3 {
+  66% {
+    transform: translateY(0);
+  }
+  79% {
+    transform: translateY(-8px);
+  }
+  99% {
+    transform: translateY(0);
   }
 }
 .visual-wrap {
@@ -809,17 +867,17 @@ body {
 #container .page > div {
   width: 100%;
 }
-#container .page > div:not(.full) {
+#container .page > div:not(.full):not(.loading) {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
   max-width: 1240px;
 }
-#container .page > div:not(.full):first-child {
+#container .page > div:not(.full):not(.loading):first-child {
   margin-top: 64px;
 }
-#container .page > div:not(.full).title {
-  padding-bottom: 56px;
+#container .page > div:not(.full):not(.loading).title {
+  padding-bottom: 48px;
 }
 #container .page > div.full > * {
   width: 100%;
@@ -851,15 +909,15 @@ body {
     margin: 0;
     padding-bottom: 100px;
   }
-  #container .page > div:not(.full) {
+  #container .page > div:not(.full):not(.loading) {
     padding-left: 24px;
     padding-right: 24px;
   }
-  #container .page > div:not(.full):first-child {
+  #container .page > div:not(.full):not(.loading):first-child {
     margin-top: 50px;
   }
-  #container .page > div:not(.full).title {
-    padding-bottom: 56px;
+  #container .page > div:not(.full):not(.loading).title {
+    padding-bottom: 48px;
   }
   #container .page > div.full > * {
     padding-left: 24px;
