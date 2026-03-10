@@ -20,6 +20,15 @@
   @include visually-hidden;
 }
 
+// only mobile visible
+.mo-visible {
+  display: none;
+
+  @include respond-sm {
+    display: block;
+  }
+}
+
 // Pseudo-Class Icon
 $icon-class-list: (download, chevron-right, external-link, edit);
 
