@@ -97,6 +97,7 @@
 }
 .faq .contents .faq-category {
   color: var(--gray-600);
+  line-height: 1.5;
 }
 .faq .contents mark {
   padding: 0;
@@ -106,6 +107,27 @@
 
 .notice {
   display: block;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-100) 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--gray-900);
+}
+.no-data::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  background: url(/static/images/common/feedback_nodata.svg) no-repeat center/100% auto;
+}
+.no-data .btn-wrap {
+  margin-top: var(--space-12);
 }
 
 @media (max-width: 767px) {

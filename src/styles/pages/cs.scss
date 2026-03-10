@@ -98,6 +98,7 @@
 
     .faq-category {
       color: $text-tertiary;
+      line-height: 1.5;
     }
 
     mark {
@@ -110,6 +111,30 @@
 
 .notice {
   display: block;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-100) 0;
+  background-color: $bg-white;
+  border-top: 1px solid $line-gray-900;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat center /
+      100% auto;
+  }
+
+  .btn-wrap {
+    margin-top: var(--space-12);
+  }
 }
 
 @include respond-sm {
