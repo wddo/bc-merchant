@@ -1,15 +1,18 @@
 @use "../abstracts" as *;
 
-.mytag-service {
+.visual-wrap {
   background-color: #fff2f6;
   .visual-item {
-    &::after {
-      background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
-    }
     .bg-text {
       background-color: $bg-white;
       color: $text-warning;
     }
+  }
+}
+
+.mytag-service {
+  &::after {
+    background: url(#{$img_url}/su/bg_visual_mytag.png) no-repeat 0 0 / auto 100%;
   }
 }
 
