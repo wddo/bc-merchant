@@ -463,7 +463,7 @@ caption {overflow:hidden; width:0; height:0; text-indent:-9999px;}
 
 [class^="_tabs-sub"] {gap:8px; height:40px;}
 [class^="_tabs-sub"] > li {-webkit-box-flex:0; -ms-flex:0; flex:0; z-index:1;}
-[class^="_tabs-sub"] > li a {display:-webkit-box; display:-ms-flexbox; display:flex; min-width:73px; padding:8px 16px; border-radius:42px; background-color:var(--gray-40); font-size:16px; font-weight:500; color:var(--gray-600); letter-spacing:-0.64px; line-height:24px; white-space:nowrap;}
+[class^="_tabs-sub"] > li a {display:-webkit-box; display:-ms-flexbox; display:flex; min-width:73px; padding:8px 16px; border-radius:42px; background-color:var(--gray-40); font-size:16px; font-weight:500; color:var(--gray-600); letter-spacing:-0.64px; line-height:24px; white-space:nowrap;justify-content: center;}
 [class^="_tabs-sub"] > li a:hover {background-color:var(--primary-p100); color:var(--gray-900);}
 [class^="_tabs-sub"] > li.is-on a {background-color:var(--primary-p800); font-weight:600; color:var(--white);}
 
