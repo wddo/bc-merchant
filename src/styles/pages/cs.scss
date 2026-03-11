@@ -108,59 +108,52 @@
 }
 
 .notice {
-  .notice-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  ul.notice-list {
     border-top: 1px solid $line-gray-900;
-  }
 
-  .notice-item {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid $line-gray-60;
-  }
+    li {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $line-gray-60;
 
-  .list-no {
-    width: 120px;
-    padding: 0 var(--space-20);
-    text-align: center;
-    color: $text-secondary;
-  }
+      .list-no {
+        width: 120px;
+        padding: 0 var(--space-20);
+        text-align: center;
+        color: $text-secondary;
+      }
 
-  .list-title-wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-6);
-    flex: 1;
-    min-width: 0;
-    margin: var(--space-20) var(--space-20);
+      .list-title-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-6);
+        flex: 1;
+        min-width: 0;
+        margin: var(--space-20) var(--space-20);
 
-    .list-title {
-      @include font-token($font-body-1-medi);
-      @include ellipsis(1, 0);
+        a.list-title {
+          @include font-token($font-body-1-medi);
+          @include ellipsis(1, 0);
 
-      flex: 0 1 auto;
-      max-width: 100%;
-      color: $text-secondary;
-      text-decoration: none;
+          flex: 0 1 auto;
+          max-width: 100%;
+          color: $text-secondary;
+        }
+
+        ._badge-small-red {
+          flex: 0 0 auto;
+        }
+      }
+
+      .list-date {
+        @include font-token($font-body-1);
+        width: 200px;
+        padding: 0 var(--space-20);
+        text-align: center;
+        color: $text-quaternary;
+      }
     }
-
-    ._badge-small-red {
-      flex: 0 0 auto;
-    }
-  }
-
-  .list-date {
-    width: 200px;
-    padding: 0 var(--space-20);
-    text-align: center;
-    color: $text-quaternary;
-  }
-
-  .loading {
-    margin-top: var(--space-48);
   }
 }
 
@@ -210,59 +203,55 @@
   }
 
   .faq {
-    .list-no,
-    .list-category {
-      @include font-token($font-body-2);
-    }
-
     .list-no {
       display: none;
     }
 
     .list-category {
+      @include font-token($font-body-2);
       margin-left: 0;
     }
   }
 
   .notice {
-    .list-no {
-      display: none;
-    }
+    ul.notice-list {
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-16) 0;
 
-    .notice-item {
-      display: block;
-      padding: var(--space-16) 0;
-    }
+        .list-no {
+          display: none;
+        }
 
-    .list-title-wrap {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-6);
-      margin: 0;
+        .list-title-wrap {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--space-4);
+          margin: 0;
 
-      .list-title {
-        @include font-token($font-body-1-medi);
-        @include ellipsis(2, 3em);
+          a.list-title {
+            @include font-token($font-body-1-medi);
+            @include ellipsis(2, 3em);
 
-        width: 100%;
-        color: $text-secondary;
-        text-decoration: none;
+            width: 100%;
+            color: $text-secondary;
+          }
+
+          ._badge-small-red {
+            order: -1;
+          }
+        }
+
+        .list-date {
+          @include font-token($font-body-2);
+          width: auto;
+          padding: 0;
+          text-align: left;
+        }
       }
-
-      ._badge-small-red {
-        order: -1;
-        align-self: flex-start;
-      }
-    }
-
-    .list-date {
-      @include font-token($font-body-2);
-
-      display: block;
-      width: auto;
-      padding: var(--space-4) 0 0;
-      text-align: left;
-      white-space: nowrap;
     }
   }
 }

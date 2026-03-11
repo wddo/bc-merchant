@@ -804,6 +804,7 @@ button[class^=_btn] {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
+  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .visual-item .text + .list-ast > li {
@@ -811,9 +812,6 @@ button[class^=_btn] {
     font-weight: 400;
     letter-spacing: -0.56px;
   }
-}
-.visual-item .text + .list-ast > li {
-  color: var(--gray-700);
 }
 .visual-item::after {
   content: "";

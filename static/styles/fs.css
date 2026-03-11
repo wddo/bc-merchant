@@ -7,8 +7,7 @@
 }
 
 .merchant-loan-service::after {
-  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0 /
-    auto 100%;
+  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
 }
 
 .fs-intro-guide {
@@ -57,9 +56,6 @@
     letter-spacing: -0.64px;
   }
 }
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
-  color: var(--gray-900);
-}
 .fs-intro-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
   color: var(--point-600);
 }
@@ -90,6 +86,7 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
+  color: var(--gray-600);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
@@ -97,9 +94,6 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
-}
-.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
-  color: var(--gray-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .item::after {
   content: "";
@@ -120,25 +114,13 @@
 .fs-intro-guide .guide-item .inner .item-wrap .item:nth-child(3)::after {
   background-image: url(/static/images/fs/img_merchantloan03.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(1)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(1)::after {
   background-image: url(/static/images/fs/img_interestrate01.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(2)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(2)::after {
   background-image: url(/static/images/fs/img_interestrate02.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(3)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(3)::after {
   background-image: url(/static/images/fs/img_interestrate03.png);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
@@ -177,12 +159,6 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
-}
-.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
-  margin-bottom: var(--space-24);
-  text-align: right;
-  margin-top: var(--space-12);
-  color: var(--gray-500);
 }
 
 .popup-content .text-item {
@@ -296,6 +272,7 @@
   font-weight: 500;
   letter-spacing: -0.32px;
   color: var(--gray-500);
+  white-space: pre;
 }
 @media screen and (max-width: 767px) {
   .loan-infor-area .item-wrap .item .data-infor dt {
@@ -303,10 +280,6 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
-}
-.loan-infor-area .item-wrap .item .data-infor dt {
-  color: var(--gray-500);
-  white-space: pre;
 }
 .loan-infor-area .item-wrap .item .data-infor dd {
   font-size: 18px;
@@ -368,13 +341,11 @@
     letter-spacing: -0.56px;
   }
 }
-.summary-area .item-wrap .item .data-infor dt {
-  color: var(--gray-500);
-}
 .summary-area .item-wrap .item .data-infor dd {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
+  color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .data-infor dd {
@@ -382,9 +353,6 @@
     font-weight: 600;
     letter-spacing: -0.64px;
   }
-}
-.summary-area .item-wrap .item .data-infor dd {
-  color: var(--gray-900);
 }
 .summary-area + ._btn-wrap {
   margin-top: var(--space-56);
@@ -421,6 +389,7 @@
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
+  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .loan-wrap .loan-infor-area .sub-item .data-infor dt {
@@ -428,9 +397,6 @@
     font-weight: 400;
     letter-spacing: -0.56px;
   }
-}
-.loan-wrap .loan-infor-area .sub-item .data-infor dt {
-  color: var(--gray-500);
 }
 .loan-wrap .loan-infor-area .sub-item .data-infor dd {
   font-size: 18px;
@@ -476,8 +442,7 @@
 }
 
 .interest-rate-cut::after {
-  background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0 /
-    auto 100%;
+  background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0/auto 100%;
 }
 
 @media (max-width: 1023px) {

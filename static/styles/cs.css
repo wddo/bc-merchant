@@ -107,24 +107,21 @@
   background-color: transparent;
 }
 
-.notice .notice-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.notice ul.notice-list {
   border-top: 1px solid var(--gray-900);
 }
-.notice .notice-item {
+.notice ul.notice-list li {
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--gray-60);
 }
-.notice .list-no {
+.notice ul.notice-list li .list-no {
   width: 120px;
   padding: 0 var(--space-20);
   text-align: center;
   color: var(--gray-700);
 }
-.notice .list-title-wrap {
+.notice ul.notice-list li .list-title-wrap {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -133,7 +130,7 @@
   min-width: 0;
   margin: var(--space-20) var(--space-20);
 }
-.notice .list-title-wrap .list-title {
+.notice ul.notice-list li .list-title-wrap a.list-title {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
@@ -144,26 +141,32 @@
   flex: 0 1 auto;
   max-width: 100%;
   color: var(--gray-700);
-  text-decoration: none;
 }
 @media screen and (max-width: 767px) {
-  .notice .list-title-wrap .list-title {
+  .notice ul.notice-list li .list-title-wrap a.list-title {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.64px;
   }
 }
-.notice .list-title-wrap ._badge-small-red {
+.notice ul.notice-list li .list-title-wrap ._badge-small-red {
   flex: 0 0 auto;
 }
-.notice .list-date {
+.notice ul.notice-list li .list-date {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
   width: 200px;
   padding: 0 var(--space-20);
   text-align: center;
   color: var(--gray-500);
 }
-.notice .loading {
-  margin-top: var(--space-48);
+@media screen and (max-width: 767px) {
+  .notice ul.notice-list li .list-date {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
 }
 
 .no-data {
@@ -202,46 +205,41 @@
     margin-top: var(--space-20);
     margin-bottom: 9px;
   }
-  .faq .list-no,
-.faq .list-category {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .faq .list-no,
-.faq .list-category {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: -0.56px;
-  }
-}
-@media (max-width: 767px) {
   .faq .list-no {
     display: none;
   }
-}
-@media (max-width: 767px) {
   .faq .list-category {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
     margin-left: 0;
   }
 }
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .faq .list-category {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
 @media (max-width: 767px) {
-  .notice .list-no {
-    display: none;
-  }
-  .notice .notice-item {
-    display: block;
-    padding: var(--space-16) 0;
-  }
-  .notice .list-title-wrap {
+  .notice ul.notice-list li {
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-6);
+    gap: var(--space-4);
+    padding: var(--space-16) 0;
+  }
+  .notice ul.notice-list li .list-no {
+    display: none;
+  }
+  .notice ul.notice-list li .list-title-wrap {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
     margin: 0;
   }
-  .notice .list-title-wrap .list-title {
+  .notice ul.notice-list li .list-title-wrap a.list-title {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.32px;
@@ -251,38 +249,35 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     max-height: 3em;
+    white-space: normal;
     width: 100%;
     color: var(--gray-700);
-    text-decoration: none;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 767px) {
-  .notice .list-title-wrap .list-title {
+  .notice ul.notice-list li .list-title-wrap a.list-title {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.64px;
   }
 }
 @media (max-width: 767px) {
-  .notice .list-title-wrap ._badge-small-red {
+  .notice ul.notice-list li .list-title-wrap ._badge-small-red {
     order: -1;
-    align-self: flex-start;
   }
 }
 @media (max-width: 767px) {
-  .notice .list-date {
+  .notice ul.notice-list li .list-date {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.56px;
-    display: block;
     width: auto;
-    padding: var(--space-4) 0 0;
+    padding: 0;
     text-align: left;
-    white-space: nowrap;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 767px) {
-  .notice .list-date {
+  .notice ul.notice-list li .list-date {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.56px;
