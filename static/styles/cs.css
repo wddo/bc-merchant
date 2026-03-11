@@ -172,11 +172,11 @@
   }
 }
 .notice ._btn-wrap {
-  margin-top: var(--space-48);
+  margin-top: var(--space-56);
 }
 
 .notice-view .view-head {
-  padding-bottom: var(--space-24);
+  padding-bottom: var(--space-32);
   border-bottom: 1px solid var(--gray-900);
 }
 .notice-view .view-head .view-title {
@@ -204,7 +204,7 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  padding: var(--space-48) 0;
+  padding: var(--space-56) 0;
   color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {

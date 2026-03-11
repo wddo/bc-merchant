@@ -179,7 +179,7 @@
   }
 
   ._btn-wrap {
-    margin-top: var(--space-48);
+    margin-top: var(--space-56);
   }
 }
 
@@ -188,7 +188,7 @@
 // =========================
 .notice-view {
   .view-head {
-    padding-bottom: var(--space-24);
+    padding-bottom: var(--space-32);
     border-bottom: 1px solid $line-gray-900;
 
     .view-title {
@@ -206,7 +206,7 @@
   .view-body {
     @include font-token($font-body-1);
 
-    padding: var(--space-48) 0;
+    padding: var(--space-56) 0;
     color: $text-secondary;
 
     p + p {
