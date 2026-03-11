@@ -956,7 +956,7 @@ body {
 @media (max-width: 767px) {
   #container .page {
     min-width: 360px;
-    padding-bottom: 64px;
+    padding-bottom: 56px;
   }
   #container .page > div:not(.full):not(.loading) {
     padding-left: 20px;
