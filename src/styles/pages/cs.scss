@@ -235,6 +235,7 @@
     dt {
       padding: var(--space-20);
       color: $text-secondary;
+      white-space: nowrap;
     }
 
     dd {
@@ -365,7 +366,6 @@
 
     .view-link {
       dl {
-        align-items: flex-start;
         gap: var(--space-12);
       }
 

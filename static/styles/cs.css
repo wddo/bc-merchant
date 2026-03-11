@@ -242,6 +242,7 @@
 .notice-view .view-link dt {
   padding: var(--space-20);
   color: var(--gray-700);
+  white-space: nowrap;
 }
 .notice-view .view-link dd {
   padding: var(--space-20);
@@ -376,7 +377,6 @@
     padding: var(--space-20) 0;
   }
   .notice-view .view-link dl {
-    align-items: flex-start;
     gap: var(--space-12);
   }
   .notice-view .view-link dt {
