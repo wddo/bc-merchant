@@ -29,7 +29,6 @@
   }
 }
 
-
 // only mobile visible
 .mo-visible {
   display: none;
@@ -44,6 +43,12 @@ $icon-class-list: (download, chevron-right, external-link, edit);
 
 @each $icon-name in $icon-class-list {
   .ico-#{$icon-name}::after {
+    content: "";
+    display: inline-block;
+    @include icon($icon-name, 1em);
+  }
+
+  .ico-#{$icon-name}--before::before {
     content: "";
     display: inline-block;
     @include icon($icon-name, 1em);
