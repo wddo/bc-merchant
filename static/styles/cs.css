@@ -376,7 +376,7 @@
 }
 @media (max-width: 767px) {
   .notice ._btn-wrap {
-    margin-top: var(--space-20);
+    margin-top: var(--space-40);
   }
 }
 @media (max-width: 767px) {
