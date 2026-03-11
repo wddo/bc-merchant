@@ -348,6 +348,17 @@
 }
 
 // =========================
+// 페이지 테블릿 전용
+// =========================
+@include respond-md {
+  .form-room {
+    .form-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+// =========================
 // 페이지 모바일 전용
 // =========================
 @include respond-sm {

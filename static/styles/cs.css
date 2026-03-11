@@ -352,6 +352,11 @@
   margin-top: var(--space-12);
 }
 
+@media (max-width: 1023px) {
+  .form-room .form-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 767px) {
   .faq .list-no {
     display: none;
