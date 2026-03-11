@@ -430,4 +430,14 @@
       }
     }
   }
+
+  .form-room {
+    .form-list {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+
+      > li {
+        min-height: 120px;
+      }
+    }
+  }
 }
