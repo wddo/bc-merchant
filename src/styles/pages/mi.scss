@@ -72,7 +72,12 @@
       }
     }
   }
+}
 
+// =========================
+// 가맹점 가입 / 해지 안내
+// =========================
+.merchant-guide {
   .pg-list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -159,11 +164,7 @@
     background-color: $bg-gray-20;
     border-radius: var(--radius-16);
 
-    h2 {
-      margin: 0;
-    }
-
-    p.required-desc {
+    .required-desc {
       @include font-token($font-body-0);
       margin: 0;
       color: $text-quaternary;
@@ -220,7 +221,9 @@
         }
       }
     }
+  }
 
+  .merchant-guide {
     .pg-item {
       flex-direction: row;
       align-items: center;
@@ -239,6 +242,16 @@
 
     .accordion {
       margin-top: var(--space-16);
+    }
+  }
+
+  .merchant-required {
+    .required-box {
+      padding: var(--space-20);
+
+      .required-desc {
+        @include font-token($font-body-1);
+      }
     }
   }
 }
