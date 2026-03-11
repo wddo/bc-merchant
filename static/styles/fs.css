@@ -411,6 +411,50 @@
 .summary-area .item-wrap .item .data-infor dd {
   color: var(--gray-900);
 }
+.summary-area .item-wrap .item .data-infor-large {
+  grid-column: 1/-1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-20);
+  padding-bottom: var(--space-24);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--gray-60);
+}
+.summary-area .item-wrap .item .data-infor-large .data-infor {
+  flex: 1;
+}
+.summary-area .item-wrap .item .data-infor-large .data-infor .point-text {
+  color: var(--point-600);
+}
+.summary-area .item-wrap .item .data-infor-large .account-infor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+.summary-area .item-wrap .item .data-infor-large .account-infor [class^=_badge] {
+  white-space: pre;
+}
+.summary-area .item-wrap .item .warning-box {
+  margin-top: var(--space-4);
+  grid-column: 1/-1;
+  width: 100%;
+}
+.summary-area .item-wrap .item .warning-box .warning-title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .summary-area .item-wrap .item .warning-box .warning-title {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+}
+.summary-area .item-wrap .item .warning-box .warning-title {
+  color: var(--gray-700);
+}
 .summary-area + ._btn-wrap {
   margin-top: var(--space-56);
 }
@@ -494,15 +538,49 @@
 .function-area .date-area .date-inner > * {
   flex: 1;
 }
-.function-area .date-area .ipt-inner {
+.function-area .ipt-inner {
   display: flex;
   gap: var(--space-8);
 }
-.function-area .date-area .ipt-inner .ipt-wrap {
+.function-area .ipt-inner .ipt-wrap {
   flex: 1;
 }
-.function-area .date-area .ipt-inner .ipt-wrap ._ipt-radio-box {
+.function-area .ipt-inner .ipt-wrap ._ipt-radio-box {
   flex: 1;
+}
+.function-area .ipt-inner .input-box {
+  flex: 1;
+}
+.function-area .ipt-wrap + .info-text {
+  margin-top: -4px;
+}
+
+.info-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .info-text {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+}
+.info-text {
+  position: relative;
+  padding-left: 24px;
+  color: var(--gray-700);
+}
+.info-text::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: url(/static/images/icons/alert-circle.svg) no-repeat 0 0/100% auto;
 }
 
 .interest-rate-cut::after {
@@ -643,6 +721,23 @@
   .summary-area .item-wrap .item .data-infor dd {
     text-align: right;
   }
+  .summary-area .item-wrap .item .data-infor-large {
+    flex-direction: column;
+    gap: var(--space-24);
+    padding-bottom: var(--space-24);
+    margin-bottom: 0;
+  }
+  .summary-area .item-wrap .item .data-infor-large .data-infor {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .summary-area .item-wrap .item .data-infor-large .account-infor {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .summary-area .item-wrap .item .warning-box {
+    margin-top: 0;
+  }
   .loan-wrap {
     flex-direction: column;
   }
@@ -664,7 +759,7 @@
   .loan-wrap .function-area .date-area .date-wrap {
     gap: var(--space-16);
   }
-  .loan-wrap .function-area .date-area .ipt-inner {
+  .loan-wrap .function-area .ipt-inner {
     flex-direction: column;
   }
 }

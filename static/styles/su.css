@@ -315,8 +315,8 @@
   }
 }
 .writing-stage .stage-item .writing-box .writing-area ._font-title-4 .tooltip-title .tooltip-trigger {
-  background: url(/static/images/icons/alert-circle.svg);
-  background-size: 100% auto;
+  -webkit-mask: url(/static/images/icons/alert-circle.svg) no-repeat 0 0/100% auto;
+          mask: url(/static/images/icons/alert-circle.svg) no-repeat 0 0/100% auto;
   width: 24px;
   height: 24px;
   margin: 0 6px;
@@ -911,6 +911,9 @@
   letter-spacing: -0.48px;
   color: var(--gray-600);
 }
+.coupon + .info-text {
+  margin-left: var(--space-12);
+}
 
 .info-text {
   font-size: 14px;
@@ -926,14 +929,14 @@
 }
 .info-text {
   position: relative;
-  padding-left: 32px;
+  padding-left: 20px;
   color: var(--gray-900);
 }
 .info-text::before {
   content: "";
   display: block;
   position: absolute;
-  left: 12px;
+  left: 0;
   top: 2px;
   width: 16px;
   height: 16px;

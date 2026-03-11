@@ -288,8 +288,7 @@
             margin-bottom: 0 ;
             @include font-token($font-body-2);
             .tooltip-trigger {
-              background: url(#{$icon_url}/alert-circle.svg);
-              background-size: 100% auto;
+              mask: url(#{$icon_url}/alert-circle.svg) no-repeat 0 0 / 100% auto;
               width: 24px;
               height: 24px;
               margin: 0 6px;
@@ -706,18 +705,21 @@
     @include font-token($font-body-3);
     color: $text-tertiary;
   }
+  + .info-text {
+    margin-left: var(--space-12);
+  }
 }
 
 .info-text {
   @include font-token($font-body-2);
   position: relative;
-  padding-left: 32px;
+  padding-left: 20px;
   color: $text-primary;
   &::before {
     content: '';
     display: block;
     position: absolute;
-    left: 12px;
+    left: 0;
     top: 2px;
     width: 16px;
     height: 16px;

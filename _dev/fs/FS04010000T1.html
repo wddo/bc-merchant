@@ -87,7 +87,7 @@
                     <h3 class="_font-title-4">상환방법</h3>
                     <div class="ipt-wrap">
                       <label class="_ipt-radio-box" style="width:50%;">
-                          <input type="radio" name="radio-box-1">
+                          <input type="radio" name="radio-box-1" checked>
                           <i>전체상환</i>
                       </label>
                       <label class="_ipt-radio-box" style="width:50%;">
@@ -95,19 +95,77 @@
                           <i>부분상환</i>
                       </label>
                     </div>
+                    <p class="info-text">부분 상환 시 잔여 상환 회차별 상환금액이 재계산됩니다.</p>
                   </div>
                   <div class="item">
                     <h3 class="_font-title-4">상환금액</h3>
-                    <div class="input-box right">
-                      <input type="text" id="input5-1" value="4,036,614" disabled>
-                      <span class="unit">원</span>
+                    <div class="ipt-inner">
+                      <div class="input-box">
+                        <input type="text" id="input3-1" value="4,036,614" disabled> <!-- [D] 부분 상환 일 경우 disabled 제거 -->
+                        <div class="util-box">
+                          <strong class="suffix">원</strong>
+                        </div>
+                      </div>
+                      <button type="button" class="_btn-large-primary">조회하기</button>
                     </div>
                   </div>
                 </div>
               </div>
-              
 
+              <div class="summary-area">
+                <h2 class="_font-title-2">중도상환 내역 및 <br class="mo-invisible">납부 정보<span>2026.02.26 기준</span></h2>
+                <div class="item-wrap">
+                  <div class="item">
+                    <div class="data-infor-large">
+                      <dl class="data-infor">
+                        <dt>상환합계금액</dt>
+                        <dd><strong class="_font-title-2 point-text">533,949원</strong></dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt>입금계좌</dt>
+                        <dd>
+                          <div class="account-infor">
+                            <strong class="_font-title-3">우리은행 100212345****</strong>
+                            <span class="_badge-medium-gray">예금주 : 비씨카드</span>
 
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                    <dl class="data-infor">
+                      <dt>상환원금</dt>
+                      <dd>533,949원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>상환이자</dt>
+                      <dd>28,580원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>미납연체금</dt>
+                      <dd>533,949원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체이자</dt>
+                      <dd>28,580원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체이율 (대출금리+연체 가산이율)</dt>
+                      <dd>대출 건별 약정 이자율 + 3% 법정 최고금리(24% 이내)</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출 건별 약정 이자율 + 3% 법정 최고금리(24% 이내)</dt>
+                      <dd>188,601원</dd>
+                    </dl>
+                    <div class="warning-box">
+                      <p class="warning-title">중도상환 안내가 완료된 건은 안내해 드린 계좌로 입금해주셔야 중도상환이 완료됩니다.<br>실제 입금일이 조회기준일과 상이할 경우 중도상환금액을 재계산한 후 입금하셔야 합니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="_btn-wrap">
+                <button type="button" class="_btn-large-primary">중도상환 신청</button>
+              </div>
             </div>
           </div>
           <!-- //full-bg -->

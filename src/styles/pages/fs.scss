@@ -340,6 +340,40 @@
           color: $text-primary;        
         }
       }
+      .data-infor-large {
+        grid-column: 1 / -1;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-20);
+        padding-bottom: var(--space-24);
+        margin-bottom: var(--space-4);
+        border-bottom: 1px solid $line-gray-60;
+        .data-infor {
+          flex: 1;
+          .point-text {
+            color: var(--point-600);
+          }
+        }
+        .account-infor {
+          display: flex;
+          align-items: center;
+          gap: var(--space-8);
+          [class^="_badge"] {
+            white-space: pre;
+          }
+        }
+      }
+
+      .warning-box {
+        margin-top: var(--space-4);
+        grid-column: 1 / -1;
+        width: 100%;
+        .warning-title {
+          @include font-token($font-body-2-medi);
+          color: $text-secondary;
+        }
+      }
     }
   }  
 
@@ -386,8 +420,6 @@
   }
   .function-area {
     flex: 1;
-    // flex-basis: 496px;
-    // min-width: 496px;
   }
 }
 
@@ -419,17 +451,41 @@
         flex: 1;
       }
     }
-    .ipt-inner {
-      display: flex;
-      gap: var(--space-8);
-      .ipt-wrap {
+  }
+  .ipt-inner {
+    display: flex;
+    gap: var(--space-8);
+    .ipt-wrap {
+      flex: 1;
+      ._ipt-radio-box {
         flex: 1;
-        ._ipt-radio-box {
-          flex: 1;
-        }
       }
     }
+    .input-box {
+      flex: 1;
+    }
+  }
+  .ipt-wrap {
+    + .info-text {
+      margin-top: -4px;
+    }
+  }
+}
 
+.info-text {
+  @include font-token($font-body-2-medi);
+  position: relative;
+  padding-left: 24px;
+  color: $text-secondary;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: url(#{$icon_url}/alert-circle.svg) no-repeat 0 0 / 100% auto;
   }
 }
 
@@ -438,6 +494,7 @@
     background: url(#{$img_url}/fs/bg_visual_interestrate.png) no-repeat 0 0 / auto 100%;
   }
 }
+
 
 
 
@@ -609,6 +666,24 @@
             text-align: right;
           }
         }
+
+        .data-infor-large {
+          flex-direction: column;
+          gap: var(--space-24);
+          padding-bottom: var(--space-24);
+          margin-bottom: 0;
+          .data-infor {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .account-infor {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        }
+        .warning-box {
+          margin-top: 0;
+        }
       }
     }
   }
@@ -636,9 +711,9 @@
         .date-wrap {
           gap: var(--space-16);
         }
-        .ipt-inner {
-          flex-direction: column;
-        }
+      }
+      .ipt-inner {
+        flex-direction: column;
       }
     }
   }
