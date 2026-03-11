@@ -1,11 +1,14 @@
+.merchant-required .step-section,
 .merchant-guide .step-section {
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
+.merchant-required .step-section + .step-section,
 .merchant-guide .step-section + .step-section {
   margin-top: 80px;
 }
+.merchant-required .step-num,
 .merchant-guide .step-num {
   display: inline-flex;
   align-items: center;
@@ -17,39 +20,49 @@
   color: var(--white);
   background-color: var(--gray-900);
 }
+.merchant-required .step-title,
 .merchant-guide .step-title {
   height: 38px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.merchant-required .step-body,
 .merchant-guide .step-body {
   width: 100%;
 }
+.merchant-required .accordion,
 .merchant-guide .accordion {
   margin-top: var(--space-24);
 }
+.merchant-required .accordion .accordion-cont > .list-ref,
 .merchant-guide .accordion .accordion-cont > .list-ref {
   gap: var(--space-4);
 }
+.merchant-required ._table ._btn-wrap button.ico-download::after,
 .merchant-guide ._table ._btn-wrap button.ico-download::after {
   background-color: var(--primary-p300);
 }
+.merchant-required ._table a.ico-download,
 .merchant-guide ._table a.ico-download {
   color: var(--gray-900);
   text-decoration: underline;
 }
+.merchant-required ._table a.ico-download::after,
 .merchant-guide ._table a.ico-download::after {
   margin-left: var(--space-2);
   vertical-align: middle;
   -webkit-mask-position-y: -0.1rem;
 }
+.merchant-required ._table table colgroup col,
 .merchant-guide ._table table colgroup col {
   width: 50%;
 }
+.merchant-required ._table table colgroup col:nth-child(1),
 .merchant-guide ._table table colgroup col:nth-child(1) {
   width: 200px;
 }
+.merchant-required .pg-list,
 .merchant-guide .pg-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -59,15 +72,18 @@
   list-style: none;
 }
 @media (max-width: 1023px) {
-  .merchant-guide .pg-list {
+  .merchant-required .pg-list,
+.merchant-guide .pg-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .pg-list {
+  .merchant-required .pg-list,
+.merchant-guide .pg-list {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.merchant-required .pg-item,
 .merchant-guide .pg-item {
   display: flex;
   flex-direction: column;
@@ -76,10 +92,12 @@
   background-color: var(--white);
   border-radius: var(--radius-16);
 }
+.merchant-required .pg-content,
 .merchant-guide .pg-content {
   display: flex;
   flex-direction: column;
 }
+.merchant-required .pg-logo,
 .merchant-guide .pg-logo {
   display: flex;
   align-items: center;
@@ -90,6 +108,7 @@
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
 }
+.merchant-required .pg-name,
 .merchant-guide .pg-name {
   font-size: 18px;
   font-weight: 600;
@@ -97,6 +116,8 @@
   margin-top: var(--space-8);
   color: var(--gray-700);
 }
+.merchant-required .pg-url,
+.merchant-required .pg-tel,
 .merchant-guide .pg-url,
 .merchant-guide .pg-tel {
   font-size: 16px;
@@ -105,16 +126,20 @@
   color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
-  .merchant-guide .pg-url,
+  .merchant-required .pg-url,
+.merchant-required .pg-tel,
+.merchant-guide .pg-url,
 .merchant-guide .pg-tel {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;
   }
 }
+.merchant-required .pg-url,
 .merchant-guide .pg-url {
   margin-top: var(--space-4);
 }
+.merchant-required .pg-url a,
 .merchant-guide .pg-url a {
   display: inline-flex;
   align-items: center;
@@ -122,45 +147,75 @@
   color: inherit;
   text-decoration: none;
 }
+.merchant-required .pg-tel,
 .merchant-guide .pg-tel {
   margin-top: var(--space-2);
 }
 
+.merchant-required .required-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-32) var(--space-40);
+  margin-bottom: var(--space-56);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+}
+.merchant-required .required-box h2 {
+  margin: 0;
+}
+.merchant-required .required-box p.required-desc {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  margin: 0;
+  color: var(--gray-500);
+}
+
 @media (max-width: 1023px) {
-  .merchant-guide ._table > table colgroup col:nth-child(1) {
+  .merchant-required ._table > table colgroup col:nth-child(1),
+.merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 100px;
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .step-section + .step-section {
+  .merchant-required .step-section + .step-section,
+.merchant-guide .step-section + .step-section {
     margin-top: 40px;
   }
-  .merchant-guide .step-num {
+  .merchant-required .step-num,
+.merchant-guide .step-num {
     position: absolute;
     width: 30px;
     height: 30px;
   }
-  .merchant-guide .step-title {
+  .merchant-required .step-title,
+.merchant-guide .step-title {
     height: 30px;
     margin-left: 30px;
     padding-left: var(--space-12);
   }
-  .merchant-guide ._table > table {
+  .merchant-required ._table > table,
+.merchant-guide ._table > table {
     min-width: 500px;
   }
-  .merchant-guide ._table > table colgroup col:nth-child(1) {
+  .merchant-required ._table > table colgroup col:nth-child(1),
+.merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 68px;
   }
-  .merchant-guide .pg-item {
+  .merchant-required .pg-item,
+.merchant-guide .pg-item {
     flex-direction: row;
     align-items: center;
     gap: var(--space-16);
     padding: var(--space-16) var(--space-20);
   }
-  .merchant-guide .pg-content {
+  .merchant-required .pg-content,
+.merchant-guide .pg-content {
     flex: 1;
   }
-  .merchant-guide .pg-name {
+  .merchant-required .pg-name,
+.merchant-guide .pg-name {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: -0.32px;
@@ -168,14 +223,16 @@
   }
 }
 @media screen and (max-width: 767px) and (max-width: 767px) {
-  .merchant-guide .pg-name {
+  .merchant-required .pg-name,
+.merchant-guide .pg-name {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: -0.64px;
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .accordion {
+  .merchant-required .accordion,
+.merchant-guide .accordion {
     margin-top: var(--space-16);
   }
 }

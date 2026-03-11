@@ -1,5 +1,6 @@
 @use "../abstracts" as *;
 
+.merchant-required,
 .merchant-guide {
   .step-section {
     display: flex;
@@ -145,8 +146,34 @@
   }
 }
 
+// =========================
+// 가맹점 준수사항 안내
+// =========================
+.merchant-required {
+  .required-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-32) var(--space-40);
+    margin-bottom: var(--space-56);
+    background-color: $bg-gray-20;
+    border-radius: var(--radius-16);
+
+    h2 {
+      margin: 0;
+    }
+
+    p.required-desc {
+      @include font-token($font-body-0);
+      margin: 0;
+      color: $text-quaternary;
+    }
+  }
+}
+
 // Tablet
 @include respond-md {
+  .merchant-required,
   .merchant-guide {
     ._table > table {
       colgroup {
@@ -162,6 +189,7 @@
 
 // Mobile
 @include respond-sm {
+  .merchant-required,
   .merchant-guide {
     .step-section {
       + .step-section {
