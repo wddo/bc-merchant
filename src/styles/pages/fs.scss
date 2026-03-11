@@ -27,6 +27,11 @@
       ._font-title-2 {
         white-space: pre;
       }
+      .sub-text {
+        @include font-token($font-body-0);
+        color: $text-secondary;
+        margin-top: var(--space-16);
+      }
     }
     .inner {
       display: flex;
@@ -39,6 +44,7 @@
             margin-bottom: var(--space-8);
             @include font-token($font-body-0-medi);
             color: $text-quaternary;
+            line-height: 30px;
           }
         }
         .loan-infor {
@@ -133,20 +139,34 @@
           padding: var(--space-48);
           .list-noti {
             gap: var(--space-6);
+            + .list-ast {
+              margin-top: var(--space-16);
+            }
           }
           .list-ast {
             gap: var(--space-6);
-            margin-top: var(--space-16);
             > li {
-              color: var(--point-600);
+              &.point-text {
+                color: var(--point-600);
+              }
             }
             + .list-noti {
               margin-top: var(--space-6);
+            }
+            + .text {
+              margin-top: var(--space-4);
             }
           }
           .list-noti {
             > .underline {
               text-decoration: underline;
+            }
+          }
+          .text {
+            @include font-token($font-body-1);
+            color: $text-secondary;
+            + .list-ast {
+              margin-top: var(--space-4);
             }
           }
           .text-right {
@@ -495,8 +515,148 @@
   }
 }
 
+.intro-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-40);
+  background-color: $bg-gray-20;
+  border-radius: var(--radius-16);
+  padding: var(--space-20) var(--space-24);
+  margin-top: var(--space-32);
+  .text-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    .title {
+      @include font-token($font-body-0-semi);
+      color: $text-primary;
+      > span {
+        color: var(--point-600);
+      }
+    }
+    .list-noti {
+      > li {
+        color: $text-tertiary;
+      }
+    }
+  }  
+}
 
+.loan-withdrawal {
+  &::after {
+    background: url(#{$img_url}/fs/bg_visual_loanwithdrawal.png) no-repeat 0 0 / auto 100%;
+  }
+}
 
+.title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-8); 
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--black);
+  > .title {
+    @include font-token($font-body-0-medi);
+    color: $text-primary;
+  }
+  > .side {
+    @include font-token($font-body-1-medi);
+    color: $text-tertiary;
+  }
+}
+
+.cardtype {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  padding-top: var(--space-24);
+  > .item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    background-color: $bg-white;
+    border-radius: var(--radius-24);
+    padding: var(--space-24);
+    .top-area {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .date {
+        @include font-token($font-body-2);
+        color: $text-quaternary;
+      }
+    }
+    .middle-area {
+      .text {
+        @include font-token($font-body-1-medi);
+        color: $text-secondary;
+        margin-top: 6px;
+      }
+      .data-wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8) var(--space-20);
+        background-color: $bg-gray-20;
+        padding: var(--space-20);
+        margin: var(--space-24) 0 var(--space-8);
+        .data-wrap-hor {
+          grid-column: 1 / -1;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-8);
+          border-top: 1px solid $line-gray-60;
+          margin-top: var(--space-4);
+          padding-top: var(--space-12);  
+        }
+      }
+      .data-infor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          @include font-token($font-body-3);
+          color: $text-tertiary;
+        }
+        .data {
+          @include font-token($font-body-2-semi);
+          color: $text-primary;
+          > .point-text {
+            color: var(--point-600);
+          }
+        }
+      }
+
+      .data-inner {
+        display: flex;
+        gap: var(--space-24); 
+        margin-top: var(--space-6);
+        .data-infor {
+          gap: var(--space-16);
+          .data {
+            font-weight: 500;
+            background-color: $bg-gray-20;
+            border-radius: var(--radius-6);
+            padding: var(--space-2) var(--space-6);
+          }
+        }
+      }
+    }
+  }
+}
+
+.noti-area {
+  margin-top: var(--space-16);
+  .list-ast {
+    > li {
+      color: $text-tertiary;
+    }
+  }
+  + ._btn-wrap {
+    margin-top: var(--space-56);
+  }
+}
 
 // Tablet
 @include respond-md {
@@ -589,10 +749,16 @@
           }
         }
       }
+      .text-area {
+        .sub-text {
+          @include font-token($font-body-1-medi);
+          margin-top: var(--space-4);
+        }
+      }
     }
     + ._btn-wrap {
       margin-top: var(--space-40);
-    }
+    }  
   }
 
   .popup-content {
@@ -718,5 +884,19 @@
     }
   }
 
+  .intro-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-20);
+    margin-top: var(--space-20);
+    .text-area {
+      .title {
+        > span {
+          display: block;
+        }
+      }
+    }  
+  }
 }
 

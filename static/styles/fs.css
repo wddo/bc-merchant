@@ -24,6 +24,13 @@
 .fs-intro-guide .guide-item .text-area ._font-title-2 {
   white-space: pre;
 }
+.fs-intro-guide .guide-item .text-area .sub-text {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  color: var(--gray-700);
+  margin-top: var(--space-16);
+}
 .fs-intro-guide .guide-item .inner {
   display: flex;
   justify-content: space-between;
@@ -36,6 +43,7 @@
   font-weight: 500;
   letter-spacing: -0.72px;
   color: var(--gray-500);
+  line-height: 30px;
 }
 .fs-intro-guide .guide-item .inner > .text-area .loan-infor {
   margin-top: var(--space-56);
@@ -50,7 +58,6 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
-  color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
@@ -58,6 +65,9 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
+}
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
+  color: var(--gray-900);
 }
 .fs-intro-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
   color: var(--point-600);
@@ -89,7 +99,6 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
-  color: var(--gray-600);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
@@ -97,6 +106,9 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
+}
+.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
+  color: var(--gray-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .item::after {
   content: "";
@@ -134,27 +146,46 @@
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-noti {
   gap: var(--space-6);
 }
-.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast {
-  gap: var(--space-6);
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-noti + .list-ast {
   margin-top: var(--space-16);
 }
-.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast > li {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast {
+  gap: var(--space-6);
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast > li.point-text {
   color: var(--point-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast + .list-noti {
   margin-top: var(--space-6);
 }
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast + .text {
+  margin-top: var(--space-4);
+}
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-noti > .underline {
   text-decoration: underline;
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text {
+  color: var(--gray-700);
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text + .list-ast {
+  margin-top: var(--space-4);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  margin-bottom: var(--space-24);
-  text-align: right;
-  margin-top: var(--space-12);
-  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
@@ -162,6 +193,12 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
+  margin-bottom: var(--space-24);
+  text-align: right;
+  margin-top: var(--space-12);
+  color: var(--gray-500);
 }
 .fs-intro-guide .guide-item .list-noti + .text-noti {
   margin-top: var(--space-20);
@@ -220,7 +257,6 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .popup-content .text-item > .item .text {
@@ -228,6 +264,9 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.popup-content .text-item > .item .text {
+  color: var(--gray-700);
 }
 .popup-content .qr-img {
   text-align: center;
@@ -248,8 +287,6 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
-  color: var(--gray-700);
-  margin-bottom: var(--space-8);
 }
 @media screen and (max-width: 767px) {
   .dropdown-area .label-title {
@@ -310,8 +347,6 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
-  color: var(--gray-500);
-  white-space: pre;
 }
 @media screen and (max-width: 767px) {
   .loan-infor-area .item-wrap .item .data-infor dt {
@@ -319,6 +354,10 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
+}
+.loan-infor-area .item-wrap .item .data-infor dt {
+  color: var(--gray-500);
+  white-space: pre;
 }
 .loan-infor-area .item-wrap .item .data-infor dd {
   font-size: 18px;
@@ -371,7 +410,6 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
-  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .data-infor dt {
@@ -380,11 +418,13 @@
     letter-spacing: -0.56px;
   }
 }
+.summary-area .item-wrap .item .data-infor dt {
+  color: var(--gray-500);
+}
 .summary-area .item-wrap .item .data-infor dd {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
-  color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .data-infor dd {
@@ -392,6 +432,9 @@
     font-weight: 600;
     letter-spacing: -0.64px;
   }
+}
+.summary-area .item-wrap .item .data-infor dd {
+  color: var(--gray-900);
 }
 .summary-area .item-wrap .item .data-infor-large {
   grid-column: 1/-1;
@@ -470,7 +513,6 @@
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
-  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .loan-wrap .loan-infor-area .sub-item .data-infor dt {
@@ -478,6 +520,9 @@
     font-weight: 400;
     letter-spacing: -0.56px;
   }
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor dt {
+  color: var(--gray-500);
 }
 .loan-wrap .loan-infor-area .sub-item .data-infor dd {
   font-size: 18px;
@@ -563,6 +608,190 @@
   background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0/auto 100%;
 }
 
+.intro-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-40);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+  padding: var(--space-20) var(--space-24);
+  margin-top: var(--space-32);
+}
+.intro-box .text-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.intro-box .text-area .title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
+  color: var(--gray-900);
+}
+.intro-box .text-area .title > span {
+  color: var(--point-600);
+}
+.intro-box .text-area .list-noti > li {
+  color: var(--gray-600);
+}
+
+.loan-withdrawal::after {
+  background: url(/static/images/fs/bg_visual_loanwithdrawal.png) no-repeat 0 0/auto 100%;
+}
+
+.title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-8);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--black);
+}
+.title-area > .title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+  color: var(--gray-900);
+}
+.title-area > .side {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .title-area > .side {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.title-area > .side {
+  color: var(--gray-600);
+}
+
+.cardtype {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-16);
+  padding-top: var(--space-24);
+}
+.cardtype > .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  background-color: var(--white);
+  border-radius: var(--radius-24);
+  padding: var(--space-24);
+}
+.cardtype > .item .top-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardtype > .item .top-area .date {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .cardtype > .item .top-area .date {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.cardtype > .item .top-area .date {
+  color: var(--gray-500);
+}
+.cardtype > .item .middle-area .text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .cardtype > .item .middle-area .text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.cardtype > .item .middle-area .text {
+  color: var(--gray-700);
+  margin-top: 6px;
+}
+.cardtype > .item .middle-area .data-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8) var(--space-20);
+  background-color: var(--gray-20);
+  padding: var(--space-20);
+  margin: var(--space-24) 0 var(--space-8);
+}
+.cardtype > .item .middle-area .data-wrap .data-wrap-hor {
+  grid-column: 1/-1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  border-top: 1px solid var(--gray-60);
+  margin-top: var(--space-4);
+  padding-top: var(--space-12);
+}
+.cardtype > .item .middle-area .data-infor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardtype > .item .middle-area .data-infor .title {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.48px;
+  color: var(--gray-600);
+}
+.cardtype > .item .middle-area .data-infor .data {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .cardtype > .item .middle-area .data-infor .data {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+}
+.cardtype > .item .middle-area .data-infor .data {
+  color: var(--gray-900);
+}
+.cardtype > .item .middle-area .data-infor .data > .point-text {
+  color: var(--point-600);
+}
+.cardtype > .item .middle-area .data-inner {
+  display: flex;
+  gap: var(--space-24);
+  margin-top: var(--space-6);
+}
+.cardtype > .item .middle-area .data-inner .data-infor {
+  gap: var(--space-16);
+}
+.cardtype > .item .middle-area .data-inner .data-infor .data {
+  font-weight: 500;
+  background-color: var(--gray-20);
+  border-radius: var(--radius-6);
+  padding: var(--space-2) var(--space-6);
+}
+
+.noti-area {
+  margin-top: var(--space-16);
+}
+.noti-area .list-ast > li {
+  color: var(--gray-600);
+}
+.noti-area + ._btn-wrap {
+  margin-top: var(--space-56);
+}
+
 @media (max-width: 1023px) {
   .fs-intro-guide {
     gap: var(--space-40);
@@ -628,6 +857,21 @@
     flex-wrap: wrap;
     justify-content: flex-start;
   }
+  .fs-intro-guide .guide-item .text-area .sub-text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.32px;
+    margin-top: var(--space-4);
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .fs-intro-guide .guide-item .text-area .sub-text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 767px) {
   .fs-intro-guide + ._btn-wrap {
     margin-top: var(--space-40);
   }
@@ -737,5 +981,15 @@
   }
   .loan-wrap .function-area .ipt-inner {
     flex-direction: column;
+  }
+  .intro-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-20);
+    margin-top: var(--space-20);
+  }
+  .intro-box .text-area .title > span {
+    display: block;
   }
 }

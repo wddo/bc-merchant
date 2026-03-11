@@ -160,6 +160,14 @@ button[class^="_btn"] {
       background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat 0 0 / auto 100%
     }
   }
+  .desc {
+    .point {
+      color: $text-tertiary;
+    }
+    .point-red {
+      color: $text-warning;
+    }
+  }
 }
 
 // Text Fields 금액 case
