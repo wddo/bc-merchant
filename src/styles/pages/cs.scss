@@ -272,7 +272,8 @@
 // 서식자료실
 // =========================
 .form-room {
-  margin-top: var(--space-56);
+  // sticky 하단 padding-bottom 제외 12px한 값
+  margin-top: calc(var(--space-56) - var(--space-12));
 
   .form-group {
     h2 {
@@ -432,6 +433,19 @@
   }
 
   .form-room {
+    // sticky 하단 padding-bottom 제외 12px한 값
+    margin-top: calc(var(--space-40) - var(--space-12));
+
+    .form-group {
+      h2 {
+        margin-bottom: var(--space-12);
+      }
+
+      & + .form-group {
+        margin-top: var(--space-40);
+      }
+    }
+
     .form-list {
       grid-template-columns: repeat(1, minmax(0, 1fr));
 
