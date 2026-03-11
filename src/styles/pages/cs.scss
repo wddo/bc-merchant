@@ -1,43 +1,56 @@
 @use "../abstracts" as *;
 
-.faq,
-.notice {
-  .search-box.underline {
-    width: 100%;
-    max-width: $page-max-width;
+// =========================
+// 라인형 검색 박스
+// =========================
+.search-box.underline {
+  width: 100%;
+  max-width: $page-max-width;
 
-    .input-box {
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      border-bottom: 1px solid $line-gray-100;
+  .input-box {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $line-gray-100;
 
-      input {
-        padding: var(--space-16) 0;
+    input {
+      padding: var(--space-16) 0;
+
+      @include respond-sm {
+        height: var(--space-24);
       }
     }
   }
+}
 
-  .tab-wrapper {
-    padding: var(--space-12) 0;
-    margin: var(--space-12) 0;
+// =========================
+// 카테고리 탭
+// =========================
+.tab-wrapper {
+  padding: var(--space-12) 0;
+  margin: var(--space-12) 0;
 
-    &::after {
-      height: 0;
-    }
-
-    .tab-box {
-      margin: 0 auto;
-      width: 100%;
-      max-width: $page-max-width;
-    }
-
-    // total 위에 탭 있는 경우
-    & + .contents > .list-total {
-      margin-top: var(--space-24);
-    }
+  &::after {
+    height: 0;
   }
 
+  .tab-box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $page-max-width;
+  }
+
+  // total 위에 탭 있는 경우
+  & + .contents > .list-total {
+    margin-top: var(--space-24);
+  }
+}
+
+// =========================
+// 게시판 공통
+// =========================
+.faq,
+.notice {
   .contents {
     .list-total {
       @include font-token($font-body-1);
@@ -59,6 +72,9 @@
   }
 }
 
+// =========================
+// 자주 묻는 질문
+// =========================
 .faq {
   .accordion {
     .accordion-cont {
@@ -107,6 +123,9 @@
   }
 }
 
+// =========================
+// 공지사항
+// =========================
 .notice {
   ul.notice-list {
     border-top: 1px solid $line-gray-900;
@@ -157,6 +176,9 @@
   }
 }
 
+// =========================
+// 내용 없음
+// =========================
 .no-data {
   display: flex;
   flex-direction: column;
@@ -181,6 +203,9 @@
   }
 }
 
+// =========================
+// 모바일 전용
+// =========================
 @include respond-sm {
   .faq,
   .notice {

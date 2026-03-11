@@ -1,38 +1,38 @@
-.faq .search-box.underline,
-.notice .search-box.underline {
+.search-box.underline {
   width: 100%;
   max-width: 1200px;
 }
-.faq .search-box.underline .input-box,
-.notice .search-box.underline .input-box {
+.search-box.underline .input-box {
   padding: 0;
   border: 0;
   border-radius: 0;
   border-bottom: 1px solid var(--gray-100);
 }
-.faq .search-box.underline .input-box input,
-.notice .search-box.underline .input-box input {
+.search-box.underline .input-box input {
   padding: var(--space-16) 0;
 }
-.faq .tab-wrapper,
-.notice .tab-wrapper {
+@media (max-width: 767px) {
+  .search-box.underline .input-box input {
+    height: var(--space-24);
+  }
+}
+
+.tab-wrapper {
   padding: var(--space-12) 0;
   margin: var(--space-12) 0;
 }
-.faq .tab-wrapper::after,
-.notice .tab-wrapper::after {
+.tab-wrapper::after {
   height: 0;
 }
-.faq .tab-wrapper .tab-box,
-.notice .tab-wrapper .tab-box {
+.tab-wrapper .tab-box {
   margin: 0 auto;
   width: 100%;
   max-width: 1200px;
 }
-.faq .tab-wrapper + .contents > .list-total,
-.notice .tab-wrapper + .contents > .list-total {
+.tab-wrapper + .contents > .list-total {
   margin-top: var(--space-24);
 }
+
 .faq .contents .list-total,
 .notice .contents .list-total {
   font-size: 16px;
