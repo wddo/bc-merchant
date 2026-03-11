@@ -945,6 +945,9 @@ body {
     min-width: 360px;
     padding-bottom: 64px;
   }
+  #container .page.no-bottom {
+    padding-bottom: 0;
+  }
   #container .page > div:not(.full):not(.loading) {
     padding-left: 20px;
     padding-right: 20px;
