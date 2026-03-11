@@ -207,18 +207,18 @@
 // 모바일 전용
 // =========================
 @include respond-sm {
+  .tab-wrapper {
+    padding: var(--space-12) 0;
+    margin: var(--space-4) 0 0 0;
+
+    // total 위에 탭 있는 경우
+    & + .contents > .list-total {
+      margin-top: 0;
+    }
+  }
+
   .faq,
   .notice {
-    .tab-wrapper {
-      padding: var(--space-12) 0;
-      margin: var(--space-20) 0;
-
-      // total 위에 탭 있는 경우
-      & + .contents > .list-total {
-        margin-top: 0;
-      }
-    }
-
     .contents {
       .list-total {
         margin-top: var(--space-20);

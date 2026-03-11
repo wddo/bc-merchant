@@ -191,13 +191,11 @@
 }
 
 @media (max-width: 767px) {
-  .faq .tab-wrapper,
-.notice .tab-wrapper {
+  .tab-wrapper {
     padding: var(--space-12) 0;
-    margin: var(--space-20) 0;
+    margin: var(--space-4) 0 0 0;
   }
-  .faq .tab-wrapper + .contents > .list-total,
-.notice .tab-wrapper + .contents > .list-total {
+  .tab-wrapper + .contents > .list-total {
     margin-top: 0;
   }
   .faq .contents .list-total,
