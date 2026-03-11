@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page">
+          <div class="title">
+            <h1 class="_font-headline-1">중도상환 및 대출철회</h1>
+          </div>
+          <div class="tab-wrapper full">
+            <div class="tab-box">
+              <ul class="_tabs-main">
+                <li class="is-on"><a href="#link">중도상환금액 조회/신청</a></li>
+                <li><a href="#link">대출철회 안내</a></li>
+                <li><a href="#link">대출철회 조회/신청</a></li>
+                <li><a href="#link">대출철회 결과조회</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contents">
+            <div class="dropdown-area">
+              <div class="inner">
+                <label for="label-storename" class="label-title">대출상품</label>
+                <div class="input-box">
+                  <select id="label-storename">
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                    <option value="가맹점론 (23050100000) I $중도완납$">가맹점론 (23050100000) I $중도완납$</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- //dropdown-area -->
+          </div>
+          <!-- //contents -->
+
+          <div class="full-bg">
+            <div class="contents">
+              <div class="loan-wrap">
+                <div class="loan-infor-area">
+                  <h3 class="_font-title-4">대출이용현황</h3>
+                  <div class="item-wrap">
+                    <div class="item">
+                      <dl class="data-infor">
+                        <dt class="point-text">대출금액</dt>
+                        <dd><strong class="_font-title-1">5,000,000원</strong></dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt class="point-text">잔여금액</dt>
+                        <dd><strong class="_font-title-1">5,000,000원</strong></dd>
+                      </dl>
+                    </div>
+                    <div class="sub-item">
+                      <dl class="data-infor">
+                        <dt>잔여회차</dt>
+                        <dd>10회차</dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt>잔여일자</dt>
+                        <dd>2026.01.12</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="function-area">
+                  <div class="item">
+                    <h3 class="_font-title-4">상환방법</h3>
+                    <div class="ipt-wrap">
+                      <label class="_ipt-radio-box" style="width:50%;">
+                          <input type="radio" name="radio-box-1" checked>
+                          <i>전체상환</i>
+                      </label>
+                      <label class="_ipt-radio-box" style="width:50%;">
+                          <input type="radio" name="radio-box-1">
+                          <i>부분상환</i>
+                      </label>
+                    </div>
+                    <p class="info-text">부분 상환 시 잔여 상환 회차별 상환금액이 재계산됩니다.</p>
+                  </div>
+                  <div class="item">
+                    <h3 class="_font-title-4">상환금액</h3>
+                    <div class="ipt-inner">
+                      <div class="input-box">
+                        <input type="text" id="input3-1" value="4,036,614" disabled> <!-- [D] 부분 상환 일 경우 disabled 제거 -->
+                        <div class="util-box">
+                          <strong class="suffix">원</strong>
+                        </div>
+                      </div>
+                      <button type="button" class="_btn-large-primary">조회하기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="summary-area">
+                <h2 class="_font-title-2">중도상환 내역 및 <br class="mo-invisible">납부 정보<span>2026.02.26 기준</span></h2>
+                <div class="item-wrap">
+                  <div class="item">
+                    <div class="data-infor-large">
+                      <dl class="data-infor">
+                        <dt>상환합계금액</dt>
+                        <dd><strong class="_font-title-2 point-text">533,949원</strong></dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt>입금계좌</dt>
+                        <dd>
+                          <div class="account-infor">
+                            <strong class="_font-title-3">우리은행 100212345****</strong>
+                            <span class="_badge-medium-gray">예금주 : 비씨카드</span>
+
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                    <dl class="data-infor">
+                      <dt>상환원금</dt>
+                      <dd>533,949원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>상환이자</dt>
+                      <dd>28,580원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>미납연체금</dt>
+                      <dd>533,949원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체이자</dt>
+                      <dd>28,580원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체이율 (대출금리+연체 가산이율)</dt>
+                      <dd>대출 건별 약정 이자율 + 3% 법정 최고금리(24% 이내)</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출 건별 약정 이자율 + 3% 법정 최고금리(24% 이내)</dt>
+                      <dd>188,601원</dd>
+                    </dl>
+                    <div class="warning-box">
+                      <p class="warning-title">중도상환 안내가 완료된 건은 안내해 드린 계좌로 입금해주셔야 중도상환이 완료됩니다.<br>실제 입금일이 조회기준일과 상이할 경우 중도상환금액을 재계산한 후 입금하셔야 합니다.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="_btn-wrap">
+                <button type="button" class="_btn-large-primary">중도상환 신청</button>
+              </div>
+            </div>
+          </div>
+          <!-- //full-bg -->
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

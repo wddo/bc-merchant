@@ -129,6 +129,16 @@ button[class^=_btn] {
   background: url(/static/images/common/feedback_nodata.svg) no-repeat 0 0/auto 100%;
 }
 
+.input-box .util-box .suffix {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  color: var(--gray-900);
+}
+.input-box input:disabled + .util-box .suffix {
+  color: var(--gray-300);
+}
+
 /* .w-full {
   width: 100%;
 }
