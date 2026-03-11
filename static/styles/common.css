@@ -212,6 +212,13 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  position: relative;
+  color: inherit;
+  display: block;
+  padding-left: var(--space-12);
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 @media screen and (max-width: 767px) {
   .list-noti > li {
@@ -234,12 +241,6 @@ button[class^=_btn] {
     letter-spacing: -0.56px;
   }
 }
-.list-noti > li {
-  position: relative;
-  color: inherit;
-  display: block;
-  padding-left: var(--space-12);
-}
 .list-noti > li::before {
   position: absolute;
   left: 0;
@@ -250,11 +251,6 @@ button[class^=_btn] {
   background-color: currentColor;
   border-radius: 100%;
   transform: translateY(-50%);
-}
-.list-noti > li {
-  /* > ul[class^="list-"]:first-child {
-    margin-top: var(--space-6);
-  } */
 }
 .list-noti strong {
   color: var(--red-800);
@@ -273,6 +269,13 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  position: relative;
+  color: inherit;
+  display: block;
+  padding-left: var(--space-12);
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 @media screen and (max-width: 767px) {
   .list-ref > li {
@@ -295,12 +298,6 @@ button[class^=_btn] {
     letter-spacing: -0.56px;
   }
 }
-.list-ref > li {
-  position: relative;
-  color: inherit;
-  display: block;
-  padding-left: var(--space-12);
-}
 .list-ref > li::before {
   position: absolute;
   left: 0;
@@ -308,11 +305,6 @@ button[class^=_btn] {
   top: 0.81em;
   font-size: 1em;
   transform: translateY(-50%);
-}
-.list-ref > li {
-  /* > ul[class^="list-"]:first-child {
-    margin-top: var(--space-6);
-  } */
 }
 .list-ref strong {
   color: var(--red-800);
@@ -331,6 +323,13 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  position: relative;
+  color: inherit;
+  display: block;
+  padding-left: var(--space-12);
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 @media screen and (max-width: 767px) {
   .list-dash > li {
@@ -353,12 +352,6 @@ button[class^=_btn] {
     letter-spacing: -0.56px;
   }
 }
-.list-dash > li {
-  position: relative;
-  color: inherit;
-  display: block;
-  padding-left: var(--space-12);
-}
 .list-dash > li::before {
   position: absolute;
   left: 0;
@@ -366,11 +359,6 @@ button[class^=_btn] {
   top: 0.69em;
   font-size: 1em;
   transform: translateY(-50%);
-}
-.list-dash > li {
-  /* > ul[class^="list-"]:first-child {
-    margin-top: var(--space-6);
-  } */
 }
 .list-dash strong {
   color: var(--red-800);
@@ -389,6 +377,13 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  position: relative;
+  color: inherit;
+  display: block;
+  padding-left: var(--space-12);
+  /* > ul[class^="list-"]:first-child {
+    margin-top: var(--space-6);
+  } */
 }
 @media screen and (max-width: 767px) {
   .list-ast > li {
@@ -411,23 +406,12 @@ button[class^=_btn] {
     letter-spacing: -0.56px;
   }
 }
-.list-ast > li {
-  position: relative;
-  color: inherit;
-  display: block;
-  padding-left: var(--space-12);
-}
 .list-ast > li::before {
   position: absolute;
   left: 0;
   content: "※";
   top: 0.03em;
   font-size: 1em;
-}
-.list-ast > li {
-  /* > ul[class^="list-"]:first-child {
-    margin-top: var(--space-6);
-  } */
 }
 .list-ast strong {
   color: var(--red-800);
@@ -462,6 +446,12 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
+  display: flex;
+  align-items: center;
+  color: var(--gray-600);
+  /* @include respond-sm {
+    @include font-token($font-body-2-semi);
+  } */
 }
 @media screen and (max-width: 767px) {
   .warning-box .warning-title {
@@ -469,14 +459,6 @@ button[class^=_btn] {
     font-weight: 600;
     letter-spacing: -0.64px;
   }
-}
-.warning-box .warning-title {
-  display: flex;
-  align-items: center;
-  color: var(--gray-600);
-  /* @include respond-sm {
-    @include font-token($font-body-2-semi);
-  } */
 }
 .warning-box .warning-title::before {
   content: "";
@@ -603,6 +585,12 @@ button[class^=_btn] {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  padding: var(--space-32) var(--space-40) var(--space-56);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  background-color: var(--gray-20);
+  color: var(--gray-600);
 }
 @media screen and (max-width: 767px) {
   .accordion-cont {
@@ -637,14 +625,6 @@ button[class^=_btn] {
     letter-spacing: -0.64px;
   }
 }
-.accordion-cont {
-  padding: var(--space-32) var(--space-40) var(--space-56);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-20);
-  background-color: var(--gray-20);
-  color: var(--gray-600);
-}
 @media (max-width: 767px) {
   .accordion-cont {
     padding: var(--space-24) var(--space-20) var(--space-40);
@@ -652,6 +632,7 @@ button[class^=_btn] {
 }
 
 .tab-wrapper {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -700,13 +681,28 @@ button[class^=_btn] {
   background: #969dab;
 }
 .loading i.dot1 {
+  -webkit-animation: loading1 1s linear infinite;
   animation: loading1 1s linear infinite;
 }
 .loading i.dot2 {
+  -webkit-animation: loading2 1s linear infinite;
   animation: loading2 1s linear infinite;
 }
 .loading i.dot3 {
+  -webkit-animation: loading3 1s linear infinite;
   animation: loading3 1s linear infinite;
+}
+
+@-webkit-keyframes loading1 {
+  0% {
+    transform: translateY(0);
+  }
+  16% {
+    transform: translateY(-8px);
+  }
+  33% {
+    transform: translateY(0);
+  }
 }
 @keyframes loading1 {
   0% {
@@ -719,6 +715,17 @@ button[class^=_btn] {
     transform: translateY(0);
   }
 }
+@-webkit-keyframes loading2 {
+  33% {
+    transform: translateY(0);
+  }
+  49% {
+    transform: translateY(-8px);
+  }
+  66% {
+    transform: translateY(0);
+  }
+}
 @keyframes loading2 {
   33% {
     transform: translateY(0);
@@ -727,6 +734,17 @@ button[class^=_btn] {
     transform: translateY(-8px);
   }
   66% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes loading3 {
+  66% {
+    transform: translateY(0);
+  }
+  79% {
+    transform: translateY(-8px);
+  }
+  99% {
     transform: translateY(0);
   }
 }
@@ -907,14 +925,14 @@ body {
     min-width: 360px;
     padding-bottom: 64px;
   }
-  #container .page > div:not(.full) {
+  #container .page > div:not(.full):not(.loading) {
     padding-left: 20px;
     padding-right: 20px;
   }
-  #container .page > div:not(.full):first-child.title + * {
+  #container .page > div:not(.full):not(.loading):first-child.title + * {
     margin-top: 40px;
   }
-  #container .page > div:not(.full).title {
+  #container .page > div:not(.full):not(.loading).title {
     overflow: hidden;
     position: absolute;
     width: 1px;
@@ -1217,14 +1235,14 @@ body {
   .header .header-inner .header-nav .depth1-list > li .depth2-list {
     padding-top: 0;
   }
-  .header .header-inner .header-nav .depth1-list > li .depth2-list > li.active .depth3-list {
-    display: flex;
-  }
   .header .header-inner .header-nav .depth1-list > li .depth2-list > li {
     /* &:not(:focus-within) .depth3-list {
       display: none;
     }
     */
+  }
+  .header .header-inner .header-nav .depth1-list > li .depth2-list > li.active .depth3-list {
+    display: flex;
   }
   .header .header-inner .header-nav .depth1-list > li .depth2-list > li .depth2 {
     position: relative;
@@ -1254,13 +1272,11 @@ body {
   }
   .header .header-inner .header-nav .depth1-list > li .depth3-list {
     display: none;
+    flex-direction: column;
+    padding: 0 20px;
   }
   .header .header-inner .header-nav .depth1-list > li .depth3-list.active {
     display: block;
-  }
-  .header .header-inner .header-nav .depth1-list > li .depth3-list {
-    flex-direction: column;
-    padding: 0 20px;
   }
   .header .header-inner .header-nav .depth1-list > li .depth3-list .depth3 {
     display: inline-block;

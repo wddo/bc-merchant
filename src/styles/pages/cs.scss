@@ -2,16 +2,6 @@
 
 .faq,
 .notice {
-  /* .title.full {
-    background-color: var(--gray-20);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-48);
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-48) 0;
-  } */
-
   .search-box.underline {
     width: 100%;
     max-width: $page-max-width;
@@ -29,17 +19,22 @@
   }
 
   .tab-wrapper {
-    padding: var(--space-12) 0; // sticky 영역
-    margin: var(--space-12) 0; // sticky 영역과 콘텐츠 간 간격
+    padding: var(--space-12) 0;
+    margin: var(--space-12) 0;
 
     &::after {
-      height: 0; // 라인 제거
+      height: 0;
     }
 
     .tab-box {
       margin: 0 auto;
       width: 100%;
       max-width: $page-max-width;
+    }
+
+    // total 위에 탭 있는 경우
+    & + .contents > .list-total {
+      margin-top: var(--space-24);
     }
   }
 
@@ -49,7 +44,7 @@
 
       display: flex;
       justify-content: flex-start;
-      margin-top: var(--space-24);
+      margin-top: var(--space-48);
       margin-bottom: var(--space-16);
       color: $text-secondary;
 
@@ -61,60 +56,111 @@
         margin-left: var(--space-4);
       }
     }
+  }
+}
 
-    .accordion {
-      .accordion-cont {
-        .is-warning {
-          color: $text-warning;
+.faq {
+  .accordion {
+    .accordion-cont {
+      .is-warning {
+        color: $text-warning;
 
-          &::before {
-            background-color: $text-warning;
-          }
+        &::before {
+          background-color: $text-warning;
+        }
 
-          [class^="list-"] > li {
-            color: inherit;
-          }
+        [class^="list-"] > li {
+          color: inherit;
         }
       }
     }
+  }
 
-    .list-title-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex: 1;
-      gap: var(--space-2);
-    }
+  .list-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: var(--space-2);
+  }
 
-    .list-no,
-    .list-category {
-      @include font-token($font-body-1);
-    }
+  .list-no,
+  .list-category {
+    @include font-token($font-body-1);
+  }
 
-    .list-no {
-      width: 40px;
-      text-align: left;
-      color: $text-secondary;
-    }
+  .list-no {
+    width: 40px;
+    text-align: left;
+    color: $text-secondary;
+  }
 
-    .list-category {
-      color: $text-tertiary;
-      line-height: 1.5;
-    }
+  .list-category {
+    color: $text-tertiary;
+    line-height: 1.5;
+  }
 
-    mark {
-      padding: 0;
-      color: $text-point-indigo;
-      background-color: transparent;
-    }
+  mark {
+    padding: 0;
+    color: $text-point-indigo;
+    background-color: transparent;
   }
 }
 
 .notice {
-  .contents {
-    .list-total {
-      margin-top: var(--space-48);
+  .notice-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid $line-gray-900;
+  }
+
+  .notice-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $line-gray-60;
+  }
+
+  .list-no {
+    width: 120px;
+    padding: 0 var(--space-20);
+    text-align: center;
+    color: $text-secondary;
+  }
+
+  .list-title-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-6);
+    flex: 1;
+    min-width: 0;
+    margin: var(--space-20) var(--space-20);
+    color: $text-secondary;
+    text-decoration: none;
+
+    .depth01 {
+      @include font-token($font-body-1-medi);
+      @include ellipsis(1, 0);
+
+      flex: 0 1 auto;
+      max-width: 100%;
     }
+
+    ._badge-small-red {
+      flex: 0 0 auto;
+    }
+  }
+
+  .list-date {
+    width: 200px;
+    padding: 0 var(--space-20);
+    text-align: center;
+    color: $text-quaternary;
+  }
+
+  .loading {
+    margin-top: var(--space-48);
   }
 }
 
@@ -148,25 +194,73 @@
     .tab-wrapper {
       padding: var(--space-12) 0;
       margin: var(--space-20) 0;
+
+      // total 위에 탭 있는 경우
+      & + .contents > .list-total {
+        margin-top: 0;
+      }
     }
 
     .contents {
       .list-total {
-        margin-top: 0;
+        margin-top: var(--space-20);
+        margin-bottom: 9px;
+      }
+    }
+  }
+
+  .faq {
+    .list-no,
+    .list-category {
+      @include font-token($font-body-2);
+    }
+
+    .list-no {
+      display: none;
+    }
+
+    .list-category {
+      margin-left: 0;
+    }
+  }
+
+  .notice {
+    .list-no {
+      display: none;
+    }
+
+    .notice-item {
+      display: block;
+      padding: var(--space-16) 0;
+    }
+
+    .list-title-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-6);
+      margin: 0;
+
+      .depth01 {
+        @include font-token($font-body-1-medi);
+        @include ellipsis(2, 3em);
+
+        width: 100%;
       }
 
-      .list-no,
-      .list-category {
-        @include font-token($font-body-2);
+      ._badge-small-red {
+        order: -1;
+        align-self: flex-start;
       }
+    }
 
-      .list-no {
-        display: none;
-      }
+    .list-date {
+      @include font-token($font-body-2);
 
-      .list-category {
-        margin-left: 0;
-      }
+      display: block;
+      width: auto;
+      padding: var(--space-4) 0 0;
+      text-align: left;
+      white-space: nowrap;
     }
   }
 }
