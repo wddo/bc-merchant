@@ -1016,7 +1016,7 @@ body {
   #container .page > div:not(.full):not(.loading):first-child.title + * {
     margin-top: 40px;
   }
-  #container .page > div:not(.full):not(.loading):first-child.title + *.search-box, #container .page > div:not(.full):not(.loading):first-child.title + *.tab-wrapper {
+  #container .page > div:not(.full):not(.loading):first-child.title + *.search-box, #container .page > div:not(.full):not(.loading):first-child.title + *.noti-box, #container .page > div:not(.full):not(.loading):first-child.title + *.tab-wrapper {
     margin-top: 0;
   }
   #container .page > div:not(.full):not(.loading).title {

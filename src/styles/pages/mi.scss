@@ -5,10 +5,10 @@
   .step-section {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: var(--space-16);
 
     + .step-section {
-      margin-top: 80px;
+      margin-top: var(--space-56);
     }
   }
 
@@ -25,7 +25,6 @@
   }
 
   .step-title {
-    height: 38px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -193,8 +192,10 @@
   .merchant-required,
   .merchant-guide {
     .step-section {
+      position: relative;
+
       + .step-section {
-        margin-top: 40px;
+        margin-top: var(--space-40);
       }
     }
 
@@ -202,12 +203,16 @@
       position: absolute;
       width: 30px;
       height: 30px;
+      top: 0;
     }
 
     .step-title {
-      height: 30px;
       margin-left: 30px;
       padding-left: var(--space-12);
+    }
+
+    .accordion {
+      margin-top: var(--space-16);
     }
 
     ._table > table {
@@ -238,10 +243,6 @@
     .pg-name {
       @include font-token($font-body-1-semi);
       margin-top: 0;
-    }
-
-    .accordion {
-      margin-top: var(--space-16);
     }
   }
 

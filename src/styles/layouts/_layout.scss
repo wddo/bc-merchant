@@ -153,6 +153,7 @@ body {
 
             // 모바일 페이지 영역 상단 여백 제외 대상 나열
             &.search-box,
+            &.noti-box,
             &.tab-wrapper {
               margin-top: 0;
             }
