@@ -138,7 +138,7 @@ body {
     }
 
     .page > div {
-      &:not(.full) {
+      &:not(.full):not(.loading) {
         padding-left: $page-side-sm;
         padding-right: $page-side-sm;
 
