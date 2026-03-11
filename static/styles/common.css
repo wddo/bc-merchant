@@ -880,6 +880,9 @@ body {
   padding-bottom: 100px;
   min-height: 500px;
 }
+#container .page.no-bottom {
+  padding-bottom: 0;
+}
 #container .page > div {
   width: 100%;
 }
@@ -893,7 +896,7 @@ body {
   margin-top: 64px;
 }
 #container .page > div:not(.full):not(.loading).title {
-  padding-bottom: 48px;
+  padding-bottom: 32px;
 }
 #container .page > div.full > * {
   width: 100%;
@@ -933,7 +936,7 @@ body {
     margin-top: 50px;
   }
   #container .page > div:not(.full):not(.loading).title {
-    padding-bottom: 48px;
+    padding-bottom: 32px;
   }
   #container .page > div.full > * {
     padding-left: 24px;
@@ -943,10 +946,7 @@ body {
 @media (max-width: 767px) {
   #container .page {
     min-width: 360px;
-    padding-bottom: 64px;
-  }
-  #container .page.no-bottom {
-    padding-bottom: 0;
+    padding-bottom: 56px;
   }
   #container .page > div:not(.full):not(.loading) {
     padding-left: 20px;
