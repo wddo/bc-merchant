@@ -153,12 +153,30 @@ button[class^="_btn"] {
   }
 }
 
-
 // feedback 
 .feedback-wrap {
   &.no-data {
     &::before {
       background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat 0 0 / auto 100%
+    }
+  }
+}
+
+// Text Fields 금액 case
+.input-box {
+  .util-box {
+    .suffix {
+      @include font-token($font-body-0);
+      color: $text-primary;
+    }
+  }
+  input {
+    &:disabled {
+      + .util-box {
+        .suffix {
+          color: $text-disabled;
+        }
+      }
     }
   }
 }
