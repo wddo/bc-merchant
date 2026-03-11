@@ -21,6 +21,11 @@
       }
     }
   }
+
+  // total 위에 검색 박스 있는 경우
+  & + .contents > .list-total {
+    margin-top: var(--space-56);
+  }
 }
 
 // =========================
@@ -28,7 +33,21 @@
 // =========================
 .tab-wrapper {
   padding: var(--space-12) 0;
-  margin: var(--space-20) 0;
+  margin: var(--space-20) 0 0 0;
+
+  @include respond-sm {
+    margin: var(--space-12) 0 0 0;
+  }
+
+  // total 위에 탭 있는 경우
+  & + .contents > .list-total {
+    // sticky 하단 padding-bottom 제외 12px한 값
+    margin-top: calc(var(--space-56) - var(--space-12));
+
+    @include respond-sm {
+      margin-top: calc(var(--space-40) - var(--space-12));
+    }
+  }
 
   &::after {
     height: 0;
@@ -39,36 +58,31 @@
     width: 100%;
     max-width: $page-max-width;
   }
-
-  // total 위에 탭 있는 경우
-  & + .contents > .list-total {
-    margin-top: var(--space-24);
-  }
 }
 
 // =========================
 // 게시판 공통
 // =========================
-.faq,
-.notice {
-  .contents {
-    .list-total {
-      @include font-token($font-body-1);
+.list-total {
+  @include font-token($font-body-1);
 
-      display: flex;
-      justify-content: flex-start;
-      margin-top: var(--space-48);
-      margin-bottom: var(--space-16);
-      color: $text-secondary;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--space-32);
+  margin-bottom: var(--space-16);
+  color: $text-secondary;
 
-      mark,
-      em {
-        color: $text-point-indigo;
-        font-style: normal;
-        font-weight: 600;
-        margin-left: var(--space-4);
-      }
-    }
+  @include respond-sm {
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-12);
+  }
+
+  mark,
+  em {
+    color: $text-point-indigo;
+    font-style: normal;
+    font-weight: 600;
+    margin-left: var(--space-4);
   }
 }
 
@@ -244,6 +258,7 @@
     dd {
       padding: var(--space-20);
       color: $text-tertiary;
+      @include ellipsis(1, 0);
     }
   }
 }
@@ -270,7 +285,7 @@
       100% auto;
   }
 
-  .btn-wrap {
+  ._btn-wrap {
     margin-top: var(--space-12);
   }
 }
@@ -279,23 +294,10 @@
 // 모바일 전용
 // =========================
 @include respond-sm {
-  .tab-wrapper {
-    padding: var(--space-12) 0;
-    margin: var(--space-4) 0 0 0;
-
-    // total 위에 탭 있는 경우
+  .search-box.underline {
+    // total 위에 검색 박스 있는 경우
     & + .contents > .list-total {
-      margin-top: 0;
-    }
-  }
-
-  .faq,
-  .notice {
-    .contents {
-      .list-total {
-        margin-top: var(--space-20);
-        margin-bottom: 9px;
-      }
+      margin-top: var(--space-40);
     }
   }
 
@@ -348,6 +350,34 @@
           padding: 0;
           text-align: left;
         }
+      }
+    }
+
+    ._btn-wrap {
+      margin-top: var(--space-20);
+    }
+  }
+
+  .notice-view {
+    .view-head {
+      padding-bottom: var(--space-24);
+    }
+
+    .view-body {
+      padding: var(--space-40) 0;
+    }
+
+    .view-link {
+      dl {
+        gap: var(--space-12);
+      }
+
+      dt {
+        padding: var(--space-16) 0;
+      }
+
+      dd {
+        padding: var(--space-16) 0;
       }
     }
   }
