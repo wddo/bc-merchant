@@ -38,19 +38,22 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .faq .contents .list-total,
+  .notice .contents .list-total {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.faq .contents .list-total,
+.notice .contents .list-total {
   display: flex;
   justify-content: flex-start;
   margin-top: var(--space-48);
   margin-bottom: var(--space-16);
   color: var(--gray-700);
-}
-@media screen and (max-width: 767px) {
-  .faq .contents .list-total,
-.notice .contents .list-total {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
 }
 .faq .contents .list-total mark,
 .faq .contents .list-total em,
@@ -86,7 +89,7 @@
 }
 @media screen and (max-width: 767px) {
   .faq .list-no,
-.faq .list-category {
+  .faq .list-category {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;
@@ -134,13 +137,6 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  flex: 0 1 auto;
-  max-width: 100%;
-  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .notice ul.notice-list li .list-title-wrap a.list-title {
@@ -149,6 +145,15 @@
     letter-spacing: -0.64px;
   }
 }
+.notice ul.notice-list li .list-title-wrap a.list-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  max-width: 100%;
+  color: var(--gray-700);
+}
 .notice ul.notice-list li .list-title-wrap ._badge-small-red {
   flex: 0 0 auto;
 }
@@ -156,10 +161,6 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  width: 200px;
-  padding: 0 var(--space-20);
-  text-align: center;
-  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .notice ul.notice-list li .list-date {
@@ -167,6 +168,12 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.notice ul.notice-list li .list-date {
+  width: 200px;
+  padding: 0 var(--space-20);
+  text-align: center;
+  color: var(--gray-500);
 }
 
 .no-data {
@@ -199,7 +206,7 @@
     margin-top: 0;
   }
   .faq .contents .list-total,
-.notice .contents .list-total {
+  .notice .contents .list-total {
     margin-top: var(--space-20);
     margin-bottom: 9px;
   }
@@ -263,8 +270,6 @@
   .notice ul.notice-list li .list-title-wrap ._badge-small-red {
     order: -1;
   }
-}
-@media (max-width: 767px) {
   .notice ul.notice-list li .list-date {
     font-size: 14px;
     font-weight: 400;
