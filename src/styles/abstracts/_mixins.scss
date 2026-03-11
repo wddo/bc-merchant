@@ -111,5 +111,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: $line;
     max-height: $height;
+    white-space: normal;
   }
 }

@@ -1,54 +1,63 @@
 @use "../abstracts" as *;
 
-.faq {
-  /* .title.full {
-    background-color: var(--gray-20);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-48);
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-48) 0;
-  } */
+// =========================
+// 라인형 검색 박스
+// =========================
+.search-box.underline {
+  width: 100%;
+  max-width: $page-max-width;
 
-  .search-box.underline {
-    width: 100%;
-    max-width: $page-max-width;
+  .input-box {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $line-gray-100;
 
-    .input-box {
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      border-bottom: 1px solid $line-gray-100;
+    input {
+      padding: var(--space-16) 0;
 
-      input {
-        padding: var(--space-16) 0;
+      @include respond-sm {
+        height: var(--space-24);
       }
     }
   }
+}
 
-  .tab-wrapper {
-    padding: var(--space-12) 0; // sticky 영역
-    margin: var(--space-12) 0; // sticky 영역과 콘텐츠 간 간격
+// =========================
+// 카테고리 탭
+// =========================
+.tab-wrapper {
+  padding: var(--space-12) 0;
+  margin: var(--space-12) 0;
 
-    &::after {
-      height: 0; // 라인 제거
-    }
-
-    .tab-box {
-      margin: 0 auto;
-      width: 100%;
-      max-width: $page-max-width;
-    }
+  &::after {
+    height: 0;
   }
 
+  .tab-box {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $page-max-width;
+  }
+
+  // total 위에 탭 있는 경우
+  & + .contents > .list-total {
+    margin-top: var(--space-24);
+  }
+}
+
+// =========================
+// 게시판 공통
+// =========================
+.faq,
+.notice {
   .contents {
-    .faq-total {
+    .list-total {
       @include font-token($font-body-1);
 
       display: flex;
       justify-content: flex-start;
-      margin-top: var(--space-24);
+      margin-top: var(--space-48);
       margin-bottom: var(--space-16);
       color: $text-secondary;
 
@@ -60,59 +69,116 @@
         margin-left: var(--space-4);
       }
     }
+  }
+}
 
-    .accordion {
-      .accordion-cont {
-        .is-warning {
-          color: $text-warning;
+// =========================
+// 자주 묻는 질문
+// =========================
+.faq {
+  .accordion {
+    .accordion-cont {
+      .is-warning {
+        color: $text-warning;
 
-          &::before {
-            background-color: $text-warning;
-          }
+        &::before {
+          background-color: $text-warning;
+        }
 
-          [class^="list-"] > li {
-            color: inherit;
-          }
+        [class^="list-"] > li {
+          color: inherit;
         }
       }
     }
+  }
 
-    .faq-title-wrap {
+  .list-title-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: var(--space-2);
+  }
+
+  .list-no,
+  .list-category {
+    @include font-token($font-body-1);
+  }
+
+  .list-no {
+    width: 40px;
+    text-align: left;
+    color: $text-secondary;
+  }
+
+  .list-category {
+    color: $text-tertiary;
+    line-height: 1.5;
+  }
+
+  mark {
+    padding: 0;
+    color: $text-point-indigo;
+    background-color: transparent;
+  }
+}
+
+// =========================
+// 공지사항
+// =========================
+.notice {
+  ul.notice-list {
+    border-top: 1px solid $line-gray-900;
+
+    li {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex: 1;
-      gap: var(--space-2);
-    }
+      align-items: center;
+      border-bottom: 1px solid $line-gray-60;
 
-    .faq-no,
-    .faq-category {
-      @include font-token($font-body-1);
-    }
+      .list-no {
+        width: 120px;
+        padding: 0 var(--space-20);
+        text-align: center;
+        color: $text-secondary;
+      }
 
-    .faq-no {
-      width: 40px;
-      text-align: left;
-      color: $text-secondary;
-    }
+      .list-title-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-6);
+        flex: 1;
+        min-width: 0;
+        margin: var(--space-20) var(--space-20);
 
-    .faq-category {
-      color: $text-tertiary;
-      line-height: 1.5;
-    }
+        a.list-title {
+          @include font-token($font-body-1-medi);
+          @include ellipsis(1, 0);
 
-    mark {
-      padding: 0;
-      color: $text-point-indigo;
-      background-color: transparent;
+          flex: 0 1 auto;
+          max-width: 100%;
+          color: $text-secondary;
+        }
+
+        ._badge-small-red {
+          flex: 0 0 auto;
+        }
+      }
+
+      .list-date {
+        @include font-token($font-body-1);
+        width: 200px;
+        padding: 0 var(--space-20);
+        text-align: center;
+        color: $text-quaternary;
+      }
     }
   }
 }
 
-.notice {
-  display: block;
-}
-
+// =========================
+// 내용 없음
+// =========================
 .no-data {
   display: flex;
   flex-direction: column;
@@ -137,29 +203,79 @@
   }
 }
 
+// =========================
+// 모바일 전용
+// =========================
 @include respond-sm {
+  .tab-wrapper {
+    padding: var(--space-12) 0;
+    margin: var(--space-4) 0 0 0;
+
+    // total 위에 탭 있는 경우
+    & + .contents > .list-total {
+      margin-top: 0;
+    }
+  }
+
+  .faq,
+  .notice {
+    .contents {
+      .list-total {
+        margin-top: var(--space-20);
+        margin-bottom: 9px;
+      }
+    }
+  }
+
   .faq {
-    .tab-wrapper {
-      padding: var(--space-12) 0;
-      margin: var(--space-20) 0;
+    .list-no {
+      display: none;
     }
 
-    .contents {
-      .faq-total {
-        margin-top: 0;
-      }
+    .list-category {
+      @include font-token($font-body-2);
+      margin-left: 0;
+    }
+  }
 
-      .faq-no,
-      .faq-category {
-        @include font-token($font-body-2);
-      }
+  .notice {
+    ul.notice-list {
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-16) 0;
 
-      .faq-no {
-        display: none;
-      }
+        .list-no {
+          display: none;
+        }
 
-      .faq-category {
-        margin-left: 0;
+        .list-title-wrap {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--space-4);
+          margin: 0;
+
+          a.list-title {
+            @include font-token($font-body-1-medi);
+            @include ellipsis(2, 3em);
+
+            width: 100%;
+            color: $text-secondary;
+          }
+
+          ._badge-small-red {
+            order: -1;
+          }
+        }
+
+        .list-date {
+          @include font-token($font-body-2);
+          width: auto;
+          padding: 0;
+          text-align: left;
+        }
       }
     }
   }

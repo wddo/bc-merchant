@@ -50,6 +50,7 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
+  color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
@@ -57,9 +58,6 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
-  color: var(--gray-900);
 }
 .fs-intro-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
   color: var(--point-600);
@@ -91,6 +89,7 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
+  color: var(--gray-600);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
@@ -98,9 +97,6 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
-}
-.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
-  color: var(--gray-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .item::after {
   content: "";
@@ -155,6 +151,10 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  margin-bottom: var(--space-24);
+  text-align: right;
+  margin-top: var(--space-12);
+  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
@@ -162,12 +162,6 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
-}
-.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
-  margin-bottom: var(--space-24);
-  text-align: right;
-  margin-top: var(--space-12);
-  color: var(--gray-500);
 }
 .fs-intro-guide .guide-item .list-noti + .text-noti {
   margin-top: var(--space-20);
@@ -228,6 +222,7 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .popup-content .text-item > .item .text {
@@ -235,9 +230,6 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
-}
-.popup-content .text-item > .item .text {
-  color: var(--gray-700);
 }
 .popup-content .qr-img {
   text-align: center;
@@ -258,6 +250,8 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
+  color: var(--gray-700);
+  margin-bottom: var(--space-8);
 }
 @media screen and (max-width: 767px) {
   .dropdown-area .label-title {
@@ -322,6 +316,8 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
+  color: var(--gray-500);
+  white-space: pre;
 }
 @media screen and (max-width: 767px) {
   .loan-infor-area .item-wrap .item .data-infor dt {
@@ -329,10 +325,6 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
-}
-.loan-infor-area .item-wrap .item .data-infor dt {
-  color: var(--gray-500);
-  white-space: pre;
 }
 .loan-infor-area .item-wrap .item .data-infor dd {
   font-size: 18px;
@@ -385,6 +377,7 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
+  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .data-infor dt {
@@ -393,13 +386,11 @@
     letter-spacing: -0.56px;
   }
 }
-.summary-area .item-wrap .item .data-infor dt {
-  color: var(--gray-500);
-}
 .summary-area .item-wrap .item .data-infor dd {
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.32px;
+  color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .data-infor dd {
@@ -407,9 +398,6 @@
     font-weight: 600;
     letter-spacing: -0.64px;
   }
-}
-.summary-area .item-wrap .item .data-infor dd {
-  color: var(--gray-900);
 }
 .summary-area .item-wrap .item .data-infor-large {
   grid-column: 1/-1;
@@ -490,6 +478,7 @@
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
+  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .loan-wrap .loan-infor-area .sub-item .data-infor dt {
@@ -497,9 +486,6 @@
     font-weight: 400;
     letter-spacing: -0.56px;
   }
-}
-.loan-wrap .loan-infor-area .sub-item .data-infor dt {
-  color: var(--gray-500);
 }
 .loan-wrap .loan-infor-area .sub-item .data-infor dd {
   font-size: 18px;
