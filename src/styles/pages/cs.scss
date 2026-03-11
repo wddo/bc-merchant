@@ -136,15 +136,15 @@
     flex: 1;
     min-width: 0;
     margin: var(--space-20) var(--space-20);
-    color: $text-secondary;
-    text-decoration: none;
 
-    .depth01 {
+    .list-title {
       @include font-token($font-body-1-medi);
       @include ellipsis(1, 0);
 
       flex: 0 1 auto;
       max-width: 100%;
+      color: $text-secondary;
+      text-decoration: none;
     }
 
     ._badge-small-red {
@@ -240,11 +240,13 @@
       gap: var(--space-6);
       margin: 0;
 
-      .depth01 {
+      .list-title {
         @include font-token($font-body-1-medi);
         @include ellipsis(2, 3em);
 
         width: 100%;
+        color: $text-secondary;
+        text-decoration: none;
       }
 
       ._badge-small-red {
