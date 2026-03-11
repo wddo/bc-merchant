@@ -39,6 +39,10 @@ body {
     flex-direction: column;
     padding-bottom: $page-bottom-lg;
     min-height: 500px;
+
+    &.no-bottom {
+      padding-bottom: 0;
+    }
   }
 
   .page > div {
@@ -135,10 +139,6 @@ body {
     .page {
       min-width: $page-min-width;
       padding-bottom: $page-bottom-sm;
-
-      &.no-bottom {
-        padding-bottom: 0;
-      }
     }
 
     .page > div {

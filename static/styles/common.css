@@ -880,6 +880,9 @@ body {
   padding-bottom: 100px;
   min-height: 500px;
 }
+#container .page.no-bottom {
+  padding-bottom: 0;
+}
 #container .page > div {
   width: 100%;
 }
@@ -944,9 +947,6 @@ body {
   #container .page {
     min-width: 360px;
     padding-bottom: 64px;
-  }
-  #container .page.no-bottom {
-    padding-bottom: 0;
   }
   #container .page > div:not(.full):not(.loading) {
     padding-left: 20px;
