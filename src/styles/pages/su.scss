@@ -522,11 +522,15 @@
 }
 
 .cardtype {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-16);
   padding: var(--space-48) 0;
   > .item {
+    flex: 1;
+    max-width: 33.33%;
     display: flex;
     flex-direction: column;
     gap: var(--space-24);
@@ -549,23 +553,28 @@
         margin-top: 6px;
       }
       .data-wrap {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
         gap: var(--space-8) var(--space-20);
         background-color: $bg-gray-20;
         padding: var(--space-20);
         margin: var(--space-24) 0 var(--space-8);
         .data-infor {
+          min-width: calc(50% - 10px);
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: var(--space-12);
           .title {
             @include font-token($font-body-3);
             color: $text-tertiary;
+            white-space: pre;
           }
           .data {
             @include font-token($font-body-2-semi);
             color: $text-primary;
+            white-space: pre;
           }
         }
       }
@@ -836,7 +845,14 @@
   }
 
   .cardtype {
-    grid-template-columns: repeat(2, 1fr);
+    > .item {
+      min-width: calc(50% - 8px);
+      .middle-area {
+        .data-wrap {
+          flex-direction: column;
+        }
+      }
+    }
   }
 
 }
@@ -1002,13 +1018,13 @@
   }
 
   .cardtype {
-    grid-template-columns: auto;
     padding: var(--space-24) 0;
     > .item {
+      min-width: 100%;
+      max-width: 100%;
       padding: var(--space-20);
       .middle-area {
         .data-wrap {
-          grid-template-columns: auto;
           gap: var(--space-8);
           margin: var(--space-24) 0 var(--space-12);
         }
