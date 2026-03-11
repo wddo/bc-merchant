@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page">
+          <div class="title">
+            <h1 class="_font-headline-1">대출이용 현황</h1>
+          </div>
+          <div class="tab-wrapper full">
+            <div class="tab-box">
+              <ul class="_tabs-main">
+                <li><a href="#link">대출이용 조회</a></li>
+                <li class="is-on"><a href="#link">납입금액조회</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contents">
+            <div class="store-infor">
+              <div class="inner">
+                <label for="label-stroename" class="store-name">가맹점명</label>
+                <div class="input-box">
+                  <select id="label-stroename">
+                    <option value="BC카드(주)[760123451]">BC카드(주)[760123451]</option>
+                    <option value="BC카드(주)[760123452]">BC카드(주)[760123452]</option>
+                    <option value="BC카드(주)[760123453]">BC카드(주)[760123453]</option>
+                    <option value="BC카드(주)[760123454]">BC카드(주)[760123454]</option>
+                    <option value="BC카드(주)[760123455]">BC카드(주)[760123455]</option>
+                    <option value="BC카드(주)[760123456]">BC카드(주)[760123456]</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- //store-infor -->
+          </div>
+          <!-- //contents -->
+
+          <div class="full-bg">
+            <div class="feedback-wrap no-data">
+              <p class="title">납입 내역이 없어요</p>
+              <p class="desc">대출 서비스를 이용하시면 납입 내역이 발생하며,<br>이곳에서 확인하실 수 있습니다.</p>
+              <div class="btn-wrap">
+                <button type="button" class="_btn-small-secondary">대출 서비스 안내 보기</button>
+              </div>
+            </div>
+          </div>
+          <!-- //full-bg -->
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

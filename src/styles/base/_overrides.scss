@@ -69,7 +69,7 @@ button[class^="_btn"] {
   }
 }
 // button - only button max-size
-._btn-wrap [class^="_btn"]:only-child {
+._btn-wrap [class^="_btn"] {
   max-width: 320px;
   @include respond-sm {
     max-width: none;
@@ -149,6 +149,16 @@ button[class^="_btn"] {
 
     > dt {
       align-self: flex-start;
+    }
+  }
+}
+
+
+// feedback 
+.feedback-wrap {
+  &.no-data {
+    &::before {
+      background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat 0 0 / auto 100%
     }
   }
 }

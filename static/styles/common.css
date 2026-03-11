@@ -54,11 +54,11 @@ button[class^=_btn] {
   flex-basis: auto;
 }
 
-._btn-wrap [class^=_btn]:only-child {
+._btn-wrap [class^=_btn] {
   max-width: 320px;
 }
 @media (max-width: 767px) {
-  ._btn-wrap [class^=_btn]:only-child {
+  ._btn-wrap [class^=_btn] {
     max-width: none;
   }
 }
@@ -123,6 +123,10 @@ button[class^=_btn] {
 }
 [class^=_modal][class*=-popup][class*=_type-tooltip] .info > dt {
   align-self: flex-start;
+}
+
+.feedback-wrap.no-data::before {
+  background: url(/static/images/common/feedback_nodata.svg) no-repeat 0 0/auto 100%;
 }
 
 /* .w-full {
@@ -769,7 +773,7 @@ button[class^=_btn] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-8);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -793,6 +797,24 @@ button[class^=_btn] {
   color: var(--gray-600);
   margin: var(--space-20) 0 0;
 }
+.visual-item .text + .list-ast {
+  margin-top: var(--space-16);
+}
+.visual-item .text + .list-ast > li {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .visual-item .text + .list-ast > li {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.visual-item .text + .list-ast > li {
+  color: var(--gray-700);
+}
 .visual-item::after {
   content: "";
   display: block;
@@ -809,7 +831,7 @@ button[class^=_btn] {
 @media (max-width: 767px) {
   .visual-wrap {
     margin: 0 0 var(--space-40);
-    padding: 32px 0;
+    padding: var(--space-32) 0;
   }
   .visual-item {
     flex-direction: column;

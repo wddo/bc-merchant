@@ -1,11 +1,8 @@
 @use "../abstracts" as *;
 
-.merchant-loan-service {
+.visual-wrap {
   background-color: #ededff;
   .visual-item {
-    &::after {
-      background: url(#{$img_url}/fs/bg_visual_merchantloan.png) no-repeat 0 0 / auto 100%;
-    }
     .bg-text {
       background-color: $bg-white;
       color: var(--point-800);
@@ -13,7 +10,13 @@
   }
 }
 
-.merchant-loan-guide {
+.merchant-loan-service {
+  &::after {
+    background: url(#{$img_url}/fs/bg_visual_merchantloan.png) no-repeat 0 0 / auto 100%;
+  }
+}
+
+.fs-intro-guide {
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
@@ -70,6 +73,10 @@
               @include font-token($font-body-0-semi);
               color: var(--red-700);
             }
+            .text {
+              @include font-token($font-body-1-medi);
+              color: $text-tertiary;
+            }
           }
           &::after {
             content: '';
@@ -94,6 +101,26 @@
           &:nth-child(3) {
             &::after {
               background-image: url(#{$img_url}/fs/img_merchantloan03.png);
+            }
+          }
+        }
+
+        &.interest-rate-cut {
+          .item {
+            &:nth-child(1) {
+              &::after {
+                background-image: url(#{$img_url}/fs/img_interestrate01.png);
+              }
+            }
+            &:nth-child(2) {
+              &::after {
+                background-image: url(#{$img_url}/fs/img_interestrate02.png);
+              }
+            }
+            &:nth-child(3) {
+              &::after {
+                background-image: url(#{$img_url}/fs/img_interestrate03.png);
+              }
             }
           }
         }
@@ -127,6 +154,8 @@
             color: $text-quaternary;
           }
         }
+
+
       }
     }
   }
@@ -184,7 +213,7 @@
   // }
   .contents {
     max-width: $page-max-width;
-    margin: 48px auto 100px;
+    margin: var(--space-48) auto var(--space-100);
   }
 }
 
@@ -199,81 +228,185 @@
   .item-wrap {
     display: flex;
     justify-content: space-between;
-    gap: var(--space-24);
+    flex-wrap: wrap;
+    gap: var(--space-32);
     padding-top: var(--space-24);
     .item {
       flex: 1;
       display: flex;
       justify-content: space-between;
       gap: var(--space-32);
+      min-width: 547px;
+      &:nth-child(2) {
+        background-color: $bg-gray-20;
+        border-radius: var(--radius-12);
+        padding: var(--space-16);
+        flex: auto;
+        min-width: auto;
+        .data-infor {
+          dd {
+            min-width: 140px;
+          }
+        }
+      }
       .data-infor {
         flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         dt {
           @include font-token($font-body-1-medi);
           color: $text-quaternary;
-          &.point-text {
-            color: var(--point-600);
-          }
+          white-space: pre;
         }
-        .money {
-          font-size:36px;
-          line-height:48px;
-          letter-spacing:-1.44px;
-          padding-top: var(--space-4);
-        }
-        .badge {
-          display: inline-flex;
+        dd {
           @include font-token($font-body-0-medi);
-          background-color: $bg-primary-50;
-          border-radius: var(--radius-8);
           color: $text-secondary;
-          margin-bottom: var(--space-8);
-          padding: var(--space-2) var(--space-8);
+          white-space: pre;
+        }
+        ._font-title-1 {
+          padding-top: var(--space-4);
         }
       }
     }
   }
 }
 
-.deposit-summary {
+.summary-area {
   display: flex;
   justify-content: space-between;
   gap: var(--space-16);
-  padding: var(--space-48) 0;
-  margin: var(--space-48) 0;
-  border-top: 1px solid $line-gray-60;
-  border-bottom: 1px solid $line-gray-60;
-  .item-wrap {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-20);
-    flex-basis: 864px;
-    background-color: $bg-white;
-    border-radius: var(--radius-20);
-    padding: var(--space-32) var(--space-40);
-    .data-infor {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-8);
-      dt {
-        @include font-token($font-body-2-medi);
-        color: $text-quaternary;
+  padding-top: var(--space-56);
+  ._font-title-2 {
+    white-space: pre;
+    span {
+        display: block;
+        margin-top: var(--space-8);
+        @include font-token($font-body-0);
+        color: $text-tertiary;
       }
-      dd {
-        @include font-token($font-body-0-semi);
-        color: $text-primary;        
+  }
+  .item-wrap{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 864px;
+    gap: var(--space-16);
+    .item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-20);      
+      background-color: $bg-white;
+      border-radius: var(--radius-20);
+      padding: var(--space-32) var(--space-40);
+      .data-infor {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        dt {
+          @include font-token($font-body-2-medi);
+          color: $text-quaternary;
+        }
+        dd {
+          @include font-token($font-body-1-semi);
+          color: $text-primary;        
+        }
+      }
+    }
+  }  
+
+  + ._btn-wrap {
+    margin-top: var(--space-56);
+  }
+  
+}
+
+.loan-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  
+  .loan-infor-area {
+    flex: 1;
+    min-width: 680px;
+    .sub-item {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-32);
+      background-color: $bg-gray-20;
+      border-radius: var(--radius-12);
+      padding: var(--space-16);
+      margin-top: var(--space-8);
+      .data-infor {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        > * {
+          flex: 1;
+        }
+        dt {
+          @include font-token($font-body-2);
+          color: $text-quaternary;
+        }
+        dd {
+          @include font-token($font-body-0-medi);
+          color: $text-secondary;
+        }
       }
     }
   }
+  .search-area {
+    flex: 1;
+    // flex-basis: 496px;
+    // min-width: 496px;
+  }
 }
+
+.search-area {
+  background-color: var(--point-50);
+  border-radius: var(--radius-20);
+  padding: var(--space-32) var(--space-40);
+
+  .date-area {
+    margin-top: var(--space-16);
+    .date-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    .date-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      > * {
+        flex: 1;
+      }
+    }
+    .ipt-inner {
+      display: flex;
+      gap: var(--space-8);
+      .ipt-wrap {
+        flex: 1;
+        ._ipt-radio-box {
+          flex: 1;
+        }
+      }
+    }
+
+  }
+}
+
+.interest-rate-cut {
+  &::after {
+    background: url(#{$img_url}/fs/bg_visual_interestrate.png) no-repeat 0 0 / auto 100%;
+  }
+}
+
 
 
 // Tablet
 @include respond-md {
-  .merchant-loan-guide {
+  .fs-intro-guide {
     gap: var(--space-40);
     .guide-item {
       .inner {
@@ -321,12 +454,30 @@
       }
     }
   }
+
+  .loan-infor-area {
+    .item-wrap {
+      flex-direction: column;
+      .item {
+        &:nth-child(2) {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  .summary-area {
+    flex-direction: column;
+    .item-wrap {
+      flex-basis: auto;
+    }
+  }
   
 }
 
 // Mobile
 @include respond-sm {
-  .merchant-loan-guide {
+  .fs-intro-guide {
     padding-bottom: var(--space-40);
     margin-bottom: var(--space-40);
     .guide-item {
@@ -357,5 +508,102 @@
       gap: var(--space-6);
     }
   }
+
+  .store-infor {
+    padding: var(--space-32) 0;
+  }
+
+  .full-bg {
+    .contents {
+      max-width: $page-max-width;
+      margin: var(--space-32) auto var(--space-56);
+    }
+  }
+
+  .loan-infor-area {
+    border-radius: var(--radius-20);
+    padding: var(--space-24) var(--space-20);
+    ._font-title-4 {
+      padding-bottom: var(--space-8);
+    }
+    .item-wrap {
+      gap: var(--space-16);
+      padding-top: var(--space-20);
+      .item {
+        flex-direction: column;
+        gap: var(--space-16);
+        min-width: auto;
+        &:nth-child(2) {
+          padding: var(--space-12) var(--space-16);
+          flex: 1;
+        }
+        .data-infor {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          ._font-title-1 {
+            padding-top: var(--space-4);
+          }
+          dd {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .summary-area {
+    padding-top: var(--space-40);
+    .item-wrap {
+      flex-basis: auto;
+      .item {
+        grid-template-columns: auto;        
+        padding: var(--space-24) var(--space-20);
+        .data-infor {
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: row;
+          gap: var(--space-8);
+          > * {
+            flex: 1;
+          }
+          dd {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .loan-wrap {
+    flex-direction: column;    
+    .loan-infor-area {
+      min-width: auto;
+      .sub-item {
+        flex-direction: column;
+        gap: var(--space-6);
+        padding: var(--space-12) var(--space-16);
+        margin-top: 0;
+        .data-infor {
+          dd {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .search-area {
+      padding: var(--space-24) var(--space-20);
+      .date-area {
+        .date-wrap {
+          gap: var(--space-16);
+        }
+        .ipt-inner {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+
 }
 

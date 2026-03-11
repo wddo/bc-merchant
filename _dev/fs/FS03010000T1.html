@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page">
+          <div class="title">
+            <h1 class="_font-headline-1">대출이용 현황</h1>
+          </div>
+          <div class="tab-wrapper full">
+            <div class="tab-box">
+              <ul class="_tabs-main">
+                <li><a href="#link">대출이용 조회</a></li>
+                <li class="is-on"><a href="#link">납입금액조회</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="contents">
+            <div class="store-infor">
+              <div class="inner">
+                <label for="label-stroename" class="store-name">가맹점명</label>
+                <div class="input-box">
+                  <select id="label-stroename">
+                    <option value="BC카드(주)[760123451]">BC카드(주)[760123451]</option>
+                    <option value="BC카드(주)[760123452]">BC카드(주)[760123452]</option>
+                    <option value="BC카드(주)[760123453]">BC카드(주)[760123453]</option>
+                    <option value="BC카드(주)[760123454]">BC카드(주)[760123454]</option>
+                    <option value="BC카드(주)[760123455]">BC카드(주)[760123455]</option>
+                    <option value="BC카드(주)[760123456]">BC카드(주)[760123456]</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- //store-infor -->
+          </div>
+          <!-- //contents -->
+
+          <div class="full-bg">
+            <div class="contents">
+              <div class="loan-wrap">
+                <div class="loan-infor-area">
+                  <h3 class="_font-title-4">대출이용정보</h3>
+                  <div class="item-wrap">
+                    <div class="item">
+                      <dl class="data-infor">
+                        <dt class="point-text">대출금액</dt>
+                        <dd><strong class="_font-title-1">5,000,000원</strong></dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt class="point-text">잔여금액</dt>
+                        <dd><strong class="_font-title-1">5,000,000원</strong></dd>
+                      </dl>
+                    </div>
+                    <div class="sub-item">
+                      <dl class="data-infor">
+                        <dt>잔여회차</dt>
+                        <dd>10회차</dd>
+                      </dl>
+                      <dl class="data-infor">
+                        <dt>잔여일자</dt>
+                        <dd>2026.01.12</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+                <div class="search-area">
+                  <h3 class="_font-title-4">조회기간</h3>
+                  <div class="date-area">
+                    <div class="date-wrap">
+                      <div class="date-inner">
+                        <div class="date-ipt">
+                          <div class="tooltip-title">
+                              <label for="date-start" class="input-title">시작일</label>
+                          </div>
+                          <div class="input-box">
+                            <input type="text" id="date-start" placeholder="YYYY.MM.DD">
+                            <div class="util-box">
+                                <button type="button" class="ipt-calendar">달력보기</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="date-inner">
+                        <div class="date-ipt">
+                          <div class="tooltip-title">
+                              <label for="date-end" class="input-title">종료일</label>
+                          </div>
+                          <div class="input-box">
+                            <input type="text" id="date-end" placeholder="YYYY.MM.DD">
+                            <div class="util-box">
+                                <button type="button" class="ipt-calendar">달력보기</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ipt-inner">
+                          <div class="ipt-wrap">
+                            <label for="months01" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months01">
+                                <i>1개월</i>
+                            </label>
+                            <label for="months02" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months02">
+                                <i>3개월</i>
+                            </label>
+                            <label for="months03" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months03">
+                                <i>6개월</i>
+                            </label>
+                            <label for="months04" class="_ipt-radio-box">
+                                <input type="radio" name="radio-months" id="months04">
+                                <i>12개월</i>
+                            </label>
+                          </div>
+                          <button type="button" class="_btn-medium-primary">조회하기</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="summary-area">
+                <h2 class="_font-title-2">상세내역<span>(단위 : 건/원)</span></h2>
+                <div class="item-wrap">
+                  <div class="item">
+                    <dl class="data-infor">
+                      <dt>납입일자</dt>
+                      <dd>2026.01.12</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>납입유형</dt>
+                      <dd>자동이체수납</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>납입금액</dt>
+                      <dd>481,693원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>원금</dt>
+                      <dd>388,611원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>이자</dt>
+                      <dd>93,082원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체수수료</dt>
+                      <dd>0원</dd>
+                    </dl>
+
+                    <dl class="data-infor">
+                      <dt>미정리금</dt>
+                      <dd>0원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출잔액</dt>
+                      <dd>4,611,389원</dd>
+                    </dl>
+                  </div>
+                  <div class="item">
+                    <dl class="data-infor">
+                      <dt>납입일자</dt>
+                      <dd>2026.01.12</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>납입유형</dt>
+                      <dd>자동이체수납</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>납입금액</dt>
+                      <dd>481,693원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>원금</dt>
+                      <dd>388,611원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>이자</dt>
+                      <dd>93,082원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>연체수수료</dt>
+                      <dd>0원</dd>
+                    </dl>
+
+                    <dl class="data-infor">
+                      <dt>미정리금</dt>
+                      <dd>0원</dd>
+                    </dl>
+                    <dl class="data-infor">
+                      <dt>대출잔액</dt>
+                      <dd>4,611,389원</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>              
+            </div>
+          </div>
+          <!-- //full-bg -->
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

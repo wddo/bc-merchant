@@ -1,12 +1,13 @@
-.mytag-service {
+.visual-wrap {
   background-color: #fff2f6;
 }
-.mytag-service .visual-item::after {
-  background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
-}
-.mytag-service .visual-item .bg-text {
+.visual-wrap .visual-item .bg-text {
   background-color: var(--white);
   color: var(--red-800);
+}
+
+.mytag-service::after {
+  background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
 }
 
 .mytag-guide {
@@ -1006,7 +1007,7 @@
     max-width: 335px;
   }
   .store-infor {
-    padding: 32px 0;
+    padding: var(--space-32) 0;
   }
   .writing-stage {
     margin-top: var(--space-20);

@@ -1,15 +1,17 @@
-.merchant-loan-service {
+.visual-wrap {
   background-color: #ededff;
 }
-.merchant-loan-service .visual-item::after {
-  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
-}
-.merchant-loan-service .visual-item .bg-text {
+.visual-wrap .visual-item .bg-text {
   background-color: var(--white);
   color: var(--point-800);
 }
 
-.merchant-loan-guide {
+.merchant-loan-service::after {
+  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0 /
+    auto 100%;
+}
+
+.fs-intro-guide {
   display: flex;
   flex-direction: column;
   gap: var(--space-100);
@@ -17,15 +19,15 @@
   margin-bottom: var(--space-48);
   border-bottom: 1px solid var(--gray-60);
 }
-.merchant-loan-guide .guide-item {
+.fs-intro-guide .guide-item {
   width: 100%;
 }
-.merchant-loan-guide .guide-item .inner {
+.fs-intro-guide .guide-item .inner {
   display: flex;
   justify-content: space-between;
   gap: var(--space-48);
 }
-.merchant-loan-guide .guide-item .inner > .text-area ._font-title-2 > span {
+.fs-intro-guide .guide-item .inner > .text-area ._font-title-2 > span {
   display: block;
   margin-bottom: var(--space-8);
   font-size: 18px;
@@ -33,55 +35,73 @@
   letter-spacing: -0.72px;
   color: var(--gray-500);
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor {
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor {
   margin-top: var(--space-56);
   display: flex;
   flex-direction: column;
   gap: var(--space-20);
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor .item {
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor .item {
   gap: var(--space-4);
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor .title {
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
   color: var(--gray-900);
 }
 @media screen and (max-width: 767px) {
-  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor .title {
+  .fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.64px;
   }
 }
-.merchant-loan-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
+  color: var(--gray-900);
+}
+.fs-intro-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
   color: var(--point-600);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap {
+.fs-intro-guide .guide-item .inner .item-wrap {
   display: flex;
   flex-basis: 832px;
   max-width: 832px;
   flex-direction: column;
   gap: var(--space-16);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item {
+.fs-intro-guide .guide-item .inner .item-wrap .item {
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
   padding: var(--space-48);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area {
+.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area .point-text {
+.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .point-text {
   font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.72px;
   color: var(--red-700);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item::after {
+.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.fs-intro-guide .guide-item .inner .item-wrap .item > .text-area .text {
+  color: var(--gray-600);
+}
+.fs-intro-guide .guide-item .inner .item-wrap .item::after {
   content: "";
   display: block;
   margin: var(--space-24) 0 0 auto;
@@ -91,37 +111,58 @@
   background-position: 50% 50%;
   background-size: auto 100%;
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(1)::after {
+.fs-intro-guide .guide-item .inner .item-wrap .item:nth-child(1)::after {
   background-image: url(/static/images/fs/img_merchantloan01.png);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(2)::after {
+.fs-intro-guide .guide-item .inner .item-wrap .item:nth-child(2)::after {
   background-image: url(/static/images/fs/img_merchantloan02.png);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .item:nth-child(3)::after {
+.fs-intro-guide .guide-item .inner .item-wrap .item:nth-child(3)::after {
   background-image: url(/static/images/fs/img_merchantloan03.png);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item {
+.fs-intro-guide
+  .guide-item
+  .inner
+  .item-wrap.interest-rate-cut
+  .item:nth-child(1)::after {
+  background-image: url(/static/images/fs/img_interestrate01.png);
+}
+.fs-intro-guide
+  .guide-item
+  .inner
+  .item-wrap.interest-rate-cut
+  .item:nth-child(2)::after {
+  background-image: url(/static/images/fs/img_interestrate02.png);
+}
+.fs-intro-guide
+  .guide-item
+  .inner
+  .item-wrap.interest-rate-cut
+  .item:nth-child(3)::after {
+  background-image: url(/static/images/fs/img_interestrate03.png);
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item {
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
   padding: var(--space-48);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .list-noti {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-noti {
   gap: var(--space-6);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .list-ast {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast {
   gap: var(--space-6);
   margin-top: var(--space-16);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .list-ast > li {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast > li {
   color: var(--point-600);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .list-ast + .list-noti {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast + .list-noti {
   margin-top: var(--space-6);
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .list-noti > .underline {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-noti > .underline {
   text-decoration: underline;
 }
-.merchant-loan-guide .guide-item .inner .item-wrap .bg-item .text-right {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
@@ -131,11 +172,17 @@
   color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
-  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item .text-right {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
+  margin-bottom: var(--space-24);
+  text-align: right;
+  margin-top: var(--space-12);
+  color: var(--gray-500);
 }
 
 .popup-content .text-item {
@@ -203,7 +250,7 @@
 }
 .full-bg .contents {
   max-width: 1200px;
-  margin: 48px auto 100px;
+  margin: var(--space-48) auto var(--space-100);
 }
 
 .loan-infor-area {
@@ -218,7 +265,8 @@
 .loan-infor-area .item-wrap {
   display: flex;
   justify-content: space-between;
-  gap: var(--space-24);
+  flex-wrap: wrap;
+  gap: var(--space-32);
   padding-top: var(--space-24);
 }
 .loan-infor-area .item-wrap .item {
@@ -226,12 +274,22 @@
   display: flex;
   justify-content: space-between;
   gap: var(--space-32);
+  min-width: 547px;
+}
+.loan-infor-area .item-wrap .item:nth-child(2) {
+  background-color: var(--gray-20);
+  border-radius: var(--radius-12);
+  padding: var(--space-16);
+  flex: auto;
+  min-width: auto;
+}
+.loan-infor-area .item-wrap .item:nth-child(2) .data-infor dd {
+  min-width: 140px;
 }
 .loan-infor-area .item-wrap .item .data-infor {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .loan-infor-area .item-wrap .item .data-infor dt {
   font-size: 16px;
@@ -246,124 +304,248 @@
     letter-spacing: -0.64px;
   }
 }
-.loan-infor-area .item-wrap .item .data-infor dt.point-text {
-  color: var(--point-600);
+.loan-infor-area .item-wrap .item .data-infor dt {
+  color: var(--gray-500);
+  white-space: pre;
 }
-.loan-infor-area .item-wrap .item .data-infor .money {
-  font-size: 36px;
-  line-height: 48px;
-  letter-spacing: -1.44px;
-  padding-top: var(--space-4);
-}
-.loan-infor-area .item-wrap .item .data-infor .badge {
-  display: inline-flex;
+.loan-infor-area .item-wrap .item .data-infor dd {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.72px;
-  background-color: var(--primary-p50);
-  border-radius: var(--radius-8);
   color: var(--gray-700);
-  margin-bottom: var(--space-8);
-  padding: var(--space-2) var(--space-8);
+  white-space: pre;
+}
+.loan-infor-area .item-wrap .item .data-infor ._font-title-1 {
+  padding-top: var(--space-4);
 }
 
-.deposit-summary {
+.summary-area {
   display: flex;
   justify-content: space-between;
   gap: var(--space-16);
-  padding: var(--space-48) 0;
-  margin: var(--space-48) 0;
-  border-top: 1px solid var(--gray-60);
-  border-bottom: 1px solid var(--gray-60);
+  padding-top: var(--space-56);
 }
-.deposit-summary .item-wrap {
+.summary-area ._font-title-2 {
+  white-space: pre;
+}
+.summary-area ._font-title-2 span {
+  display: block;
+  margin-top: var(--space-8);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  color: var(--gray-600);
+}
+.summary-area .item-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 864px;
+  gap: var(--space-16);
+}
+.summary-area .item-wrap .item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-20);
-  flex-basis: 864px;
   background-color: var(--white);
   border-radius: var(--radius-20);
   padding: var(--space-32) var(--space-40);
 }
-.deposit-summary .item-wrap .data-infor {
+.summary-area .item-wrap .item .data-infor {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
 }
-.deposit-summary .item-wrap .data-infor dt {
+.summary-area .item-wrap .item .data-infor dt {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
   color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
-  .deposit-summary .item-wrap .data-infor dt {
+  .summary-area .item-wrap .item .data-infor dt {
     font-size: 14px;
     font-weight: 500;
     letter-spacing: -0.56px;
   }
 }
-.deposit-summary .item-wrap .data-infor dd {
-  font-size: 18px;
+.summary-area .item-wrap .item .data-infor dt {
+  color: var(--gray-500);
+}
+.summary-area .item-wrap .item .data-infor dd {
+  font-size: 16px;
   font-weight: 600;
-  letter-spacing: -0.72px;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .summary-area .item-wrap .item .data-infor dd {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
+}
+.summary-area .item-wrap .item .data-infor dd {
   color: var(--gray-900);
+}
+.summary-area + ._btn-wrap {
+  margin-top: var(--space-56);
+}
+
+.loan-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+}
+.loan-wrap .loan-infor-area {
+  flex: 1;
+  min-width: 680px;
+}
+.loan-wrap .loan-infor-area .sub-item {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-32);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-12);
+  padding: var(--space-16);
+  margin-top: var(--space-8);
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor > * {
+  flex: 1;
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor dt {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .loan-wrap .loan-infor-area .sub-item .data-infor dt {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor dt {
+  color: var(--gray-500);
+}
+.loan-wrap .loan-infor-area .sub-item .data-infor dd {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.72px;
+  color: var(--gray-700);
+}
+.loan-wrap .search-area {
+  flex: 1;
+}
+
+.search-area {
+  background-color: var(--point-50);
+  border-radius: var(--radius-20);
+  padding: var(--space-32) var(--space-40);
+}
+.search-area .date-area {
+  margin-top: var(--space-16);
+}
+.search-area .date-area .date-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.search-area .date-area .date-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.search-area .date-area .date-inner > * {
+  flex: 1;
+}
+.search-area .date-area .ipt-inner {
+  display: flex;
+  gap: var(--space-8);
+}
+.search-area .date-area .ipt-inner .ipt-wrap {
+  flex: 1;
+}
+.search-area .date-area .ipt-inner .ipt-wrap ._ipt-radio-box {
+  flex: 1;
+}
+
+.interest-rate-cut::after {
+  background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0 /
+    auto 100%;
 }
 
 @media (max-width: 1023px) {
-  .merchant-loan-guide {
+  .fs-intro-guide {
     gap: var(--space-40);
   }
-  .merchant-loan-guide .guide-item .inner {
+  .fs-intro-guide .guide-item .inner {
     flex-direction: column;
     gap: var(--space-24);
   }
-  .merchant-loan-guide .guide-item .inner > .text-area ._font-title-2 > span {
+  .fs-intro-guide .guide-item .inner > .text-area ._font-title-2 > span {
     margin-bottom: var(--space-4);
   }
-  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor {
+  .fs-intro-guide .guide-item .inner > .text-area .loan-infor {
     margin-top: var(--space-16);
     gap: var(--space-8);
   }
-  .merchant-loan-guide .guide-item .inner > .text-area .loan-infor .item {
+  .fs-intro-guide .guide-item .inner > .text-area .loan-infor .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap {
+  .fs-intro-guide .guide-item .inner .item-wrap {
     flex-basis: auto;
     max-width: none;
     gap: var(--space-12);
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .item {
+  .fs-intro-guide .guide-item .inner .item-wrap .item {
     padding: var(--space-24);
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .item > .text-area {
+  .fs-intro-guide .guide-item .inner .item-wrap .item > .text-area {
     gap: var(--space-4);
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .item::after {
+  .fs-intro-guide .guide-item .inner .item-wrap .item::after {
     content: "";
     display: block;
     margin: var(--space-40) 0 0 auto;
     width: 120px;
     height: 120px;
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
     padding: var(--space-24);
+  }
+  .loan-infor-area .item-wrap {
+    flex-direction: column;
+  }
+  .loan-infor-area .item-wrap .item:nth-child(2) {
+    flex: 1;
+  }
+  .summary-area {
+    flex-direction: column;
+  }
+  .summary-area .item-wrap {
+    flex-basis: auto;
   }
 }
 @media (max-width: 767px) {
-  .merchant-loan-guide {
+  .fs-intro-guide {
     padding-bottom: var(--space-40);
     margin-bottom: var(--space-40);
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
     margin-top: -8px;
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item ._table > table {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item ._table > table {
     min-width: 560px;
   }
-  .merchant-loan-guide .guide-item .inner .item-wrap .bg-item ._btn-wrap {
+  .fs-intro-guide .guide-item .inner .item-wrap .bg-item ._btn-wrap {
     flex-wrap: wrap;
     justify-content: flex-start;
   }
@@ -372,5 +554,89 @@
   }
   .popup-content .list-noti {
     gap: var(--space-6);
+  }
+  .store-infor {
+    padding: var(--space-32) 0;
+  }
+  .full-bg .contents {
+    max-width: 1200px;
+    margin: var(--space-32) auto var(--space-56);
+  }
+  .loan-infor-area {
+    border-radius: var(--radius-20);
+    padding: var(--space-24) var(--space-20);
+  }
+  .loan-infor-area ._font-title-4 {
+    padding-bottom: var(--space-8);
+  }
+  .loan-infor-area .item-wrap {
+    gap: var(--space-16);
+    padding-top: var(--space-20);
+  }
+  .loan-infor-area .item-wrap .item {
+    flex-direction: column;
+    gap: var(--space-16);
+    min-width: auto;
+  }
+  .loan-infor-area .item-wrap .item:nth-child(2) {
+    padding: var(--space-12) var(--space-16);
+    flex: 1;
+  }
+  .loan-infor-area .item-wrap .item .data-infor {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .loan-infor-area .item-wrap .item .data-infor ._font-title-1 {
+    padding-top: var(--space-4);
+  }
+  .loan-infor-area .item-wrap .item .data-infor dd {
+    text-align: right;
+  }
+  .summary-area {
+    padding-top: var(--space-40);
+  }
+  .summary-area .item-wrap {
+    flex-basis: auto;
+  }
+  .summary-area .item-wrap .item {
+    grid-template-columns: auto;
+    padding: var(--space-24) var(--space-20);
+  }
+  .summary-area .item-wrap .item .data-infor {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--space-8);
+  }
+  .summary-area .item-wrap .item .data-infor > * {
+    flex: 1;
+  }
+  .summary-area .item-wrap .item .data-infor dd {
+    text-align: right;
+  }
+  .loan-wrap {
+    flex-direction: column;
+  }
+  .loan-wrap .loan-infor-area {
+    min-width: auto;
+  }
+  .loan-wrap .loan-infor-area .sub-item {
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-16);
+    margin-top: 0;
+  }
+  .loan-wrap .loan-infor-area .sub-item .data-infor dd {
+    text-align: right;
+  }
+  .loan-wrap .search-area {
+    padding: var(--space-24) var(--space-20);
+  }
+  .loan-wrap .search-area .date-area .date-wrap {
+    gap: var(--space-16);
+  }
+  .loan-wrap .search-area .date-area .ipt-inner {
+    flex-direction: column;
   }
 }
