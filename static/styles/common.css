@@ -906,7 +906,7 @@ body {
   margin-top: 64px;
 }
 #container .page > div:not(.full):not(.loading).title {
-  padding-bottom: 48px;
+  padding-bottom: 32px;
 }
 #container .page > div.full > * {
   width: 100%;
@@ -946,7 +946,7 @@ body {
     margin-top: 50px;
   }
   #container .page > div:not(.full):not(.loading).title {
-    padding-bottom: 48px;
+    padding-bottom: 32px;
   }
   #container .page > div.full > * {
     padding-left: 24px;
