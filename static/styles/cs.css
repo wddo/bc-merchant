@@ -16,13 +16,10 @@
     height: var(--space-24);
   }
 }
-.search-box.underline + .contents > .list-total {
-  margin-top: var(--space-56);
-}
 
 .tab-wrapper {
   padding: var(--space-12) 0;
-  margin: var(--space-12) 0;
+  margin: var(--space-20) 0;
 }
 .tab-wrapper::after {
   height: 0;
@@ -41,22 +38,19 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .faq .contents .list-total,
-  .notice .contents .list-total {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.64px;
-  }
-}
-.faq .contents .list-total,
-.notice .contents .list-total {
   display: flex;
   justify-content: flex-start;
   margin-top: var(--space-48);
   margin-bottom: var(--space-16);
   color: var(--gray-700);
+}
+@media screen and (max-width: 767px) {
+  .faq .contents .list-total,
+.notice .contents .list-total {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
 }
 .faq .contents .list-total mark,
 .faq .contents .list-total em,
@@ -68,6 +62,9 @@
   margin-left: var(--space-4);
 }
 
+.faq .accordion .accordion-header {
+  gap: var(--space-20);
+}
 .faq .accordion .accordion-cont .is-warning {
   color: var(--red-800);
 }
@@ -92,7 +89,7 @@
 }
 @media screen and (max-width: 767px) {
   .faq .list-no,
-  .faq .list-category {
+.faq .list-category {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;
@@ -140,15 +137,6 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .notice ul.notice-list li .list-title-wrap a.list-title {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.64px;
-  }
-}
-.notice ul.notice-list li .list-title-wrap a.list-title {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -157,6 +145,13 @@
   max-width: 100%;
   color: var(--gray-700);
 }
+@media screen and (max-width: 767px) {
+  .notice ul.notice-list li .list-title-wrap a.list-title {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
 .notice ul.notice-list li .list-title-wrap ._badge-small-red {
   flex: 0 0 auto;
 }
@@ -164,6 +159,10 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
+  width: 200px;
+  padding: 0 var(--space-20);
+  text-align: center;
+  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .notice ul.notice-list li .list-date {
@@ -172,11 +171,85 @@
     letter-spacing: -0.64px;
   }
 }
-.notice ul.notice-list li .list-date {
-  width: 200px;
-  padding: 0 var(--space-20);
-  text-align: center;
+.notice ._btn-wrap {
+  margin-top: var(--space-56);
+}
+
+.notice-view .view-head {
+  padding-bottom: var(--space-32);
+  border-bottom: 1px solid var(--gray-900);
+}
+.notice-view .view-head .view-title {
+  color: var(--gray-900);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.notice-view .view-head .view-date {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+  margin-top: var(--space-4);
   color: var(--gray-500);
+}
+@media screen and (max-width: 767px) {
+  .notice-view .view-head .view-date {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.notice-view .view-body {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+  padding: var(--space-56) 0;
+  color: var(--gray-700);
+}
+@media screen and (max-width: 767px) {
+  .notice-view .view-body {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.notice-view .view-body p + p {
+  margin-top: var(--space-16);
+}
+.notice-view .view-body .is-warning {
+  color: var(--red-800);
+}
+.notice-view .view-link {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+  border-bottom: 1px solid var(--gray-60);
+}
+@media screen and (max-width: 767px) {
+  .notice-view .view-link {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.notice-view .view-link dl {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--gray-60);
+  gap: 0;
+}
+.notice-view .view-link dl.is-disabled dd {
+  color: var(--gray-300);
+}
+.notice-view .view-link dt {
+  padding: var(--space-20);
+  color: var(--gray-700);
+  white-space: nowrap;
+}
+.notice-view .view-link dd {
+  padding: var(--space-20);
+  color: var(--gray-600);
 }
 
 .no-data {
@@ -194,23 +267,24 @@
   width: 64px;
   height: 64px;
   margin: 0 auto;
-  background: url(/static/images/common/feedback_nodata.svg) no-repeat center/100% auto;
+  background: url("/static/images/common/feedback_nodata.svg") no-repeat center/100% auto;
 }
-.no-data ._btn-wrap {
+.no-data .btn-wrap {
   margin-top: var(--space-12);
 }
 
 @media (max-width: 767px) {
+  .tab-wrapper {
+    padding: var(--space-12) 0;
+    margin: var(--space-4) 0 0 0;
+  }
   .tab-wrapper + .contents > .list-total {
     margin-top: 0;
   }
-  .search-box.underline + .contents > .list-total {
-    margin-top: var(--space-40);
-  }
   .faq .contents .list-total,
-  .notice .contents .list-total {
-    margin-top: var(--space-16);
-    margin-bottom: var(--space-12);
+.notice .contents .list-total {
+    margin-top: var(--space-20);
+    margin-bottom: 9px;
   }
   .faq .list-no {
     display: none;
@@ -272,6 +346,8 @@
   .notice ul.notice-list li .list-title-wrap ._badge-small-red {
     order: -1;
   }
+}
+@media (max-width: 767px) {
   .notice ul.notice-list li .list-date {
     font-size: 14px;
     font-weight: 400;
@@ -286,35 +362,5 @@
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.56px;
-  }
-}
-@media (max-width: 767px) {
-  .notice ._btn-wrap {
-    margin-top: var(--space-20);
-  }
-}
-@media (max-width: 767px) {
-  .notice-view {
-    margin-top: var(--space-20);
-  }
-  .notice-view .view-head {
-    padding-bottom: var(--space-20);
-  }
-  .notice-view .view-body {
-    padding: var(--space-20) 0;
-  }
-  .notice-view .view-link dl {
-    gap: var(--space-12);
-  }
-  .notice-view .view-link dt {
-    padding: var(--space-16) 0;
-    text-align: left;
-  }
-  .notice-view .view-link dd {
-    padding: var(--space-16) 0;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 }
