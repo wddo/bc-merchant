@@ -57,7 +57,7 @@
 
       display: flex;
       justify-content: flex-start;
-      margin-top: var(--space-48);
+      margin-top: var(--space-24);
       margin-bottom: var(--space-16);
       color: $text-secondary;
 
@@ -277,9 +277,6 @@
 // =========================
 @include respond-sm {
   .tab-wrapper {
-    padding: var(--space-12) 0;
-    margin: var(--space-4) 0 0 0;
-
     // total 위에 탭 있는 경우
     & + .contents > .list-total {
       margin-top: 0;
@@ -290,7 +287,7 @@
   .notice {
     .contents {
       .list-total {
-        margin-top: var(--space-20);
+        margin-top: var(--space-16);
         margin-bottom: 9px;
       }
     }
