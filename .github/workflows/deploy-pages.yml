@@ -70,6 +70,8 @@ jobs:
             $content = Get-Content -Path $file.FullName -Raw
             $content = $content.Replace('url("/static/', ('url("' + $basePath + 'static/'))
             $content = $content.Replace("url('/static/", ("url('" + $basePath + "static/"))
+            $content = $content.Replace('url(/static/', ('url(' + $basePath + 'static/'))
+            $content = $content.Replace('url(/_dev/', ('url(' + $basePath + '_dev/'))
             Set-Content -Path $file.FullName -Value $content -NoNewline
           }
 

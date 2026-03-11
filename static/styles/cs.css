@@ -22,7 +22,7 @@
 
 .tab-wrapper {
   padding: var(--space-12) 0;
-  margin: var(--space-12) 0;
+  margin: var(--space-20) 0;
 }
 .tab-wrapper::after {
   height: 0;
@@ -65,6 +65,9 @@
   margin-left: var(--space-4);
 }
 
+.faq .accordion .accordion-header {
+  gap: var(--space-20);
+}
 .faq .accordion .accordion-cont .is-warning {
   color: var(--red-800);
 }
@@ -172,11 +175,11 @@
   }
 }
 .notice ._btn-wrap {
-  margin-top: var(--space-48);
+  margin-top: var(--space-56);
 }
 
 .notice-view .view-head {
-  padding-bottom: var(--space-24);
+  padding-bottom: var(--space-32);
   border-bottom: 1px solid var(--gray-900);
 }
 .notice-view .view-head .view-title {
@@ -204,7 +207,7 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  padding: var(--space-48) 0;
+  padding: var(--space-56) 0;
   color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
@@ -267,7 +270,7 @@
   width: 64px;
   height: 64px;
   margin: 0 auto;
-  background: url(/static/images/common/feedback_nodata.svg) no-repeat center/100% auto;
+  background: url("/static/images/common/feedback_nodata.svg") no-repeat center/100% auto;
 }
 .no-data ._btn-wrap {
   margin-top: var(--space-12);

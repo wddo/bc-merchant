@@ -33,7 +33,7 @@
 // =========================
 .tab-wrapper {
   padding: var(--space-12) 0;
-  margin: var(--space-12) 0;
+  margin: var(--space-20) 0;
 
   &::after {
     height: 0;
@@ -82,6 +82,9 @@
 // =========================
 .faq {
   .accordion {
+    .accordion-header {
+      gap: var(--space-20);
+    }
     .accordion-cont {
       .is-warning {
         color: $text-warning;
@@ -181,7 +184,7 @@
   }
 
   ._btn-wrap {
-    margin-top: var(--space-48);
+    margin-top: var(--space-56);
   }
 }
 
@@ -190,7 +193,7 @@
 // =========================
 .notice-view {
   .view-head {
-    padding-bottom: var(--space-24);
+    padding-bottom: var(--space-32);
     border-bottom: 1px solid $line-gray-900;
 
     .view-title {
@@ -208,7 +211,7 @@
   .view-body {
     @include font-token($font-body-1);
 
-    padding: var(--space-48) 0;
+    padding: var(--space-56) 0;
     color: $text-secondary;
 
     p + p {
@@ -268,7 +271,7 @@
     width: 64px;
     height: 64px;
     margin: 0 auto;
-    background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat center /
+    background: url("#{$img_url}/common/feedback_nodata.svg") no-repeat center /
       100% auto;
   }
 

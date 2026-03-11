@@ -684,7 +684,7 @@ button[class^=_btn] {
   display: flex;
   gap: var(--space-8);
   justify-content: center;
-  margin-top: var(--space-48);
+  margin-top: var(--space-40);
 }
 .loading i {
   display: inline-flex;
