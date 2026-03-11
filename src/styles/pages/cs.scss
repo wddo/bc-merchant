@@ -21,6 +21,11 @@
       }
     }
   }
+
+  // total 위에 검색 박스 있는 경우
+  & + .contents > .list-total {
+    margin-top: var(--space-56);
+  }
 }
 
 // =========================
@@ -280,6 +285,13 @@
     // total 위에 탭 있는 경우
     & + .contents > .list-total {
       margin-top: 0;
+    }
+  }
+
+  .search-box.underline {
+    // total 위에 검색 박스 있는 경우
+    & + .contents > .list-total {
+      margin-top: var(--space-40);
     }
   }
 
