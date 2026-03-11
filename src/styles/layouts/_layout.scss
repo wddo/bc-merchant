@@ -146,6 +146,12 @@ body {
           // 타이틀은 숨겨지므로 그 다음 요소가 상단 여백을 가지도록 설정
           &.title + * {
             margin-top: $page-top-sm;
+
+            // 모바일 페이지 영역 상단 여백 제외 대상 나열
+            &.search-box,
+            &.tab-wrapper {
+              margin-top: 0;
+            }
           }
         }
 
