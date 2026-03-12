@@ -1,15 +1,18 @@
-.merchant-required .step-section,
-.merchant-guide .step-section {
+.step-section {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: var(--space-16);
 }
-.merchant-required .step-section + .step-section,
-.merchant-guide .step-section + .step-section {
+.step-section + .step-section {
   margin-top: var(--space-56);
 }
-.merchant-required .step-num,
-.merchant-guide .step-num {
+@media (max-width: 767px) {
+  .step-section + .step-section {
+    margin-top: var(--space-40);
+  }
+}
+.step-section .step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,45 +23,71 @@
   color: var(--white);
   background-color: var(--gray-900);
 }
-.merchant-required .step-title,
-.merchant-guide .step-title {
+@media (max-width: 767px) {
+  .step-section .step-num {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+  }
+}
+.step-section .step-title {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.merchant-required .step-body,
-.merchant-guide .step-body {
+@media (max-width: 767px) {
+  .step-section .step-title {
+    margin-left: 30px;
+    padding-left: var(--space-12);
+  }
+}
+.step-section .step-body {
   width: 100%;
 }
-.merchant-required .accordion,
-.merchant-guide .accordion {
+.step-section .accordion {
   margin-top: var(--space-24);
 }
-.merchant-required .accordion .accordion-cont > .list-ref,
-.merchant-guide .accordion .accordion-cont > .list-ref {
+.step-section .accordion .accordion-cont > .list-ref {
   gap: var(--space-4);
 }
-.merchant-required ._table ._btn-wrap button.ico-download::after,
-.merchant-guide ._table ._btn-wrap button.ico-download::after {
+@media (max-width: 767px) {
+  .step-section .accordion {
+    margin-top: var(--space-16);
+  }
+}
+
+._table ._btn-wrap button.ico-download::after {
   background-color: var(--primary-p300);
 }
-.merchant-required ._table a.ico-download,
-.merchant-guide ._table a.ico-download {
+._table a.ico-download {
   color: var(--gray-900);
   text-decoration: underline;
 }
-.merchant-required ._table a.ico-download::after,
-.merchant-guide ._table a.ico-download::after {
+._table a.ico-download::after {
   margin-left: var(--space-2);
   vertical-align: middle;
   -webkit-mask-position-y: -0.1rem;
 }
-.merchant-required ._table table colgroup col:nth-child(1),
-.merchant-guide ._table table colgroup col:nth-child(1) {
+@media (max-width: 767px) {
+  ._table table {
+    min-width: 500px;
+  }
+}
+._table table colgroup col:nth-child(1) {
   width: 200px;
 }
-.merchant-required ._table table colgroup col,
-.merchant-guide ._table table colgroup col {
+@media (max-width: 1023px) {
+  ._table table colgroup col:nth-child(1) {
+    width: 100px;
+  }
+}
+@media (max-width: 767px) {
+  ._table table colgroup col:nth-child(1) {
+    width: 68px;
+  }
+}
+._table table colgroup col {
   width: 50%;
 }
 
@@ -96,9 +125,22 @@
   background-color: var(--white);
   border-radius: var(--radius-16);
 }
+@media (max-width: 767px) {
+  .merchant-guide .pg-item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-20);
+  }
+}
 .merchant-guide .pg-content {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 767px) {
+  .merchant-guide .pg-content {
+    flex: 1;
+  }
 }
 .merchant-guide .pg-logo {
   display: flex;
@@ -116,6 +158,21 @@
   letter-spacing: -0.72px;
   margin-top: var(--space-8);
   color: var(--gray-700);
+}
+@media (max-width: 767px) {
+  .merchant-guide .pg-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.32px;
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .merchant-guide .pg-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
 }
 .merchant-guide .pg-url,
 .merchant-guide .pg-tel {
@@ -158,6 +215,12 @@
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
 }
+@media (max-width: 767px) {
+  .merchant-required .required-box {
+    padding: var(--space-20);
+    margin-bottom: var(--space-40);
+  }
+}
 .merchant-required .required-box .required-desc {
   font-size: 18px;
   font-weight: 400;
@@ -165,73 +228,7 @@
   margin: 0;
   color: var(--gray-500);
 }
-
-@media (max-width: 1023px) {
-  .merchant-required ._table > table colgroup col:nth-child(1),
-  .merchant-guide ._table > table colgroup col:nth-child(1) {
-    width: 100px;
-  }
-}
 @media (max-width: 767px) {
-  .merchant-required .step-section,
-  .merchant-guide .step-section {
-    position: relative;
-  }
-  .merchant-required .step-section + .step-section,
-  .merchant-guide .step-section + .step-section {
-    margin-top: var(--space-40);
-  }
-  .merchant-required .step-num,
-  .merchant-guide .step-num {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 0;
-  }
-  .merchant-required .step-title,
-  .merchant-guide .step-title {
-    margin-left: 30px;
-    padding-left: var(--space-12);
-  }
-  .merchant-required .accordion,
-  .merchant-guide .accordion {
-    margin-top: var(--space-16);
-  }
-  .merchant-required ._table > table,
-  .merchant-guide ._table > table {
-    min-width: 500px;
-  }
-  .merchant-required ._table > table colgroup col:nth-child(1),
-  .merchant-guide ._table > table colgroup col:nth-child(1) {
-    width: 68px;
-  }
-  .merchant-guide .pg-item {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-16);
-    padding: var(--space-16) var(--space-20);
-  }
-  .merchant-guide .pg-content {
-    flex: 1;
-  }
-  .merchant-guide .pg-name {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.32px;
-    margin-top: 0;
-  }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  .merchant-guide .pg-name {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.64px;
-  }
-}
-@media (max-width: 767px) {
-  .merchant-required .required-box {
-    padding: var(--space-20);
-  }
   .merchant-required .required-box .required-desc {
     font-size: 16px;
     font-weight: 400;

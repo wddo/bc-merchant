@@ -1,14 +1,19 @@
 @use "../abstracts" as *;
 
-.merchant-required,
-.merchant-guide {
-  .step-section {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-16);
+// =========================
+// 모듈 - 넘버형 섹션
+// =========================
+.step-section {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-16);
 
-    + .step-section {
-      margin-top: var(--space-56);
+  + .step-section {
+    margin-top: var(--space-56);
+
+    @include respond-sm {
+      margin-top: var(--space-40);
     }
   }
 
@@ -22,12 +27,24 @@
     border-radius: var(--radius-20);
     color: $text-white;
     background-color: $bg-black;
+
+    @include respond-sm {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 0;
+    }
   }
 
   .step-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include respond-sm {
+      margin-left: 30px;
+      padding-left: var(--space-12);
+    }
   }
 
   .step-body {
@@ -40,41 +57,62 @@
     .accordion-cont > .list-ref {
       gap: var(--space-4);
     }
+
+    @include respond-sm {
+      margin-top: var(--space-16);
+    }
+  }
+}
+
+//=========================
+// 모듈 - 테이블
+//=========================
+._table {
+  ._btn-wrap {
+    button.ico-download::after {
+      background-color: $line-point;
+    }
   }
 
-  ._table {
-    ._btn-wrap {
-      button.ico-download::after {
-        background-color: $line-point;
-      }
+  a.ico-download {
+    color: $text-primary;
+    text-decoration: underline;
+
+    &::after {
+      margin-left: var(--space-2);
+      vertical-align: middle;
+      -webkit-mask-position-y: -0.1rem;
+    }
+  }
+
+  table {
+    // 스크롤 생기게 width 제한
+    @include respond-sm {
+      min-width: 500px;
     }
 
-    a.ico-download {
-      color: $text-primary;
-      text-decoration: underline;
+    colgroup {
+      col {
+        // 첫번째 열 너비 고정
+        &:nth-child(1) {
+          width: 200px;
 
-      &::after {
-        margin-left: var(--space-2);
-        vertical-align: middle;
-        -webkit-mask-position-y: -0.1rem;
-      }
-    }
-
-    table {
-      colgroup {
-        col {
-          &:nth-child(1) {
-            width: 200px;
+          @include respond-md {
+            width: 100px;
           }
-          width: 50%;
+
+          @include respond-sm {
+            width: 68px;
+          }
         }
+        width: 50%;
       }
     }
   }
 }
 
 // =========================
-// 가맹점 가입 / 해지 안내
+// 페이지 - 가맹점 가입 / 해지 안내
 // =========================
 .merchant-guide {
   .title + .contents {
@@ -109,11 +147,22 @@
     padding: var(--space-24) var(--space-20);
     background-color: $bg-white;
     border-radius: var(--radius-16);
+
+    @include respond-sm {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-16);
+      padding: var(--space-16) var(--space-20);
+    }
   }
 
   .pg-content {
     display: flex;
     flex-direction: column;
+
+    @include respond-sm {
+      flex: 1;
+    }
   }
 
   .pg-logo {
@@ -132,6 +181,11 @@
 
     margin-top: var(--space-8);
     color: $text-secondary;
+
+    @include respond-sm {
+      @include font-token($font-body-1-semi);
+      margin-top: 0;
+    }
   }
 
   .pg-url,
@@ -159,7 +213,7 @@
 }
 
 // =========================
-// 가맹점 준수사항 안내
+// 페이지 - 가맹점 준수사항 안내
 // =========================
 .merchant-required {
   .required-box {
@@ -171,94 +225,17 @@
     background-color: $bg-gray-20;
     border-radius: var(--radius-16);
 
+    @include respond-sm {
+      padding: var(--space-20);
+      margin-bottom: var(--space-40);
+    }
+
     .required-desc {
       @include font-token($font-body-0);
       margin: 0;
       color: $text-quaternary;
-    }
-  }
-}
 
-// Tablet
-@include respond-md {
-  .merchant-required,
-  .merchant-guide {
-    ._table > table {
-      colgroup {
-        col {
-          &:nth-child(1) {
-            width: 100px;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Mobile
-@include respond-sm {
-  .merchant-required,
-  .merchant-guide {
-    .step-section {
-      position: relative;
-
-      + .step-section {
-        margin-top: var(--space-40);
-      }
-    }
-
-    .step-num {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      top: 0;
-    }
-
-    .step-title {
-      margin-left: 30px;
-      padding-left: var(--space-12);
-    }
-
-    .accordion {
-      margin-top: var(--space-16);
-    }
-
-    ._table > table {
-      min-width: 500px;
-
-      colgroup {
-        col {
-          &:nth-child(1) {
-            width: 68px;
-          }
-        }
-      }
-    }
-  }
-
-  .merchant-guide {
-    .pg-item {
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-16);
-      padding: var(--space-16) var(--space-20);
-    }
-
-    .pg-content {
-      flex: 1;
-    }
-
-    .pg-name {
-      @include font-token($font-body-1-semi);
-      margin-top: 0;
-    }
-  }
-
-  .merchant-required {
-    .required-box {
-      padding: var(--space-20);
-
-      .required-desc {
+      @include respond-sm {
         @include font-token($font-body-1);
       }
     }
