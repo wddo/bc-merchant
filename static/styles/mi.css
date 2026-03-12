@@ -201,9 +201,12 @@ a[class*=ico-] {
   margin-top: var(--space-2);
 }
 
+.merchant-modify .title + .contents {
+  padding-top: var(--space-24);
+}
 @media (max-width: 767px) {
   .merchant-modify .title + .contents {
-    padding-top: var(--space-24);
+    padding-top: var(--space-40);
   }
 }
 .merchant-modify section {
@@ -234,10 +237,21 @@ a[class*=ico-] {
   max-width: 400px;
   word-break: keep-all;
 }
+@media (max-width: 767px) {
+  .merchant-modify section .info-area {
+    gap: var(--space-20);
+    max-width: none;
+  }
+}
 .merchant-modify section .info-area .info-head {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+}
+@media (max-width: 767px) {
+  .merchant-modify section .info-area .info-head {
+    gap: var(--space-8);
+  }
 }
 .merchant-modify section .info-area .info-desc p {
   font-size: 16px;
@@ -258,6 +272,61 @@ a[class*=ico-] {
   padding: var(--space-20);
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
+}
+@media (max-width: 767px) {
+  .merchant-modify section .info-area .contact-box .def-cols-auto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div {
+    display: flex;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0 0 var(--space-12) 0;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dt,
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dd {
+    padding: 0;
+    margin: 0;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dt {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+    color: var(--gray-700);
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dt {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+@media (max-width: 767px) {
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dd {
+    text-align: left;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div:nth-child(even) dl {
+    padding-left: var(--space-12);
+    border-left: 1px solid var(--gray-60);
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div:last-child {
+    flex: 1;
+  }
+  .merchant-modify section .info-area .contact-box .def-cols-auto > div:last-child dl {
+    width: 100%;
+    padding: var(--space-12) 0 0 0;
+    margin: 0;
+    border-top: 1px solid var(--gray-60);
+  }
 }
 .merchant-modify section .info-area .contact-box dd {
   font-size: 16px;
@@ -289,6 +358,11 @@ a[class*=ico-] {
 }
 .merchant-modify section .info-area ._btn-wrap {
   justify-content: flex-start;
+}
+@media (max-width: 767px) {
+  .merchant-modify section .info-area ._btn-wrap {
+    justify-content: center;
+  }
 }
 .merchant-modify .accordion-cont .req-group .req-title {
   font-size: 18px;

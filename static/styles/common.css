@@ -525,17 +525,17 @@ a[class*=ico-]::before {
   color: var(--point-600);
 }
 
-[class*=def-] > dl {
+[class*=def-] > *:not(:first-child) {
+  margin-top: var(--space-12);
+}
+[class*=def-] dl {
   display: flex;
   gap: var(--space-12);
 }
-[class*=def-] > dl:not(:first-child) {
-  margin-top: var(--space-12);
-}
-[class*=def-] > dl > dt {
+[class*=def-] dl > dt {
   align-self: flex-start;
 }
-[class*=def-] > dl > dd {
+[class*=def-] dl > dd {
   text-align: right;
 }
 
@@ -543,25 +543,25 @@ a[class*=ico-]::before {
 .def-cols-auto {
   overflow: hidden;
 }
-[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto > dl,
-.def-cols-auto > dl {
+[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto dl,
+.def-cols-auto dl {
   flex-wrap: nowrap;
 }
-[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto > dl > dt,
-.def-cols-auto > dl > dt {
+[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto dl > dt,
+.def-cols-auto dl > dt {
   flex-shrink: 0;
 }
-[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto > dl > *,
-.def-cols-auto > dl > * {
+[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-auto dl > *,
+.def-cols-auto dl > * {
   flex: auto;
 }
 
-[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-2 > dl,
-.def-cols-2 > dl {
+[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-2 dl,
+.def-cols-2 dl {
   flex-wrap: nowrap;
 }
-[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-2 > dl > *,
-.def-cols-2 > dl > * {
+[class^=_modal][class*=-popup][class*=_type-tooltip] .def-cols-2 dl > *,
+.def-cols-2 dl > * {
   flex: 50%;
 }
 

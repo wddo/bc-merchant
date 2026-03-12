@@ -109,13 +109,15 @@ a[class*="ico-"] {
 
 // definition list
 [class*="def-"] {
-  > dl {
-    display: flex;
-    gap: var(--space-12);
-
+  > * {
     &:not(:first-child) {
       margin-top: var(--space-12);
     }
+  }
+
+  dl {
+    display: flex;
+    gap: var(--space-12);
 
     > dt {
       align-self: flex-start;
@@ -130,7 +132,7 @@ a[class*="ico-"] {
 .def-cols-auto {
   overflow: hidden;
 
-  > dl {
+  dl {
     flex-wrap: nowrap;
 
     > dt {
@@ -145,7 +147,7 @@ a[class*="ico-"] {
 // dt과 dd가 크기 1:1 대응하는 경우
 [class^="_modal"][class*="-popup"][class*="_type-tooltip"] .def-cols-2,
 .def-cols-2 {
-  > dl {
+  dl {
     flex-wrap: nowrap;
 
     > * {
