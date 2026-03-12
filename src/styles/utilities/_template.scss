@@ -107,6 +107,53 @@ a[class*="ico-"] {
   }
 }
 
+// definition list
+[class*="def-"] {
+  > dl {
+    display: flex;
+    gap: var(--space-12);
+
+    &:not(:first-child) {
+      margin-top: var(--space-12);
+    }
+
+    > dt {
+      align-self: flex-start;
+    }
+
+    > dd {
+      text-align: right;
+    }
+  }
+}
+[class^="_modal"][class*="-popup"][class*="_type-tooltip"] .def-cols-auto,
+.def-cols-auto {
+  overflow: hidden;
+
+  > dl {
+    flex-wrap: nowrap;
+
+    > dt {
+      flex-shrink: 0;
+    }
+
+    > * {
+      flex: auto;
+    }
+  }
+}
+// dt과 dd가 크기 1:1 대응하는 경우
+[class^="_modal"][class*="-popup"][class*="_type-tooltip"] .def-cols-2,
+.def-cols-2 {
+  > dl {
+    flex-wrap: nowrap;
+
+    > * {
+      flex: 50%;
+    }
+  }
+}
+
 .warning-box {
   padding: var(--space-16) var(--space-20);
   border-radius: var(--radius-16);

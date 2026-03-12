@@ -220,6 +220,12 @@ a[class*="ico-"] {
 
   section {
     display: flex;
+    gap: var(--space-48);
+
+    @include respond-sm {
+      flex-direction: column;
+      gap: var(--space-20);
+    }
 
     > * {
       flex: 1;
@@ -234,7 +240,44 @@ a[class*="ico-"] {
     }
 
     .info-area {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-24);
       max-width: 400px;
+      word-break: keep-all;
+
+      .info-head {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+      }
+
+      .info-desc {
+        p {
+          @include font-token($font-body-1);
+          color: $text-tertiary;
+        }
+      }
+
+      .contact-box {
+        padding: var(--space-20);
+        background-color: $bg-gray-20;
+        border-radius: var(--radius-16);
+
+        dd {
+          @include font-token($font-body-1-semi);
+        }
+      }
+
+      .list-ref {
+        @include font-token($font-body-1);
+        color: $text-tertiary;
+        gap: 0;
+      }
+
+      ._btn-wrap {
+        justify-content: flex-start;
+      }
     }
   }
 
@@ -251,9 +294,12 @@ a[class*="ico-"] {
       }
     }
 
-    .req-link {
-      color: $text-primary;
-      text-decoration: underline;
+    .warning-box {
+      padding: 0;
+    }
+
+    strong {
+      color: $text-point;
     }
   }
 }

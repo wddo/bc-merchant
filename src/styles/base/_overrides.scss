@@ -84,6 +84,14 @@ button[class^="_btn"] {
   min-width: 62px;
 }
 
+// divider-
+[class^="_divider-hor"] {
+  width: 100%;
+}
+[class^="_divider-ver"] {
+  height: 100%;
+}
+
 // tooltip
 .tooltip-trigger {
   @include icon("info", 16px);
@@ -137,27 +145,14 @@ button[class^="_btn"] {
     margin-top: 0;
     margin-bottom: var(--space-16);
   }
-
-  .info {
-    flex-wrap: nowrap;
-    gap: var(--space-12);
-
-    > dt,
-    > dd {
-      flex: 50%;
-    }
-
-    > dt {
-      align-self: flex-start;
-    }
-  }
 }
 
-// feedback 
+// feedback
 .feedback-wrap {
   &.no-data {
     &::before {
-      background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat 0 0 / auto 100%
+      background: url(#{$img_url}/common/feedback_nodata.svg) no-repeat 0 0 /
+        auto 100%;
     }
   }
   .desc {

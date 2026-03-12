@@ -208,6 +208,13 @@ a[class*=ico-] {
 }
 .merchant-modify section {
   display: flex;
+  gap: var(--space-48);
+}
+@media (max-width: 767px) {
+  .merchant-modify section {
+    flex-direction: column;
+    gap: var(--space-20);
+  }
 }
 .merchant-modify section > * {
   flex: 1;
@@ -221,7 +228,67 @@ a[class*=ico-] {
   }
 }
 .merchant-modify section .info-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
   max-width: 400px;
+  word-break: keep-all;
+}
+.merchant-modify section .info-area .info-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.merchant-modify section .info-area .info-desc p {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .merchant-modify section .info-area .info-desc p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.merchant-modify section .info-area .info-desc p {
+  color: var(--gray-600);
+}
+.merchant-modify section .info-area .contact-box {
+  padding: var(--space-20);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+}
+.merchant-modify section .info-area .contact-box dd {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .merchant-modify section .info-area .contact-box dd {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
+}
+.merchant-modify section .info-area .list-ref {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .merchant-modify section .info-area .list-ref {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.merchant-modify section .info-area .list-ref {
+  color: var(--gray-600);
+  gap: 0;
+}
+.merchant-modify section .info-area ._btn-wrap {
+  justify-content: flex-start;
 }
 .merchant-modify .accordion-cont .req-group .req-title {
   font-size: 18px;
@@ -244,9 +311,11 @@ a[class*=ico-] {
     letter-spacing: -0.64px;
   }
 }
-.merchant-modify .accordion-cont .req-link {
-  color: var(--gray-900);
-  text-decoration: underline;
+.merchant-modify .accordion-cont .warning-box {
+  padding: 0;
+}
+.merchant-modify .accordion-cont strong {
+  color: var(--primary-p800);
 }
 
 .merchant-required .required-box {
