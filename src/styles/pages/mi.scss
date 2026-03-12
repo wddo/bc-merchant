@@ -213,8 +213,10 @@ a[class*="ico-"] {
 // =========================
 .merchant-modify {
   .title + .contents {
+    padding-top: var(--space-24);
+
     @include respond-sm {
-      padding-top: var(--space-24);
+      padding-top: var(--space-40);
     }
   }
 
