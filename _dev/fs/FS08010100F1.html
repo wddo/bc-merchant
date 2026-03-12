@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/fs.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/fs.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page no-bottom">
+          <div class="title">
+            <h1 class="_font-headline-1">대출이자 계산기</h1>
+          </div>
+
+          <div class="full-bg">
+            <div class="contents">
+              <div class="evenly50">
+                <div class="writing-area">
+                  <div class="item-wrap">
+                    <div class="item">
+                      <label for="writing1" class="_font-title-4">대출금액</label>
+                      <div class="input-box">
+                          <input type="text" id="writing1" value="3,000">
+                          <div class="util-box">
+                              <strong class="suffix">만원</strong>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="writing2" class="_font-title-4">연 금리</label>
+                      <div class="input-box">
+                          <input type="text" id="writing2" value="3.2%">
+                          <div class="util-box">
+                              <strong class="suffix">%</strong>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="writing1" class="_font-title-4">대출기간</label>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="period1" class="_ipt-radio-box">
+                              <input type="radio" name="radio-period" id="period1" checked>
+                              <i>12개월</i>
+                          </label>
+                          <label for="period1" class="_ipt-radio-box">
+                              <input type="radio" name="radio-period" id="period2">
+                              <i>24개월</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <label for="writing1" class="_font-title-4">상환일</label>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="repayment-date1" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date1">
+                              <i>1일</i>
+                          </label>
+                          <label for="repayment-date2" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date2">
+                              <i>2일</i>
+                          </label>
+                          <label for="repayment-date3" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date3">
+                              <i>10일</i>
+                          </label>
+                          <label for="repayment-date4" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date4">
+                              <i>12일</i>
+                          </label>
+                          <label for="repayment-date5" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date5" checked>
+                              <i>20일</i>
+                          </label>
+                          <label for="repayment-date6" class="_ipt-radio-box">
+                              <input type="radio" name="radio-repaymentdate" id="repayment-date6">
+                              <i>25일</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <strong class="_font-title-4">상환 방법</strong>
+                      <div class="ipt-inner">
+                        <div class="ipt-wrap">
+                          <label for="repayment-method" class="_ipt-radio-box">
+                              <input type="radio" name="radio-method" id="repayment-method" checked>
+                              <i>원리금 균등 분할상환</i>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="_btn-wrap">
+                    <button type="button" class="_btn-large-tertiary">초기화</button>
+                    <button type="button" class="_btn-large-primary">계산하기</button> <!-- [D] 모든 값 입력 후 disabled 제거 --> 
+                  </div>
+                </div>
+                <div class="result-area">
+                  <div class="w-box">
+                    <dl class="total-area">
+                      <dt>총 대출이자</dt>
+                      <dd><strong class="_font-title-2">30,000원</strong></dd>
+                    </dl>
+                    <div class="item-wrap">
+                      <div class="item">
+                        <span class="text">YYYY.MM.DD 납입예정</span>
+                        <div class="gray20-box">
+                          <div class="data-infor">
+                            <span class="title">1회차</span>
+                            <span class="data">105,351원</span>
+                          </div>
+                          <div class="data-wrap">
+                            <div class="data-infor">
+                              <span class="title">원금</span>
+                              <span class="data">9,999,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">이자</span>
+                              <span class="data">9,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">대출잔액</span>
+                              <span class="data">999,999원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <span class="text">YYYY.MM.DD 납입예정</span>
+                        <div class="gray20-box">
+                          <div class="data-infor">
+                            <span class="title">2회차</span>
+                            <span class="data">105,351원</span>
+                          </div>
+                          <div class="data-wrap">
+                            <div class="data-infor">
+                              <span class="title">원금</span>
+                              <span class="data">9,999,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">이자</span>
+                              <span class="data">9,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">대출잔액</span>
+                              <span class="data">999,999원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <span class="text">YYYY.MM.DD 납입예정</span>
+                        <div class="gray20-box">
+                          <div class="data-infor">
+                            <span class="title">3회차</span>
+                            <span class="data">105,351원</span>
+                          </div>
+                          <div class="data-wrap">
+                            <div class="data-infor">
+                              <span class="title">원금</span>
+                              <span class="data">9,999,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">이자</span>
+                              <span class="data">9,999원</span>
+                            </div>
+                            <div class="data-infor">
+                              <span class="title">대출잔액</span>
+                              <span class="data">999,999원</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="info-text">회차별 납입 정보는 예시적인 것이며, 대출 시점에 따라 달라질 수 있습니다.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- //writing-area -->
+            </div>
+          </div>
+          <!-- //full-bg -->
+        </div>
+        <!-- //page -->
+      </main>
+      <!-- //container -->
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

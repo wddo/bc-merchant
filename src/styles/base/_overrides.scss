@@ -176,6 +176,7 @@ button[class^="_btn"] {
     .suffix {
       @include font-token($font-body-0);
       color: $text-primary;
+      white-space: pre;
     }
   }
   input {

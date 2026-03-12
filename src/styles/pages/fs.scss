@@ -681,6 +681,115 @@
   }
 }
 
+.writing-area {
+  .item-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);    
+      .ipt-wrap {
+        flex-wrap: wrap;
+        > * {
+          flex: 1;
+        }
+        ._ipt-radio-box {
+          min-width: calc(33.33% - 8px);
+        }
+      }
+    } 
+  }
+  > ._btn-wrap {
+    margin-top: var(--space-56);
+    > * {
+      flex: 1;
+    }
+  } 
+}
+
+.evenly50 {
+  display: flex;
+  gap: var(--space-56);
+  > * {
+    flex: 1;
+  }
+}
+
+.w-box {
+  background-color: $bg-white;
+  border-radius: var(--radius-24);
+  padding: var(--space-24);  
+}
+
+.gray20-box {
+  background-color: $bg-gray-20;
+  border-radius: var(--radius-12);
+  padding: var(--space-20);
+}
+
+.result-area {
+  .w-box  {
+    display :flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+  .total-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    dt {
+      @include font-token($font-body-1);
+      color: $text-quaternary;
+    }
+  }
+  .item-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      .text {
+        @include font-token($font-body-3);
+        color: $text-tertiary;
+      }
+    }
+  }
+  .data-infor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      @include font-token($font-body-2-semi);
+      color: $text-secondary;
+    }
+    .data {
+      @include font-token($font-body-0-semi);
+      color: $text-primary;
+    }
+  }
+  .data-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    border-top: 1px solid $line-gray-60;
+    padding-top: var(--space-12);
+    margin-top: var(--space-12);
+    > .data-infor {
+      .title {
+        font-weight: 400;
+      }
+      .data {
+        @include font-token($font-body-2-medi);
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
 // Tablet
 @include respond-md {
   .fs-intro-guide {
@@ -977,6 +1086,23 @@
     + ._btn-wrap {
       margin-top: var(--space-40);
     }
+  }
+  
+  .writing-area {
+    .item-wrap {
+      gap: var(--space-24);
+      .item {
+        gap: var(--space-12);    
+      } 
+    }
+    > ._btn-wrap {
+      margin-top: var(--space-40);
+    } 
+  }
+
+  .evenly50 {
+    flex-direction: column;
+    gap: var(--space-40);
   }
 }
 
