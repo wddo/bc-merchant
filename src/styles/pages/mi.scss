@@ -1,13 +1,14 @@
 @use "../abstracts" as *;
 
+.merchant-required,
 .merchant-guide {
   .step-section {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: var(--space-16);
 
     + .step-section {
-      margin-top: 80px;
+      margin-top: var(--space-56);
     }
   }
 
@@ -24,7 +25,6 @@
   }
 
   .step-title {
-    height: 38px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,6 +69,19 @@
           width: 50%;
         }
       }
+    }
+  }
+}
+
+// =========================
+// 가맹점 가입 / 해지 안내
+// =========================
+.merchant-guide {
+  .title + .contents {
+    padding-top: var(--space-24);
+
+    @include respond-sm {
+      padding-top: var(--space-40);
     }
   }
 
@@ -145,8 +158,30 @@
   }
 }
 
+// =========================
+// 가맹점 준수사항 안내
+// =========================
+.merchant-required {
+  .required-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding: var(--space-32) var(--space-40);
+    margin-bottom: var(--space-56);
+    background-color: $bg-gray-20;
+    border-radius: var(--radius-16);
+
+    .required-desc {
+      @include font-token($font-body-0);
+      margin: 0;
+      color: $text-quaternary;
+    }
+  }
+}
+
 // Tablet
 @include respond-md {
+  .merchant-required,
   .merchant-guide {
     ._table > table {
       colgroup {
@@ -162,10 +197,13 @@
 
 // Mobile
 @include respond-sm {
+  .merchant-required,
   .merchant-guide {
     .step-section {
+      position: relative;
+
       + .step-section {
-        margin-top: 40px;
+        margin-top: var(--space-40);
       }
     }
 
@@ -173,12 +211,16 @@
       position: absolute;
       width: 30px;
       height: 30px;
+      top: 0;
     }
 
     .step-title {
-      height: 30px;
       margin-left: 30px;
       padding-left: var(--space-12);
+    }
+
+    .accordion {
+      margin-top: var(--space-16);
     }
 
     ._table > table {
@@ -192,7 +234,9 @@
         }
       }
     }
+  }
 
+  .merchant-guide {
     .pg-item {
       flex-direction: row;
       align-items: center;
@@ -208,9 +252,15 @@
       @include font-token($font-body-1-semi);
       margin-top: 0;
     }
+  }
 
-    .accordion {
-      margin-top: var(--space-16);
+  .merchant-required {
+    .required-box {
+      padding: var(--space-20);
+
+      .required-desc {
+        @include font-token($font-body-1);
+      }
     }
   }
 }

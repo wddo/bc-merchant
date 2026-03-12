@@ -25,6 +25,11 @@
   // total 위에 검색 박스 있는 경우
   & + .contents > .list-total {
     margin-top: var(--space-56);
+
+    @include respond-sm {
+      // total 위에 검색 박스 있는 경우
+      margin-top: var(--space-40);
+    }
   }
 }
 
@@ -264,6 +269,58 @@
 }
 
 // =========================
+// 서식자료실
+// =========================
+.form-room {
+  // sticky 하단 padding-bottom 제외 12px한 값
+  margin-top: calc(var(--space-56) - var(--space-12));
+
+  .form-group {
+    h2 {
+      margin-bottom: var(--space-24);
+    }
+
+    & + .form-group {
+      margin-top: var(--space-56);
+    }
+  }
+
+  .form-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-16);
+
+    > li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-16);
+      min-height: 156px;
+      padding: var(--space-24) var(--space-20) var(--space-20);
+      background-color: $bg-gray-20;
+      border-radius: var(--radius-16);
+
+      .form-name {
+        @include font-token($font-body-1);
+        color: $text-tertiary;
+      }
+
+      ._btn-wrap {
+        button {
+          @include font-token($font-body-2-semi);
+          color: $text-primary;
+          min-width: 100%;
+
+          &::before {
+            background-color: $line-gray-300;
+          }
+        }
+      }
+    }
+  }
+}
+
+// =========================
 // 내용 없음
 // =========================
 .no-data {
@@ -291,16 +348,20 @@
 }
 
 // =========================
-// 모바일 전용
+// 페이지 테블릿 전용
 // =========================
-@include respond-sm {
-  .search-box.underline {
-    // total 위에 검색 박스 있는 경우
-    & + .contents > .list-total {
-      margin-top: var(--space-40);
+@include respond-md {
+  .form-room {
+    .form-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+}
 
+// =========================
+// 페이지 모바일 전용
+// =========================
+@include respond-sm {
   .faq {
     .list-no {
       display: none;
@@ -379,6 +440,31 @@
       dd {
         padding: var(--space-16) 0;
       }
+    }
+  }
+
+  .form-room {
+    // sticky 하단 padding-bottom 제외 12px한 값
+    margin-top: calc(var(--space-40) - var(--space-12));
+
+    .form-group {
+      h2 {
+        margin-bottom: var(--space-12);
+      }
+
+      & + .form-group {
+        margin-top: var(--space-40);
+      }
+    }
+
+    .form-list {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+
+      > li {
+        min-height: 120px;
+      }
+
+      gap: var(--space-12);
     }
   }
 }

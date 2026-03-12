@@ -19,6 +19,11 @@
 .search-box.underline + .contents > .list-total {
   margin-top: var(--space-56);
 }
+@media (max-width: 767px) {
+  .search-box.underline + .contents > .list-total {
+    margin-top: var(--space-40);
+  }
+}
 
 .tab-wrapper {
   padding: var(--space-12) 0;
@@ -283,6 +288,61 @@
   white-space: nowrap;
 }
 
+.form-room {
+  margin-top: calc(var(--space-56) - var(--space-12));
+}
+.form-room .form-group h2 {
+  margin-bottom: var(--space-24);
+}
+.form-room .form-group + .form-group {
+  margin-top: var(--space-56);
+}
+.form-room .form-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+.form-room .form-list > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-16);
+  min-height: 156px;
+  padding: var(--space-24) var(--space-20) var(--space-20);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+}
+.form-room .form-list > li .form-name {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+  color: var(--gray-600);
+}
+@media screen and (max-width: 767px) {
+  .form-room .form-list > li .form-name {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+.form-room .form-list > li ._btn-wrap button {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.56px;
+  color: var(--gray-900);
+  min-width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .form-room .form-list > li ._btn-wrap button {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.56px;
+  }
+}
+.form-room .form-list > li ._btn-wrap button::before {
+  background-color: var(--gray-300);
+}
+
 .no-data {
   display: flex;
   flex-direction: column;
@@ -304,10 +364,12 @@
   margin-top: var(--space-12);
 }
 
-@media (max-width: 767px) {
-  .search-box.underline + .contents > .list-total {
-    margin-top: var(--space-40);
+@media (max-width: 1023px) {
+  .form-room .form-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+@media (max-width: 767px) {
   .faq .list-no {
     display: none;
   }
@@ -402,5 +464,23 @@
   }
   .notice-view .view-link dd {
     padding: var(--space-16) 0;
+  }
+}
+@media (max-width: 767px) {
+  .form-room {
+    margin-top: calc(var(--space-40) - var(--space-12));
+  }
+  .form-room .form-group h2 {
+    margin-bottom: var(--space-12);
+  }
+  .form-room .form-group + .form-group {
+    margin-top: var(--space-40);
+  }
+  .form-room .form-list {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--space-12);
+  }
+  .form-room .form-list > li {
+    min-height: 120px;
   }
 }

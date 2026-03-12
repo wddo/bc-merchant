@@ -1,11 +1,14 @@
+.merchant-required .step-section,
 .merchant-guide .step-section {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: var(--space-16);
 }
+.merchant-required .step-section + .step-section,
 .merchant-guide .step-section + .step-section {
-  margin-top: 80px;
+  margin-top: var(--space-56);
 }
+.merchant-required .step-num,
 .merchant-guide .step-num {
   display: inline-flex;
   align-items: center;
@@ -17,28 +20,34 @@
   color: var(--white);
   background-color: var(--gray-900);
 }
+.merchant-required .step-title,
 .merchant-guide .step-title {
-  height: 38px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.merchant-required .step-body,
 .merchant-guide .step-body {
   width: 100%;
 }
+.merchant-required .accordion,
 .merchant-guide .accordion {
   margin-top: var(--space-24);
 }
+.merchant-required .accordion .accordion-cont > .list-ref,
 .merchant-guide .accordion .accordion-cont > .list-ref {
   gap: var(--space-4);
 }
+.merchant-required ._table ._btn-wrap button.ico-download::after,
 .merchant-guide ._table ._btn-wrap button.ico-download::after {
   background-color: var(--primary-p300);
 }
+.merchant-required ._table a.ico-download,
 .merchant-guide ._table a.ico-download {
   color: var(--gray-900);
   text-decoration: underline;
 }
+.merchant-required ._table a.ico-download::after,
 .merchant-guide ._table a.ico-download::after {
   margin-left: var(--space-2);
   vertical-align: middle;
@@ -129,28 +138,59 @@
   margin-top: var(--space-2);
 }
 
+.merchant-required .required-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-32) var(--space-40);
+  margin-bottom: var(--space-56);
+  background-color: var(--gray-20);
+  border-radius: var(--radius-16);
+}
+.merchant-required .required-box .required-desc {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  margin: 0;
+  color: var(--gray-500);
+}
+
 @media (max-width: 1023px) {
+  .merchant-required ._table > table colgroup col:nth-child(1),
   .merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 100px;
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .step-section + .step-section {
-    margin-top: 40px;
+  .merchant-required .step-section,
+  .merchant-guide .step-section {
+    position: relative;
   }
+  .merchant-required .step-section + .step-section,
+  .merchant-guide .step-section + .step-section {
+    margin-top: var(--space-40);
+  }
+  .merchant-required .step-num,
   .merchant-guide .step-num {
     position: absolute;
     width: 30px;
     height: 30px;
+    top: 0;
   }
+  .merchant-required .step-title,
   .merchant-guide .step-title {
-    height: 30px;
     margin-left: 30px;
     padding-left: var(--space-12);
   }
+  .merchant-required .accordion,
+  .merchant-guide .accordion {
+    margin-top: var(--space-16);
+  }
+  .merchant-required ._table > table,
   .merchant-guide ._table > table {
     min-width: 500px;
   }
+  .merchant-required ._table > table colgroup col:nth-child(1),
   .merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 68px;
   }
@@ -178,7 +218,19 @@
   }
 }
 @media (max-width: 767px) {
-  .merchant-guide .accordion {
-    margin-top: var(--space-16);
+  .merchant-required .required-box {
+    padding: var(--space-20);
+  }
+  .merchant-required .required-box .required-desc {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .merchant-required .required-box .required-desc {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
   }
 }

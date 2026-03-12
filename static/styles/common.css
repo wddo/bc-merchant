@@ -191,7 +191,27 @@ button[class^=_btn] {
   -webkit-mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
 }
 
+.ico-download--before::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/download.svg") no-repeat center center/contain;
+}
+
 .ico-chevron-right::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/chevron-right.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/chevron-right.svg") no-repeat center center/contain;
+}
+
+.ico-chevron-right--before::before {
   content: "";
   display: inline-block;
   width: 1em;
@@ -211,7 +231,27 @@ button[class^=_btn] {
   -webkit-mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
 }
 
+.ico-external-link--before::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/external-link.svg") no-repeat center center/contain;
+}
+
 .ico-edit::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  mask: url("/static/images/icons/edit.svg") no-repeat center center/contain;
+  -webkit-mask: url("/static/images/icons/edit.svg") no-repeat center center/contain;
+}
+
+.ico-edit--before::before {
   content: "";
   display: inline-block;
   width: 1em;
@@ -958,11 +998,13 @@ body {
     padding-left: 20px;
     padding-right: 20px;
   }
-  #container .page > div:not(.full):not(.loading):first-child.title + * {
-    margin-top: 40px;
-  }
-  #container .page > div:not(.full):not(.loading):first-child.title + *.search-box, #container .page > div:not(.full):not(.loading):first-child.title + *.tab-wrapper {
-    margin-top: 0;
+  #container .page > div:not(.full):not(.loading).title:first-child + * {
+    margin-top: 0px;
+    /* &.search-box,
+      &.noti-box,
+      &.tab-wrapper {
+        margin-top: 0;
+      } */
   }
   #container .page > div:not(.full):not(.loading).title {
     overflow: hidden;
@@ -972,6 +1014,7 @@ body {
     margin: -1px !important;
     padding: 0;
     clip: rect(0 0 0 0);
+    padding-bottom: 0px;
   }
   #container .page > div.full > * {
     padding-left: 20px;
