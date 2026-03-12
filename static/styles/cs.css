@@ -289,13 +289,13 @@
 }
 
 .form-room {
-  margin-top: calc(var(--space-56) - var(--space-12));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-56);
+  margin-top: var(--space-56);
 }
 .form-room .form-group h2 {
   margin-bottom: var(--space-24);
-}
-.form-room .form-group + .form-group {
-  margin-top: var(--space-56);
 }
 .form-room .form-list {
   display: grid;
@@ -470,13 +470,11 @@
     padding: var(--space-16) 0;
   }
   .form-room {
-    margin-top: calc(var(--space-40) - var(--space-12));
+    gap: var(--space-40);
+    margin-top: var(--space-24);
   }
   .form-room .form-group h2 {
     margin-bottom: var(--space-12);
-  }
-  .form-room .form-group + .form-group {
-    margin-top: var(--space-40);
   }
   .form-room .form-list {
     grid-template-columns: repeat(1, minmax(0, 1fr));

@@ -18,26 +18,25 @@
       <div id="header"></div>
 
       <main id="container">
-        <div class="page faq">
+        <div class="page">
           <div class="title">
             <h1 class="_font-headline-1">서식자료실</h1>
           </div>
           <div class="tab-wrapper full">
             <div class="tab-box">
               <ul class="_tabs-sub">
-                <li class="is-on"><a href="#link">전체</a></li>
-                <li><a href="#link">가입 및 기타 서식</a></li>
-                <li><a href="#link">특약서 서식</a></li>
-                <li><a href="#link">거래약관 및 신청서</a></li>
-                <li><a href="#link">가맹점약관</a></li>
-                <li><a href="#link">온라인회원 약관</a></li>
-                <li><a href="#link">가맹점 모집인</a></li>
+                <li class="is-on"><a href="#anchor1">가입 및 기타 서식</a></li>
+                <li><a href="#anchor2">특약서 서식</a></li>
+                <li><a href="#anchor3">거래약관 및 신청서</a></li>
+                <li><a href="#anchor4">가맹점약관</a></li>
+                <li><a href="#anchor5">온라인회원 약관</a></li>
+                <li><a href="#anchor6">가맹점 모집인</a></li>
               </ul>
             </div>
           </div>
           <div class="contents">
             <div class="form-room">
-              <section class="form-group">
+              <section id="anchor1" class="form-group">
                 <h2 class="_font-title-4">가입 및 기타 서식</h2>
                 <ul class="form-list">
                   <li>
@@ -75,7 +74,7 @@
                 </ul>
               </section>
 
-              <section class="form-group">
+              <section id="anchor2" class="form-group">
                 <h2 class="_font-title-4">특약서 서식</h2>
                 <ul class="form-list">
                   <li>
@@ -109,7 +108,7 @@
                 </ul>
               </section>
 
-              <section class="form-group">
+              <section id="anchor3" class="form-group">
                 <h2 class="_font-title-4">거래약관 및 신청서</h2>
                 <ul class="form-list">
                   <li>
@@ -147,7 +146,7 @@
                 </ul>
               </section>
 
-              <section class="form-group">
+              <section id="anchor4" class="form-group">
                 <h2 class="_font-title-4">가맹점약관</h2>
                 <ul class="form-list">
                   <li>
@@ -165,7 +164,7 @@
                 </ul>
               </section>
 
-              <section class="form-group">
+              <section id="anchor5" class="form-group">
                 <h2 class="_font-title-4">온라인회원 약관</h2>
                 <ul class="form-list">
                   <li>
@@ -179,7 +178,7 @@
                 </ul>
               </section>
 
-              <section class="form-group">
+              <section id="anchor6" class="form-group">
                 <h2 class="_font-title-4">가맹점 모집인</h2>
                 <ul class="form-list">
                   <li>
@@ -212,5 +211,120 @@
     </div>
 
     <script src="/guide/dev/js/include.js"></script>
+
+    <script>
+      $(function () {
+
+        const $tabs = $("._tabs-sub li");
+        const $links = $("._tabs-sub a");
+        const $sections = $("section[id]");
+        const $tabContainer = $(".tab-box");
+
+        let isScrolling = false; // 클릭 스크롤 lock
+
+        /* 화면 크기별 offset 계산 */
+        function getOffset() {
+          return window.innerWidth < 768 ? 136 : 80; // 모바일 / PC
+        }
+
+        /* throttle (스크롤 성능 개선) */
+        function throttle(fn, wait) {
+          let time = Date.now();
+          return function () {
+            if (time + wait - Date.now() < 0) {
+              fn();
+              time = Date.now();
+            }
+          };
+        }
+
+        /* 탭 활성화 + 중앙 이동 + focus */
+        function activateTab(id) {
+
+          const $tab = $("._tabs-sub a[href='#" + id + "']").parent();
+
+          if ($tab.hasClass("is-on")) return; // 중복 animate 방지
+
+          $tabs.removeClass("is-on");
+          $tab.addClass("is-on");
+
+          // 활성 탭 중앙 이동
+          const containerWidth = $tabContainer.width();
+          const tabLeft = $tab.position().left;
+          const tabWidth = $tab.outerWidth();
+
+          const scrollLeft =
+            tabLeft +
+            $tabContainer.scrollLeft() -
+            containerWidth / 2 +
+            tabWidth / 2;
+
+          $tabContainer.stop().animate({ scrollLeft }, 200);
+
+          // 활성 탭 focus
+          $tab.find("a").focus();
+        }
+
+        /* 탭 클릭 시 scroll 이동 */
+        $links.on("click", function (e) {
+
+          e.preventDefault();
+
+          const target = $(this).attr("href");
+          const id = target.replace("#", "");
+          const offset = getOffset();
+          const top = $(target).offset().top - offset;
+
+          isScrolling = true;
+
+          window.scrollTo({ top, behavior: "smooth" });
+
+          activateTab(id);
+
+          // 클릭 후 scrollSpy lock 해제
+          setTimeout(() => { isScrolling = false; }, 400);
+        });
+
+        /* Scroll Spy */
+        function scrollSpy() {
+
+          if (isScrolling) return;
+
+          const offset = getOffset();
+          const scroll = $(window).scrollTop() + offset + 10;
+          const docHeight = $(document).height();
+          const winHeight = $(window).height();
+
+          // 마지막 section 처리
+          if (scroll + winHeight >= docHeight - 5) {
+            const lastId = $sections.last().attr("id");
+            activateTab(lastId);
+            return;
+          }
+
+          $sections.each(function () {
+            const top = $(this).offset().top;
+            const bottom = top + $(this).outerHeight();
+            const id = $(this).attr("id");
+
+            if (scroll >= top && scroll < bottom) {
+              activateTab(id);
+              return false;
+            }
+          });
+        }
+
+        window.addEventListener("scroll", throttle(scrollSpy, 100));
+
+        /* progress line */
+        $(window).on("scroll", function () {
+          const scroll = $(window).scrollTop();
+          const doc = $(document).height();
+          const win = $(window).height();
+          
+        });
+
+      });
+    </script>
   </body>
 </html>
