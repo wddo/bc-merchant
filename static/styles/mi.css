@@ -53,15 +53,23 @@
   vertical-align: middle;
   -webkit-mask-position-y: -0.1rem;
 }
-.merchant-required ._table table colgroup col,
-.merchant-guide ._table table colgroup col {
-  width: 50%;
-}
 .merchant-required ._table table colgroup col:nth-child(1),
 .merchant-guide ._table table colgroup col:nth-child(1) {
   width: 200px;
 }
+.merchant-required ._table table colgroup col,
+.merchant-guide ._table table colgroup col {
+  width: 50%;
+}
 
+.merchant-guide .title + .contents {
+  padding-top: var(--space-24);
+}
+@media (max-width: 767px) {
+  .merchant-guide .title + .contents {
+    padding-top: var(--space-40);
+  }
+}
 .merchant-guide .pg-list {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -114,15 +122,18 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  color: var(--gray-500);
 }
 @media screen and (max-width: 767px) {
   .merchant-guide .pg-url,
-.merchant-guide .pg-tel {
+  .merchant-guide .pg-tel {
     font-size: 16px;
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.merchant-guide .pg-url,
+.merchant-guide .pg-tel {
+  color: var(--gray-500);
 }
 .merchant-guide .pg-url {
   margin-top: var(--space-4);
@@ -157,41 +168,41 @@
 
 @media (max-width: 1023px) {
   .merchant-required ._table > table colgroup col:nth-child(1),
-.merchant-guide ._table > table colgroup col:nth-child(1) {
+  .merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 100px;
   }
 }
 @media (max-width: 767px) {
   .merchant-required .step-section,
-.merchant-guide .step-section {
+  .merchant-guide .step-section {
     position: relative;
   }
   .merchant-required .step-section + .step-section,
-.merchant-guide .step-section + .step-section {
+  .merchant-guide .step-section + .step-section {
     margin-top: var(--space-40);
   }
   .merchant-required .step-num,
-.merchant-guide .step-num {
+  .merchant-guide .step-num {
     position: absolute;
     width: 30px;
     height: 30px;
     top: 0;
   }
   .merchant-required .step-title,
-.merchant-guide .step-title {
+  .merchant-guide .step-title {
     margin-left: 30px;
     padding-left: var(--space-12);
   }
   .merchant-required .accordion,
-.merchant-guide .accordion {
+  .merchant-guide .accordion {
     margin-top: var(--space-16);
   }
   .merchant-required ._table > table,
-.merchant-guide ._table > table {
+  .merchant-guide ._table > table {
     min-width: 500px;
   }
   .merchant-required ._table > table colgroup col:nth-child(1),
-.merchant-guide ._table > table colgroup col:nth-child(1) {
+  .merchant-guide ._table > table colgroup col:nth-child(1) {
     width: 68px;
   }
   .merchant-guide .pg-item {

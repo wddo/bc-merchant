@@ -77,6 +77,14 @@
 // 가맹점 가입 / 해지 안내
 // =========================
 .merchant-guide {
+  .title + .contents {
+    padding-top: var(--space-24);
+
+    @include respond-sm {
+      padding-top: var(--space-40);
+    }
+  }
+
   .pg-list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
