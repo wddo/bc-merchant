@@ -53,11 +53,22 @@
   vertical-align: middle;
   -webkit-mask-position-y: -0.1rem;
 }
+.merchant-required ._table table colgroup col:nth-child(1),
 .merchant-guide ._table table colgroup col:nth-child(1) {
   width: 200px;
 }
+.merchant-required ._table table colgroup col,
 .merchant-guide ._table table colgroup col {
   width: 50%;
+}
+
+.merchant-guide .title + .contents {
+  padding-top: var(--space-24);
+}
+@media (max-width: 767px) {
+  .merchant-guide .title + .contents {
+    padding-top: var(--space-40);
+  }
 }
 .merchant-guide .pg-list {
   display: grid;

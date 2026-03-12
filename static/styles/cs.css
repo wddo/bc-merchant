@@ -316,7 +316,6 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  color: var(--gray-600);
 }
 @media screen and (max-width: 767px) {
   .form-room .form-list > li .form-name {
@@ -325,12 +324,13 @@
     letter-spacing: -0.64px;
   }
 }
+.form-room .form-list > li .form-name {
+  color: var(--gray-600);
+}
 .form-room .form-list > li ._btn-wrap button {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.56px;
-  color: var(--gray-900);
-  min-width: 100%;
 }
 @media screen and (max-width: 767px) {
   .form-room .form-list > li ._btn-wrap button {
@@ -338,6 +338,10 @@
     font-weight: 600;
     letter-spacing: -0.56px;
   }
+}
+.form-room .form-list > li ._btn-wrap button {
+  color: var(--gray-900);
+  min-width: 100%;
 }
 .form-room .form-list > li ._btn-wrap button::before {
   background-color: var(--gray-300);
@@ -465,8 +469,6 @@
   .notice-view .view-link dd {
     padding: var(--space-16) 0;
   }
-}
-@media (max-width: 767px) {
   .form-room {
     margin-top: calc(var(--space-40) - var(--space-12));
   }
@@ -478,9 +480,11 @@
   }
   .form-room .form-list {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: var(--space-12);
   }
   .form-room .form-list > li {
     min-height: 120px;
+  }
+  .form-room .form-list {
+    gap: var(--space-12);
   }
 }

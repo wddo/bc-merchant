@@ -6,9 +6,52 @@
   color: var(--point-800);
 }
 
+.merchant-loan-service {
+  position: relative;
+}
 .merchant-loan-service::after {
   background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
-  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
+}
+
+.loan-infor {
+  display: flex;
+  margin-top: var(--space-32);
+  max-width: 440px;
+  gap: var(--space-20);
+}
+.loan-infor .item {
+  flex: 1;
+  gap: var(--space-4);
+}
+.loan-infor .title {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .loan-infor .title {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.loan-infor .title {
+  color: var(--gray-700);
+}
+.loan-infor .text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .loan-infor .text {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
+}
+.loan-infor .text {
+  color: var(--point-600);
 }
 
 .fs-intro-guide {
@@ -32,6 +75,12 @@
   color: var(--gray-700);
   margin-top: var(--space-16);
 }
+.fs-intro-guide .guide-item .text-area ._btn-wrap {
+  width: 200px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: var(--space-24);
+}
 .fs-intro-guide .guide-item .inner {
   display: flex;
   justify-content: space-between;
@@ -45,33 +94,6 @@
   letter-spacing: -0.72px;
   color: var(--gray-500);
   line-height: 30px;
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor {
-  margin-top: var(--space-56);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-20);
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor .item {
-  gap: var(--space-4);
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.32px;
-}
-@media screen and (max-width: 767px) {
-  .fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.64px;
-  }
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor .title {
-  color: var(--gray-900);
-}
-.fs-intro-guide .guide-item .inner > .text-area .loan-infor ._font-title-4 {
-  color: var(--point-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap {
   display: flex;
@@ -196,7 +218,6 @@
   }
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .text-right {
-  margin-bottom: var(--space-24);
   text-align: right;
   margin-top: var(--space-12);
   color: var(--gray-500);
@@ -225,7 +246,6 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: -0.32px;
-  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .fs-intro-guide .guide-item .text-noti dl dd {
@@ -233,6 +253,9 @@
     font-weight: 400;
     letter-spacing: -0.64px;
   }
+}
+.fs-intro-guide .guide-item .text-noti dl dd {
+  color: var(--gray-700);
 }
 .fs-intro-guide + ._btn-wrap {
   margin-top: var(--space-56);
@@ -295,6 +318,10 @@
     font-weight: 500;
     letter-spacing: -0.56px;
   }
+}
+.dropdown-area .label-title {
+  color: var(--gray-700);
+  margin-bottom: var(--space-8);
 }
 
 .full-bg {
@@ -470,7 +497,6 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
-  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .summary-area .item-wrap .item .warning-box .warning-title {
@@ -478,6 +504,9 @@
     font-weight: 500;
     letter-spacing: -0.56px;
   }
+}
+.summary-area .item-wrap .item .warning-box .warning-title {
+  color: var(--gray-700);
 }
 .summary-area + ._btn-wrap {
   margin-top: var(--space-56);
@@ -583,9 +612,6 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.56px;
-  position: relative;
-  padding-left: 24px;
-  color: var(--gray-700);
 }
 @media screen and (max-width: 767px) {
   .info-text {
@@ -593,6 +619,11 @@
     font-weight: 500;
     letter-spacing: -0.56px;
   }
+}
+.info-text {
+  position: relative;
+  padding-left: 24px;
+  color: var(--gray-700);
 }
 .info-text::before {
   content: "";
@@ -668,6 +699,9 @@
     letter-spacing: -0.64px;
   }
 }
+.title-area > .side {
+  color: var(--gray-600);
+}
 .title-area.in-space {
   padding-top: var(--space-48);
   margin-bottom: var(--space-40);
@@ -709,6 +743,9 @@
     font-weight: 400;
     letter-spacing: -0.56px;
   }
+}
+.cardtype > .item .top-area .date {
+  color: var(--gray-500);
 }
 .cardtype > .item .middle-area .data-wrap {
   display: flex;
@@ -753,7 +790,6 @@
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.56px;
-  white-space: pre;
 }
 @media screen and (max-width: 767px) {
   .cardtype > .item .middle-area .data-infor .data {
@@ -761,6 +797,10 @@
     font-weight: 600;
     letter-spacing: -0.56px;
   }
+}
+.cardtype > .item .middle-area .data-infor .data {
+  color: var(--gray-900);
+  white-space: pre;
 }
 .cardtype > .item .middle-area .data-infor .data > .point-text {
   color: var(--point-600);
@@ -932,6 +972,13 @@
 }
 
 @media (max-width: 1023px) {
+  .loan-infor {
+    gap: var(--space-56);
+    max-width: none;
+  }
+  .loan-infor .item {
+    flex: none;
+  }
   .fs-intro-guide {
     gap: var(--space-40);
   }
@@ -941,15 +988,6 @@
   }
   .fs-intro-guide .guide-item .inner > .text-area ._font-title-2 > span {
     margin-bottom: var(--space-4);
-  }
-  .fs-intro-guide .guide-item .inner > .text-area .loan-infor {
-    margin-top: var(--space-16);
-    gap: var(--space-8);
-  }
-  .fs-intro-guide .guide-item .inner > .text-area .loan-infor .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
   .fs-intro-guide .guide-item .inner .item-wrap {
     flex-basis: auto;
@@ -972,12 +1010,6 @@
   .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
     padding: var(--space-24);
   }
-  .loan-infor-area .item-wrap {
-    flex-direction: column;
-  }
-  .loan-infor-area .item-wrap .item:nth-child(2) {
-    flex: 1;
-  }
   .summary-area {
     flex-direction: column;
   }
@@ -992,6 +1024,22 @@
   }
 }
 @media (max-width: 767px) {
+  .merchant-loan-service {
+    padding-bottom: 120px;
+  }
+  .loan-infor {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+  .loan-infor .item {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+  }
   .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
     margin-top: -8px;
   }
@@ -1137,8 +1185,6 @@
   .intro-box .text-area .title > span {
     display: block;
   }
-}
-@media (max-width: 767px) {
   .title-area {
     flex-direction: column;
     align-items: flex-start;
@@ -1175,8 +1221,6 @@
     padding-top: var(--space-32);
     margin-bottom: var(--space-40);
   }
-}
-@media (max-width: 767px) {
   .cardtype {
     gap: var(--space-12);
     margin-top: var(--space-16);
@@ -1200,8 +1244,6 @@
     margin-top: var(--space-4);
     padding-top: var(--space-12);
   }
-}
-@media (max-width: 767px) {
   .noti-area {
     margin-top: var(--space-12);
   }
