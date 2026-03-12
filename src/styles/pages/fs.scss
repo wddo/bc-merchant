@@ -11,8 +11,28 @@
 }
 
 .merchant-loan-service {
+  position: relative;
   &::after {
     background: url(#{$img_url}/fs/bg_visual_merchantloan.png) no-repeat 0 0 / auto 100%;
+  }
+}
+
+.loan-infor {
+  display: flex;
+  margin-top: var(--space-32);
+  max-width: 440px;
+  gap: var(--space-20);
+  .item {
+    flex: 1;
+    gap: var(--space-4);
+  }
+  .title {
+    @include font-token($font-body-2);
+    color: $text-secondary;
+  }
+  .text {
+    @include font-token($font-body-1-semi);
+    color: var(--point-600);
   }
 }
 
@@ -32,6 +52,12 @@
         color: $text-secondary;
         margin-top: var(--space-16);
       }
+      ._btn-wrap {
+        width: 200px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: var(--space-24);
+      }
     }
     .inner {
       display: flex;
@@ -47,22 +73,7 @@
             line-height: 30px;
           }
         }
-        .loan-infor {
-          margin-top: var(--space-56);
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-20);
-          .item {
-            gap: var(--space-4);
-          }
-          .title {
-            @include font-token($font-body-1-medi);
-            color: $text-primary;
-          }
-          ._font-title-4 {
-            color: var(--point-600);
-          }
-        }
+        
       }
       .item-wrap {
         display: flex;
@@ -171,7 +182,6 @@
           }
           .text-right {
             @include font-token($font-body-1);
-            margin-bottom: var(--space-24);
             text-align: right;
             margin-top: var(--space-12);
             color: $text-quaternary;
@@ -681,8 +691,126 @@
   }
 }
 
+.writing-area {
+  .item-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-40);
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);    
+      .ipt-wrap {
+        flex-wrap: wrap;
+        > * {
+          flex: 1;
+        }
+        ._ipt-radio-box {
+          min-width: calc(33.33% - 8px);
+        }
+      }
+    } 
+  }
+  > ._btn-wrap {
+    margin-top: var(--space-56);
+    > * {
+      flex: 1;
+    }
+  } 
+}
+
+.evenly50 {
+  display: flex;
+  gap: var(--space-56);
+  > * {
+    flex: 1;
+  }
+}
+
+.w-box {
+  background-color: $bg-white;
+  border-radius: var(--radius-24);
+  padding: var(--space-24);  
+}
+
+.gray20-box {
+  background-color: $bg-gray-20;
+  border-radius: var(--radius-12);
+  padding: var(--space-20);
+}
+
+.result-area {
+  .w-box  {
+    display :flex;
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+  .total-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    dt {
+      @include font-token($font-body-1);
+      color: $text-quaternary;
+    }
+  }
+  .item-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      .text {
+        @include font-token($font-body-3);
+        color: $text-tertiary;
+      }
+    }
+  }
+  .data-infor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      @include font-token($font-body-2-semi);
+      color: $text-secondary;
+    }
+    .data {
+      @include font-token($font-body-0-semi);
+      color: $text-primary;
+    }
+  }
+  .data-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    border-top: 1px solid $line-gray-60;
+    padding-top: var(--space-12);
+    margin-top: var(--space-12);
+    > .data-infor {
+      .title {
+        font-weight: 400;
+      }
+      .data {
+        @include font-token($font-body-2-medi);
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
 // Tablet
 @include respond-md {
+  .loan-infor {
+    gap: var(--space-56);
+    max-width: none;
+    .item {
+      flex: none;
+      
+    }
+  }
+
   .fs-intro-guide {
     gap: var(--space-40);
     .guide-item {
@@ -693,16 +821,6 @@
           ._font-title-2 {
             > span {
               margin-bottom: var(--space-4);
-            }
-          }
-
-          .loan-infor {
-            margin-top: var(--space-16);
-            gap: var(--space-8);
-            .item {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
             }
           }
         }
@@ -732,17 +850,6 @@
     }
   }
 
-  .loan-infor-area {
-    .item-wrap {
-      flex-direction: column;
-      .item {
-        &:nth-child(2) {
-          flex: 1;
-        }
-      }
-    }
-  }
-
   .summary-area {
     flex-direction: column;
     .item-wrap {
@@ -763,6 +870,24 @@
 
 // Mobile
 @include respond-sm {
+  .merchant-loan-service {
+    padding-bottom: 120px;
+
+  }
+  .loan-infor {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    flex-direction: column;
+    gap: var(--space-12);
+    .item {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   .fs-intro-guide {
     .guide-item {
       .inner {
@@ -977,6 +1102,23 @@
     + ._btn-wrap {
       margin-top: var(--space-40);
     }
+  }
+
+  .writing-area {
+    .item-wrap {
+      gap: var(--space-24);
+      .item {
+        gap: var(--space-12);    
+      } 
+    }
+    > ._btn-wrap {
+      margin-top: var(--space-40);
+    } 
+  }
+
+  .evenly50 {
+    flex-direction: column;
+    gap: var(--space-40);
   }
 }
 
