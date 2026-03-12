@@ -246,10 +246,19 @@ a[class*="ico-"] {
       max-width: 400px;
       word-break: keep-all;
 
+      @include respond-sm {
+        gap: var(--space-20);
+        max-width: none;
+      }
+
       .info-head {
         display: flex;
         flex-direction: column;
         gap: var(--space-12);
+
+        @include respond-sm {
+          gap: var(--space-8);
+        }
       }
 
       .info-desc {
@@ -264,6 +273,59 @@ a[class*="ico-"] {
         background-color: $bg-gray-20;
         border-radius: var(--radius-16);
 
+        @include respond-sm {
+          .def-cols-auto {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+
+            > div {
+              display: flex;
+              width: 50%;
+              margin: 0;
+              padding: 0;
+
+              dl {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                margin: 0 0 var(--space-12) 0;
+
+                dt,
+                dd {
+                  padding: 0;
+                  margin: 0;
+                }
+
+                dt {
+                  @include font-token($font-body-2);
+                  color: $text-secondary;
+                }
+
+                dd {
+                  text-align: left;
+                }
+              }
+
+              &:nth-child(even) dl {
+                padding-left: var(--space-12);
+                border-left: 1px solid $line-gray-60;
+              }
+
+              &:last-child {
+                flex: 1;
+
+                dl {
+                  width: 100%;
+                  padding: var(--space-12) 0 0 0;
+                  margin: 0;
+                  border-top: 1px solid $line-gray-60;
+                }
+              }
+            }
+          }
+        }
+
         dd {
           @include font-token($font-body-1-semi);
         }
@@ -277,6 +339,10 @@ a[class*="ico-"] {
 
       ._btn-wrap {
         justify-content: flex-start;
+
+        @include respond-sm {
+          justify-content: center;
+        }
       }
     }
   }

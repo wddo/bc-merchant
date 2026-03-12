@@ -10,8 +10,7 @@
   position: relative;
 }
 .merchant-loan-service::after {
-  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0 /
-    auto 100%;
+  background: url(/static/images/fs/bg_visual_merchantloan.png) no-repeat 0 0/auto 100%;
 }
 
 .loan-infor {
@@ -153,25 +152,13 @@
 .fs-intro-guide .guide-item .inner .item-wrap .item:nth-child(3)::after {
   background-image: url(/static/images/fs/img_merchantloan03.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(1)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(1)::after {
   background-image: url(/static/images/fs/img_interestrate01.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(2)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(2)::after {
   background-image: url(/static/images/fs/img_interestrate02.png);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap.interest-rate-cut
-  .item:nth-child(3)::after {
+.fs-intro-guide .guide-item .inner .item-wrap.interest-rate-cut .item:nth-child(3)::after {
   background-image: url(/static/images/fs/img_interestrate03.png);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item {
@@ -188,13 +175,7 @@
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast {
   gap: var(--space-6);
 }
-.fs-intro-guide
-  .guide-item
-  .inner
-  .item-wrap
-  .bg-item
-  .list-ast
-  > li.point-text {
+.fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast > li.point-text {
   color: var(--point-600);
 }
 .fs-intro-guide .guide-item .inner .item-wrap .bg-item .list-ast + .list-noti {
@@ -504,12 +485,7 @@
   align-items: center;
   gap: var(--space-8);
 }
-.summary-area
-  .item-wrap
-  .item
-  .data-infor-large
-  .account-infor
-  [class^="_badge"] {
+.summary-area .item-wrap .item .data-infor-large .account-infor [class^=_badge] {
   white-space: pre;
 }
 .summary-area .item-wrap .item .warning-box {
@@ -661,8 +637,7 @@
 }
 
 .interest-rate-cut::after {
-  background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0 /
-    auto 100%;
+  background: url(/static/images/fs/bg_visual_interestrate.png) no-repeat 0 0/auto 100%;
 }
 
 .intro-box {
@@ -694,8 +669,7 @@
 }
 
 .loan-withdrawal::after {
-  background: url(/static/images/fs/bg_visual_loanwithdrawal.png) no-repeat 0
-    0 / auto 100%;
+  background: url(/static/images/fs/bg_visual_loanwithdrawal.png) no-repeat 0 0/auto 100%;
 }
 
 .title-area {
