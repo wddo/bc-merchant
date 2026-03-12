@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="stylesheet" href="/static/styles/mi.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="header"></div>
+
+      <main id="container">
+        <div class="page merchant-modify">
+          <div class="title">
+            <h1 class="_font-headline-1">가맹점 정보 변경 안내</h1>
+          </div>
+
+          <div class="contents">
+            <section>
+              <div class="info-area">
+                <div class="step-title">
+                  <h3 class="_font-title-2">가맹점정보 변경 방법 및<br />구비 서류 안내</h3>
+                </div>
+              </div>
+              <div class="accordion" data-options='{"animation": true, "animationSpeed": 0.4}'>
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">기본정보 변경 (주소, 전화번호)</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <ul class="list-noti">
+                        <li>
+                          변경 방법
+                          <ul class="list-dash">
+                            <li><a href="#" class="ico-chevron-right">온라인으로 변경하기</a></li>
+                            <li>가맹점 모집인</li>
+                            <li>고객센터</li>
+                            <li>직접 접수 (FAX/방문/우편)</li>
+                          </ul>
+                        </li>
+                        <li>
+                          구비 서류
+                          <ul class="list-dash">
+                            <li>제신고서</li>
+                            <li>사업자등록증 사본</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">상호 변경</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <div class="req-group">
+                        <p class="req-title">개인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>고객센터</li>
+                              <li>직접 접수 (FAX/방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="req-group">
+                        <p class="req-title">법인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접접수 (FAX/방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>법인등기부등본</li>
+                              <li>법인인감증명서</li>
+                              <li>주주명부</li>
+                              <li><a href="#" class="req-link ico-download">고객거래확인서</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">업종 변경</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <ul class="list-noti">
+                        <li>
+                          변경 방법
+                          <ul class="list-dash">
+                            <li>가맹점 모집인</li>
+                            <li>직접 접수 (FAX/방문/우편)</li>
+                          </ul>
+                        </li>
+                        <li>
+                          구비 서류
+                          <ul class="list-dash">
+                            <li>제신고서</li>
+                            <li>사업자등록증 사본</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">결제계좌 변경</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <div class="req-group">
+                        <p class="req-title">개인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li><a href="#" class="ico-chevron-right">온라인으로 변경하기</a></li>
+                              <li>가맹점 모집인</li>
+                              <li>직접 접수 (FAX/방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>계좌 사본</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="req-group">
+                        <p class="req-title">법인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>법인등기부등본</li>
+                              <li>법인인감증명서</li>
+                              <li>계좌 사본</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">공동대표자 변경</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <div class="req-group">
+                        <p class="req-title">개인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접 접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>신분증 사본</li>
+                              <li>(공동대표자인 경우) 공동대표자 인감증명서</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="req-group">
+                        <p class="req-title">법인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접 접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>법인등기부등본</li>
+                              <li>법인인감증명서</li>
+                              <li>대표자신분증 사본</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">가맹점 해지</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <div class="req-group">
+                        <p class="req-title">개인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>고객센터</li>
+                              <li>직접 접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>신분증 사본 or 폐업사실증명원</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="req-group">
+                        <p class="req-title">법인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접 접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>법인등기부등본</li>
+                              <li>법인인감증명서</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">대표자 변경</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont">
+                      <div class="req-group">
+                        <p class="req-title">개인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            가맹점 해지 후 신규 가맹점으로 신청해 주세요
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접 접수 (FAX/방문/우편)</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="req-group">
+                        <p class="req-title">법인사업자</p>
+                        <ul class="list-noti">
+                          <li>
+                            변경 방법
+                            <ul class="list-dash">
+                              <li>가맹점 모집인</li>
+                              <li>직접접수 (방문/우편)</li>
+                            </ul>
+                          </li>
+                          <li>
+                            구비 서류
+                            <ul class="list-dash">
+                              <li>제신고서</li>
+                              <li>사업자등록증 사본</li>
+                              <li>법인등기부등본</li>
+                              <li>법인인감증명서</li>
+                              <li>주주명부</li>
+                              <li><a href="#" class="req-link ico-download">고객거래확인서</a></li>
+                              <li><a href="#" class="req-link ico-download">가맹점 실제 소유자 확인 및 개인(신용)정보 수집 이용 조회 제공 동의서</a></li>
+                              <li>대표자신분증 사본</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="info-area">
+                <div class="step-title"><h3 class="_font-title-2">가맹점 준수사항 안내</h3></div>
+              </div>
+              <div class="accordion" data-options='{"animation": true, "animationSpeed": 0.4}'>
+                <div class="accordion-item">
+                  <div class="_font-title-4 accordion-header">
+                    <span class="req-header-text">신용카드 본인확인</span>
+                    <button type="button" class="accordion-btn" aria-expanded="false">
+                      <span data-text='{"text":"열기|닫기", "show":1}'></span>
+                    </button>
+                  </div>
+                  <div class="accordion-panel" aria-hidden="true">
+                    <div class="accordion-cont"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <div id="footer"></div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+  </body>
+</html>

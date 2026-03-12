@@ -55,6 +55,25 @@ $icon-class-list: (download, chevron-right, external-link, edit);
   }
 }
 
+// anchor tag with icon
+a[class*="ico-"] {
+  text-decoration: underline;
+
+  &::before,
+  &::after {
+    vertical-align: middle;
+    -webkit-mask-position-y: -0.1rem;
+  }
+
+  &::after {
+    margin-left: var(--space-2);
+  }
+
+  &::before {
+    margin-right: var(--space-2);
+  }
+}
+
 // Bullet List
 .list-noti {
   @include bullet-list();

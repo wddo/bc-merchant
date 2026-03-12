@@ -260,6 +260,20 @@ button[class^=_btn] {
   -webkit-mask: url("/static/images/icons/edit.svg") no-repeat center center/contain;
 }
 
+a[class*=ico-] {
+  text-decoration: underline;
+}
+a[class*=ico-]::before, a[class*=ico-]::after {
+  vertical-align: middle;
+  -webkit-mask-position-y: -0.1rem;
+}
+a[class*=ico-]::after {
+  margin-left: var(--space-2);
+}
+a[class*=ico-]::before {
+  margin-right: var(--space-2);
+}
+
 .list-noti {
   list-style: none;
   padding-left: 0;
