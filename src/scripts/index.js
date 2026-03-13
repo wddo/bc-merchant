@@ -1,6 +1,7 @@
 import Header from "@layout/Header";
 import { accordionController } from "@library/Accordion";
 import { dataTextController } from "@library/DataText";
+import { tabController } from "@library/Tab";
 
 import Co from "@pages/co";
 
@@ -26,6 +27,7 @@ export let device = null;
 
     dataTextController.init("[data-text]"); // 타 라이브러리에서 사용하므로 상단 유지
     accordionController.init(".accordion");
+    tabController.init(".tab-box-xxx");
 
     if (pbui) {
       if (pbui.tooltip) {
