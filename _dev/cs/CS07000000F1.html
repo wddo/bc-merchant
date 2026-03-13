@@ -213,118 +213,120 @@
     <script src="/guide/dev/js/include.js"></script>
 
     <script>
-      $(function () {
+      document.addEventListener("DOMContentLoaded", () => {
 
-        const $tabs = $("._tabs-sub li");
-        const $links = $("._tabs-sub a");
-        const $sections = $("section[id]");
-        const $tabContainer = $(".tab-box");
+      const tabs = document.querySelectorAll("._tabs-sub li");
+      const links = document.querySelectorAll("._tabs-sub a");
+      const sections = document.querySelectorAll("section[id]");
+      const tabBox = document.querySelector(".tab-box");
 
-        let isScrolling = false; // 클릭 스크롤 lock
+      let isClickScrolling = false;
+      let headerOffset = getOffset();
 
-        /* 화면 크기별 offset 계산 */
-        function getOffset() {
-          return window.innerWidth < 768 ? 136 : 80; // 모바일 / PC
-        }
+      /* offset 계산 */
+      function getOffset() {
+        return window.innerWidth < 768 ? 136 : 80;
+      }
 
-        /* throttle (스크롤 성능 개선) */
-        function throttle(fn, wait) {
-          let time = Date.now();
-          return function () {
-            if (time + wait - Date.now() < 0) {
-              fn();
-              time = Date.now();
-            }
-          };
-        }
+      /* resize 대응 */
+      window.addEventListener("resize", () => {
+        headerOffset = getOffset();
+      });
 
-        /* 탭 활성화 + 중앙 이동 + focus */
-        function activateTab(id) {
+      /* 탭 활성화 */
+      function activateTab(id) {
 
-          const $tab = $("._tabs-sub a[href='#" + id + "']").parent();
+        const link = document.querySelector(`._tabs-sub a[href="#${id}"]`);
+        if (!link) return;
 
-          if ($tab.hasClass("is-on")) return; // 중복 animate 방지
+        const tab = link.parentElement;
 
-          $tabs.removeClass("is-on");
-          $tab.addClass("is-on");
+        if (tab.classList.contains("is-on")) return;
 
-          // 활성 탭 중앙 이동
-          const containerWidth = $tabContainer.width();
-          const tabLeft = $tab.position().left;
-          const tabWidth = $tab.outerWidth();
+        tabs.forEach(t => t.classList.remove("is-on"));
+        tab.classList.add("is-on");
 
-          const scrollLeft =
-            tabLeft +
-            $tabContainer.scrollLeft() -
-            containerWidth / 2 +
-            tabWidth / 2;
+        centerTab(tab);
 
-          $tabContainer.stop().animate({ scrollLeft }, 200);
+        link.focus();
+      }
 
-          // 활성 탭 focus
-          $tab.find("a").focus();
-        }
+      /* 탭 중앙 이동 */
+      function centerTab(tab) {
 
-        /* 탭 클릭 시 scroll 이동 */
-        $links.on("click", function (e) {
+        const scrollLeft =
+          tab.offsetLeft -
+          tabBox.clientWidth / 2 +
+          tab.clientWidth / 2;
+
+        tabBox.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth"
+        });
+
+      }
+
+      /* section scroll */
+      function scrollToSection(target) {
+
+        const y =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth"
+        });
+
+      }
+
+      /* 탭 클릭 */
+      links.forEach(link => {
+
+        link.addEventListener("click", e => {
 
           e.preventDefault();
 
-          const target = $(this).attr("href");
-          const id = target.replace("#", "");
-          const offset = getOffset();
-          const top = $(target).offset().top - offset;
+          const target = document.querySelector(link.getAttribute("href"));
+          if (!target) return;
 
-          isScrolling = true;
+          isClickScrolling = true;
 
-          window.scrollTo({ top, behavior: "smooth" });
+          scrollToSection(target);
 
-          activateTab(id);
+          activateTab(target.id);
 
-          // 클릭 후 scrollSpy lock 해제
-          setTimeout(() => { isScrolling = false; }, 400);
-        });
+          setTimeout(() => {
+            isClickScrolling = false;
+          }, 500);
 
-        /* Scroll Spy */
-        function scrollSpy() {
-
-          if (isScrolling) return;
-
-          const offset = getOffset();
-          const scroll = $(window).scrollTop() + offset + 10;
-          const docHeight = $(document).height();
-          const winHeight = $(window).height();
-
-          // 마지막 section 처리
-          if (scroll + winHeight >= docHeight - 5) {
-            const lastId = $sections.last().attr("id");
-            activateTab(lastId);
-            return;
-          }
-
-          $sections.each(function () {
-            const top = $(this).offset().top;
-            const bottom = top + $(this).outerHeight();
-            const id = $(this).attr("id");
-
-            if (scroll >= top && scroll < bottom) {
-              activateTab(id);
-              return false;
-            }
-          });
-        }
-
-        window.addEventListener("scroll", throttle(scrollSpy, 100));
-
-        /* progress line */
-        $(window).on("scroll", function () {
-          const scroll = $(window).scrollTop();
-          const doc = $(document).height();
-          const win = $(window).height();
-          
         });
 
       });
+
+      /* ScrollSpy */
+      const observer = new IntersectionObserver((entries) => {
+
+        if (isClickScrolling) return;
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+            activateTab(entry.target.id);
+          }
+
+        });
+
+      }, {
+        root: null,
+        rootMargin: `-${headerOffset}px 0px -60% 0px`,
+        threshold: 0
+      });
+
+      sections.forEach(section => observer.observe(section));
+
+    });
     </script>
   </body>
 </html>
