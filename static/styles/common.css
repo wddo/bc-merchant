@@ -643,6 +643,81 @@ a[class*=ico-]::before {
   margin-top: 20px;
 }
 
+[class^=_modal][class*=-popup] .popup-content .list#title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
+  color: var(--gray-700);
+  margin-bottom: var(--space-12);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner {
+  width: auto;
+  padding: 0;
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box .top {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  [class^=_modal][class*=-popup] .agreementBox .inner #terms_box .top {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box .top {
+  color: var(--gray-600);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dt {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  [class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dt {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dt {
+  color: var(--gray-600);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dd {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  [class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dd {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dd {
+  color: var(--gray-600);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl dd ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+[class^=_modal][class*=-popup] .agreementBox .inner #terms_box dl .dep2 {
+  margin: var(--space-6) 0 var(--space-6) var(--space-16);
+}
+
 .accordion-item {
   text-align: left;
   border-top: 0;
