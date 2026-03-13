@@ -1,13 +1,13 @@
 const dynamicListenerHandlers = [];
 const getConditionalCallback = (selector, callback) => {
-  return function(e) {
+  return function (e) {
     if (e.target && e.target.matches(selector)) {
       e.delegatedTarget = e.target;
       callback.apply(this, arguments);
       return;
     }
     // Not clicked directly, check bubble path
-    let path = e.path || e.composedPath && e.composedPath();
+    let path = e.path || (e.composedPath && e.composedPath());
     if (!path) {
       return;
     }
@@ -91,7 +91,7 @@ export const utils = {
     UP: 38,
     DOWN: 40,
     LEFT: 37,
-    RIGHT: 39
+    RIGHT: 39,
   },
 
   addDynamicEventListener(
@@ -99,18 +99,18 @@ export const utils = {
     eventType,
     selector,
     callback,
-    options
+    options,
   ) {
     let rootElement = document.body;
-    if (rootSelector !== 'body') {
+    if (rootSelector !== "body") {
       rootElement = document.querySelector(rootSelector);
     }
 
     let cb = getConditionalCallback(selector, callback);
     rootElement.addEventListener(eventType, cb, options);
 
-    if (!dynamicListenerHandlers[selector + ' ' + eventType]) {
-      dynamicListenerHandlers[selector + ' ' + eventType] = cb;
+    if (!dynamicListenerHandlers[selector + " " + eventType]) {
+      dynamicListenerHandlers[selector + " " + eventType] = cb;
     }
   },
 
@@ -118,7 +118,7 @@ export const utils = {
     let handler = dynamicListenerHandlers[`${selector} ${eventType}`];
 
     let rootElement = document.body;
-    if (rootSelector !== 'body') {
+    if (rootSelector !== "body") {
       rootElement = document.querySelector(rootSelector);
     }
 
@@ -133,7 +133,7 @@ export const utils = {
     return `0${value}`;
   },
 
-  toStringByFormatting(source, delimiter = '-') {
+  toStringByFormatting(source, delimiter = "-") {
     const year = source.getFullYear();
     const month = utils.leftPad(source.getMonth() + 1);
     const day = utils.leftPad(source.getDate());
@@ -159,21 +159,21 @@ export const utils = {
    */
   parseBoolean(value) {
     try {
-      if (typeof value === 'boolean') {
+      if (typeof value === "boolean") {
         return value;
       }
 
-      if (typeof value === 'string') {
+      if (typeof value === "string") {
         const val = value.trim().toLowerCase();
-        if (val === 'true' || val === '1') {
+        if (val === "true" || val === "1") {
           return true;
         }
-        if (val === 'false' || val === '0' || val === '') {
+        if (val === "false" || val === "0" || val === "") {
           return false;
         }
       }
 
-      if (typeof value === 'number') {
+      if (typeof value === "number") {
         return value !== 0;
       }
 
@@ -207,13 +207,13 @@ export const utils = {
     }
 
     // 문자열인 경우 (셀렉터)
-    if (typeof target === 'string') {
+    if (typeof target === "string") {
       // # 없이 id만 입력된 경우 # 추가
       if (
         target &&
-        !target.startsWith('#') &&
-        !target.startsWith('.') &&
-        !target.includes(' ')
+        !target.startsWith("#") &&
+        !target.startsWith(".") &&
+        !target.includes(" ")
       ) {
         return document.querySelector(`#${target}`);
       }
@@ -232,5 +232,20 @@ export const utils = {
 
     // 그 외의 경우 null 반환
     return null;
-  }
+  },
+
+  /**
+   * @description throttle (스크롤 성능 개선)
+   * @param {Function} fn
+   * @param {Number} wait
+   */
+  throttle(fn, wait) {
+    let time = Date.now();
+    return function () {
+      if (time + wait - Date.now() < 0) {
+        fn();
+        time = Date.now();
+      }
+    };
+  },
 };
