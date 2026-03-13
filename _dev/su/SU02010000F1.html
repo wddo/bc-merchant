@@ -141,5 +141,27 @@
     </div>
 
     <script src="/guide/dev/js/include.js"></script>
+
+    <!-- Tab sticky -->
+    <script> 
+      // DOM 요소들
+      const tabWrapper = document.querySelector('.tab-wrapper');
+
+      // 스크롤 이벤트 리스너
+      window.addEventListener('scroll', function() {
+          const scrollPosition = window.scrollY;
+
+          // 탭이 화면 상단에 붙으면 shadow 클래스 추가
+          if (scrollPosition >= tabWrapper.offsetTop) {
+              if (!tabWrapper.classList.contains('shadow')) {
+                  tabWrapper.classList.add('shadow'); // shadow 클래스 추가
+              }
+          } else {
+              if (tabWrapper.classList.contains('shadow')) {
+                  tabWrapper.classList.remove('shadow'); // shadow 클래스 제거
+              }
+          }
+      });
+    </script>
   </body>
 </html>
