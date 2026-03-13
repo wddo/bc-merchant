@@ -652,6 +652,8 @@ a[class*=ico-]::before {
 }
 [class^=_modal][class*=-popup] .agreementBox .inner {
   width: auto;
+  min-width: auto;
+  max-width: none;
   padding: 0;
 }
 [class^=_modal][class*=-popup] .agreementBox .inner #terms_box {
