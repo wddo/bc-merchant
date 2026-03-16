@@ -188,15 +188,12 @@
       }
 
       .list-title-wrap {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: var(--space-6);
         flex: 1;
         min-width: 0;
         margin: var(--space-20) var(--space-20);
 
         @include respond-sm {
+          display: flex;
           width: 100%;
           flex-direction: column;
           align-items: flex-start;
@@ -206,20 +203,15 @@
 
         a.list-title {
           @include font-token($font-body-1-medi);
-          @include ellipsis(1, 0);
 
           flex: 0 1 auto;
           max-width: 100%;
           color: $text-secondary;
-
-          @include respond-sm {
-            @include ellipsis(2, 3em);
-            width: 100%;
-          }
         }
 
         ._badge-small-red {
           flex: 0 0 auto;
+          vertical-align: top;
 
           @include respond-sm {
             order: -1;
