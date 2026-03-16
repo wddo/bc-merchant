@@ -31,7 +31,13 @@ class Tab {
       clickTab: (evt) => {
         evt.preventDefault();
 
-        method.activateTab(evt);
+        if (el.type === "anchor") {
+          method.scrollToContent(evt.target);
+        } else {
+          method.activateTab(evt.target);
+          method.centerTab(evt.target);
+          method.activeContent(evt.target);
+        }
       },
 
       /**
@@ -81,6 +87,8 @@ class Tab {
        * @description 스크롤 이동
        */
       scroll: () => {
+        method.centerTab();
+
         return requestAnimationFrame(() =>
           checkScroll(
             [...el.tabPanelList],
@@ -110,21 +118,19 @@ class Tab {
       resize: () => {
         if (!el.tabWrap) return;
 
-        const { position } = window.getComputedStyle(el.tabWrap.parentElement);
+        const { position, top } = window.getComputedStyle(
+          el.tabWrap.parentElement,
+        );
 
         if (position === "sticky") {
-          const { height, top } =
-            el.tabWrap.parentElement.getBoundingClientRect();
-          topH = height + top;
+          const { height } = el.tabWrap.parentElement.getBoundingClientRect();
+          topH = height + parseInt(top);
         }
       },
     };
 
     const method = {
-      activateTab: (value) => {
-        const isclickEvent = value.target;
-        target = isclickEvent ? value.target : value;
-
+      activateTab: (target) => {
         if (!target) return;
 
         [...el.tabList].forEach((el) => {
@@ -138,25 +144,15 @@ class Tab {
         [...el.tabPanelList].forEach((el) => {
           el.setAttribute("aria-hidden", "true");
         });
+      },
 
-        if (el.type === "anchor") {
-          // 앵커 탭은 클릭 시 해당 콘텐츠로 스크롤 이동
-          const panelId = target.getAttribute("href");
-          const panel = document.querySelector(panelId);
-          if (panel && isclickEvent) {
-            method.scrollToContent(panel);
-          }
-        } else {
-          // 활성화 된 role="tabpanel"은 aria-hidden="false"로 변경
-          const panelId = target.getAttribute("aria-controls");
-          const panel = document.querySelector("#" + panelId);
-          if (panel) {
-            panel.setAttribute("aria-hidden", "false");
-          }
+      activeContent: (target) => {
+        // 활성화 된 role="tabpanel"은 aria-hidden="false"로 변경
+        const panelId = target.getAttribute("aria-controls");
+        const panel = document.querySelector("#" + panelId);
+        if (panel) {
+          panel.setAttribute("aria-hidden", "false");
         }
-
-        // 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
-        method.centerTab();
       },
 
       /**
@@ -166,8 +162,12 @@ class Tab {
        * @param {Element} target - 스크롤 이동할 패널 요소
        */
       scrollToContent: (target) => {
-        const y =
-          target.getBoundingClientRect().top + window.pageYOffset - topH;
+        if (!target) return;
+
+        const panelId = target.getAttribute("href");
+        const panel = document.querySelector(panelId);
+
+        const y = panel.getBoundingClientRect().top + window.pageYOffset - topH;
 
         window.scrollTo({
           top: y + 1, // 1px 추가하여 정확히 패널이 보이도록 조정
@@ -180,9 +180,14 @@ class Tab {
        * @memberof Tab
        * @description 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
        */
-      centerTab: () => {
+      centerTab: (target) => {
         const tabBox = el.tabWrap;
-        const tab = tabBox.querySelector("[aria-selected=true]");
+        const tab = target
+          ? target
+          : tabBox.querySelector("[aria-selected=true]");
+
+        if (!tab) return;
+
         const scrollLeft =
           tab.offsetLeft - tabBox.clientWidth / 2 + tab.clientWidth / 2;
 
@@ -268,66 +273,59 @@ class Tab {
       callbackFunction,
       options,
     ) => {
-      const htmlAnimations = document.documentElement.getAnimations();
-      const bodyAnimations = document.body ? document.body.getAnimations() : [];
-      if (htmlAnimations.length === 0 && bodyAnimations.length === 0) {
-        var defaults = {
-          yArr: undefined,
-          heightArr: undefined,
-        };
+      var defaults = {
+        yArr: undefined,
+        heightArr: undefined,
+      };
 
-        var opts = Object.assign({}, defaults, options);
+      var opts = Object.assign({}, defaults, options);
 
-        var topHeight = exceptionHeight;
-        var onIdx = undefined;
+      var topHeight = exceptionHeight;
+      var onIdx = undefined;
 
-        //각각
-        var visualYPos, visualDIVHeight;
-        for (var idx = 0; idx < visualDIV.length; idx += 1) {
-          var item = visualDIV[idx];
+      //각각
+      var visualYPos, visualDIVHeight;
+      for (var idx = 0; idx < visualDIV.length; idx += 1) {
+        var item = visualDIV[idx];
 
-          visualYPos =
-            opts.yArr === undefined
-              ? item.getBoundingClientRect().top + window.scrollY
-              : opts.yArr[idx]; //각각의 비주얼 Y 위치
-          visualDIVHeight =
-            opts.heightArr === undefined
-              ? item.offsetHeight
-              : opts.heightArr[idx]; //각각의 비주얼 높이
+        visualYPos =
+          opts.yArr === undefined
+            ? item.getBoundingClientRect().top + window.scrollY
+            : opts.yArr[idx]; //각각의 비주얼 Y 위치
+        visualDIVHeight =
+          opts.heightArr === undefined
+            ? item.offsetHeight
+            : opts.heightArr[idx]; //각각의 비주얼 높이
 
-          if (
-            visualDIV[0] &&
-            window.scrollY <
-              visualDIV[0].getBoundingClientRect().top +
-                window.scrollY +
-                topHeight
-          ) {
-            //최초 visual 보다 작은 경우
-            onIdx = undefined;
-            break;
-          } else if (
-            visualYPos + visualDIVHeight >
-            window.scrollY + topHeight
-          ) {
-            onIdx = idx;
-            break;
-          }
-        }
-
-        //마지막
-        const documentHeight = Math.max(
-          document.body ? document.body.scrollHeight : 0,
-          document.documentElement.scrollHeight,
-        );
         if (
-          window.scrollY !== 0 &&
-          window.scrollY === documentHeight - window.innerHeight
+          visualDIV[0] &&
+          window.scrollY <
+            visualDIV[0].getBoundingClientRect().top +
+              window.scrollY +
+              topHeight
         ) {
-          onIdx = visualDIV.length - 1;
+          //최초 visual 보다 작은 경우
+          onIdx = undefined;
+          break;
+        } else if (visualYPos + visualDIVHeight > window.scrollY + topHeight) {
+          onIdx = idx;
+          break;
         }
-
-        callbackFunction(onIdx);
       }
+
+      //마지막
+      const documentHeight = Math.max(
+        document.body ? document.body.scrollHeight : 0,
+        document.documentElement.scrollHeight,
+      );
+      if (
+        window.scrollY !== 0 &&
+        window.scrollY === documentHeight - window.innerHeight
+      ) {
+        onIdx = visualDIV.length - 1;
+      }
+
+      callbackFunction(onIdx);
     };
 
     const init = () => {
@@ -337,6 +335,7 @@ class Tab {
 
       bind();
 
+      handler.scroll();
       handler.resize();
     };
 

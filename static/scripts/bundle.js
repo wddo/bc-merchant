@@ -514,7 +514,13 @@
          */
         clickTab: (evt) => {
           evt.preventDefault();
-          method.activateTab(evt);
+          if (el.type === "anchor") {
+            method.scrollToContent(evt.target);
+          } else {
+            method.activateTab(evt.target);
+            method.centerTab(evt.target);
+            method.activeContent(evt.target);
+          }
         },
         /**
          * @callback keyDown
@@ -558,6 +564,7 @@
          * @description 스크롤 이동
          */
         scroll: () => {
+          method.centerTab();
           return requestAnimationFrame(
             () => checkScroll(
               [...el.tabPanelList],
@@ -583,41 +590,34 @@
          */
         resize: () => {
           if (!el.tabWrap) return;
-          const { position } = window.getComputedStyle(el.tabWrap.parentElement);
+          const { position, top } = window.getComputedStyle(
+            el.tabWrap.parentElement
+          );
           if (position === "sticky") {
-            const { height, top } = el.tabWrap.parentElement.getBoundingClientRect();
-            topH = height + top;
+            const { height } = el.tabWrap.parentElement.getBoundingClientRect();
+            topH = height + parseInt(top);
           }
         }
       };
       const method = {
-        activateTab: (value) => {
-          const isclickEvent = value.target;
-          target = isclickEvent ? value.target : value;
-          if (!target) return;
+        activateTab: (target2) => {
+          if (!target2) return;
           [...el.tabList].forEach((el2) => {
             el2.setAttribute("aria-selected", "false");
             el2.parentElement.classList.remove("is-on");
           });
-          target.setAttribute("aria-selected", "true");
-          target.parentElement.classList.add("is-on");
+          target2.setAttribute("aria-selected", "true");
+          target2.parentElement.classList.add("is-on");
           [...el.tabPanelList].forEach((el2) => {
             el2.setAttribute("aria-hidden", "true");
           });
-          if (el.type === "anchor") {
-            const panelId = target.getAttribute("href");
-            const panel = document.querySelector(panelId);
-            if (panel && isclickEvent) {
-              method.scrollToContent(panel);
-            }
-          } else {
-            const panelId = target.getAttribute("aria-controls");
-            const panel = document.querySelector("#" + panelId);
-            if (panel) {
-              panel.setAttribute("aria-hidden", "false");
-            }
+        },
+        activeContent: (target2) => {
+          const panelId = target2.getAttribute("aria-controls");
+          const panel = document.querySelector("#" + panelId);
+          if (panel) {
+            panel.setAttribute("aria-hidden", "false");
           }
-          method.centerTab();
         },
         /**
          * @callback scrollToContent
@@ -626,7 +626,10 @@
          * @param {Element} target - 스크롤 이동할 패널 요소
          */
         scrollToContent: (target2) => {
-          const y = target2.getBoundingClientRect().top + window.pageYOffset - topH;
+          if (!target2) return;
+          const panelId = target2.getAttribute("href");
+          const panel = document.querySelector(panelId);
+          const y = panel.getBoundingClientRect().top + window.pageYOffset - topH;
           window.scrollTo({
             top: y + 1,
             // 1px 추가하여 정확히 패널이 보이도록 조정
@@ -638,9 +641,10 @@
          * @memberof Tab
          * @description 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
          */
-        centerTab: () => {
+        centerTab: (target2) => {
           const tabBox = el.tabWrap;
-          const tab = tabBox.querySelector("[aria-selected=true]");
+          const tab = target2 ? target2 : tabBox.querySelector("[aria-selected=true]");
+          if (!tab) return;
           const scrollLeft = tab.offsetLeft - tabBox.clientWidth / 2 + tab.clientWidth / 2;
           tabBox.scrollTo({
             left: scrollLeft,
@@ -702,43 +706,40 @@
         });
       };
       const checkScroll = (visualDIV, exceptionHeight, callbackFunction, options) => {
-        const htmlAnimations = document.documentElement.getAnimations();
-        const bodyAnimations = document.body ? document.body.getAnimations() : [];
-        if (htmlAnimations.length === 0 && bodyAnimations.length === 0) {
-          var defaults = {
-            yArr: void 0,
-            heightArr: void 0
-          };
-          var opts = Object.assign({}, defaults, options);
-          var topHeight = exceptionHeight;
-          var onIdx = void 0;
-          var visualYPos, visualDIVHeight;
-          for (var idx = 0; idx < visualDIV.length; idx += 1) {
-            var item = visualDIV[idx];
-            visualYPos = opts.yArr === void 0 ? item.getBoundingClientRect().top + window.scrollY : opts.yArr[idx];
-            visualDIVHeight = opts.heightArr === void 0 ? item.offsetHeight : opts.heightArr[idx];
-            if (visualDIV[0] && window.scrollY < visualDIV[0].getBoundingClientRect().top + window.scrollY + topHeight) {
-              onIdx = void 0;
-              break;
-            } else if (visualYPos + visualDIVHeight > window.scrollY + topHeight) {
-              onIdx = idx;
-              break;
-            }
+        var defaults = {
+          yArr: void 0,
+          heightArr: void 0
+        };
+        var opts = Object.assign({}, defaults, options);
+        var topHeight = exceptionHeight;
+        var onIdx = void 0;
+        var visualYPos, visualDIVHeight;
+        for (var idx = 0; idx < visualDIV.length; idx += 1) {
+          var item = visualDIV[idx];
+          visualYPos = opts.yArr === void 0 ? item.getBoundingClientRect().top + window.scrollY : opts.yArr[idx];
+          visualDIVHeight = opts.heightArr === void 0 ? item.offsetHeight : opts.heightArr[idx];
+          if (visualDIV[0] && window.scrollY < visualDIV[0].getBoundingClientRect().top + window.scrollY + topHeight) {
+            onIdx = void 0;
+            break;
+          } else if (visualYPos + visualDIVHeight > window.scrollY + topHeight) {
+            onIdx = idx;
+            break;
           }
-          const documentHeight = Math.max(
-            document.body ? document.body.scrollHeight : 0,
-            document.documentElement.scrollHeight
-          );
-          if (window.scrollY !== 0 && window.scrollY === documentHeight - window.innerHeight) {
-            onIdx = visualDIV.length - 1;
-          }
-          callbackFunction(onIdx);
         }
+        const documentHeight = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement.scrollHeight
+        );
+        if (window.scrollY !== 0 && window.scrollY === documentHeight - window.innerHeight) {
+          onIdx = visualDIV.length - 1;
+        }
+        callbackFunction(onIdx);
       };
       const init = () => {
         addRole();
         setProperty();
         bind();
+        handler.scroll();
         handler.resize();
       };
       const reInit = () => {
