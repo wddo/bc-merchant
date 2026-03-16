@@ -143,6 +143,48 @@ button[class^=_btn] {
   color: var(--gray-300);
 }
 
+.info-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.info-hor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.info-hor dt {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .info-hor dt {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.64px;
+  }
+}
+.info-hor dt {
+  color: var(--gray-600);
+}
+.info-hor dd {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .info-hor dd {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.info-hor dd {
+  color: var(--gray-600);
+}
+
 /* .w-full {
   width: 100%;
 }
