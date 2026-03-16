@@ -1,0 +1,148 @@
+@use "../abstracts" as *;
+
+.visual-wrap {
+  background-color: $bg-gray-40;
+  .visual-item {
+    .bg-text {
+      background-color: $bg-white;
+      color: $text-point;
+    }
+  }
+}
+
+.cpmp-service {
+  &::after {
+    background: url(#{$img_url}/bs/bg_visual_cpmp.png) no-repeat 0 0 / auto 100%;
+  }
+}
+
+.bs-intro-guide {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-56);
+  padding-bottom: var(--space-56);
+  .guide-item {
+    .inner {
+      display: flex;
+      justify-content: space-between;
+    }
+    .title-area {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      .text {
+        @include font-token($font-body-0);
+        color: $text-quaternary;
+      }
+    }
+    .item-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-16);
+      flex-basis: 832px;
+      &.full-image, &.application, &.lawandgood {
+        grid-template-columns: none;
+      }
+      &.full-image {
+        
+        .item {
+          &::after {
+            display: none;
+          }
+        }
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-16) 0;
+        border-radius: var(--radius-16);
+        background: $bg-gray-20;
+        padding: var(--space-48);
+        
+        .text-area {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-20) 0;
+          ._font-title-3 {
+            color: var(--gray-700);
+          }
+          .text {
+            color: $text-tertiary;
+            @include font-token($font-body-1-medi);
+            strong {
+              color: $text-primary;
+            }
+          }
+        }
+        &::after {
+          content: '';
+          display: block;
+          width: 80px;
+          height: 80px;
+          margin: auto 0 0 auto;
+          background-repeat: no-repeat;
+          background-position: 0 0 ;
+          background-size: 100% auto;
+        }
+      }
+      &.report {
+        .item {
+          &:nth-child(1)::after {
+            background-image: url(#{$img_url}/bs/ico_report01.png);
+          }
+          &:nth-child(2)::after {
+            background-image: url(#{$img_url}/bs/ico_report02.png);
+          }
+          &:nth-child(3)::after {
+            background-image: url(#{$img_url}/bs/ico_report03.png);
+          }
+          &:nth-child(4)::after {
+            background-image: url(#{$img_url}/bs/ico_report04.png);
+          }
+          &:nth-child(5)::after {
+            background-image: url(#{$img_url}/bs/ico_report05.png);
+          }
+        }
+      }
+      &.lawandgood {
+        grid-template-columns: none;
+        .item {
+          &::after {
+            width: 320px;
+            height: 180px;
+            background-image: url(#{$img_url}/bs/ico_lawandgood.png);
+          }
+        }        
+      }
+      &.application {
+        .item {
+          flex-direction: row;
+          padding-bottom: 0;
+          &::after {
+            width: 344px;
+            height: 280px;
+          }
+          &:nth-child(1)::after {
+            background-image: url(#{$img_url}/bs/img_application01.png);
+          }
+          &:nth-child(2)::after {
+            background-image: url(#{$img_url}/bs/img_application02.png);
+          }
+          &:nth-child(3)::after {
+            background-image: url(#{$img_url}/bs/img_application03.png);
+          }
+        }        
+      }
+
+    }
+  }
+}
+
+// Tablet
+@include respond-md {
+}
+
+// Mobile
+@include respond-sm {
+}

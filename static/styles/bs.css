@@ -1,11 +1,128 @@
 .visual-wrap {
-  background-color: #fff2f6;
+  background-color: var(--gray-40);
 }
 .visual-wrap .visual-item .bg-text {
   background-color: var(--white);
-  color: var(--red-800);
+  color: var(--primary-p800);
 }
 
-.mytag-service::after {
-  background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
+.cpmp-service::after {
+  background: url(/static/images/bs/bg_visual_cpmp.png) no-repeat 0 0/auto 100%;
+}
+
+.bs-intro-guide {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-56);
+  padding-bottom: var(--space-56);
+}
+.bs-intro-guide .guide-item .inner {
+  display: flex;
+  justify-content: space-between;
+}
+.bs-intro-guide .guide-item .title-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.bs-intro-guide .guide-item .title-area .text {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.72px;
+  color: var(--gray-500);
+}
+.bs-intro-guide .guide-item .item-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  flex-basis: 832px;
+}
+.bs-intro-guide .guide-item .item-wrap.full-image, .bs-intro-guide .guide-item .item-wrap.application, .bs-intro-guide .guide-item .item-wrap.lawandgood {
+  grid-template-columns: none;
+}
+.bs-intro-guide .guide-item .item-wrap.full-image .item::after {
+  display: none;
+}
+.bs-intro-guide .guide-item .item-wrap .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16) 0;
+  border-radius: var(--radius-16);
+  background: var(--gray-20);
+  padding: var(--space-48);
+}
+.bs-intro-guide .guide-item .item-wrap .item .text-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20) 0;
+}
+.bs-intro-guide .guide-item .item-wrap .item .text-area ._font-title-3 {
+  color: var(--gray-700);
+}
+.bs-intro-guide .guide-item .item-wrap .item .text-area .text {
+  color: var(--gray-600);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .bs-intro-guide .guide-item .item-wrap .item .text-area .text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.bs-intro-guide .guide-item .item-wrap .item .text-area .text strong {
+  color: var(--gray-900);
+}
+.bs-intro-guide .guide-item .item-wrap .item::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto 0 0 auto;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% auto;
+}
+.bs-intro-guide .guide-item .item-wrap.report .item:nth-child(1)::after {
+  background-image: url(/static/images/bs/ico_report01.png);
+}
+.bs-intro-guide .guide-item .item-wrap.report .item:nth-child(2)::after {
+  background-image: url(/static/images/bs/ico_report02.png);
+}
+.bs-intro-guide .guide-item .item-wrap.report .item:nth-child(3)::after {
+  background-image: url(/static/images/bs/ico_report03.png);
+}
+.bs-intro-guide .guide-item .item-wrap.report .item:nth-child(4)::after {
+  background-image: url(/static/images/bs/ico_report04.png);
+}
+.bs-intro-guide .guide-item .item-wrap.report .item:nth-child(5)::after {
+  background-image: url(/static/images/bs/ico_report05.png);
+}
+.bs-intro-guide .guide-item .item-wrap.lawandgood {
+  grid-template-columns: none;
+}
+.bs-intro-guide .guide-item .item-wrap.lawandgood .item::after {
+  width: 320px;
+  height: 180px;
+  background-image: url(/static/images/bs/ico_lawandgood.png);
+}
+.bs-intro-guide .guide-item .item-wrap.application .item {
+  flex-direction: row;
+  padding-bottom: 0;
+}
+.bs-intro-guide .guide-item .item-wrap.application .item::after {
+  width: 344px;
+  height: 280px;
+}
+.bs-intro-guide .guide-item .item-wrap.application .item:nth-child(1)::after {
+  background-image: url(/static/images/bs/img_application01.png);
+}
+.bs-intro-guide .guide-item .item-wrap.application .item:nth-child(2)::after {
+  background-image: url(/static/images/bs/img_application02.png);
+}
+.bs-intro-guide .guide-item .item-wrap.application .item:nth-child(3)::after {
+  background-image: url(/static/images/bs/img_application03.png);
 }
