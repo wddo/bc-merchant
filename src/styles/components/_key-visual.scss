@@ -31,7 +31,7 @@
       @include font-token($font-body-0-medi);
       color: $text-tertiary;
       margin: var(--space-20) 0 0;
-      & + .list-ast {
+      & + [class^=list-] {
         margin-top: var(--space-16);
         > li {
           @include font-token($font-body-2);

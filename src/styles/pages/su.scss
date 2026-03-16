@@ -16,7 +16,7 @@
   }
 }
 
-.mytag-guide {
+.mytag-intro-guide {
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -141,13 +141,6 @@
   &.loan::after {
     background-image: url(#{$img_url}/su/bg_banner_loan.png);
   }
-}
-
-.floating-btn {
-  position: sticky;
-  left: 0;
-  bottom: 32px;
-  z-index: 10;
 }
 
 .step-guide {
@@ -734,7 +727,7 @@
 
 // Tablet
 @include respond-md {
-  .mytag-guide {
+  .mytag-intro-guide {
     gap: var(--space-40);
     padding-bottom: var(--space-40);
     .guide-item {
@@ -781,12 +774,7 @@
       height: 69px;
     }
   }
-  .floating-btn {
-    ._btn-large-primary {
-      min-width: 100%;
-    }
-  }
-
+  
   .step-guide {
     gap: var(--space-40);
     .text-area {

@@ -204,6 +204,13 @@ button[class^=_btn] {
   }
 }
 
+.floating-btn {
+  position: sticky;
+  left: 0;
+  bottom: 32px;
+  z-index: 10;
+}
+
 /* .w-full {
   width: 100%;
 }
@@ -1033,22 +1040,22 @@ a[class*=ico-]::before {
   color: var(--gray-600);
   margin: var(--space-20) 0 0;
 }
-.visual-item .text-area > .text + .list-ast {
+.visual-item .text-area > .text + [class^=list-] {
   margin-top: var(--space-16);
 }
-.visual-item .text-area > .text + .list-ast > li {
+.visual-item .text-area > .text + [class^=list-] > li {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.56px;
 }
 @media screen and (max-width: 767px) {
-  .visual-item .text-area > .text + .list-ast > li {
+  .visual-item .text-area > .text + [class^=list-] > li {
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.56px;
   }
 }
-.visual-item .text-area > .text + .list-ast > li {
+.visual-item .text-area > .text + [class^=list-] > li {
   color: var(--gray-700);
 }
 .visual-item::after {
