@@ -47,7 +47,7 @@
       ._font-title-2 {
         white-space: pre;
       }
-      .sub-text {
+      .text {
         @include font-token($font-body-0);
         color: $text-secondary;
         margin-top: var(--space-16);
