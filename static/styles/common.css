@@ -204,6 +204,13 @@ button[class^=_btn] {
   }
 }
 
+.floating-btn {
+  position: sticky;
+  left: 0;
+  bottom: 32px;
+  z-index: 10;
+}
+
 /* .w-full {
   width: 100%;
 }

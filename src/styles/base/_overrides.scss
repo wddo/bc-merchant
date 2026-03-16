@@ -212,4 +212,12 @@ button[class^="_btn"] {
     }
   }
 }
+
+// 안내 페이지 하단 Floating Button
+.floating-btn {
+  position: sticky;
+  left: 0;
+  bottom: 32px;
+  z-index: 10;
+}
   

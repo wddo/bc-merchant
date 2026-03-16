@@ -143,13 +143,6 @@
   }
 }
 
-.floating-btn {
-  position: sticky;
-  left: 0;
-  bottom: 32px;
-  z-index: 10;
-}
-
 .step-guide {
   display: flex;
   justify-content: space-between;
@@ -781,12 +774,7 @@
       height: 69px;
     }
   }
-  .floating-btn {
-    ._btn-large-primary {
-      min-width: 100%;
-    }
-  }
-
+  
   .step-guide {
     gap: var(--space-40);
     .text-area {

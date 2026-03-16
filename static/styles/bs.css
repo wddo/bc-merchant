@@ -1,0 +1,11 @@
+.visual-wrap {
+  background-color: #fff2f6;
+}
+.visual-wrap .visual-item .bg-text {
+  background-color: var(--white);
+  color: var(--red-800);
+}
+
+.mytag-service::after {
+  background: url(/static/images/su/bg_visual_mytag.png) no-repeat 0 0/auto 100%;
+}
