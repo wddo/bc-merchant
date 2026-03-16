@@ -238,6 +238,7 @@ export const utils = {
    * @description throttle (스크롤 성능 개선)
    * @param {Function} fn
    * @param {Number} wait
+   * @returns {Function}
    */
   throttle(fn, wait) {
     let time = Date.now();
@@ -246,6 +247,22 @@ export const utils = {
         fn();
         time = Date.now();
       }
+    };
+  },
+
+  /**
+   * @description debounce (지연 실행)
+   * @param {Function} fn
+   * @param {Number} delay
+   * @returns {Function}
+   */
+  debounce(fn, delay) {
+    let timeoutId;
+    return function () {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        fn.apply(this, arguments);
+      }, delay);
     };
   },
 };

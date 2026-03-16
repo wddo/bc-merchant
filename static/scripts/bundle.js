@@ -486,202 +486,6 @@
   mvJs.dataText = {};
   mvJs.dataText.init = dataTextController.init;
 
-  // src/scripts/utils/index.js
-  var dynamicListenerHandlers = [];
-  var getConditionalCallback = (selector, callback) => {
-    return function(e) {
-      if (e.target && e.target.matches(selector)) {
-        e.delegatedTarget = e.target;
-        callback.apply(this, arguments);
-        return;
-      }
-      let path = e.path || e.composedPath && e.composedPath();
-      if (!path) {
-        return;
-      }
-      for (let i = 0; i < path.length; ++i) {
-        let el = path[i];
-        if (el.matches(selector)) {
-          e.delegatedTarget = el;
-          callback.apply(this, arguments);
-        }
-        if (el === e.currentTarget) {
-          return;
-        }
-      }
-    };
-  };
-  var utils = {
-    getIndex(el) {
-      if (!el.parentNode) {
-        return -1;
-      }
-      let list = el.parentNode.children;
-      let temp = [];
-      [...list].forEach((tel) => {
-        if (el.nodeName === tel.nodeName || el.tagName === tel.tagName) {
-          temp.push(tel);
-        }
-      });
-      list = temp;
-      if (!list) {
-        return -1;
-      }
-      let indexof = [].indexOf;
-      let len = list.length;
-      if (indexof) {
-        return indexof.call(list, el);
-      }
-      for (let i = 0; i < len; ++i) {
-        if (el === list[i]) {
-          return i;
-        }
-      }
-      return -1;
-    },
-    trigger(el, event, otions = null) {
-      const evt = otions ? new CustomEvent(event, otions) : new CustomEvent(event);
-      el.dispatchEvent(evt);
-    },
-    setAttributes(el, attrs) {
-      for (let key in attrs) {
-        el.setAttribute(key, attrs[key]);
-      }
-    },
-    isPc() {
-      let value = false;
-      const moSize = 767;
-      if (moSize < window.innerWidth) {
-        value = true;
-      }
-      return value;
-    },
-    keyCode: {
-      ENTER: 13,
-      SPACE: 32,
-      UP: 38,
-      DOWN: 40,
-      LEFT: 37,
-      RIGHT: 39
-    },
-    addDynamicEventListener(rootSelector, eventType, selector, callback, options) {
-      let rootElement = document.body;
-      if (rootSelector !== "body") {
-        rootElement = document.querySelector(rootSelector);
-      }
-      let cb = getConditionalCallback(selector, callback);
-      rootElement.addEventListener(eventType, cb, options);
-      if (!dynamicListenerHandlers[selector + " " + eventType]) {
-        dynamicListenerHandlers[selector + " " + eventType] = cb;
-      }
-    },
-    removeDynamicEventListener(rootSelector, eventType, selector) {
-      let handler = dynamicListenerHandlers[`${selector} ${eventType}`];
-      let rootElement = document.body;
-      if (rootSelector !== "body") {
-        rootElement = document.querySelector(rootSelector);
-      }
-      rootElement.removeEventListener(eventType, handler);
-    },
-    leftPad(value) {
-      if (value >= 10) {
-        return value;
-      }
-      return `0${value}`;
-    },
-    toStringByFormatting(source, delimiter = "-") {
-      const year = source.getFullYear();
-      const month = utils.leftPad(source.getMonth() + 1);
-      const day = utils.leftPad(source.getDate());
-      return [year, month, day].join(delimiter);
-    },
-    /**
-     * @description 문자열을 불리언 타입으로 변환
-     * @param {string} value
-     * @returns {boolean}
-     * @example
-     *
-     * parseBoolean(true);       // true
-     * parseBoolean("true");     // true
-     * parseBoolean("FALSE");    // false
-     * parseBoolean("1");        // true
-     * parseBoolean("0");        // false
-     * parseBoolean(1);          // true
-     * parseBoolean(null);       // false
-     * parseBoolean(undefined);  // false
-     * parseBoolean("yes");      // false
-     */
-    parseBoolean(value) {
-      try {
-        if (typeof value === "boolean") {
-          return value;
-        }
-        if (typeof value === "string") {
-          const val = value.trim().toLowerCase();
-          if (val === "true" || val === "1") {
-            return true;
-          }
-          if (val === "false" || val === "0" || val === "") {
-            return false;
-          }
-        }
-        if (typeof value === "number") {
-          return value !== 0;
-        }
-        return false;
-      } catch (e) {
-        return false;
-      }
-    },
-    /**
-     * @description 다양한 타입의 target을 받아서 element를 반환
-     * @param {string|Element|NodeList} target - 셀렉터 문자열, 엘리먼트, 노드 컬렉션
-     * @returns {Element|null} - 엘리먼트 또는 null
-     * @example
-     *
-     * getElement('.class');           // 클래스 셀렉터
-     * getElement('#id');              // ID 셀렉터
-     * getElement('tag');              // 태그 셀렉터
-     * getElement(element);            // 엘리먼트
-     * getElement([NodeList]);         // NodeList의 첫 번째 요소
-     */
-    getElement(target) {
-      if (!target) {
-        return null;
-      }
-      if (target instanceof Element) {
-        return target;
-      }
-      if (typeof target === "string") {
-        if (target && !target.startsWith("#") && !target.startsWith(".") && !target.includes(" ")) {
-          return document.querySelector(`#${target}`);
-        }
-        return document.querySelector(target);
-      }
-      if (target instanceof NodeList) {
-        return target.length > 0 ? target.item(0) : null;
-      }
-      if (Array.isArray(target)) {
-        return target.length > 0 ? target[0] : null;
-      }
-      return null;
-    },
-    /**
-     * @description throttle (스크롤 성능 개선)
-     * @param {Function} fn
-     * @param {Number} wait
-     */
-    throttle(fn, wait) {
-      let time = Date.now();
-      return function() {
-        if (time + wait - Date.now() < 0) {
-          fn();
-          time = Date.now();
-        }
-      };
-    }
-  };
-
   // src/scripts/library/Tab.js
   var Tab = class {
     /**
@@ -691,12 +495,12 @@
      * @description .js-tab 클래스가 있는 ui에 적용
      */
     constructor(target) {
+      let topH = 0;
       const el = {
         tabWrap: target,
-        tabPanelList: null,
         tabList: null,
-        dataOptions: null,
-        type: null
+        tabPanelList: null,
+        dataOptions: null
       };
       const selector = {
         tabPanel: ":scope > div[role=tabpanel]",
@@ -710,27 +514,12 @@
          */
         clickTab: (evt) => {
           evt.preventDefault();
-          [...el.tabList].forEach((el2) => {
-            el2.setAttribute("aria-selected", "false");
-            el2.parentElement.classList.remove("is-on");
-          });
-          evt.target.setAttribute("aria-selected", "true");
-          evt.target.parentElement.classList.add("is-on");
-          [...el.tabPanelList].forEach((el2) => {
-            el2.setAttribute("aria-hidden", "true");
-          });
           if (el.type === "anchor") {
-            const contentId = evt.target.getAttribute("href").startsWith("#");
-            const content = document.querySelector("#" + contentId);
-            if (content) {
-              method.scrollTo(content);
-            }
+            method.scrollToContent(evt.target);
           } else {
-            const panelId = evt.target.getAttribute("aria-controls");
-            const panel = document.querySelector("#" + panelId);
-            if (panel) {
-              panel.setAttribute("aria-hidden", "false");
-            }
+            method.activateTab(evt.target);
+            method.centerTab(evt.target);
+            method.activeContent(evt.target);
           }
         },
         /**
@@ -775,10 +564,92 @@
          * @description 스크롤 이동
          */
         scroll: () => {
+          method.centerTab();
+          return requestAnimationFrame(
+            () => checkScroll(
+              [...el.tabPanelList],
+              topH,
+              (idx) => {
+                if (idx !== void 0) {
+                  method.activateTab(el.tabList[idx]);
+                }
+              },
+              {
+                yArr: [...el.tabPanelList].map((panel) => panel.offsetTop),
+                heightArr: [...el.tabPanelList].map(
+                  (panel) => panel.offsetHeight + parseInt(window.getComputedStyle(panel.parentElement).rowGap)
+                )
+              }
+            )
+          );
+        },
+        /**
+         * @callback resize
+         * @memberof Tab
+         * @description 리사이즈
+         */
+        resize: () => {
+          if (!el.tabWrap) return;
+          const { position, top } = window.getComputedStyle(
+            el.tabWrap.parentElement
+          );
+          if (position === "sticky") {
+            const { height } = el.tabWrap.parentElement.getBoundingClientRect();
+            topH = height + parseInt(top);
+          }
         }
       };
       const method = {
-        scrollTo: (target2) => {
+        activateTab: (target2) => {
+          if (!target2) return;
+          [...el.tabList].forEach((el2) => {
+            el2.setAttribute("aria-selected", "false");
+            el2.parentElement.classList.remove("is-on");
+          });
+          target2.setAttribute("aria-selected", "true");
+          target2.parentElement.classList.add("is-on");
+          [...el.tabPanelList].forEach((el2) => {
+            el2.setAttribute("aria-hidden", "true");
+          });
+        },
+        activeContent: (target2) => {
+          const panelId = target2.getAttribute("aria-controls");
+          const panel = document.querySelector("#" + panelId);
+          if (panel) {
+            panel.setAttribute("aria-hidden", "false");
+          }
+        },
+        /**
+         * @callback scrollToContent
+         * @memberof Tab
+         * @description 앵커 탭 클릭 시 해당 패널로 스크롤 이동
+         * @param {Element} target - 스크롤 이동할 패널 요소
+         */
+        scrollToContent: (target2) => {
+          if (!target2) return;
+          const panelId = target2.getAttribute("href");
+          const panel = document.querySelector(panelId);
+          const y = panel.getBoundingClientRect().top + window.pageYOffset - topH;
+          window.scrollTo({
+            top: y + 1,
+            // 1px 추가하여 정확히 패널이 보이도록 조정
+            behavior: "smooth"
+          });
+        },
+        /**
+         * @callback centerTab
+         * @memberof Tab
+         * @description 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
+         */
+        centerTab: (target2) => {
+          const tabBox = el.tabWrap;
+          const tab = target2 ? target2 : tabBox.querySelector("[aria-selected=true]");
+          if (!tab) return;
+          const scrollLeft = tab.offsetLeft - tabBox.clientWidth / 2 + tab.clientWidth / 2;
+          tabBox.scrollTo({
+            left: scrollLeft,
+            behavior: "smooth"
+          });
         }
       };
       const bind = () => {
@@ -788,7 +659,8 @@
             el2.addEventListener("keydown", handler.keyDown);
           });
         }
-        window.addEventListener("resize", utils.throttle(handler.scroll, 100));
+        window.addEventListener("scroll", handler.scroll);
+        window.addEventListener("resize", handler.resize);
       };
       const unbind = () => {
         if (el.tabList) {
@@ -797,12 +669,22 @@
             el2.removeEventListener("keydown", handler.keyDown);
           });
         }
+        window.removeEventListener("scroll", handler.scroll);
+        window.removeEventListener("resize", handler.resize);
       };
       const setProperty = () => {
-        el.tabPanelList = el.tabWrap.querySelectorAll(selector.tabPanel);
+        if (el.tabWrap.dataset && el.tabWrap.dataset.options) {
+          el.dataOptions = JSON.parse(el.tabWrap.dataset.options);
+          el.type = el.dataOptions && el.dataOptions.type;
+        }
         el.tabList = el.tabWrap.querySelectorAll(selector.tabUL);
-        if (el.target.dataset.options) {
-          el.dataOptions = JSON.parse(el.target.dataset.options);
+        if (el.type === "anchor") {
+          const tabContentIds = [...el.tabList].map((tab) => {
+            return tab.getAttribute("href");
+          }).join(",");
+          el.tabPanelList = document.querySelectorAll(tabContentIds);
+        } else {
+          el.tabPanelList = el.tabWrap.querySelectorAll(selector.tabPanel);
         }
       };
       const addRole = () => {
@@ -823,10 +705,42 @@
           a.removeAttribute("role");
         });
       };
+      const checkScroll = (visualDIV, exceptionHeight, callbackFunction, options) => {
+        var defaults = {
+          yArr: void 0,
+          heightArr: void 0
+        };
+        var opts = Object.assign({}, defaults, options);
+        var topHeight = exceptionHeight;
+        var onIdx = void 0;
+        var visualYPos, visualDIVHeight;
+        for (var idx = 0; idx < visualDIV.length; idx += 1) {
+          var item = visualDIV[idx];
+          visualYPos = opts.yArr === void 0 ? item.getBoundingClientRect().top + window.scrollY : opts.yArr[idx];
+          visualDIVHeight = opts.heightArr === void 0 ? item.offsetHeight : opts.heightArr[idx];
+          if (visualDIV[0] && window.scrollY < visualDIV[0].getBoundingClientRect().top + window.scrollY + topHeight) {
+            onIdx = void 0;
+            break;
+          } else if (visualYPos + visualDIVHeight > window.scrollY + topHeight) {
+            onIdx = idx;
+            break;
+          }
+        }
+        const documentHeight = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement.scrollHeight
+        );
+        if (window.scrollY !== 0 && window.scrollY === documentHeight - window.innerHeight) {
+          onIdx = visualDIV.length - 1;
+        }
+        callbackFunction(onIdx);
+      };
       const init = () => {
         addRole();
         setProperty();
         bind();
+        handler.scroll();
+        handler.resize();
       };
       const reInit = () => {
         unbind();
@@ -889,7 +803,7 @@
       console.log("ready");
       dataTextController.init("[data-text]");
       accordionController.init(".accordion");
-      tabController.init(".tab-box-xxx");
+      tabController.init(".js-tab.tab-box");
       if (pbui) {
         if (pbui.tooltip) {
           pbui.tooltip.init(".tooltip-trigger:not([id])");
