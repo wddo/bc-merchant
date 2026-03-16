@@ -34,7 +34,7 @@
   background: var(--gray-20);
   padding: var(--space-48);
 }
-.mytag-intro-guide .guide-item .item-wrap .item .text-area {
+.mytag-intro-guide .guide-item .item-wrap .item > .text-area {
   display: flex;
   flex-direction: column;
   gap: var(--space-20) 0;
@@ -965,7 +965,7 @@
     gap: var(--space-20);
     padding: var(--space-20);
   }
-  .mytag-intro-guide .guide-item .item-wrap .item .text-area {
+  .mytag-intro-guide .guide-item .item-wrap .item > .text-area {
     gap: var(--space-8) 0;
   }
   .mytag-intro-guide .guide-item .item-wrap .item::after {
