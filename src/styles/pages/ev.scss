@@ -1,0 +1,240 @@
+@use "../abstracts" as *;
+
+.title + .contents > *:first-child {
+  @include respond-sm {
+    margin-top: var(--space-40);
+  }
+}
+
+// =========================
+// 이벤트 리스트
+// =========================
+.event {
+  .total-area {
+    margin-top: var(--space-32);
+
+    .total {
+      @include font-token($font-body-1);
+      color: $text-secondary;
+
+      em {
+        @include font-token($font-body-1-semi);
+
+        font-style: normal;
+        color: $text-point-indigo;
+      }
+    }
+  }
+
+  .event-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-40) var(--space-16);
+    list-style: none;
+    margin-top: var(--space-16);
+
+    @include respond-md {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @include respond-sm {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: var(--space-24) 0;
+    }
+  }
+
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+
+    @include respond-sm {
+      gap: var(--space-12);
+    }
+
+    &-thumb {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: var(--radius-16);
+
+      img {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+    }
+
+    &-state {
+      display: inline-flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      z-index: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $bg-black;
+        opacity: 0.48;
+        z-index: -1;
+      }
+    }
+
+    &-txt {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+
+      @include respond-sm {
+        gap: var(--space-4);
+      }
+    }
+
+    &-title {
+      @include font-token($font-body-0-semi);
+
+      color: $text-primary;
+    }
+
+    &-date {
+      @include font-token($font-body-1);
+
+      color: $text-quaternary;
+    }
+  }
+
+  ._btn-wrap {
+    margin-top: var(--space-56);
+
+    @include respond-sm {
+      margin-top: var(--space-40);
+    }
+  }
+}
+
+// =========================
+// 이벤트 상세
+// =========================
+.event-view {
+  [class^="_badge-"] + & {
+    margin-top: var(--space-4);
+  }
+
+  .view-head {
+    padding-bottom: var(--space-32);
+    border-bottom: 1px solid $line-gray-900;
+
+    @include respond-sm {
+      padding-bottom: var(--space-24);
+    }
+
+    .view-title {
+      color: $text-primary;
+      @include ellipsis(1, 0);
+
+      @include respond-sm {
+        @include ellipsis(2, 4em);
+      }
+    }
+
+    .view-date {
+      @include font-token($font-body-2);
+      margin-top: var(--space-4);
+      color: $text-quaternary;
+    }
+  }
+
+  .view-body {
+    @include font-token($font-body-1);
+
+    padding: var(--space-56) 0;
+    color: $text-secondary;
+
+    @include respond-sm {
+      padding: var(--space-40) 0;
+    }
+  }
+
+  .view-link {
+    @include font-token($font-body-1);
+    border-bottom: 1px solid $line-gray-60;
+
+    dl {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid $line-gray-60;
+      gap: 0;
+
+      @include respond-sm {
+        gap: var(--space-12);
+      }
+
+      &.is-disabled {
+        dd {
+          color: $text-disabled;
+        }
+      }
+    }
+
+    dt,
+    dd {
+      margin: var(--space-20);
+
+      @include respond-sm {
+        margin: var(--space-16) 0;
+      }
+    }
+
+    dt {
+      color: $text-secondary;
+      white-space: nowrap;
+    }
+
+    dd {
+      color: $text-tertiary;
+      @include ellipsis(1, 0);
+
+      @include respond-sm {
+        @include ellipsis(2, 3em);
+      }
+    }
+  }
+}
+
+// =========================
+// 내용 없음
+// =========================
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-100) 0;
+  margin-top: var(--space-56);
+  background-color: $bg-white;
+
+  @include respond-sm {
+    margin-top: var(--space-40);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    background: url("#{$img_url}/common/feedback_nodata.svg") no-repeat center /
+      100% auto;
+  }
+}
