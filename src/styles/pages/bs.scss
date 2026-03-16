@@ -48,6 +48,7 @@
       }
       &.full-image {
         .item {
+          padding: 0;
           &::after {
             display: none;
           }
@@ -60,7 +61,6 @@
         border-radius: var(--radius-16);
         background: $bg-gray-20;
         padding: var(--space-48);
-        
         > .text-area {
           display: flex;
           flex-direction: column;
@@ -75,6 +75,9 @@
               color: $text-primary;
             }
           }
+        }
+        .img-area {
+          text-align: center;
         }
         &::after {
           content: '';
@@ -171,7 +174,12 @@
     .guide-item {      
       .item-wrap {
         grid-template-columns: none;
-        gap: var(--space-12);        
+        gap: var(--space-12);     
+        &.full-image {
+          .item {
+            padding: 0 var(--space-20);
+          }
+        }   
         .item {
           gap: var(--space-20) 0;
           padding: var(--space-20);          

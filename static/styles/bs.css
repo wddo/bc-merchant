@@ -42,6 +42,9 @@
 .bs-intro-guide .guide-item .item-wrap.full-image, .bs-intro-guide .guide-item .item-wrap.application, .bs-intro-guide .guide-item .item-wrap.lawandgood {
   grid-template-columns: none;
 }
+.bs-intro-guide .guide-item .item-wrap.full-image .item {
+  padding: 0;
+}
 .bs-intro-guide .guide-item .item-wrap.full-image .item::after {
   display: none;
 }
@@ -76,6 +79,9 @@
 }
 .bs-intro-guide .guide-item .item-wrap .item > .text-area .text strong {
   color: var(--gray-900);
+}
+.bs-intro-guide .guide-item .item-wrap .item .img-area {
+  text-align: center;
 }
 .bs-intro-guide .guide-item .item-wrap .item::after {
   content: "";
@@ -152,6 +158,9 @@
   .bs-intro-guide .guide-item .item-wrap {
     grid-template-columns: none;
     gap: var(--space-12);
+  }
+  .bs-intro-guide .guide-item .item-wrap.full-image .item {
+    padding: 0 var(--space-20);
   }
   .bs-intro-guide .guide-item .item-wrap .item {
     gap: var(--space-20) 0;
