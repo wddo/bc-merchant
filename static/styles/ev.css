@@ -5,7 +5,12 @@
 }
 
 .event .total-area {
-  margin-top: var(--space-32);
+  margin-top: var(--space-56);
+}
+@media (max-width: 767px) {
+  .event .total-area {
+    margin-top: var(--space-40);
+  }
 }
 .event .total-area .total {
   font-size: 16px;
