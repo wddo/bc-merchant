@@ -26,16 +26,18 @@
     .inner {
       display: flex;
       justify-content: space-between;
-    }
-    .title-area {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-8);
-      .text {
-        @include font-token($font-body-0);
-        color: $text-quaternary;
+      > .text-area {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        min-width: 270px;
+        .text {
+          @include font-token($font-body-0);
+          color: $text-quaternary;
+        }
       }
     }
+    
     .item-wrap {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -45,7 +47,6 @@
         grid-template-columns: none;
       }
       &.full-image {
-        
         .item {
           &::after {
             display: none;
@@ -60,7 +61,7 @@
         background: $bg-gray-20;
         padding: var(--space-48);
         
-        .text-area {
+        > .text-area {
           display: flex;
           flex-direction: column;
           gap: var(--space-20) 0;
@@ -141,8 +142,70 @@
 
 // Tablet
 @include respond-md {
+  .bs-intro-guide {
+    padding-bottom: var(--space-40);
+    gap: var(--space-40);
+    .guide-item {
+      .inner {
+        flex-direction: column;
+        gap: var(--space-24);
+      }      
+      .item-wrap {
+        flex-basis: auto;
+        gap: var(--space-12);
+        .item {
+          padding: var(--space-24);          
+          > .text-area {
+            gap: var(--space-8) 0;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 // Mobile
 @include respond-sm {
+  .bs-intro-guide {
+    .guide-item {      
+      .item-wrap {
+        grid-template-columns: none;
+        gap: var(--space-12);        
+        .item {
+          gap: var(--space-20) 0;
+          padding: var(--space-20);          
+          > .text-area {
+            gap: var(--space-8) 0;
+          }
+          &::after {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        &.lawandgood {
+          .item {
+            &::after {
+              width: 120px;
+              height: 120px;
+              background-position: 50% 50%;
+              background-size: auto 100%;
+            }
+          }        
+        }
+        &.application {
+          .item {
+            flex-direction: column;
+            &::after {
+              width: 280px;
+              height: 280px;
+              margin: 0 auto;
+              background-position: 50% 50%;
+              background-size: auto 100%;
+            }
+          }        
+        }
+      }
+    }
+  }
 }
