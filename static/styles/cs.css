@@ -348,12 +348,6 @@
     padding: var(--space-40) 0;
   }
 }
-.notice-view .view-body p + p {
-  margin-top: var(--space-16);
-}
-.notice-view .view-body .is-warning {
-  color: var(--red-800);
-}
 .notice-view .view-link {
   font-size: 16px;
   font-weight: 400;

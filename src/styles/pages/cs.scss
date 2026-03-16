@@ -290,14 +290,6 @@
     @include respond-sm {
       padding: var(--space-40) 0;
     }
-
-    p + p {
-      margin-top: var(--space-16);
-    }
-
-    .is-warning {
-      color: $text-warning;
-    }
   }
 
   .view-link {
