@@ -11,7 +11,11 @@
 // =========================
 .event {
   .total-area {
-    margin-top: var(--space-32);
+    margin-top: var(--space-56);
+
+    @include respond-sm {
+      margin-top: var(--space-40);
+    }
 
     .total {
       @include font-token($font-body-1);
