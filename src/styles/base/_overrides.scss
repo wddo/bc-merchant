@@ -203,6 +203,13 @@ button[class^="_btn"] {
     @include font-token($font-body-2);
     color: $text-tertiary;
   }
-
+  @include respond-sm {
+    dt {
+      @include font-token($font-body-0-semi);
+    }
+    dd {
+      @include font-token($font-body-1);
+    }
+  }
 }
   

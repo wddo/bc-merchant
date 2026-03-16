@@ -184,6 +184,25 @@ button[class^=_btn] {
 .info-hor dd {
   color: var(--gray-600);
 }
+@media (max-width: 767px) {
+  .info-hor dt {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.72px;
+  }
+  .info-hor dd {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .info-hor dd {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
 
 /* .w-full {
   width: 100%;
