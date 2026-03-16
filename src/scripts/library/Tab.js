@@ -1,7 +1,5 @@
 import { mvJs, root } from "@config";
 
-import { utils } from "@utils";
-
 class Tab {
   /**
    * Create a Tab
@@ -10,12 +8,13 @@ class Tab {
    * @description .js-tab 클래스가 있는 ui에 적용
    */
   constructor(target) {
+    let topH = 0;
+
     const el = {
       tabWrap: target,
-      tabPanelList: null,
       tabList: null,
+      tabPanelList: null,
       dataOptions: null,
-      type: null,
     };
 
     const selector = {
@@ -32,32 +31,7 @@ class Tab {
       clickTab: (evt) => {
         evt.preventDefault();
 
-        [...el.tabList].forEach((el) => {
-          el.setAttribute("aria-selected", "false");
-          el.parentElement.classList.remove("is-on");
-        });
-
-        // 활성화 된 role="tab" 항목은 aria-selected="true"로 변경
-        evt.target.setAttribute("aria-selected", "true");
-        evt.target.parentElement.classList.add("is-on");
-        [...el.tabPanelList].forEach((el) => {
-          el.setAttribute("aria-hidden", "true");
-        });
-
-        if (el.type === "anchor") {
-          const contentId = evt.target.getAttribute("href").startsWith("#");
-          const content = document.querySelector("#" + contentId);
-          if (content) {
-            method.scrollTo(content);
-          }
-        } else {
-          // 활성화 된 role="tabpanel"은 aria-hidden="false"로 변경
-          const panelId = evt.target.getAttribute("aria-controls");
-          const panel = document.querySelector("#" + panelId);
-          if (panel) {
-            panel.setAttribute("aria-hidden", "false");
-          }
-        }
+        method.activateTab(evt);
       },
 
       /**
@@ -106,11 +80,117 @@ class Tab {
        * @memberof Tab
        * @description 스크롤 이동
        */
-      scroll: () => {},
+      scroll: () => {
+        return requestAnimationFrame(() =>
+          checkScroll(
+            [...el.tabPanelList],
+            topH,
+            (idx) => {
+              if (idx !== undefined) {
+                method.activateTab(el.tabList[idx]);
+              }
+            },
+            {
+              yArr: [...el.tabPanelList].map((panel) => panel.offsetTop),
+              heightArr: [...el.tabPanelList].map(
+                (panel) =>
+                  panel.offsetHeight +
+                  parseInt(window.getComputedStyle(panel.parentElement).rowGap),
+              ),
+            },
+          ),
+        );
+      },
+
+      /**
+       * @callback resize
+       * @memberof Tab
+       * @description 리사이즈
+       */
+      resize: () => {
+        if (!el.tabWrap) return;
+
+        const { position } = window.getComputedStyle(el.tabWrap.parentElement);
+
+        if (position === "sticky") {
+          const { height, top } =
+            el.tabWrap.parentElement.getBoundingClientRect();
+          topH = height + top;
+        }
+      },
     };
 
     const method = {
-      scrollTo: (target) => {},
+      activateTab: (value) => {
+        const isclickEvent = value.target;
+        target = isclickEvent ? value.target : value;
+
+        if (!target) return;
+
+        [...el.tabList].forEach((el) => {
+          el.setAttribute("aria-selected", "false");
+          el.parentElement.classList.remove("is-on");
+        });
+
+        // 활성화 된 role="tab" 항목은 aria-selected="true"로 변경
+        target.setAttribute("aria-selected", "true");
+        target.parentElement.classList.add("is-on");
+        [...el.tabPanelList].forEach((el) => {
+          el.setAttribute("aria-hidden", "true");
+        });
+
+        if (el.type === "anchor") {
+          // 앵커 탭은 클릭 시 해당 콘텐츠로 스크롤 이동
+          const panelId = target.getAttribute("href");
+          const panel = document.querySelector(panelId);
+          if (panel && isclickEvent) {
+            method.scrollToContent(panel);
+          }
+        } else {
+          // 활성화 된 role="tabpanel"은 aria-hidden="false"로 변경
+          const panelId = target.getAttribute("aria-controls");
+          const panel = document.querySelector("#" + panelId);
+          if (panel) {
+            panel.setAttribute("aria-hidden", "false");
+          }
+        }
+
+        // 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
+        method.centerTab();
+      },
+
+      /**
+       * @callback scrollToContent
+       * @memberof Tab
+       * @description 앵커 탭 클릭 시 해당 패널로 스크롤 이동
+       * @param {Element} target - 스크롤 이동할 패널 요소
+       */
+      scrollToContent: (target) => {
+        const y =
+          target.getBoundingClientRect().top + window.pageYOffset - topH;
+
+        window.scrollTo({
+          top: y + 1, // 1px 추가하여 정확히 패널이 보이도록 조정
+          behavior: "smooth",
+        });
+      },
+
+      /**
+       * @callback centerTab
+       * @memberof Tab
+       * @description 활성화 된 탭이 탭 리스트 영역의 중앙에 오도록 스크롤 이동
+       */
+      centerTab: () => {
+        const tabBox = el.tabWrap;
+        const tab = tabBox.querySelector("[aria-selected=true]");
+        const scrollLeft =
+          tab.offsetLeft - tabBox.clientWidth / 2 + tab.clientWidth / 2;
+
+        tabBox.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+      },
     };
 
     const bind = () => {
@@ -121,7 +201,8 @@ class Tab {
         });
       }
 
-      window.addEventListener("resize", utils.throttle(handler.scroll, 100));
+      window.addEventListener("scroll", handler.scroll);
+      window.addEventListener("resize", handler.resize);
     };
 
     const unbind = () => {
@@ -131,14 +212,29 @@ class Tab {
           el.removeEventListener("keydown", handler.keyDown);
         });
       }
+
+      window.removeEventListener("scroll", handler.scroll);
+      window.removeEventListener("resize", handler.resize);
     };
 
     const setProperty = () => {
-      el.tabPanelList = el.tabWrap.querySelectorAll(selector.tabPanel);
-      el.tabList = el.tabWrap.querySelectorAll(selector.tabUL);
+      if (el.tabWrap.dataset && el.tabWrap.dataset.options) {
+        el.dataOptions = JSON.parse(el.tabWrap.dataset.options);
 
-      if (el.target.dataset.options) {
-        el.dataOptions = JSON.parse(el.target.dataset.options);
+        el.type = el.dataOptions && el.dataOptions.type;
+      }
+
+      el.tabList = el.tabWrap.querySelectorAll(selector.tabUL);
+      if (el.type === "anchor") {
+        const tabContentIds = [...el.tabList]
+          .map((tab) => {
+            return tab.getAttribute("href");
+          })
+          .join(",");
+
+        el.tabPanelList = document.querySelectorAll(tabContentIds);
+      } else {
+        el.tabPanelList = el.tabWrap.querySelectorAll(selector.tabPanel);
       }
     };
 
@@ -166,12 +262,82 @@ class Tab {
       });
     };
 
+    const checkScroll = (
+      visualDIV,
+      exceptionHeight,
+      callbackFunction,
+      options,
+    ) => {
+      const htmlAnimations = document.documentElement.getAnimations();
+      const bodyAnimations = document.body ? document.body.getAnimations() : [];
+      if (htmlAnimations.length === 0 && bodyAnimations.length === 0) {
+        var defaults = {
+          yArr: undefined,
+          heightArr: undefined,
+        };
+
+        var opts = Object.assign({}, defaults, options);
+
+        var topHeight = exceptionHeight;
+        var onIdx = undefined;
+
+        //각각
+        var visualYPos, visualDIVHeight;
+        for (var idx = 0; idx < visualDIV.length; idx += 1) {
+          var item = visualDIV[idx];
+
+          visualYPos =
+            opts.yArr === undefined
+              ? item.getBoundingClientRect().top + window.scrollY
+              : opts.yArr[idx]; //각각의 비주얼 Y 위치
+          visualDIVHeight =
+            opts.heightArr === undefined
+              ? item.offsetHeight
+              : opts.heightArr[idx]; //각각의 비주얼 높이
+
+          if (
+            visualDIV[0] &&
+            window.scrollY <
+              visualDIV[0].getBoundingClientRect().top +
+                window.scrollY +
+                topHeight
+          ) {
+            //최초 visual 보다 작은 경우
+            onIdx = undefined;
+            break;
+          } else if (
+            visualYPos + visualDIVHeight >
+            window.scrollY + topHeight
+          ) {
+            onIdx = idx;
+            break;
+          }
+        }
+
+        //마지막
+        const documentHeight = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          document.documentElement.scrollHeight,
+        );
+        if (
+          window.scrollY !== 0 &&
+          window.scrollY === documentHeight - window.innerHeight
+        ) {
+          onIdx = visualDIV.length - 1;
+        }
+
+        callbackFunction(onIdx);
+      }
+    };
+
     const init = () => {
       addRole();
 
       setProperty();
 
       bind();
+
+      handler.resize();
     };
 
     /**

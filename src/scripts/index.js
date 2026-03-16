@@ -27,7 +27,7 @@ export let device = null;
 
     dataTextController.init("[data-text]"); // 타 라이브러리에서 사용하므로 상단 유지
     accordionController.init(".accordion");
-    tabController.init(".tab-box-xxx");
+    tabController.init(".js-tab.tab-box");
 
     if (pbui) {
       if (pbui.tooltip) {
