@@ -116,6 +116,10 @@
 
   ._btn-wrap {
     margin-top: var(--space-56);
+
+    @include respond-sm {
+      margin-top: var(--space-40);
+    }
   }
 }
 

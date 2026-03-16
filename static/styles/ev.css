@@ -136,6 +136,11 @@
 .event ._btn-wrap {
   margin-top: var(--space-56);
 }
+@media (max-width: 767px) {
+  .event ._btn-wrap {
+    margin-top: var(--space-40);
+  }
+}
 
 [class^=_badge-] + .event-view {
   margin-top: var(--space-4);
