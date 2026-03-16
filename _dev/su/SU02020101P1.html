@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>BC카드 가맹점</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/static/styles/base.css" />
+    <link rel="stylesheet" href="/static/styles/common.css" />
+
+    <link rel="preload" href="/static/styles/su.css" as="style" />
+    <link rel="stylesheet" href="/static/styles/su.css" />
+
+    <script src="/static/scripts/jquery-2.2.3.min.js"></script>
+    <script src="/static/scripts/jquery-ui.min.js"></script>
+    <script src="/static/scripts/common.ui.js"></script>
+  </head>
+  <body>
+    <button type="button" onClick="pbui.popup.open('#tooltip-layer-guide1');">고객 주 이용 업종 팝업</button>
+    <div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide1">
+      <div class="inner">
+        <div class="header">
+          <p class="title">고객 주 이용 업종 세부 정보</p>
+        </div>
+        <div class="content">
+          <div class="info-wrap">
+            <dl class="info-hor">
+              <dt>외식/식음료</dt>
+              <dd>베이커리&떡, 커피&티 , 패스트푸드, 피자, 한식, 일식, 중식, 뷔페 포함</dd>
+            </dl>
+            <dl class="info-hor">
+              <dt>문화/스포츠 여행</dt>
+              <dd>여행, 호텔, 항공, 렌터카, 스포츠, 레저, 골프, 공연, 영화, 도서, 오락, 취미, 테마파크 포함</dd>
+            </dl>
+            <dl class="info-hor">
+              <dt>쇼핑(오프라인)</dt>
+              <dd>백화점, 할인점 편의점, 온라인쇼핑, 소셜, 오픈마켓, 가구 인테리어 전문점, 의류, 잡화, 화장품 전문점 포함</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="btn-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <script src="/guide/dev/js/include.js"></script>
+    <script>
+      pbui.popup.init('#tooltip-layer-guide1', {position: 'top-left', opener: '#pop_tooltip1'})
+    </script>
+  </body>
+</html>

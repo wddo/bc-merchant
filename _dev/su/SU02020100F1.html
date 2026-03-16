@@ -175,9 +175,12 @@
                     <div class="item">
                       <strong class="_font-title-4">
                         고객 주 이용 업종
-                        <span class="tooltip-title">
+                        <div class="tooltip-title">
+                          <button type="button" class="tooltip-trigger" id="pop_tooltip1">안내</button>
+                        </div>
+                        <!-- <span class="tooltip-title">
                           <button type="button" class="tooltip-trigger" data-tooltip-pos="top-center" data-tooltip-cont="툴팁 내용">안내</button>
-                        </span>
+                        </span> -->
                         <p class="desc">최대 <span>1개 이상 선택</span>해주세요</p>
                       </strong>
                       <div class="ipt-inner">
@@ -615,3 +618,33 @@
     <button class="btn-close" type="button">닫기</button>
   </div>
 </div>
+
+<!-- 고객 주 이용 업종 Popup -->
+<div class="_modal-popup medium _type-tooltip" id="tooltip-layer-guide1">
+  <div class="inner">
+    <div class="header">
+      <p class="title">고객 주 이용 업종 세부 정보</p>
+    </div>
+    <div class="content">
+      <div class="info-wrap">
+        <dl class="info-hor">
+          <dt>외식/식음료</dt>
+          <dd>베이커리&떡, 커피&티 , 패스트푸드, 피자, 한식, 일식, 중식, 뷔페 포함</dd>
+        </dl>
+        <dl class="info-hor">
+          <dt>문화/스포츠 여행</dt>
+          <dd>여행, 호텔, 항공, 렌터카, 스포츠, 레저, 골프, 공연, 영화, 도서, 오락, 취미, 테마파크 포함</dd>
+        </dl>
+        <dl class="info-hor">
+          <dt>쇼핑(오프라인)</dt>
+          <dd>백화점, 할인점 편의점, 온라인쇼핑, 소셜, 오픈마켓, 가구 인테리어 전문점, 의류, 잡화, 화장품 전문점 포함</dd>
+        </dl>
+      </div>
+    </div>
+    <button class="btn-close" type="button">닫기</button>
+  </div>
+</div>
+
+<script>
+  pbui.popup.init('#tooltip-layer-guide1', {position: 'top-center', opener: '#pop_tooltip1'})
+</script>

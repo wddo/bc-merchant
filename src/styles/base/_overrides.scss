@@ -184,3 +184,32 @@ button[class^="_btn"] {
     }
   }
 }
+
+// Tooltip / layer 컨텐츠 수평 case
+.info-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.info-hor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  dt {
+    @include font-token($font-body-1-semi);
+    color: $text-tertiary;
+  }
+  dd {
+    @include font-token($font-body-2);
+    color: $text-tertiary;
+  }
+  @include respond-sm {
+    dt {
+      @include font-token($font-body-0-semi);
+    }
+    dd {
+      @include font-token($font-body-1);
+    }
+  }
+}
+  

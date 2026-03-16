@@ -233,3 +233,52 @@ a[class*="ico-"] {
     margin-top: 20px;
   }
 }
+
+// 약관 가이드
+[class^="_modal"][class*="-popup"] {
+  .popup-content {
+    .list#title {
+      @include font-token($font-body-0-semi);
+      color: $text-secondary;
+      margin-bottom: var(--space-12);
+    }
+  }
+  .agreementBox {
+    .inner {
+      width: auto;
+      min-width: auto;
+      max-width: none;
+      padding: 0;
+      #terms_box {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-12);
+        .top {
+          @include font-token($font-body-1);
+          color: $text-tertiary;
+        }
+        dl {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-6);
+          dt {
+            @include font-token($font-body-1-semi);
+            color: $text-tertiary;
+          }
+          dd {
+            @include font-token($font-body-1);
+            color: $text-tertiary;
+            ul {
+              display: flex;
+              flex-direction: column;
+              gap: var(--space-4);
+            }
+          }
+          .dep2 {
+            margin: var(--space-6) 0 var(--space-6) var(--space-16);
+          }
+        }
+      }
+    }
+  }
+}

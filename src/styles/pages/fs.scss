@@ -267,10 +267,6 @@
 .full-bg {
   background-color: $bg-gray-40;
   max-width: none !important;
-  // margin-bottom: -50px !important; //page 의 padding-bottom 숫자
-  // .feedback-wrap {
-  //   padding: 148px 0 200px; //디자인 상 숫자
-  // }
   .contents {
     max-width: $page-max-width;
     margin: var(--space-48) auto var(--space-100);
@@ -567,7 +563,6 @@
   gap: var(--space-8); 
   margin: 0 auto;
   max-width: $page-max-width;
-  // border-bottom: 1px solid var(--black);
   > .title {
     @include font-token($font-body-0-medi);
     color: $text-primary;
@@ -612,8 +607,6 @@
     }
     .middle-area {
       .data-wrap {
-        // display: grid;
-        // grid-template-columns: repeat(2, 1fr);
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
