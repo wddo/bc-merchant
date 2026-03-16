@@ -1,5 +1,11 @@
 @use "../abstracts" as *;
 
+.title + .contents > *:first-child {
+  @include respond-sm {
+    margin-top: var(--space-40);
+  }
+}
+
 // =========================
 // 라인형 검색 박스
 // =========================
@@ -326,9 +332,13 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-12);
-  padding: var(--space-100) 0;
+  padding: calc(var(--space-56) + var(--space-100)) 0 var(--space-100);
   background-color: $bg-white;
   border-top: 1px solid $line-gray-900;
+
+  @include respond-sm {
+    padding: calc(var(--space-40) + var(--space-100)) 0 var(--space-100);
+  }
 
   &::before {
     content: "";

@@ -1,3 +1,9 @@
+@media (max-width: 767px) {
+  .title + .contents > *:first-child {
+    margin-top: var(--space-40);
+  }
+}
+
 .search-box.underline {
   width: 100%;
   max-width: 1200px;
@@ -352,9 +358,14 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-12);
-  padding: var(--space-100) 0;
+  padding: calc(var(--space-56) + var(--space-100)) 0 var(--space-100);
   background-color: var(--white);
   border-top: 1px solid var(--gray-900);
+}
+@media (max-width: 767px) {
+  .no-data {
+    padding: calc(var(--space-40) + var(--space-100)) 0 var(--space-100);
+  }
 }
 .no-data::before {
   content: "";
