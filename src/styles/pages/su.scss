@@ -16,7 +16,7 @@
   }
 }
 
-.mytag-guide {
+.mytag-intro-guide {
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -727,7 +727,7 @@
 
 // Tablet
 @include respond-md {
-  .mytag-guide {
+  .mytag-intro-guide {
     gap: var(--space-40);
     padding-bottom: var(--space-40);
     .guide-item {
