@@ -142,6 +142,10 @@
     .view-title {
       color: $text-primary;
       @include ellipsis(1, 0);
+
+      @include respond-sm {
+        @include ellipsis(2, 4em);
+      }
     }
 
     .view-date {
@@ -185,10 +189,10 @@
 
     dt,
     dd {
-      padding: var(--space-20);
+      margin: var(--space-20);
 
       @include respond-sm {
-        padding: var(--space-16) 0;
+        margin: var(--space-16) 0;
       }
     }
 
@@ -200,6 +204,10 @@
     dd {
       color: $text-tertiary;
       @include ellipsis(1, 0);
+
+      @include respond-sm {
+        @include ellipsis(2, 3em);
+      }
     }
   }
 }

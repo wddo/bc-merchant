@@ -300,6 +300,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media (max-width: 767px) {
+  .notice-view .view-head .view-title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 4em;
+    white-space: normal;
+  }
+}
 .notice-view .view-head .view-date {
   font-size: 14px;
   font-weight: 400;
@@ -374,12 +385,12 @@
 }
 .notice-view .view-link dt,
 .notice-view .view-link dd {
-  padding: var(--space-20);
+  margin: var(--space-20);
 }
 @media (max-width: 767px) {
   .notice-view .view-link dt,
   .notice-view .view-link dd {
-    padding: var(--space-16) 0;
+    margin: var(--space-16) 0;
   }
 }
 .notice-view .view-link dt {
@@ -392,6 +403,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .notice-view .view-link dd {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 3em;
+    white-space: normal;
+  }
 }
 
 .form-room {

@@ -161,6 +161,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media (max-width: 767px) {
+  .event-view .view-head .view-title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 4em;
+    white-space: normal;
+  }
+}
 .event-view .view-head .view-date {
   font-size: 14px;
   font-weight: 400;
@@ -229,12 +240,12 @@
 }
 .event-view .view-link dt,
 .event-view .view-link dd {
-  padding: var(--space-20);
+  margin: var(--space-20);
 }
 @media (max-width: 767px) {
   .event-view .view-link dt,
   .event-view .view-link dd {
-    padding: var(--space-16) 0;
+    margin: var(--space-16) 0;
   }
 }
 .event-view .view-link dt {
@@ -247,6 +258,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .event-view .view-link dd {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 3em;
+    white-space: normal;
+  }
 }
 
 .no-data {
