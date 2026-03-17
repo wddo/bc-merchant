@@ -7,14 +7,16 @@ const Header = (function () {
     header: null,
     nav: null,
     opener: null,
-    items: null,
+    allItems: null,
   };
 
   const selectors = {
     header: ".header",
-    nav: ".header-nav",
+    topnav: ".header-top-nav",
+    allnav: ".header-all-nav",
     opener: "#menu-toggle",
-    items: ".depth1-list > li",
+    topItems: ".header-top-nav .depth1-list > li",
+    allItems: ".header-all-nav .depth1-list > li",
   };
 
   const handler = {
@@ -24,25 +26,29 @@ const Header = (function () {
       method.setListHeight();
 
       if (activateIndex === null) {
-        const activeItem = el.items.item(activateIndex);
-        activateIndex = Array.from(el.items).indexOf(activeItem);
+        const activeItem = el.allItems.item(activateIndex);
+        activateIndex = Array.from(el.allItems).indexOf(activeItem);
       }
-      el.items.forEach((item, idx) => {
+      el.allItems.forEach((item, idx) => {
         if (item !== depth1) {
           item.classList.remove("active");
         }
       });
     },
     mouseleave: () => {
-      const activeItem = el.items.item(activateIndex);
+      const activeItem = el.allItems.item(activateIndex);
 
       if (activeItem) activeItem.classList.add("active");
       activateIndex = null;
     },
     clickDepth2: (e) => {
       const depth2 = e.currentTarget;
+      const depth3 = depth2.parentElement.querySelector(".depth3-list");
 
-      depth2.parentElement.classList.toggle("active");
+      if (depth3) {
+        e.preventDefault();
+        depth2.parentElement.classList.toggle("active");
+      }
     },
     clickDepth3: (e) => {
       const depth3 = e.currentTarget;
@@ -56,14 +62,14 @@ const Header = (function () {
     clickOpener: () => {
       el.header.classList.toggle("opened");
 
-      if (el.nav) {
+      if (el.allnav) {
         const opened = el.header.classList.contains("opened");
 
         requestAnimationFrame(() => {
           if (opened) {
-            el.nav.style.setProperty("transform", "translateX(0)");
+            el.allnav.style.setProperty("transform", "translateX(0)");
           } else {
-            el.nav.style.setProperty("transform", "translateX(100%)");
+            el.allnav.style.setProperty("transform", "translateX(100%)");
           }
         });
       }
@@ -86,9 +92,15 @@ const Header = (function () {
   };
 
   const bind = () => {
-    el.items.forEach((item) => {
+    el.topItems.forEach((item) => {
       if (device === "desktop") {
         item.addEventListener("mouseenter", handler.mouseenter);
+      }
+    });
+
+    el.allItems.forEach((item) => {
+      if (device === "desktop") {
+        // item.addEventListener("mouseenter", handler.mouseenter);
       } else {
         item.querySelectorAll("a.depth2").forEach((depth2) => {
           depth2.addEventListener("click", handler.clickDepth2);
@@ -115,8 +127,12 @@ const Header = (function () {
   };
 
   const unbind = () => {
-    el.items.forEach((item) => {
+    el.topItems.forEach((item) => {
       item.removeEventListener("mouseenter", handler.mouseenter);
+    });
+
+    el.allItems.forEach((item) => {
+      // item.removeEventListener("mouseenter", handler.mouseenter);
       item.querySelectorAll("a.depth2").forEach((depth2) => {
         depth2.removeEventListener("click", handler.clickDepth2);
 
@@ -135,7 +151,7 @@ const Header = (function () {
     el.opener.removeEventListener("click", handler.clickOpener);
 
     el.header.classList.remove("opened");
-    el.nav.style.setProperty("transform", "");
+    el.allnav.style.setProperty("transform", "");
   };
 
   function breakpointChecker() {
@@ -151,8 +167,35 @@ const Header = (function () {
   const setProperty = () => {
     el.header = document.querySelector(selectors.header);
     el.opener = el.header ? el.header.querySelector(selectors.opener) : null;
-    el.nav = el.header ? el.header.querySelector(selectors.nav) : null;
-    el.items = el.header ? el.header.querySelectorAll(selectors.items) : null;
+    el.topnav = el.header ? el.header.querySelector(selectors.topnav) : null;
+    el.allnav = el.header ? el.header.querySelector(selectors.allnav) : null;
+
+    el.topItems = el.header
+      ? el.header.querySelectorAll(selectors.topItems)
+      : null;
+
+    el.allItems = el.header
+      ? el.header.querySelectorAll(selectors.allItems)
+      : null;
+
+    cloneAllItemsToTopNav(); // 개발용 xxx (제거 예정)
+  };
+
+  const cloneAllItemsToTopNav = () => {
+    if (el.topnav && el.allnav) {
+      if (el.topnav.children.length) el.topnav.children.item(0).remove(); // 기존에 있는 샘플 메뉴 제거
+
+      const ul = document.createElement("ul");
+
+      ul.classList.add("depth1-list");
+      el.topnav.appendChild(ul);
+
+      const allItems = el.allnav.querySelectorAll(selectors.allItems);
+      allItems.forEach((item, idx) => {
+        if (idx === 4 || idx === 5) return; // 4, 5 번째는 제외
+        ul.appendChild(item.cloneNode(true));
+      });
+    }
   };
 
   const init = () => {

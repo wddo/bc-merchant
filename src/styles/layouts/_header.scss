@@ -103,7 +103,7 @@
       }
     }
 
-    .header-nav {
+    .header-top-nav {
       flex: 1;
       min-width: 0;
       height: 71px;
@@ -243,6 +243,10 @@
         }
       }
     }
+
+    .header-all-nav {
+      display: none;
+    }
   }
 }
 
@@ -250,6 +254,8 @@
 @include respond-md {
   .header {
     .header-inner {
+      padding-left: 0;
+      padding-right: 0;
       min-width: $page-min-width;
 
       &::after {
@@ -276,7 +282,11 @@
         flex-shrink: 0;
       }
 
-      .header-nav {
+      .header-top-nav {
+        display: none;
+      }
+
+      .header-all-nav {
         display: none;
         height: auto;
         position: absolute;
@@ -299,6 +309,7 @@
         }
 
         .depth1-list {
+          display: flex;
           flex-direction: column;
           gap: 33px;
           padding-bottom: 0;
@@ -326,14 +337,22 @@
           }
 
           .depth1 {
-            padding: 13px $page-side-sm;
-            min-height: 59px;
-            font-size: 18px;
+            display: flex;
+            position: relative;
+            padding: var(--space-16) $page-side-sm;
             justify-content: flex-start;
+            align-items: center;
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 18px;
+            letter-spacing: -0.72px;
+            color: var(--text-primary);
           }
 
           .depth2-list {
-            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
           }
 
           .depth2-list > li {
@@ -347,18 +366,22 @@
             */
 
             .depth2 {
+              display: inline-block;
               position: relative;
               width: 100%;
-              padding: 16px $page-side-sm;
+              padding: var(--space-16) $page-side-sm;
               font-size: 16px;
-              font-weight: 700;
+              font-weight: 600;
               text-align: left;
+              line-height: 1.5;
+              letter-spacing: -0.64px;
+              color: var(--text-primary);
 
               &:hover::after,
               &::after {
                 content: "";
                 position: absolute;
-                right: 20px;
+                right: $page-side-sm;
                 top: 50%;
                 height: auto;
                 margin-top: 0;
@@ -386,33 +409,34 @@
             .depth3 {
               display: inline-block;
               width: 100%;
-              padding: 12px 6px;
+              padding: var(--space-12) var(--space-6);
               font-size: 16px;
               text-align: left;
               color: var(--gray-500);
             }
           }
 
-          .depth3-list > li {
+          /* .depth3-list > li {
             &.active .depth4-list {
               display: flex;
             }
-          }
+          } */
 
           .depth4-list {
-            display: none;
+            // display: none;
+            display: flex; /* 기본 활성화로 */
             flex-direction: column;
-            padding: 14px 20px;
+            padding: calc(var(--space-20) - var(--space-6)) var(--space-20);
             background-color: var(--gray-20);
             border-radius: var(--radius-16);
 
             .depth4 {
               display: inline-block;
               width: 100%;
-              padding: 6px 0;
+              padding: var(--space-6) 0;
               font-size: 16px;
               text-align: left;
-              color: var(--gray-500);
+              color: $text-tertiary;
             }
           }
         }
