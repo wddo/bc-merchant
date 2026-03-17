@@ -39,7 +39,8 @@
 .fs-intro-guide {
   display: flex;
   flex-direction: column;
-  gap: var(--space-100);
+  gap: var(--space-56);
+  padding-bottom: var(--space-56);
   .guide-item {
     width: 100%;
     .text-area {
@@ -215,9 +216,6 @@
         }
       }      
     }
-  }
-  + ._btn-wrap {
-    margin-top: var(--space-56);
   }
 }
 
@@ -806,6 +804,7 @@
 
   .fs-intro-guide {
     gap: var(--space-40);
+    padding-bottom: var(--space-40);
     .guide-item {
       .inner {
         flex-direction: column;
@@ -906,9 +905,6 @@
         }
       }
     }
-    + ._btn-wrap {
-      margin-top: var(--space-40);
-    }  
   }
 
   .popup-content {

@@ -57,7 +57,8 @@
 .fs-intro-guide {
   display: flex;
   flex-direction: column;
-  gap: var(--space-100);
+  gap: var(--space-56);
+  padding-bottom: var(--space-56);
 }
 .fs-intro-guide .guide-item {
   width: 100%;
@@ -256,9 +257,6 @@
 }
 .fs-intro-guide .guide-item .text-noti dl dd {
   color: var(--gray-700);
-}
-.fs-intro-guide + ._btn-wrap {
-  margin-top: var(--space-56);
 }
 
 .popup-content .text-item {
@@ -981,6 +979,7 @@
   }
   .fs-intro-guide {
     gap: var(--space-40);
+    padding-bottom: var(--space-40);
   }
   .fs-intro-guide .guide-item .inner {
     flex-direction: column;
@@ -1065,9 +1064,6 @@
   }
 }
 @media (max-width: 767px) {
-  .fs-intro-guide + ._btn-wrap {
-    margin-top: var(--space-40);
-  }
   .popup-content .qr-img {
     margin-bottom: var(--space-8);
   }
