@@ -134,6 +134,167 @@
   background-image: url(/static/images/bs/img_application03.png);
 }
 
+.full-bg {
+  background-color: var(--gray-40);
+  max-width: none !important;
+}
+.full-bg .contents {
+  max-width: 1200px;
+  margin: var(--space-48) auto var(--space-100);
+}
+
+.cardlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-40) var(--space-16);
+}
+.cardlist > .item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  background-color: var(--white);
+  border-radius: var(--space-24);
+  padding: var(--space-24);
+}
+.cardlist > .item .top {
+  display: flex;
+  justify-content: space-between;
+}
+.cardlist > .item .top > .title > strong {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .cardlist > .item .top > .title > strong {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.cardlist > .item .top > .title > strong {
+  color: var(--gray-500);
+}
+.cardlist > .item .top > .title > strong::before {
+  content: "";
+  display: block;
+  width: var(--space-40);
+  height: var(--space-40);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% auto;
+}
+.cardlist > .item .top > .title > strong.bc::before {
+  background-image: url(/static/images/bs/ico_bank_logo_bc.png);
+}
+.cardlist > .item .top > .title > strong.hana::before {
+  background-image: url(/static/images/bs/ico_bank_logo_hana.png);
+}
+.cardlist > .item .top > .title > strong.ibk::before {
+  background-image: url(/static/images/bs/ico_bank_logo_ibk.png);
+}
+.cardlist > .item .top > .title > strong.nh::before {
+  background-image: url(/static/images/bs/ico_bank_logo_nh.png);
+}
+.cardlist > .item .top > .title > strong.bnk::before {
+  background-image: url(/static/images/bs/ico_bank_logo_bnk.png);
+}
+.cardlist > .item .top > .title > strong.sh::before {
+  background-image: url(/static/images/bs/ico_bank_logo_sh.png);
+}
+.cardlist > .item .top > .brand {
+  display: flex;
+  gap: var(--space-4);
+}
+.cardlist > .item .top > .brand > span {
+  display: inline-block;
+  position: relative;
+  font-size: 1px;
+  width: 28px;
+  height: 28px;
+}
+.cardlist > .item .top > .brand > span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% auto;
+  background-color: var(--white);
+  z-index: 1;
+}
+.cardlist > .item .top > .brand > span.bc::before {
+  background-image: url(/static/images/bs/ico_brand_logo_bc.png);
+}
+.cardlist > .item .top > .brand > span.master::before {
+  background-image: url(/static/images/bs/ico_brand_logo_master.png);
+}
+.cardlist > .item .top > .brand > span.union::before {
+  background-image: url(/static/images/bs/ico_brand_logo_union.png);
+}
+.cardlist > .item .top > .brand > span.visa::before {
+  background-image: url(/static/images/bs/ico_brand_logo_visa.png);
+}
+.cardlist > .item .img-area {
+  text-align: center;
+}
+.cardlist > .item .middle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+.cardlist > .item .middle > .text-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+.cardlist > .item .middle > .text-area .text {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+}
+@media screen and (max-width: 767px) {
+  .cardlist > .item .middle > .text-area .text {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+.cardlist > .item .middle > .text-area .text {
+  color: var(--gray-600);
+}
+.cardlist > .item .middle > .badge-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+.cardlist > .item .middle > .badge-area [class^=_badge-small] {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .cardlist > .item .middle > .badge-area [class^=_badge-small] {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
+}
+.cardlist > .item .btn-wrap {
+  margin-top: auto;
+  padding-top: var(--space-8);
+}
+.cardlist > .item .btn-wrap ._btn-small-quaternery {
+  pointer-events: none;
+}
+
 @media (max-width: 1023px) {
   .bs-intro-guide {
     padding-bottom: var(--space-40);
@@ -152,6 +313,12 @@
   }
   .bs-intro-guide .guide-item .item-wrap .item > .text-area {
     gap: var(--space-8) 0;
+  }
+  .cardlist {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cardlist > .item .btn-wrap ._btn-small-quaternery {
+    pointer-events: auto;
   }
 }
 @media (max-width: 767px) {
@@ -188,5 +355,22 @@
     margin: 0 auto;
     background-position: 50% 50%;
     background-size: auto 100%;
+  }
+  .full-bg .contents {
+    margin: var(--space-24) auto var(--space-64);
+  }
+  .cardlist {
+    grid-template-columns: none;
+    gap: var(--space-16);
+  }
+  .cardlist > .item {
+    gap: var(--space-16);
+    padding: var(--space-20);
+  }
+  .cardlist > .item .btn-wrap {
+    padding-top: var(--space-16);
+  }
+  .cardlist > .item .btn-wrap ._btn-small-quaternery {
+    pointer-events: all;
   }
 }
