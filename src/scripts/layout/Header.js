@@ -23,8 +23,6 @@ const Header = (function () {
     mouseenter: (e) => {
       const depth1 = e.currentTarget;
 
-      method.setListHeight();
-
       if (activateIndex === null) {
         const activeItem = el.allItems.item(activateIndex);
         activateIndex = Array.from(el.allItems).indexOf(activeItem);
@@ -77,17 +75,45 @@ const Header = (function () {
   };
 
   const method = {
-    setListHeight: () => {
+    setVariable: () => {
       if (!el.header) return;
 
-      const listWrapper = el.header.querySelector(".depth1-list");
+      // hover height
+      const listWrapper = el.topnav.querySelector(".depth1-list");
+      const depth2List = el.topnav.querySelectorAll(".depth2-list");
+
+      depth2List.forEach((list) => {
+        list.style.setProperty("display", "block");
+      });
 
       if (listWrapper) {
+        el.header.removeAttribute("style");
+
         el.header.setAttribute(
           "style",
           `--header-nav-height: ${listWrapper.scrollHeight}px`,
         );
       }
+
+      // menu width
+      let maxWidth = 0;
+
+      el.topItems.forEach((item) => {
+        const listWidth = item.scrollWidth;
+        if (listWidth > maxWidth) {
+          maxWidth = listWidth;
+        }
+      });
+
+      el.topnav.setAttribute(
+        "style",
+        `--header-nav-on-width: ${(maxWidth + 16 * 2) * el.topItems.length}px;
+        --header-nav-off-width: ${maxWidth * el.topItems.length}px`,
+      );
+
+      depth2List.forEach((list) => {
+        list.style.setProperty("display", "");
+      });
     },
   };
 
@@ -152,6 +178,8 @@ const Header = (function () {
 
     el.header.classList.remove("opened");
     el.allnav.style.setProperty("transform", "");
+    el.topnav.removeAttribute("style");
+    el.header.removeAttribute("style");
   };
 
   function breakpointChecker() {
@@ -170,6 +198,8 @@ const Header = (function () {
     el.topnav = el.header ? el.header.querySelector(selectors.topnav) : null;
     el.allnav = el.header ? el.header.querySelector(selectors.allnav) : null;
 
+    cloneAllItemsToTopNav(); // 개발용 xxx (제거 예정)
+
     el.topItems = el.header
       ? el.header.querySelectorAll(selectors.topItems)
       : null;
@@ -177,8 +207,6 @@ const Header = (function () {
     el.allItems = el.header
       ? el.header.querySelectorAll(selectors.allItems)
       : null;
-
-    cloneAllItemsToTopNav(); // 개발용 xxx (제거 예정)
   };
 
   const cloneAllItemsToTopNav = () => {
@@ -192,7 +220,7 @@ const Header = (function () {
 
       const allItems = el.allnav.querySelectorAll(selectors.allItems);
       allItems.forEach((item, idx) => {
-        if (idx === 4 || idx === 5) return; // 4, 5 번째는 제외
+        if (idx === 4 || idx === 5 || idx === 6) return; // 4, 5, 6 번째는 제외
         ul.appendChild(item.cloneNode(true));
       });
     }
@@ -201,14 +229,13 @@ const Header = (function () {
   const init = () => {
     setProperty();
     bind();
-
-    method.setListHeight();
+    method.setVariable();
   };
 
   const reInit = () => {
     unbind();
     setProperty();
-    method.setListHeight();
+    method.setVariable();
     bind();
   };
 

@@ -19,7 +19,6 @@
     const handler = {
       mouseenter: (e) => {
         const depth1 = e.currentTarget;
-        method.setListHeight();
         if (activateIndex === null) {
           const activeItem = el.allItems.item(activateIndex);
           activateIndex = Array.from(el.allItems).indexOf(activeItem);
@@ -66,15 +65,35 @@
       }
     };
     const method = {
-      setListHeight: () => {
+      setVariable: () => {
         if (!el.header) return;
-        const listWrapper = el.header.querySelector(".depth1-list");
+        const listWrapper = el.topnav.querySelector(".depth1-list");
+        const depth2List = el.topnav.querySelectorAll(".depth2-list");
+        depth2List.forEach((list) => {
+          list.style.setProperty("display", "block");
+        });
         if (listWrapper) {
+          el.header.removeAttribute("style");
           el.header.setAttribute(
             "style",
             `--header-nav-height: ${listWrapper.scrollHeight}px`
           );
         }
+        let maxWidth = 0;
+        el.topItems.forEach((item) => {
+          const listWidth = item.scrollWidth;
+          if (listWidth > maxWidth) {
+            maxWidth = listWidth;
+          }
+        });
+        el.topnav.setAttribute(
+          "style",
+          `--header-nav-on-width: ${(maxWidth + 16 * 2) * el.topItems.length}px;
+        --header-nav-off-width: ${maxWidth * el.topItems.length}px`
+        );
+        depth2List.forEach((list) => {
+          list.style.setProperty("display", "");
+        });
       }
     };
     const bind = () => {
@@ -116,6 +135,8 @@
       el.opener.removeEventListener("click", handler.clickOpener);
       el.header.classList.remove("opened");
       el.allnav.style.setProperty("transform", "");
+      el.topnav.removeAttribute("style");
+      el.header.removeAttribute("style");
     };
     function breakpointChecker() {
       reInit();
@@ -128,9 +149,9 @@
       el.opener = el.header ? el.header.querySelector(selectors.opener) : null;
       el.topnav = el.header ? el.header.querySelector(selectors.topnav) : null;
       el.allnav = el.header ? el.header.querySelector(selectors.allnav) : null;
+      cloneAllItemsToTopNav();
       el.topItems = el.header ? el.header.querySelectorAll(selectors.topItems) : null;
       el.allItems = el.header ? el.header.querySelectorAll(selectors.allItems) : null;
-      cloneAllItemsToTopNav();
     };
     const cloneAllItemsToTopNav = () => {
       if (el.topnav && el.allnav) {
@@ -140,7 +161,7 @@
         el.topnav.appendChild(ul);
         const allItems = el.allnav.querySelectorAll(selectors.allItems);
         allItems.forEach((item, idx) => {
-          if (idx === 4 || idx === 5) return;
+          if (idx === 4 || idx === 5 || idx === 6) return;
           ul.appendChild(item.cloneNode(true));
         });
       }
@@ -148,12 +169,12 @@
     const init = () => {
       setProperty();
       bind();
-      method.setListHeight();
+      method.setVariable();
     };
     const reInit = () => {
       unbind();
       setProperty();
-      method.setListHeight();
+      method.setVariable();
       bind();
     };
     return {

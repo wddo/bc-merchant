@@ -66,21 +66,19 @@
 
     .header-gnb {
       display: flex;
-      align-items: flex-start;
-      gap: 24px;
-      padding: 0;
+      justify-content: space-between;
     }
 
     .header-logo {
       display: flex;
       align-items: center;
       height: 71px;
-      gap: 8px;
+      gap: var(--space-8);
 
       a {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: var(--space-8);
       }
 
       &-text {
@@ -104,31 +102,29 @@
     }
 
     .header-top-nav {
-      flex: 1;
-      min-width: 0;
-      height: 71px;
-      transform: none;
+      flex-grow: 0;
+      width: var(--header-nav-off-width, auto);
+      height: 71px; // 상단 메뉴 닫힘 높이
+      transition: all $trans-time-short ease;
 
       &:focus-within {
         transition: none;
-        height: var(--header-nav-height, auto);
       }
 
+      &:focus-within,
       &:hover {
-        transition: height 0.3s ease;
         height: var(--header-nav-height, auto);
+        width: var(--header-nav-on-width, auto);
       }
 
       .depth1-list {
         display: flex;
-        gap: var(--space-8);
         padding-bottom: var(--space-32);
+        white-space: nowrap;
       }
 
       .depth1-list > li {
         flex: 1;
-        min-width: 0;
-        width: auto;
         text-align: center;
 
         &:hover,
@@ -152,13 +148,12 @@
           align-items: center;
           justify-content: center;
           min-height: 71px;
-          padding: 16px 0 10px;
+          padding: 0 var(--space-24);
           font-size: 16px;
           font-weight: 700;
-          line-height: 1.5;
           letter-spacing: -0.8px;
           color: $text-primary;
-          white-space: normal;
+          white-space: nowrap;
           word-break: keep-all;
         }
 
@@ -167,6 +162,7 @@
           flex-direction: column;
           padding-top: var(--space-20);
           gap: 0;
+          width: 100%;
 
           .depth2 {
             @include font-token($font-body-2);
@@ -278,6 +274,7 @@
         height: auto;
         margin: 0 auto 0 0;
         flex-shrink: 0;
+        white-space: nowrap;
       }
 
       .header-top-nav {
