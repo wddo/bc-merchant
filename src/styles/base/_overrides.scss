@@ -220,7 +220,7 @@ button[class^="_btn"] {
   bottom: 32px;
   z-index: 10;
   padding-top: var(--space-32);
-  max-width: none;
+  max-width: none !important;
   &::before, &::after {
     content: '';
     display: block;
