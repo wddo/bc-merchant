@@ -133,6 +133,9 @@
 .bs-intro-guide .guide-item .item-wrap.application .item:nth-child(3)::after {
   background-image: url(/static/images/bs/img_application03.png);
 }
+.bs-intro-guide .guide-item:first-child .item-wrap.full-image .item {
+  padding-top: var(--space-56);
+}
 
 .full-bg {
   background-color: var(--gray-40);
@@ -140,7 +143,7 @@
 }
 .full-bg .contents {
   max-width: 1200px;
-  margin: var(--space-48) auto var(--space-100);
+  margin: var(--space-56) auto var(--space-100);
 }
 
 .cardlist {
@@ -355,6 +358,9 @@
     margin: 0 auto;
     background-position: 50% 50%;
     background-size: auto 100%;
+  }
+  .bs-intro-guide .guide-item:first-child .item-wrap.full-image .item {
+    padding-top: var(--space-32);
   }
   .full-bg .contents {
     margin: var(--space-24) auto var(--space-64);

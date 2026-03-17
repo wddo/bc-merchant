@@ -140,6 +140,16 @@
       }
 
     }
+
+    &:first-child {
+      .item-wrap {
+        &.full-image {
+          .item {
+            padding-top: var(--space-56);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -148,7 +158,7 @@
   max-width: none !important;
   .contents {
     max-width: $page-max-width;
-    margin: var(--space-48) auto var(--space-100);
+    margin: var(--space-56) auto var(--space-100);
   }
 }
 
@@ -376,6 +386,15 @@
               background-size: auto 100%;
             }
           }        
+        }
+      }
+      &:first-child {
+        .item-wrap {
+          &.full-image {
+            .item {
+              padding-top: var(--space-32);
+            }
+          }
         }
       }
     }
