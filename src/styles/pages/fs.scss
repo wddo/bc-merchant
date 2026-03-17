@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-56);
-  padding-bottom: var(--space-56);
+  padding-bottom: var(--space-24);
   .guide-item {
     width: 100%;
     .text-area {
@@ -804,7 +804,6 @@
 
   .fs-intro-guide {
     gap: var(--space-40);
-    padding-bottom: var(--space-40);
     .guide-item {
       .inner {
         flex-direction: column;

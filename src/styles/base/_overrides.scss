@@ -219,5 +219,41 @@ button[class^="_btn"] {
   left: 0;
   bottom: 32px;
   z-index: 10;
+  padding-top: var(--space-32);
+  max-width: none;
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  &::before {
+    top: 0;
+    width: 100%;
+    height: 32px;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, var(--White, #FFF) 100%);
+  }
+  &::after {
+    bottom: -32px;
+    height: 88px;
+    z-index: -1;
+    background-color: $bg-white;
+  }
+}
+
+@include respond-sm {
+  .floating-btn {
+    bottom: 0;
+    padding-top: var(--space-24);
+    &::before {
+      height: 24px;
+    }
+    &::after {
+      bottom: 0;
+      height: 56px;
+    }
+  }
 }
   

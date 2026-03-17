@@ -69,8 +69,9 @@
             color: var(--gray-700);
           }
           .text {
-            color: $text-tertiary;
             @include font-token($font-body-1-medi);
+            color: $text-tertiary;
+            word-break: keep-all;
             strong {
               color: $text-primary;
             }
@@ -120,9 +121,11 @@
         }        
       }
       &.application {
+        counter-reset: list-counter;
         .item {
           flex-direction: row;
           padding-bottom: 0;
+          counter-increment: list-counter;
           &::after {
             width: 344px;
             height: 280px;
@@ -136,9 +139,27 @@
           &:nth-child(3)::after {
             background-image: url(#{$img_url}/bs/img_application03.png);
           }
+          > .text-area {
+            > strong {
+              display: inline-flex;
+              align-items: center;
+              gap: var(--space-12);
+              &::before {
+                content: counter(list-counter);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background-color: var(--gray-700);
+                border-radius: 100%;
+                color: $text-white;
+                @include font-token($font-body-2-medi);
+              }
+            }
+          }
         }        
       }
-
     }
 
     &:first-child {
@@ -385,14 +406,20 @@
               background-position: 50% 50%;
               background-size: auto 100%;
             }
+            > .text-area {
+              > strong {
+                gap: var(--space-8);
+              }
+            }
           }        
         }
+
       }
       &:first-child {
         .item-wrap {
           &.full-image {
             .item {
-              padding-top: var(--space-40);
+              padding-top: var(--space-32);
             }
           }
         }

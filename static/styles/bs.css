@@ -65,7 +65,6 @@
   color: var(--gray-700);
 }
 .bs-intro-guide .guide-item .item-wrap .item > .text-area .text {
-  color: var(--gray-600);
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.32px;
@@ -76,6 +75,10 @@
     font-weight: 500;
     letter-spacing: -0.64px;
   }
+}
+.bs-intro-guide .guide-item .item-wrap .item > .text-area .text {
+  color: var(--gray-600);
+  word-break: keep-all;
 }
 .bs-intro-guide .guide-item .item-wrap .item > .text-area .text strong {
   color: var(--gray-900);
@@ -116,9 +119,13 @@
   height: 180px;
   background-image: url(/static/images/bs/ico_lawandgood.png);
 }
+.bs-intro-guide .guide-item .item-wrap.application {
+  counter-reset: list-counter;
+}
 .bs-intro-guide .guide-item .item-wrap.application .item {
   flex-direction: row;
   padding-bottom: 0;
+  counter-increment: list-counter;
 }
 .bs-intro-guide .guide-item .item-wrap.application .item::after {
   width: 344px;
@@ -132,6 +139,32 @@
 }
 .bs-intro-guide .guide-item .item-wrap.application .item:nth-child(3)::after {
   background-image: url(/static/images/bs/img_application03.png);
+}
+.bs-intro-guide .guide-item .item-wrap.application .item > .text-area > strong {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+.bs-intro-guide .guide-item .item-wrap.application .item > .text-area > strong::before {
+  content: counter(list-counter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: var(--gray-700);
+  border-radius: 100%;
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .bs-intro-guide .guide-item .item-wrap.application .item > .text-area > strong::before {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.56px;
+  }
 }
 .bs-intro-guide .guide-item:first-child .item-wrap.full-image .item {
   padding-top: var(--space-56);
@@ -359,8 +392,11 @@
     background-position: 50% 50%;
     background-size: auto 100%;
   }
+  .bs-intro-guide .guide-item .item-wrap.application .item > .text-area > strong {
+    gap: var(--space-8);
+  }
   .bs-intro-guide .guide-item:first-child .item-wrap.full-image .item {
-    padding-top: var(--space-40);
+    padding-top: var(--space-32);
   }
   .full-bg .contents {
     margin: var(--space-24) auto var(--space-64);
