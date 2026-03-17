@@ -254,6 +254,7 @@
   }
 }
 .event-view .view-link dt {
+  align-self: flex-start;
   color: var(--gray-700);
   white-space: nowrap;
 }
