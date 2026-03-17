@@ -2,7 +2,10 @@
 
 .header {
   .header-inner {
-    max-width: $page-max-width;
+    // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
+    padding-left: $page-side-lg;
+    padding-right: $page-side-lg;
+    max-width: calc($page-max-width + $page-side-lg * 2);
     width: 100%;
     margin: 0 auto;
 
@@ -211,10 +214,6 @@
         content: "";
         position: absolute;
       }
-    }
-
-    .icon-search {
-      @include icon("search");
     }
 
     .icon-menu {
