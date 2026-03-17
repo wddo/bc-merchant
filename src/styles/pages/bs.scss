@@ -69,8 +69,9 @@
             color: var(--gray-700);
           }
           .text {
-            color: $text-tertiary;
             @include font-token($font-body-1-medi);
+            color: $text-tertiary;
+            word-break: keep-all;
             strong {
               color: $text-primary;
             }
@@ -120,9 +121,11 @@
         }        
       }
       &.application {
+        counter-reset: list-counter;
         .item {
           flex-direction: row;
           padding-bottom: 0;
+          counter-increment: list-counter;
           &::after {
             width: 344px;
             height: 280px;
@@ -136,12 +139,194 @@
           &:nth-child(3)::after {
             background-image: url(#{$img_url}/bs/img_application03.png);
           }
+          > .text-area {
+            > strong {
+              display: inline-flex;
+              align-items: center;
+              gap: var(--space-12);
+              &::before {
+                content: counter(list-counter);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                background-color: var(--gray-700);
+                border-radius: 100%;
+                color: $text-white;
+                @include font-token($font-body-2-medi);
+              }
+            }
+          }
         }        
       }
+    }
 
+    &:first-child {
+      .item-wrap {
+        &.full-image {
+          .item {
+            padding-top: var(--space-56);
+          }
+        }
+      }
     }
   }
 }
+
+.full-bg {
+  background-color: $bg-gray-40;
+  max-width: none !important;
+  .contents {
+    max-width: $page-max-width;
+    margin: var(--space-56) auto var(--space-100);
+  }
+}
+
+.cardlist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-40) var(--space-16);
+  > .item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    background-color: $bg-white;
+    border-radius: var(--space-24);
+    padding: var(--space-24);
+    .top {
+      display: flex;
+      justify-content: space-between;
+      > .title {
+        > strong {
+          display: flex;
+          gap: var(--space-12);
+          align-items: center;
+          @include font-token($font-body-2);
+          color: $text-quaternary;
+          &::before {
+            content: '';
+            display: block;
+            width: var(--space-40);
+            height: var(--space-40);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 100% auto;
+          } 
+          &.bc {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_bc.png);
+            }            
+          }
+          &.hana {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_hana.png);
+            }            
+          }
+          &.ibk {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_ibk.png);
+            }            
+          }
+          &.nh {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_nh.png);
+            }            
+          }
+          &.bnk {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_bnk.png);
+            }            
+          }
+          &.sh {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_bank_logo_sh.png);
+            }            
+          }
+        }
+      }
+      > .brand {
+        display: flex;
+        gap: var(--space-4);
+        > span {
+          display: inline-block;
+          position: relative;
+          font-size: 1px;
+          width: 28px;
+          height: 28px;
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;            
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: 100% auto;
+            background-color: $bg-white;
+            z-index: 1;
+          }
+          &.bc {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_brand_logo_bc.png);
+            }
+          }
+          &.master {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_brand_logo_master.png);
+            }
+          }
+          &.union {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_brand_logo_union.png);
+            }
+          }
+          &.visa {
+            &::before {
+              background-image: url(#{$img_url}/bs/ico_brand_logo_visa.png);
+            }
+          }
+        }
+      }
+      
+    }
+    .img-area {
+      text-align: center;
+    }
+    .middle {
+      display:flex;
+      flex-direction: column;
+      gap: var(--space-16);
+      > .text-area {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-6);
+        .text {
+          @include font-token($font-body-1-medi);
+          color: $text-tertiary;
+        }
+      }
+      > .badge-area {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-8);
+        [class^="_badge-small"] {
+          @include font-token($font-body-2-medi);
+        }
+      }
+    }
+    .btn-wrap {
+      margin-top: auto;
+      padding-top: var(--space-8);
+      ._btn-small-quaternery {
+        pointer-events: none; 
+      }
+    }
+  }
+}
+
 
 // Tablet
 @include respond-md {
@@ -166,6 +351,16 @@
     }
   }
 
+  .cardlist {
+    grid-template-columns: repeat(2, 1fr);
+    > .item {
+      .btn-wrap {
+        ._btn-small-quaternery {
+          pointer-events: auto; 
+        }
+      }
+    }    
+  }
 }
 
 // Mobile
@@ -211,7 +406,43 @@
               background-position: 50% 50%;
               background-size: auto 100%;
             }
+            > .text-area {
+              > strong {
+                gap: var(--space-8);
+              }
+            }
           }        
+        }
+
+      }
+      &:first-child {
+        .item-wrap {
+          &.full-image {
+            .item {
+              padding-top: var(--space-40);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .full-bg {
+    .contents {
+      margin: var(--space-24) auto var(--space-64);
+    }
+  }
+
+  .cardlist {
+    grid-template-columns: none;
+    gap: var(--space-16);
+    > .item {
+      gap: var(--space-16);
+      padding: var(--space-20);
+      .btn-wrap {
+        padding-top: var(--space-16);
+        ._btn-small-quaternery {
+          pointer-events: all; 
         }
       }
     }

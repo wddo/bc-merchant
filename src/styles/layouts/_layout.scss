@@ -49,7 +49,7 @@ body {
     width: 100%;
 
     // 일반 자식 요소
-    &:not(.full):not(.loading) {
+    &:not(.full):not(.loading):not(.floating-btn) {
       // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
       padding-left: $page-side-lg;
       padding-right: $page-side-lg;
