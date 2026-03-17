@@ -1334,8 +1334,8 @@ body {
 }
 .header .header-inner .header-top-nav .depth1-list {
   display: flex;
-  gap: 8px;
-  padding-bottom: 32px;
+  gap: var(--space-8);
+  padding-bottom: var(--space-32);
 }
 .header .header-inner .header-top-nav .depth1-list > li {
   flex: 1;
@@ -1361,8 +1361,8 @@ body {
   padding: 16px 0 10px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.64px;
+  line-height: 1.5;
+  letter-spacing: -0.8px;
   color: var(--gray-900);
   white-space: normal;
   word-break: keep-all;
@@ -1370,16 +1370,25 @@ body {
 .header .header-inner .header-top-nav .depth1-list > li .depth2-list {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: var(--space-20);
   gap: 0;
 }
 .header .header-inner .header-top-nav .depth1-list > li .depth2-list .depth2 {
-  display: inline-block;
-  padding: 6px 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
   letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .header .header-inner .header-top-nav .depth1-list > li .depth2-list .depth2 {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
+}
+.header .header-inner .header-top-nav .depth1-list > li .depth2-list .depth2 {
+  display: inline-block;
+  padding: var(--space-6) 0;
+  line-height: 1.5;
   color: var(--gray-900);
 }
 .header .header-inner .header-top-nav .depth1-list > li .depth2-list .depth2:hover::after {
@@ -1512,7 +1521,6 @@ body {
     justify-content: flex-start;
     align-items: center;
     font-weight: 600;
-    line-height: 1.5;
     font-size: 18px;
     letter-spacing: -0.72px;
     color: var(--text-primary);
@@ -1532,17 +1540,32 @@ body {
     */
   }
   .header .header-inner .header-all-nav .depth1-list > li .depth2-list > li .depth2 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.32px;
     display: inline-block;
     position: relative;
     width: 100%;
     padding: var(--space-16) 20px;
-    font-size: 16px;
-    font-weight: 600;
     text-align: left;
-    line-height: 1.5;
-    letter-spacing: -0.64px;
     color: var(--text-primary);
   }
+  .header .header-inner .header-all-nav .depth1-list > li {
+    /* .depth3-list > li {
+      &.active .depth4-list {
+        display: flex;
+      }
+    } */
+  }
+}
+@media screen and (max-width: 1023px) and (max-width: 767px) {
+  .header .header-inner .header-all-nav .depth1-list > li .depth2-list > li .depth2 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 1023px) {
   .header .header-inner .header-all-nav .depth1-list > li .depth2-list > li .depth2:hover::after, .header .header-inner .header-all-nav .depth1-list > li .depth2-list > li .depth2::after {
     content: "";
     position: absolute;
@@ -1572,20 +1595,24 @@ body {
     padding: 0 20px;
   }
   .header .header-inner .header-all-nav .depth1-list > li .depth3-list .depth3 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
     display: inline-block;
     width: 100%;
     padding: var(--space-12) var(--space-6);
-    font-size: 16px;
     text-align: left;
     color: var(--gray-500);
   }
-  .header .header-inner .header-all-nav .depth1-list > li {
-    /* .depth3-list > li {
-      &.active .depth4-list {
-        display: flex;
-      }
-    } */
+}
+@media screen and (max-width: 1023px) and (max-width: 767px) {
+  .header .header-inner .header-all-nav .depth1-list > li .depth3-list .depth3 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
   }
+}
+@media (max-width: 1023px) {
   .header .header-inner .header-all-nav .depth1-list > li .depth4-list {
     display: flex; /* 기본 활성화로 */
     flex-direction: column;
@@ -1594,13 +1621,24 @@ body {
     border-radius: var(--radius-16);
   }
   .header .header-inner .header-all-nav .depth1-list > li .depth4-list .depth4 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
     display: inline-block;
     width: 100%;
     padding: var(--space-6) 0;
-    font-size: 16px;
     text-align: left;
     color: var(--gray-600);
   }
+}
+@media screen and (max-width: 1023px) and (max-width: 767px) {
+  .header .header-inner .header-all-nav .depth1-list > li .depth4-list .depth4 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.64px;
+  }
+}
+@media (max-width: 1023px) {
   .header .header-inner .header-actions {
     height: auto;
   }
