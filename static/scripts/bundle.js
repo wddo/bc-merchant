@@ -3,6 +3,7 @@
   var Header = /* @__PURE__ */ (function() {
     let isPointerDown = false;
     let activated = null;
+    let scrollPosition = 0;
     const CSSVar = {
       HOVER_HEIGHT: "--header-nav-height",
       ON_WIDTH: "--header-nav-on-width",
@@ -237,6 +238,9 @@
       el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
+      scrollPosition = 0;
+      activated = null;
+      isPointerDown = false;
     };
     function breakpointChecker() {
       reInit();

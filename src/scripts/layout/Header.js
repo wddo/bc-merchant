@@ -3,6 +3,7 @@ import { device } from "@root";
 const Header = (function () {
   let isPointerDown = false; // focus 인지 click 인지 구별해 중복 이벤트 방지
   let activated = null; // 활성화 되어있는 index
+  let scrollPosition = 0; // scroll lock 스크롤 위치 저장
 
   const CSSVar = {
     HOVER_HEIGHT: "--header-nav-height",
@@ -296,6 +297,10 @@ const Header = (function () {
     el.allnav.removeAttribute("style");
     el.topnav.removeAttribute("style");
     el.header.removeAttribute("style");
+
+    scrollPosition = 0;
+    activated = null;
+    isPointerDown = false;
   };
 
   function breakpointChecker() {
