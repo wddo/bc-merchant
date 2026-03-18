@@ -206,10 +206,7 @@ $gnb-default-height: 71px;
       display: flex;
       align-items: center;
       height: $gnb-default-height;
-
-      &.contorls {
-        order: 3;
-      }
+      order: 3;
     }
 
     .icon-btn {
@@ -273,17 +270,42 @@ $gnb-default-height: 71px;
       display: flex;
       flex-direction: column;
       gap: var(--space-40);
-      padding-bottom: var(--space-80);
+
+      // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
+      padding: 0 $page-side-lg 80px;
+      margin: 0 auto;
+      max-width: calc($page-max-width + $page-side-lg * 2);
     }
 
     .depth1-list > li {
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: $page-side-sm;
+        width: calc(100% - #{$page-side-sm} * 2);
+        height: 1px;
+        background-color: var(--gray-60);
+        margin-top: 40px;
+      }
+
       .depth1 {
-        display: flex;
+        display: inline-block;
         position: relative;
-        padding: var(--space-32) 0 0;
+        margin-top: var(--space-32);
+        padding-right: 20px;
         justify-content: flex-start;
         align-items: center;
         color: var(--text-primary);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transition: transform 0.3s ease;
+          transform: translateY(-50%);
+          @include icon("chevron-right-16", 20px);
+        }
       }
 
       .depth2-list {
@@ -298,20 +320,28 @@ $gnb-default-height: 71px;
         flex: 1 1 0%;
 
         .depth2 {
+          display: inline-block;
+          position: relative;
+          width: 100%;
           font-size: 20px;
           font-weight: 700;
           letter-spacing: -0.8px;
+          text-align: left;
         }
       }
 
       .depth3-list {
         display: flex;
         flex-direction: column;
-        gap: 10px;
         padding: var(--space-16) 0 0;
 
         .depth3 {
           @include font-token($font-body-2);
+          display: inline-block;
+          width: 100%;
+          padding: 5px 0;
+          text-align: left;
+          color: $text-tertiary;
         }
       }
 
@@ -319,8 +349,6 @@ $gnb-default-height: 71px;
         display: none;
       }
     }
-
-    border: 1px solid red;
   }
 }
 
@@ -389,32 +417,24 @@ $gnb-default-height: 71px;
 
       .depth1-list {
         gap: calc(var(--space-32) + 1px); // line 1px 추가
-        padding-bottom: 0;
+        padding: 0;
+        margin: 0;
+        max-width: none;
       }
 
       .depth1-list > li {
         &::after {
-          content: "";
-          position: absolute;
-          display: block;
-          left: $page-side-sm;
-          width: calc(100% - #{$page-side-sm} * 2);
-          height: 1px;
-          background-color: var(--gray-60);
           margin-top: 16px;
         }
 
-        &:hover,
-        &.active {
-          a.depth1 {
-            &::after {
-              content: none;
-            }
-          }
-        }
-
         .depth1 {
+          display: flex;
+          margin: 0;
           padding: var(--space-16) $page-side-sm;
+
+          &::after {
+            content: none;
+          }
         }
 
         .depth2-list {
@@ -429,14 +449,9 @@ $gnb-default-height: 71px;
 
           .depth2 {
             @include font-token($font-body-1-medi);
-            display: inline-block;
-            position: relative;
-            width: 100%;
             padding: var(--space-16) $page-side-sm;
-            text-align: left;
-            color: var(--text-primary);
+            color: $text-primary;
 
-            &:hover::after,
             &::after {
               content: "";
               position: absolute;
@@ -468,7 +483,6 @@ $gnb-default-height: 71px;
           height: 0;
           overflow: hidden;
           transition: height $trans-time-short ease;
-          gap: 0;
           padding: 0 var(--space-20);
 
           /* &.active {
@@ -477,11 +491,7 @@ $gnb-default-height: 71px;
 
           .depth3 {
             @include font-token($font-body-1);
-            display: inline-block;
-            width: 100%;
             padding: var(--space-12) var(--space-6);
-            text-align: left;
-            color: var(--gray-500);
           }
         }
 

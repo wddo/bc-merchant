@@ -33,7 +33,7 @@
             activated = activeItem[0];
           }
         }
-        el.topItems.forEach((item, idx) => {
+        el.topItems.forEach((item) => {
           if (item !== depth1) {
             item.classList.remove("active");
           }
@@ -103,9 +103,16 @@
       },
       toggleTotalMenu: () => {
         el.header.classList.toggle("opened");
+        if (el.header.classList.contains("opened")) {
+          el.opener.setAttribute("aria-expanded", "true");
+          el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uB2EB\uAE30");
+        } else {
+          el.opener.setAttribute("aria-expanded", "false");
+          el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uC5F4\uAE30");
+        }
       },
       toggleSideMenu: () => {
-        el.header.classList.toggle("opened");
+        method.toggleTotalMenu();
         if (el.allnav) {
           const opened = el.header.classList.contains("opened");
           requestAnimationFrame(() => {

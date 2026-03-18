@@ -39,7 +39,7 @@ const Header = (function () {
           activated = activeItem[0];
         }
       }
-      el.topItems.forEach((item, idx) => {
+      el.topItems.forEach((item) => {
         if (item !== depth1) {
           item.classList.remove("active");
         }
@@ -121,9 +121,17 @@ const Header = (function () {
     },
     toggleTotalMenu: () => {
       el.header.classList.toggle("opened");
+
+      if (el.header.classList.contains("opened")) {
+        el.opener.setAttribute("aria-expanded", "true");
+        el.opener.setAttribute("aria-label", "전체 메뉴 닫기");
+      } else {
+        el.opener.setAttribute("aria-expanded", "false");
+        el.opener.setAttribute("aria-label", "전체 메뉴 열기");
+      }
     },
     toggleSideMenu: () => {
-      el.header.classList.toggle("opened");
+      method.toggleTotalMenu();
 
       if (el.allnav) {
         const opened = el.header.classList.contains("opened");
