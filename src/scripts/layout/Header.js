@@ -92,6 +92,8 @@ const Header = (function () {
     transitionEnd: () => {
       el.header.classList.remove("opened");
       el.allnav.style.setProperty("height", "");
+      el.allnav.style.setProperty("display", "");
+      el.allnav.style.setProperty("transform", "");
     },
   };
 
