@@ -2,7 +2,7 @@
   // src/scripts/layout/Header.js
   var Header = /* @__PURE__ */ (function() {
     let isPointerDown = false;
-    let activateIndex = null;
+    let activated = null;
     const CSSVar = {
       HOVER_HEIGHT: "--header-nav-height",
       ON_WIDTH: "--header-nav-on-width",
@@ -25,9 +25,13 @@
     const handler = {
       mouseenter: (e) => {
         const depth1 = e.currentTarget;
-        if (activateIndex === null) {
-          const activeItem = el.topItems.item(activateIndex);
-          activateIndex = Array.from(el.topItems).indexOf(activeItem);
+        if (activated === null) {
+          const activeItem = [...el.topItems].filter(
+            (item) => item.classList.contains("active")
+          );
+          if (activeItem.length) {
+            activated = activeItem[0];
+          }
         }
         el.topItems.forEach((item, idx) => {
           if (item !== depth1) {
@@ -36,9 +40,8 @@
         });
       },
       mouseleave: () => {
-        const activeItem = el.topItems.item(activateIndex);
-        if (activeItem) activeItem.classList.add("active");
-        activateIndex = null;
+        if (activated) activated.classList.add("active");
+        activated = null;
       },
       clickDepth2: (e) => {
         const depth2A = e.currentTarget;

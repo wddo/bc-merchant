@@ -1,8 +1,8 @@
 import { device } from "@root";
 
 const Header = (function () {
-  let isPointerDown = false;
-  let activateIndex = null;
+  let isPointerDown = false; // focus 인지 click 인지 구별해 중복 이벤트 방지
+  let activated = null; // 활성화 되어있는 index
 
   const CSSVar = {
     HOVER_HEIGHT: "--header-nav-height",
@@ -30,9 +30,14 @@ const Header = (function () {
     mouseenter: (e) => {
       const depth1 = e.currentTarget;
 
-      if (activateIndex === null) {
-        const activeItem = el.topItems.item(activateIndex);
-        activateIndex = Array.from(el.topItems).indexOf(activeItem);
+      if (activated === null) {
+        const activeItem = [...el.topItems].filter((item) =>
+          item.classList.contains("active"),
+        );
+
+        if (activeItem.length) {
+          activated = activeItem[0];
+        }
       }
       el.topItems.forEach((item, idx) => {
         if (item !== depth1) {
@@ -41,10 +46,8 @@ const Header = (function () {
       });
     },
     mouseleave: () => {
-      const activeItem = el.topItems.item(activateIndex);
-
-      if (activeItem) activeItem.classList.add("active");
-      activateIndex = null;
+      if (activated) activated.classList.add("active");
+      activated = null;
     },
     clickDepth2: (e) => {
       const depth2A = e.currentTarget;
