@@ -74,7 +74,11 @@
         depth3A.parentElement.classList.toggle("active");
       },
       clickOpener: () => {
-        method.toggleSideMenu();
+        if (device === "desktop") {
+          method.toggleTotalMenu();
+        } else {
+          method.toggleSideMenu();
+        }
       }
     };
     const method = {
@@ -96,6 +100,9 @@
         if (depth3List) {
           depth2A.parentElement.classList.remove("active");
         }
+      },
+      toggleTotalMenu: () => {
+        el.header.classList.toggle("opened");
       },
       toggleSideMenu: () => {
         el.header.classList.toggle("opened");
@@ -169,9 +176,8 @@
       });
       if (device === "desktop") {
         el.header.addEventListener("mouseleave", handler.mouseleave);
-      } else {
-        el.opener.addEventListener("click", handler.clickOpener);
       }
+      el.opener.addEventListener("click", handler.clickOpener);
     };
     const unbind = () => {
       el.topItems.forEach((item) => {

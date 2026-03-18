@@ -108,6 +108,10 @@ $gnb-default-height: 71px;
       height: $gnb-default-height; // 상단 메뉴 닫힘 높이
       transition: all $trans-time-short ease;
 
+      @at-root .header.opened#{&} {
+        display: none;
+      }
+
       &:focus-within {
         transition: none;
       }
@@ -247,10 +251,76 @@ $gnb-default-height: 71px;
         }
       }
     }
+  }
 
-    .header-all-nav {
-      display: none;
+  .header-all-nav {
+    display: none;
+    position: static;
+    top: initial;
+    left: initial;
+    right: initial;
+    height: auto;
+    overflow-y: auto;
+    background-color: #fff;
+    transform: none;
+    transition: none;
+
+    @at-root .header.opened#{&} {
+      display: block;
     }
+
+    .depth1-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-40);
+      padding-bottom: var(--space-80);
+    }
+
+    .depth1-list > li {
+      .depth1 {
+        display: flex;
+        position: relative;
+        padding: var(--space-32) 0 0;
+        justify-content: flex-start;
+        align-items: center;
+        color: var(--text-primary);
+      }
+
+      .depth2-list {
+        display: flex;
+        gap: var(--space-24);
+        flex-direction: row;
+        padding-top: var(--space-20);
+        justify-content: space-between;
+      }
+
+      .depth2-list > li {
+        flex: 1 1 0%;
+
+        .depth2 {
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: -0.8px;
+        }
+      }
+
+      .depth3-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: var(--space-16) 0 0;
+
+        .depth3 {
+          @include font-token($font-body-2);
+        }
+      }
+
+      .depth4-list {
+        display: none;
+      }
+    }
+
+    border: 1px solid red;
   }
 }
 
@@ -291,163 +361,152 @@ $gnb-default-height: 71px;
         display: none;
       }
 
-      .header-all-nav {
-        display: none;
+      .header-actions {
         height: auto;
-        position: absolute;
-        top: $nav-height-md;
-        left: 0;
-        right: 0;
+      }
+    }
+
+    .header-all-nav {
+      display: none;
+      position: absolute;
+      top: $nav-height-md;
+      left: 0;
+      right: 0;
+      height: calc(100vh - $nav-height-md);
+      overflow-y: auto;
+      background-color: #fff;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+
+      /* @at-root .header.opened#{&} {
+        display: block;
+      } */
+
+      &:focus-within,
+      &:hover {
         height: calc(100vh - $nav-height-md);
-        overflow-y: auto;
-        background-color: #fff;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+      }
 
-        @at-root .header.opened#{&} {
+      .depth1-list {
+        gap: calc(var(--space-32) + 1px); // line 1px 추가
+        padding-bottom: 0;
+      }
+
+      .depth1-list > li {
+        &::after {
+          content: "";
+          position: absolute;
           display: block;
+          left: $page-side-sm;
+          width: calc(100% - #{$page-side-sm} * 2);
+          height: 1px;
+          background-color: var(--gray-60);
+          margin-top: 16px;
         }
 
-        &:focus-within,
-        &:hover {
-          height: calc(100vh - $nav-height-md);
+        &:hover,
+        &.active {
+          a.depth1 {
+            &::after {
+              content: none;
+            }
+          }
         }
 
-        .depth1-list {
-          display: flex;
+        .depth1 {
+          padding: var(--space-16) $page-side-sm;
+        }
+
+        .depth2-list {
+          justify-content: flex-start;
           flex-direction: column;
-          gap: 33px;
-          padding-bottom: 0;
+          gap: 0;
+          padding: 0;
         }
 
-        .depth1-list > li {
-          &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            left: $page-side-sm;
-            width: calc(100% - #{$page-side-sm} * 2);
-            height: 1px;
-            background-color: var(--gray-60);
-            margin-top: 16px;
-          }
+        .depth2-list > li {
+          flex: 0 1 auto;
 
-          &:hover,
-          &.active {
-            a.depth1 {
-              &::after {
-                content: none;
-              }
-            }
-          }
-
-          .depth1 {
-            display: flex;
+          .depth2 {
+            @include font-token($font-body-1-medi);
+            display: inline-block;
             position: relative;
+            width: 100%;
             padding: var(--space-16) $page-side-sm;
-            justify-content: flex-start;
-            align-items: center;
-            font-weight: 600;
-            font-size: 18px;
-            letter-spacing: -0.72px;
+            text-align: left;
             color: var(--text-primary);
-          }
 
-          .depth2-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-          }
-
-          .depth2-list > li {
-            .depth2 {
-              @include font-token($font-body-1-medi);
-              display: inline-block;
-              position: relative;
-              width: 100%;
-              padding: var(--space-16) $page-side-sm;
-              text-align: left;
-              color: var(--text-primary);
-
-              &:hover::after,
-              &::after {
-                content: "";
-                position: absolute;
-                right: $page-side-sm;
-                top: 50%;
-                height: auto;
-                margin-top: 0;
-                transition: transform 0.3s ease;
-                transform: translateY(-50%);
-                @include icon("chevron-right-16", 16px);
-              }
-            }
-
-            //&:focus-within,
-            &.active {
-              // 화살표
-              .depth2::after {
-                transform: translateY(-50%) rotate(-90deg);
-              }
-
-              // 서브메뉴
-              .depth3-list {
-                height: var(--height, auto);
-              }
+            &:hover::after,
+            &::after {
+              content: "";
+              position: absolute;
+              right: $page-side-sm;
+              top: 50%;
+              height: auto;
+              margin-top: 0;
+              transition: transform 0.3s ease;
+              transform: translateY(-50%);
+              @include icon("chevron-right-16", 16px);
             }
           }
 
-          .depth3-list {
-            display: flex;
-            height: 0;
-            overflow: hidden;
-            transition: height $trans-time-short ease;
+          //&:focus-within,
+          &.active {
+            // 화살표
+            .depth2::after {
+              transform: translateY(-50%) rotate(-90deg);
+            }
 
-            /* &.active {
-              display: block;
-            } */
-
-            flex-direction: column;
-            padding: 0 var(--space-20);
-
-            .depth3 {
-              @include font-token($font-body-1);
-              display: inline-block;
-              width: 100%;
-              padding: var(--space-12) var(--space-6);
-              text-align: left;
-              color: var(--gray-500);
+            // 서브메뉴
+            .depth3-list {
+              height: var(--height, auto);
             }
           }
+        }
 
-          /* .depth3-list > li {
+        .depth3-list {
+          height: 0;
+          overflow: hidden;
+          transition: height $trans-time-short ease;
+          gap: 0;
+          padding: 0 var(--space-20);
+
+          /* &.active {
+            display: block;
+          } */
+
+          .depth3 {
+            @include font-token($font-body-1);
+            display: inline-block;
+            width: 100%;
+            padding: var(--space-12) var(--space-6);
+            text-align: left;
+            color: var(--gray-500);
+          }
+        }
+
+        /* .depth3-list > li {
             &.active .depth4-list {
               display: flex;
             }
           } */
 
-          .depth4-list {
-            // display: none;
-            display: flex; /* 기본 활성화로 */
-            flex-direction: column;
-            padding: calc(var(--space-20) - var(--space-6)) var(--space-20);
-            background-color: var(--gray-20);
-            border-radius: var(--radius-16);
+        .depth4-list {
+          display: flex; /* 기본 활성화로 */
+          flex-direction: column;
+          padding: calc(var(--space-20) - var(--space-6)) var(--space-20);
+          background-color: var(--gray-20);
+          border-radius: var(--radius-16);
 
-            .depth4 {
-              @include font-token($font-body-1);
-              display: inline-block;
-              width: 100%;
-              padding: var(--space-6) 0;
-              text-align: left;
-              color: $text-tertiary;
-            }
+          .depth4 {
+            @include font-token($font-body-1);
+            display: inline-block;
+            width: 100%;
+            padding: var(--space-6) 0;
+            text-align: left;
+            color: $text-tertiary;
           }
         }
-      }
-
-      .header-actions {
-        height: auto;
       }
     }
   }

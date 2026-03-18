@@ -86,7 +86,11 @@ const Header = (function () {
       depth3A.parentElement.classList.toggle("active");
     },
     clickOpener: () => {
-      method.toggleSideMenu();
+      if (device === "desktop") {
+        method.toggleTotalMenu();
+      } else {
+        method.toggleSideMenu();
+      }
     },
   };
 
@@ -114,6 +118,9 @@ const Header = (function () {
       if (depth3List) {
         depth2A.parentElement.classList.remove("active");
       }
+    },
+    toggleTotalMenu: () => {
+      el.header.classList.toggle("opened");
     },
     toggleSideMenu: () => {
       el.header.classList.toggle("opened");
@@ -207,10 +214,10 @@ const Header = (function () {
     if (device === "desktop") {
       // desktop only
       el.header.addEventListener("mouseleave", handler.mouseleave);
-    } else {
-      // mobile & tablet only
-      el.opener.addEventListener("click", handler.clickOpener);
     }
+
+    // total menu
+    el.opener.addEventListener("click", handler.clickOpener);
   };
 
   const unbind = () => {
