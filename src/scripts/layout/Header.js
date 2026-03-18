@@ -73,7 +73,7 @@ const Header = (function () {
 
       if (!depth3List) {
         // 하위 없으면 닫기만
-        method.allCollapseDepth2();
+        method.collapseDepth2All();
       } else {
         if (!depth3List.parentElement.classList.contains("active")) {
           method.expandDepth2(depth2A);
@@ -95,23 +95,17 @@ const Header = (function () {
   };
 
   const method = {
-    allCollapseDepth2: () => {
-      const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
-
-      // single open
-      allDepth2Items.forEach((item) => {
-        item.classList.remove("active");
-      });
-    },
+    // 2뎁스 열기
     expandDepth2: (depth2A) => {
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
 
       if (depth3List) {
-        method.allCollapseDepth2();
+        method.collapseDepth2All(); // 전부 닫고
 
         depth2A.parentElement.classList.add("active");
       }
     },
+    // 2뎁스 닫기
     collapseDepth2: (depth2A) => {
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
 
@@ -119,6 +113,15 @@ const Header = (function () {
         depth2A.parentElement.classList.remove("active");
       }
     },
+    // single open 위해 depth2 모두 닫기
+    collapseDepth2All: () => {
+      const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
+
+      allDepth2Items.forEach((item) => {
+        item.classList.remove("active");
+      });
+    },
+    // 모바일 전용
     toggleTotalMenu: () => {
       el.header.classList.toggle("opened");
 
@@ -130,6 +133,7 @@ const Header = (function () {
         el.opener.setAttribute("aria-label", "전체 메뉴 열기");
       }
     },
+    // 모바일 전용 (슬라이드 효과)
     toggleSideMenu: () => {
       method.toggleTotalMenu();
 
@@ -147,6 +151,7 @@ const Header = (function () {
         });
       }
     },
+    // topnav 변수 정의
     setVariableTopMenu: () => {
       if (!el.header) return;
 
@@ -176,10 +181,10 @@ const Header = (function () {
         el.topnav.style.setProperty(OFF_WIDTH, `${mw * menuLen}px`);
       }
     },
+    // side menu 변수 정의
     setVariableSideMenu: () => {
       if (!el.allnav) return;
 
-      // side menu
       el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
         item.style.setProperty("--height", `${item.scrollHeight}px`);
       });
