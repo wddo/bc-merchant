@@ -131,12 +131,8 @@
         &.active {
           a.depth1 {
             &::after {
-              content: "";
-              position: absolute;
               left: 0;
               right: 0;
-              bottom: 0;
-              height: 3px;
               background: $bg-black;
             }
           }
@@ -155,6 +151,19 @@
           color: $text-primary;
           white-space: nowrap;
           word-break: keep-all;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            height: 3px;
+            background: $bg-black;
+            transition:
+              left $trans-time-short ease,
+              right $trans-time-short ease;
+          }
         }
 
         .depth2-list {

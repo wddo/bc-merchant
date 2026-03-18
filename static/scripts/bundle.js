@@ -20,17 +20,17 @@
       mouseenter: (e) => {
         const depth1 = e.currentTarget;
         if (activateIndex === null) {
-          const activeItem = el.allItems.item(activateIndex);
-          activateIndex = Array.from(el.allItems).indexOf(activeItem);
+          const activeItem = el.topItems.item(activateIndex);
+          activateIndex = Array.from(el.topItems).indexOf(activeItem);
         }
-        el.allItems.forEach((item, idx) => {
+        el.topItems.forEach((item, idx) => {
           if (item !== depth1) {
             item.classList.remove("active");
           }
         });
       },
       mouseleave: () => {
-        const activeItem = el.allItems.item(activateIndex);
+        const activeItem = el.topItems.item(activateIndex);
         if (activeItem) activeItem.classList.add("active");
         activateIndex = null;
       },

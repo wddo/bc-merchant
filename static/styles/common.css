@@ -1373,12 +1373,8 @@ body {
   text-align: center;
 }
 .header .header-inner .header-top-nav .depth1-list > li:hover a.depth1::after, .header .header-inner .header-top-nav .depth1-list > li.active a.depth1::after {
-  content: "";
-  position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 3px;
   background: var(--gray-900);
 }
 .header .header-inner .header-top-nav .depth1-list > li .depth1 {
@@ -1394,6 +1390,16 @@ body {
   color: var(--gray-900);
   white-space: nowrap;
   word-break: keep-all;
+}
+.header .header-inner .header-top-nav .depth1-list > li .depth1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  height: 3px;
+  background: var(--gray-900);
+  transition: left 0.3s ease, right 0.3s ease;
 }
 .header .header-inner .header-top-nav .depth1-list > li .depth2-list {
   display: flex;
