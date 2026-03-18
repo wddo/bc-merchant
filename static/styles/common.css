@@ -1294,7 +1294,19 @@ body {
 .header .header-inner .header-util > ul {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-16);
+}
+.header .header-inner .header-util > ul li {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+}
+@media screen and (max-width: 767px) {
+  .header .header-inner .header-util > ul li {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.56px;
+  }
 }
 .header .header-inner .header-util > ul li {
   position: relative;
@@ -1304,7 +1316,7 @@ body {
 .header .header-inner .header-util > ul li + li::before {
   content: "";
   position: absolute;
-  left: -8px;
+  left: calc(var(--space-8) * -1);
   top: 50%;
   transform: translateY(-50%);
   width: 1px;
@@ -1334,21 +1346,21 @@ body {
   gap: var(--space-8);
 }
 .header .header-inner .header-logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.72px;
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.56px;
   color: #343841;
 }
 .header .header-inner .header-logo-text::before {
   content: "";
   display: block;
   width: 1px;
-  height: 16px;
+  height: 1em;
   background: var(--gray-60);
-  margin-right: 8px;
+  margin-right: var(--space-8);
 }
 .header .header-inner .header-top-nav {
   flex-grow: 0;

@@ -1,5 +1,7 @@
 @use "../abstracts" as *;
 
+$gnb-default-height: 71px;
+
 .header {
   .header-inner {
     // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
@@ -33,9 +35,10 @@
       > ul {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: var(--space-16);
 
         li {
+          @include font-token($font-body-2);
           position: relative;
           display: flex;
           align-items: center;
@@ -44,7 +47,7 @@
             &::before {
               content: "";
               position: absolute;
-              left: -8px;
+              left: calc(var(--space-8) * -1);
               top: 50%;
               transform: translateY(-50%);
               width: 1px;
@@ -72,7 +75,7 @@
     .header-logo {
       display: flex;
       align-items: center;
-      height: 71px;
+      height: $gnb-default-height;
       gap: var(--space-8);
 
       a {
@@ -82,21 +85,19 @@
       }
 
       &-text {
+        @include font-token($font-body-0-semi);
         position: relative;
         display: flex;
         align-items: center;
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: -0.56px;
         color: #343841;
 
         &::before {
           content: "";
           display: block;
           width: 1px;
-          height: 16px;
+          height: 1em;
           background: var(--gray-60);
-          margin-right: 8px;
+          margin-right: var(--space-8);
         }
       }
     }
@@ -104,7 +105,7 @@
     .header-top-nav {
       flex-grow: 0;
       width: var(--header-nav-off-width, auto);
-      height: 71px; // 상단 메뉴 닫힘 높이
+      height: $gnb-default-height; // 상단 메뉴 닫힘 높이
       transition: all $trans-time-short ease;
 
       &:focus-within {
@@ -143,7 +144,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 71px;
+          min-height: $gnb-default-height;
           padding: 0 var(--space-24);
           font-size: 16px;
           font-weight: 700;
@@ -200,7 +201,7 @@
     .header-actions {
       display: flex;
       align-items: center;
-      height: 71px;
+      height: $gnb-default-height;
 
       &.contorls {
         order: 3;
