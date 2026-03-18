@@ -359,15 +359,6 @@
           }
 
           .depth2-list > li {
-            &.active .depth3-list {
-              display: flex;
-            }
-
-            /* &:not(:focus-within) .depth3-list {
-              display: none;
-            }
-            */
-
             .depth2 {
               @include font-token($font-body-1-medi);
               display: inline-block;
@@ -391,20 +382,32 @@
               }
             }
 
-            &.active .depth2::after {
-              transform: translateY(-50%) rotate(-90deg);
+            //&:focus-within,
+            &.active {
+              // 화살표
+              .depth2::after {
+                transform: translateY(-50%) rotate(-90deg);
+              }
+
+              // 서브메뉴
+              .depth3-list {
+                height: var(--height, auto);
+              }
             }
           }
 
           .depth3-list {
-            display: none;
+            display: flex;
+            height: 0;
+            overflow: hidden;
+            transition: height $trans-time-short ease;
 
-            &.active {
+            /* &.active {
               display: block;
-            }
+            } */
 
             flex-direction: column;
-            padding: 0 20px;
+            padding: 0 var(--space-20);
 
             .depth3 {
               @include font-token($font-body-1);

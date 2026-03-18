@@ -3,6 +3,12 @@ import { device } from "@root";
 const Header = (function () {
   let activateIndex = null;
 
+  const CSSVar = {
+    HOVER_HEIGHT: "--header-nav-height",
+    ON_WIDTH: "--header-nav-on-width",
+    OFF_WIDTH: "--header-nav-off-width",
+  };
+
   const el = {
     header: null,
     nav: null,
@@ -40,24 +46,74 @@ const Header = (function () {
       activateIndex = null;
     },
     clickDepth2: (e) => {
-      const depth2 = e.currentTarget;
-      const depth3 = depth2.parentElement.querySelector(".depth3-list");
+      const depth2A = e.currentTarget;
+      const depth3List = depth2A.parentElement.querySelector(".depth3-list");
 
-      if (depth3) {
+      console.log("clickDepth2 !!!");
+
+      if (!depth3List) {
+        // 일반 링크
         e.preventDefault();
-        depth2.parentElement.classList.toggle("active");
+      } else {
+        if (!depth3List.parentElement.classList.contains("active")) {
+          method.expandDepth2(depth2A);
+        } else {
+          method.collapseDepth2(depth2A);
+        }
+      }
+    },
+    focusinDepth2LI: (e) => {
+      const depth2LI = e.currentTarget;
+      const depth2A = depth2LI.querySelector("a.depth2");
+      const depth3List = depth2A.parentElement.querySelector(".depth3-list");
+
+      console.log("focusinDepth2LI !!!");
+
+      if (!depth3List) {
+        // 하위 없으면 닫기만
+        method.allCollapseDepth2();
+      } else {
+        if (!depth3List.parentElement.classList.contains("active")) {
+          method.expandDepth2(depth2A);
+        }
       }
     },
     clickDepth3: (e) => {
-      const depth3 = e.currentTarget;
+      const depth3A = e.currentTarget;
 
-      depth3.parentElement.classList.toggle("active");
+      depth3A.parentElement.classList.toggle("active");
     },
-    /* focusoutDepth2: (e) => {
-      const depth2List = e.currentTarget;
-      depth2.parentElement.classList.remove("active");
-    }, */
     clickOpener: () => {
+      method.toggleSideMenu();
+    },
+  };
+
+  const method = {
+    allCollapseDepth2: () => {
+      const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
+
+      // single open
+      allDepth2Items.forEach((item) => {
+        item.classList.remove("active");
+      });
+    },
+    expandDepth2: (depth2A) => {
+      const depth3List = depth2A.parentElement.querySelector(".depth3-list");
+
+      if (depth3List) {
+        method.allCollapseDepth2();
+
+        depth2A.parentElement.classList.add("active");
+      }
+    },
+    collapseDepth2: (depth2A) => {
+      const depth3List = depth2A.parentElement.querySelector(".depth3-list");
+
+      if (depth3List) {
+        depth2A.parentElement.classList.remove("active");
+      }
+    },
+    toggleSideMenu: () => {
       el.header.classList.toggle("opened");
 
       if (el.allnav) {
@@ -66,53 +122,49 @@ const Header = (function () {
         requestAnimationFrame(() => {
           if (opened) {
             el.allnav.style.setProperty("transform", "translateX(0)");
+
+            method.setVariableSideMenu();
           } else {
             el.allnav.style.setProperty("transform", "translateX(100%)");
           }
         });
       }
     },
-  };
-
-  const method = {
-    setVariable: () => {
+    setVariableTopMenu: () => {
       if (!el.header) return;
 
+      const { HOVER_HEIGHT, ON_WIDTH, OFF_WIDTH } = CSSVar;
+
       // hover height
-      const listWrapper = el.topnav.querySelector(".depth1-list");
-      const depth2List = el.topnav.querySelectorAll(".depth2-list");
-
-      depth2List.forEach((list) => {
-        list.style.setProperty("display", "block");
-      });
-
-      if (listWrapper) {
-        el.header.removeAttribute("style");
-
-        el.header.setAttribute(
-          "style",
-          `--header-nav-height: ${listWrapper.scrollHeight}px`,
-        );
+      const wrap = el.topnav.querySelector(".depth1-list");
+      if (wrap) {
+        el.header.style.removeProperty(HOVER_HEIGHT);
+        el.header.style.setProperty(HOVER_HEIGHT, `${wrap.scrollHeight}px`);
       }
 
-      // menu width
-      let maxWidth = 0;
-
+      // top menu width
+      let mw = 0;
       el.topItems.forEach((item) => {
         const listWidth = item.scrollWidth;
-        if (listWidth > maxWidth) {
-          maxWidth = listWidth;
+        if (listWidth > mw) {
+          mw = listWidth;
         }
       });
 
-      el.topnav.setAttribute(
-        "style",
-        `--header-nav-on-width: ${(maxWidth + 16 * 2) * el.topItems.length}px;
-        --header-nav-off-width: ${maxWidth * el.topItems.length}px`,
-      );
+      const menuLen = el.topItems.length;
+      if (menuLen) {
+        el.topnav.style.removeProperty(ON_WIDTH);
+        el.topnav.style.removeProperty(OFF_WIDTH);
+        el.topnav.style.setProperty(ON_WIDTH, `${(mw + 32) * menuLen}px`);
+        el.topnav.style.setProperty(OFF_WIDTH, `${mw * menuLen}px`);
+      }
+    },
+    setVariableSideMenu: () => {
+      if (!el.allnav) return;
 
-      depth2List.forEach((list) => {
-        list.style.setProperty("display", "");
+      // side menu
+      el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+        item.style.setProperty("--height", `${item.scrollHeight}px`);
       });
     },
   };
@@ -125,16 +177,14 @@ const Header = (function () {
     });
 
     el.allItems.forEach((item) => {
-      if (device === "desktop") {
-        // item.addEventListener("mouseenter", handler.mouseenter);
-      } else {
+      if (device !== "desktop") {
         item.querySelectorAll("a.depth2").forEach((depth2) => {
           depth2.addEventListener("click", handler.clickDepth2);
 
-          /* depth2.parentElement.addEventListener(
-            "focusout",
-            handler.focusoutDepth2,
-          ); */
+          depth2.parentElement.addEventListener(
+            "focusin",
+            handler.focusinDepth2LI,
+          );
         });
 
         item.querySelectorAll("a.depth3").forEach((depth3) => {
@@ -158,14 +208,8 @@ const Header = (function () {
     });
 
     el.allItems.forEach((item) => {
-      // item.removeEventListener("mouseenter", handler.mouseenter);
       item.querySelectorAll("a.depth2").forEach((depth2) => {
         depth2.removeEventListener("click", handler.clickDepth2);
-
-        /* depth2.parentElement.removeEventListener(
-          "focusout",
-          handler.focusoutDepth2,
-        ); */
       });
 
       item.querySelectorAll("a.depth3").forEach((depth3) => {
@@ -229,13 +273,13 @@ const Header = (function () {
   const init = () => {
     setProperty();
     bind();
-    method.setVariable();
+    method.setVariableTopMenu();
   };
 
   const reInit = () => {
     unbind();
     setProperty();
-    method.setVariable();
+    method.setVariableTopMenu();
     bind();
   };
 
