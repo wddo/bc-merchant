@@ -1,6 +1,7 @@
 import { device } from "@root";
 
 const Header = (function () {
+  let isPointerDown = false;
   let activateIndex = null;
 
   const CSSVar = {
@@ -49,8 +50,6 @@ const Header = (function () {
       const depth2A = e.currentTarget;
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
 
-      console.log("clickDepth2 !!!");
-
       if (!depth3List) {
         // 일반 링크
         e.preventDefault();
@@ -63,11 +62,11 @@ const Header = (function () {
       }
     },
     focusinDepth2LI: (e) => {
+      if (isPointerDown) return;
+
       const depth2LI = e.currentTarget;
       const depth2A = depth2LI.querySelector("a.depth2");
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
-
-      console.log("focusinDepth2LI !!!");
 
       if (!depth3List) {
         // 하위 없으면 닫기만
@@ -185,6 +184,14 @@ const Header = (function () {
             "focusin",
             handler.focusinDepth2LI,
           );
+
+          depth2.parentElement.addEventListener("pointerdown", () => {
+            isPointerDown = true;
+          });
+
+          depth2.parentElement.addEventListener("click", () => {
+            isPointerDown = false;
+          });
         });
 
         item.querySelectorAll("a.depth3").forEach((depth3) => {
@@ -193,6 +200,7 @@ const Header = (function () {
       }
     });
 
+    // slide menu
     if (device === "desktop") {
       // desktop only
       el.header.addEventListener("mouseleave", handler.mouseleave);

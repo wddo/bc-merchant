@@ -1,6 +1,7 @@
 (() => {
   // src/scripts/layout/Header.js
   var Header = /* @__PURE__ */ (function() {
+    let isPointerDown = false;
     let activateIndex = null;
     const CSSVar = {
       HOVER_HEIGHT: "--header-nav-height",
@@ -42,7 +43,6 @@
       clickDepth2: (e) => {
         const depth2A = e.currentTarget;
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
-        console.log("clickDepth2 !!!");
         if (!depth3List) {
           e.preventDefault();
         } else {
@@ -54,10 +54,10 @@
         }
       },
       focusinDepth2LI: (e) => {
+        if (isPointerDown) return;
         const depth2LI = e.currentTarget;
         const depth2A = depth2LI.querySelector("a.depth2");
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
-        console.log("focusinDepth2LI !!!");
         if (!depth3List) {
           method.allCollapseDepth2();
         } else {
@@ -152,6 +152,12 @@
               "focusin",
               handler.focusinDepth2LI
             );
+            depth2.parentElement.addEventListener("pointerdown", () => {
+              isPointerDown = true;
+            });
+            depth2.parentElement.addEventListener("click", () => {
+              isPointerDown = false;
+            });
           });
           item.querySelectorAll("a.depth3").forEach((depth3) => {
             depth3.addEventListener("click", handler.clickDepth3);
