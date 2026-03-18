@@ -1553,7 +1553,7 @@ body {
   justify-content: space-between;
 }
 .header .header-all-nav .depth1-list > li .depth2-list > li {
-  flex: 1 1 0%;
+  flex: 1 1 auto;
 }
 .header .header-all-nav .depth1-list > li .depth2-list > li .depth2 {
   display: inline-block;

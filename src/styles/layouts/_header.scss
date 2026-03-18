@@ -315,7 +315,8 @@ $gnb-default-height: 71px;
       }
 
       .depth2-list > li {
-        flex: 1 1 0%;
+        // flex: 1 1 0%;
+        flex: 1 1 auto;
 
         .depth2 {
           display: inline-block;
