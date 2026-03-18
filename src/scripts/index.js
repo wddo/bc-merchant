@@ -15,7 +15,7 @@ export let device = null;
     window.addEventListener("scroll", scrollHandler);
     window.addEventListener("resize", resizeHandler);
 
-    breakpointDesktop = window.matchMedia("(min-width: 1200px)");
+    breakpointDesktop = window.matchMedia("(min-width: 1024px)");
     breakpointMobile = window.matchMedia("(max-width: 767px)");
 
     breakpointDesktop.addEventListener("change", breakpointHandler);

@@ -74,11 +74,11 @@
         depth3A.parentElement.classList.toggle("active");
       },
       clickOpener: () => {
-        if (device === "desktop") {
-          method.toggleTotalMenu();
-        } else {
-          method.toggleSideMenu();
-        }
+        method.toggleTotalMenu();
+      },
+      transitionEnd: () => {
+        el.header.classList.remove("opened");
+        el.allnav.style.setProperty("height", "");
       }
     };
     const method = {
@@ -104,36 +104,56 @@
           item.classList.remove("active");
         });
       },
-      // 모바일 전용
+      // 전체메뉴 뒤 스크롤 방지
+      toggleScrollLock: (value) => {
+        const container = document.querySelector("#container");
+        const footer = document.querySelector("#footer");
+        if (value) {
+          scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          container.style.position = "fixed";
+          container.style.top = `-${scrollPosition}px`;
+          container.style.width = "100%";
+          footer.style.display = "none";
+        } else {
+          container.style.position = "";
+          container.style.top = "";
+          container.style.width = "";
+          footer.style.display = "";
+          window.scrollTo(0, scrollPosition);
+        }
+      },
+      // 전체 메뉴
       toggleTotalMenu: () => {
-        el.header.classList.toggle("opened");
-        if (el.header.classList.contains("opened")) {
+        if (!el.header.classList.contains("opened")) {
           el.opener.setAttribute("aria-expanded", "true");
           el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uB2EB\uAE30");
+          el.allnav.style.setProperty("display", "block");
+          method.setVariableAllNav();
+          method.toggleScrollLock(true);
+          el.header.classList.add("opened");
+          if (device !== "desktop") {
+            el.allnav.style.setProperty("transform", "translateX(0)");
+          }
         } else {
           el.opener.setAttribute("aria-expanded", "false");
           el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uC5F4\uAE30");
-        }
-      },
-      // 모바일 전용 (슬라이드 효과)
-      toggleSideMenu: () => {
-        method.toggleTotalMenu();
-        if (el.allnav) {
-          const opened = el.header.classList.contains("opened");
-          requestAnimationFrame(() => {
-            if (opened) {
-              el.allnav.style.setProperty("transform", "translateX(0)");
-              method.setVariableSideMenu();
-            } else {
-              el.allnav.style.setProperty("transform", "translateX(100%)");
-            }
+          el.allnav.removeEventListener("transitionend", handler.transitionEnd);
+          el.allnav.addEventListener("transitionend", handler.transitionEnd, {
+            once: true
           });
+          method.toggleScrollLock(false);
+          if (device !== "desktop") {
+            el.allnav.style.setProperty("transform", "translateX(100%)");
+          } else {
+            el.allnav.style.setProperty("height", "0");
+          }
         }
       },
       // topnav 변수 정의
-      setVariableTopMenu: () => {
+      setVariableTopNav: () => {
         if (!el.header) return;
         const { HOVER_HEIGHT, ON_WIDTH, OFF_WIDTH } = CSSVar;
+        el.topnav.style.setProperty("display", "block");
         const wrap = el.topnav.querySelector(".depth1-list");
         if (wrap) {
           el.header.style.removeProperty(HOVER_HEIGHT);
@@ -153,13 +173,19 @@
           el.topnav.style.setProperty(ON_WIDTH, `${(mw + 32) * menuLen}px`);
           el.topnav.style.setProperty(OFF_WIDTH, `${mw * menuLen}px`);
         }
+        el.topnav.style.setProperty("display", "");
       },
-      // side menu 변수 정의
-      setVariableSideMenu: () => {
+      // allnav 변수 정의
+      setVariableAllNav: () => {
         if (!el.allnav) return;
-        el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
-          item.style.setProperty("--height", `${item.scrollHeight}px`);
-        });
+        if (device === "desktop") {
+          el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
+        } else {
+          el.allnav.style.removeProperty("--height");
+          el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+            item.style.setProperty("--height", `${item.scrollHeight}px`);
+          });
+        }
       }
     };
     const bind = () => {
@@ -208,7 +234,7 @@
       el.header.removeEventListener("mouseleave", handler.mouseleave);
       el.opener.removeEventListener("click", handler.clickOpener);
       el.header.classList.remove("opened");
-      el.allnav.style.setProperty("transform", "");
+      el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
     };
@@ -243,13 +269,13 @@
     const init = () => {
       setProperty();
       bind();
-      method.setVariableTopMenu();
+      method.setVariableTopNav();
     };
     const reInit = () => {
       unbind();
       setProperty();
-      method.setVariableTopMenu();
       bind();
+      method.setVariableTopNav();
     };
     return {
       init,
@@ -917,7 +943,7 @@
     function bind() {
       window.addEventListener("scroll", scrollHandler);
       window.addEventListener("resize", resizeHandler);
-      breakpointDesktop = window.matchMedia("(min-width: 1200px)");
+      breakpointDesktop = window.matchMedia("(min-width: 1024px)");
       breakpointMobile = window.matchMedia("(max-width: 767px)");
       breakpointDesktop.addEventListener("change", breakpointHandler);
       breakpointMobile.addEventListener("change", breakpointHandler);

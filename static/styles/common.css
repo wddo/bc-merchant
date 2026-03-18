@@ -1363,6 +1363,7 @@ body {
   margin-right: var(--space-8);
 }
 .header .header-inner .header-top-nav {
+  display: block;
   flex-grow: 0;
   width: var(--header-nav-off-width, auto);
   height: 71px;
@@ -1495,17 +1496,14 @@ body {
 .header .header-all-nav {
   display: none;
   position: static;
-  top: initial;
-  left: initial;
-  right: initial;
-  height: auto;
-  overflow-y: auto;
+  height: 0;
+  overflow-y: hidden;
   background-color: #fff;
   transform: none;
-  transition: none;
+  transition: height 0.5s ease;
 }
 .header.opened.header .header-all-nav {
-  display: block;
+  height: var(--height, 0);
 }
 
 .header .header-all-nav .depth1-list {
@@ -1633,16 +1631,11 @@ body {
     top: 56px;
     left: 0;
     right: 0;
-    height: calc(100vh - 56px);
     overflow-y: auto;
-    background-color: #fff;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    /* @at-root .header.opened.header .header-all-nav {
-      display: block;
-    } */
   }
-  .header .header-all-nav:focus-within, .header .header-all-nav:hover {
+  .header.opened.header .header-all-nav {
     height: calc(100vh - 56px);
   }
   .header .header-all-nav .depth1-list {

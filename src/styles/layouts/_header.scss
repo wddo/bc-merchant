@@ -103,6 +103,7 @@ $gnb-default-height: 71px;
     }
 
     .header-top-nav {
+      display: block;
       flex-grow: 0;
       width: var(--header-nav-off-width, auto);
       height: $gnb-default-height; // 상단 메뉴 닫힘 높이
@@ -253,17 +254,14 @@ $gnb-default-height: 71px;
   .header-all-nav {
     display: none;
     position: static;
-    top: initial;
-    left: initial;
-    right: initial;
-    height: auto;
-    overflow-y: auto;
+    height: 0;
+    overflow-y: hidden;
     background-color: #fff;
     transform: none;
-    transition: none;
+    transition: height $trans-time-medium ease;
 
     @at-root .header.opened#{&} {
-      display: block;
+      height: var(--height, 0);
     }
 
     .depth1-list {
@@ -400,18 +398,11 @@ $gnb-default-height: 71px;
       top: $nav-height-md;
       left: 0;
       right: 0;
-      height: calc(100vh - $nav-height-md);
       overflow-y: auto;
-      background-color: #fff;
       transform: translateX(100%);
       transition: transform 0.3s ease;
 
-      /* @at-root .header.opened#{&} {
-        display: block;
-      } */
-
-      &:focus-within,
-      &:hover {
+      @at-root .header.opened#{&} {
         height: calc(100vh - $nav-height-md);
       }
 

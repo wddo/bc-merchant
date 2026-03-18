@@ -86,11 +86,11 @@ const Header = (function () {
       depth3A.parentElement.classList.toggle("active");
     },
     clickOpener: () => {
-      if (device === "desktop") {
-        method.toggleTotalMenu();
-      } else {
-        method.toggleSideMenu();
-      }
+      method.toggleTotalMenu();
+    },
+    transitionEnd: () => {
+      el.header.classList.remove("opened");
+      el.allnav.style.setProperty("height", "");
     },
   };
 
@@ -121,41 +121,74 @@ const Header = (function () {
         item.classList.remove("active");
       });
     },
-    // 모바일 전용
-    toggleTotalMenu: () => {
-      el.header.classList.toggle("opened");
+    // 전체메뉴 뒤 스크롤 방지
+    toggleScrollLock: (value) => {
+      const container = document.querySelector("#container");
+      const footer = document.querySelector("#footer");
 
-      if (el.header.classList.contains("opened")) {
+      if (value) {
+        // 현재 스크롤 위치 저장
+        scrollPosition =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // 스크롤 잠금
+        container.style.position = "fixed";
+        container.style.top = `-${scrollPosition}px`;
+        container.style.width = "100%";
+        footer.style.display = "none";
+      } else {
+        // 스크롤 잠금 해제
+        container.style.position = "";
+        container.style.top = "";
+        container.style.width = "";
+        footer.style.display = "";
+
+        // 이전 위치로 복귀
+        window.scrollTo(0, scrollPosition);
+      }
+    },
+    // 전체 메뉴
+    toggleTotalMenu: () => {
+      if (!el.header.classList.contains("opened")) {
         el.opener.setAttribute("aria-expanded", "true");
         el.opener.setAttribute("aria-label", "전체 메뉴 닫기");
+
+        el.allnav.style.setProperty("display", "block"); // transition 위해 선행
+
+        method.setVariableAllNav();
+        method.toggleScrollLock(true);
+
+        el.header.classList.add("opened");
+
+        if (device !== "desktop") {
+          el.allnav.style.setProperty("transform", "translateX(0)");
+        }
       } else {
         el.opener.setAttribute("aria-expanded", "false");
         el.opener.setAttribute("aria-label", "전체 메뉴 열기");
-      }
-    },
-    // 모바일 전용 (슬라이드 효과)
-    toggleSideMenu: () => {
-      method.toggleTotalMenu();
 
-      if (el.allnav) {
-        const opened = el.header.classList.contains("opened");
-
-        requestAnimationFrame(() => {
-          if (opened) {
-            el.allnav.style.setProperty("transform", "translateX(0)");
-
-            method.setVariableSideMenu();
-          } else {
-            el.allnav.style.setProperty("transform", "translateX(100%)");
-          }
+        el.allnav.removeEventListener("transitionend", handler.transitionEnd);
+        el.allnav.addEventListener("transitionend", handler.transitionEnd, {
+          once: true,
         });
+
+        method.toggleScrollLock(false);
+
+        // transitionend 트리거
+        if (device !== "desktop") {
+          el.allnav.style.setProperty("transform", "translateX(100%)");
+        } else {
+          el.allnav.style.setProperty("height", "0");
+        }
       }
     },
     // topnav 변수 정의
-    setVariableTopMenu: () => {
+    setVariableTopNav: () => {
       if (!el.header) return;
 
       const { HOVER_HEIGHT, ON_WIDTH, OFF_WIDTH } = CSSVar;
+
+      el.topnav.style.setProperty("display", "block"); // 숨겨진 상태에서 크기 계산이 안되는 경우가 있어 계산 전 block 처리
 
       // hover height
       const wrap = el.topnav.querySelector(".depth1-list");
@@ -180,14 +213,22 @@ const Header = (function () {
         el.topnav.style.setProperty(ON_WIDTH, `${(mw + 32) * menuLen}px`);
         el.topnav.style.setProperty(OFF_WIDTH, `${mw * menuLen}px`);
       }
+
+      el.topnav.style.setProperty("display", "");
     },
-    // side menu 변수 정의
-    setVariableSideMenu: () => {
+    // allnav 변수 정의
+    setVariableAllNav: () => {
       if (!el.allnav) return;
 
-      el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
-        item.style.setProperty("--height", `${item.scrollHeight}px`);
-      });
+      if (device === "desktop") {
+        el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
+      } else {
+        el.allnav.style.removeProperty("--height");
+
+        el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+          item.style.setProperty("--height", `${item.scrollHeight}px`);
+        });
+      }
     },
   };
 
@@ -252,7 +293,7 @@ const Header = (function () {
     el.opener.removeEventListener("click", handler.clickOpener);
 
     el.header.classList.remove("opened");
-    el.allnav.style.setProperty("transform", "");
+    el.allnav.removeAttribute("style");
     el.topnav.removeAttribute("style");
     el.header.removeAttribute("style");
   };
@@ -304,14 +345,14 @@ const Header = (function () {
   const init = () => {
     setProperty();
     bind();
-    method.setVariableTopMenu();
+    method.setVariableTopNav();
   };
 
   const reInit = () => {
     unbind();
     setProperty();
-    method.setVariableTopMenu();
     bind();
+    method.setVariableTopNav();
   };
 
   return {
