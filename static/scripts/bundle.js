@@ -1,7 +1,6 @@
 (() => {
   // src/scripts/layout/Header.js
   var Header = /* @__PURE__ */ (function() {
-    let isPointerDown = false;
     let activated = null;
     let scrollPosition = 0;
     const CSSVar = {
@@ -57,19 +56,22 @@
           }
         }
       },
-      focusinDepth2LI: (e) => {
-        if (isPointerDown) return;
-        const depth2LI = e.currentTarget;
-        const depth2A = depth2LI.querySelector("a.depth2");
-        const depth3List = depth2A.parentElement.querySelector(".depth3-list");
-        if (!depth3List) {
-          method.collapseDepth2All();
-        } else {
-          if (!depth3List.parentElement.classList.contains("active")) {
-            method.expandDepth2(depth2A);
-          }
-        }
-      },
+      /* focusinDepth2LI: (e) => {
+            // if (isPointerDown) return;
+      
+            const depth2LI = e.currentTarget;
+            const depth2A = depth2LI.querySelector("a.depth2");
+            const depth3List = depth2A.parentElement.querySelector(".depth3-list");
+      
+            if (!depth3List) {
+              // 하위 없으면 닫기만
+              method.collapseDepth2All();
+            } else {
+              if (!depth3List.parentElement.classList.contains("active")) {
+                method.expandDepth2(depth2A);
+              }
+            }
+          }, */
       clickDepth3: (e) => {
         const depth3A = e.currentTarget;
         depth3A.parentElement.classList.toggle("active");
@@ -77,11 +79,18 @@
       clickOpener: () => {
         method.toggleTotalMenu();
       },
-      transitionEnd: () => {
-        el.header.classList.remove("opened");
+      transEndDepth3: (e) => {
+        const depth3List = e.currentTarget;
+        if (depth3List) {
+          depth3List.style.setProperty("display", "none");
+        }
+      },
+      transEndAllNav: () => {
+        el.header.parentElement.classList.remove("opened");
         el.allnav.style.setProperty("height", "");
         el.allnav.style.setProperty("display", "");
         el.allnav.style.setProperty("transform", "");
+        document.body.parentElement.style.removeProperty("overflow");
       }
     };
     const method = {
@@ -90,7 +99,10 @@
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (depth3List) {
           method.collapseDepth2All();
-          depth2A.parentElement.classList.add("active");
+          depth3List.style.setProperty("display", "block");
+          setTimeout(() => {
+            depth2A.parentElement.classList.add("active");
+          }, 30);
         }
       },
       // 2뎁스 닫기
@@ -98,6 +110,10 @@
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (depth3List) {
           depth2A.parentElement.classList.remove("active");
+          depth3List.removeEventListener("transitionend", handler.transEndDepth3);
+          depth3List.addEventListener("transitionend", handler.transEndDepth3, {
+            once: true
+          });
         }
       },
       // single open 위해 depth2 모두 닫기
@@ -121,21 +137,21 @@
       },
       // 전체 메뉴
       toggleTotalMenu: () => {
-        if (!el.header.classList.contains("opened")) {
+        if (!el.header.parentElement.classList.contains("opened")) {
           el.opener.setAttribute("aria-expanded", "true");
           el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uB2EB\uAE30");
           el.allnav.style.setProperty("display", "block");
           method.setVariableAllNav();
           method.toggleScrollLock(true);
-          el.header.classList.add("opened");
+          el.header.parentElement.classList.add("opened");
           if (device !== "desktop") {
             el.allnav.style.setProperty("transform", "translateX(0)");
           }
         } else {
           el.opener.setAttribute("aria-expanded", "false");
           el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uC5F4\uAE30");
-          el.allnav.removeEventListener("transitionend", handler.transitionEnd);
-          el.allnav.addEventListener("transitionend", handler.transitionEnd, {
+          el.allnav.removeEventListener("transitionend", handler.transEndAllNav);
+          el.allnav.addEventListener("transitionend", handler.transEndAllNav, {
             once: true
           });
           method.toggleScrollLock(false);
@@ -181,8 +197,22 @@
           el.allnav.style.removeProperty("--height");
           el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
             item.style.setProperty("--height", `${item.scrollHeight}px`);
+            item.style.setProperty("display", "none");
           });
         }
+      },
+      // mo 아코디언 expand 연결
+      setA11yAllNav: () => {
+        const depth3List = el.allnav.querySelectorAll(".depth3-list");
+        depth3List.forEach((list, idx) => {
+          const depth2A = list.parentElement.querySelector("a.depth2");
+          depth2A.setAttribute("aria-controls", `depth3-list-${idx}`);
+          list.setAttribute("id", `depth3-list-${idx}`);
+          if (depth2A) {
+            const isExpanded = list.parentElement.classList.contains("active");
+            depth2A.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+          }
+        });
       }
     };
     const bind = () => {
@@ -195,16 +225,6 @@
         if (device !== "desktop") {
           item.querySelectorAll("a.depth2").forEach((depth2) => {
             depth2.addEventListener("click", handler.clickDepth2);
-            depth2.parentElement.addEventListener(
-              "focusin",
-              handler.focusinDepth2LI
-            );
-            depth2.parentElement.addEventListener("pointerdown", () => {
-              isPointerDown = true;
-            });
-            depth2.parentElement.addEventListener("click", () => {
-              isPointerDown = false;
-            });
           });
           item.querySelectorAll("a.depth3").forEach((depth3) => {
             depth3.addEventListener("click", handler.clickDepth3);
@@ -230,13 +250,12 @@
       });
       el.header.removeEventListener("mouseleave", handler.mouseleave);
       el.opener.removeEventListener("click", handler.clickOpener);
-      el.header.classList.remove("opened");
+      el.header.parentElement.classList.remove("opened");
       el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
       scrollPosition = 0;
       activated = null;
-      isPointerDown = false;
     };
     function breakpointChecker() {
       reInit();
@@ -270,12 +289,14 @@
       setProperty();
       bind();
       method.setVariableTopNav();
+      method.setA11yAllNav();
     };
     const reInit = () => {
       unbind();
       setProperty();
       bind();
       method.setVariableTopNav();
+      method.setA11yAllNav();
     };
     return {
       init,
