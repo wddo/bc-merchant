@@ -1,5 +1,7 @@
 @use "../abstracts" as *;
 
+$gnb-default-height: 71px;
+
 .header {
   .header-inner {
     // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
@@ -33,9 +35,10 @@
       > ul {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: var(--space-16);
 
         li {
+          @include font-token($font-body-2);
           position: relative;
           display: flex;
           align-items: center;
@@ -44,7 +47,7 @@
             &::before {
               content: "";
               position: absolute;
-              left: -8px;
+              left: calc(var(--space-8) * -1);
               top: 50%;
               transform: translateY(-50%);
               width: 1px;
@@ -72,7 +75,7 @@
     .header-logo {
       display: flex;
       align-items: center;
-      height: 71px;
+      height: $gnb-default-height;
       gap: var(--space-8);
 
       a {
@@ -82,30 +85,33 @@
       }
 
       &-text {
+        @include font-token($font-body-0-semi);
         position: relative;
         display: flex;
         align-items: center;
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: -0.56px;
         color: #343841;
 
         &::before {
           content: "";
           display: block;
           width: 1px;
-          height: 16px;
+          height: 1em;
           background: var(--gray-60);
-          margin-right: 8px;
+          margin-right: var(--space-8);
         }
       }
     }
 
     .header-top-nav {
+      display: block;
       flex-grow: 0;
       width: var(--header-nav-off-width, auto);
-      height: 71px; // 상단 메뉴 닫힘 높이
+      height: $gnb-default-height; // 상단 메뉴 닫힘 높이
       transition: all $trans-time-short ease;
+
+      @at-root .header.opened#{&} {
+        display: none;
+      }
 
       &:focus-within {
         transition: none;
@@ -143,7 +149,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          min-height: 71px;
+          min-height: $gnb-default-height;
           padding: 0 var(--space-24);
           font-size: 16px;
           font-weight: 700;
@@ -200,11 +206,8 @@
     .header-actions {
       display: flex;
       align-items: center;
-      height: 71px;
-
-      &.contorls {
-        order: 3;
-      }
+      height: $gnb-default-height;
+      order: 3;
     }
 
     .icon-btn {
@@ -246,9 +249,104 @@
         }
       }
     }
+  }
 
-    .header-all-nav {
-      display: none;
+  .header-all-nav {
+    display: none;
+    position: static;
+    height: 0;
+    overflow-y: hidden;
+    background-color: #fff;
+    transform: none;
+    transition: height $trans-time-medium ease;
+
+    @at-root .header.opened#{&} {
+      height: var(--height, 0);
+    }
+
+    .depth1-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-40);
+
+      // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
+      padding: 0 $page-side-lg 80px;
+      margin: 0 auto;
+      max-width: calc($page-max-width + $page-side-lg * 2);
+    }
+
+    .depth1-list > li {
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: $page-side-sm;
+        width: calc(100% - #{$page-side-sm} * 2);
+        height: 1px;
+        background-color: var(--gray-60);
+        margin-top: 40px;
+      }
+
+      .depth1 {
+        display: inline-block;
+        position: relative;
+        margin-top: var(--space-32);
+        padding-right: 20px;
+        justify-content: flex-start;
+        align-items: center;
+        color: var(--text-primary);
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transition: transform 0.3s ease;
+          transform: translateY(-50%);
+          @include icon("chevron-right-16", 20px);
+        }
+      }
+
+      .depth2-list {
+        display: flex;
+        gap: var(--space-24);
+        flex-direction: row;
+        padding-top: var(--space-20);
+        justify-content: space-between;
+      }
+
+      .depth2-list > li {
+        // flex: 1 1 0%;
+        flex: 1 1 auto;
+
+        .depth2 {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: -0.8px;
+          text-align: left;
+        }
+      }
+
+      .depth3-list {
+        display: flex;
+        flex-direction: column;
+        padding: var(--space-16) 0 0;
+
+        .depth3 {
+          @include font-token($font-body-2);
+          display: inline-block;
+          width: 100%;
+          padding: 5px 0;
+          text-align: left;
+          color: $text-tertiary;
+        }
+      }
+
+      .depth4-list {
+        display: none;
+      }
     }
   }
 }
@@ -290,163 +388,127 @@
         display: none;
       }
 
-      .header-all-nav {
-        display: none;
+      .header-actions {
         height: auto;
-        position: absolute;
-        top: $nav-height-md;
-        left: 0;
-        right: 0;
+      }
+    }
+
+    .header-all-nav {
+      display: none;
+      position: absolute;
+      top: $nav-height-md;
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+
+      @at-root .header.opened#{&} {
         height: calc(100vh - $nav-height-md);
-        overflow-y: auto;
-        background-color: #fff;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+      }
 
-        @at-root .header.opened#{&} {
-          display: block;
+      .depth1-list {
+        gap: calc(var(--space-32) + 1px); // line 1px 추가
+        padding: 0;
+        margin: 0;
+        max-width: none;
+      }
+
+      .depth1-list > li {
+        &::after {
+          margin-top: 16px;
         }
 
-        &:focus-within,
-        &:hover {
-          height: calc(100vh - $nav-height-md);
-        }
-
-        .depth1-list {
+        .depth1 {
           display: flex;
-          flex-direction: column;
-          gap: 33px;
-          padding-bottom: 0;
+          margin: 0;
+          padding: var(--space-16) $page-side-sm;
+
+          &::after {
+            content: none;
+          }
         }
 
-        .depth1-list > li {
-          &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            left: $page-side-sm;
-            width: calc(100% - #{$page-side-sm} * 2);
-            height: 1px;
-            background-color: var(--gray-60);
-            margin-top: 16px;
-          }
+        .depth2-list {
+          justify-content: flex-start;
+          flex-direction: column;
+          gap: 0;
+          padding: 0;
+        }
 
-          &:hover,
-          &.active {
-            a.depth1 {
-              &::after {
-                content: none;
-              }
-            }
-          }
+        .depth2-list > li {
+          flex: 0 1 auto;
 
-          .depth1 {
-            display: flex;
-            position: relative;
+          .depth2 {
+            @include font-token($font-body-1-medi);
             padding: var(--space-16) $page-side-sm;
-            justify-content: flex-start;
-            align-items: center;
-            font-weight: 600;
-            font-size: 18px;
-            letter-spacing: -0.72px;
-            color: var(--text-primary);
-          }
+            color: $text-primary;
 
-          .depth2-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-          }
-
-          .depth2-list > li {
-            .depth2 {
-              @include font-token($font-body-1-medi);
-              display: inline-block;
-              position: relative;
-              width: 100%;
-              padding: var(--space-16) $page-side-sm;
-              text-align: left;
-              color: var(--text-primary);
-
-              &:hover::after,
-              &::after {
-                content: "";
-                position: absolute;
-                right: $page-side-sm;
-                top: 50%;
-                height: auto;
-                margin-top: 0;
-                transition: transform 0.3s ease;
-                transform: translateY(-50%);
-                @include icon("chevron-right-16", 16px);
-              }
-            }
-
-            //&:focus-within,
-            &.active {
-              // 화살표
-              .depth2::after {
-                transform: translateY(-50%) rotate(-90deg);
-              }
-
-              // 서브메뉴
-              .depth3-list {
-                height: var(--height, auto);
-              }
+            &::after {
+              content: "";
+              position: absolute;
+              right: $page-side-sm;
+              top: 50%;
+              height: auto;
+              margin-top: 0;
+              transition: transform 0.3s ease;
+              transform: translateY(-50%);
+              @include icon("chevron-right-16", 16px);
             }
           }
 
-          .depth3-list {
-            display: flex;
-            height: 0;
-            overflow: hidden;
-            transition: height $trans-time-short ease;
+          //&:focus-within,
+          &.active {
+            // 화살표
+            .depth2::after {
+              transform: translateY(-50%) rotate(-90deg);
+            }
 
-            /* &.active {
-              display: block;
-            } */
-
-            flex-direction: column;
-            padding: 0 var(--space-20);
-
-            .depth3 {
-              @include font-token($font-body-1);
-              display: inline-block;
-              width: 100%;
-              padding: var(--space-12) var(--space-6);
-              text-align: left;
-              color: var(--gray-500);
+            // 서브메뉴
+            .depth3-list {
+              height: var(--height, auto);
             }
           }
+        }
 
-          /* .depth3-list > li {
+        .depth3-list {
+          height: 0;
+          overflow: hidden;
+          transition: height $trans-time-short ease;
+          padding: 0 var(--space-20);
+
+          /* &.active {
+            display: block;
+          } */
+
+          .depth3 {
+            @include font-token($font-body-1);
+            padding: var(--space-12) var(--space-6);
+          }
+        }
+
+        /* .depth3-list > li {
             &.active .depth4-list {
               display: flex;
             }
           } */
 
-          .depth4-list {
-            // display: none;
-            display: flex; /* 기본 활성화로 */
-            flex-direction: column;
-            padding: calc(var(--space-20) - var(--space-6)) var(--space-20);
-            background-color: var(--gray-20);
-            border-radius: var(--radius-16);
+        .depth4-list {
+          display: flex; /* 기본 활성화로 */
+          flex-direction: column;
+          padding: calc(var(--space-20) - var(--space-6)) var(--space-20);
+          background-color: var(--gray-20);
+          border-radius: var(--radius-16);
 
-            .depth4 {
-              @include font-token($font-body-1);
-              display: inline-block;
-              width: 100%;
-              padding: var(--space-6) 0;
-              text-align: left;
-              color: $text-tertiary;
-            }
+          .depth4 {
+            @include font-token($font-body-1);
+            display: inline-block;
+            width: 100%;
+            padding: var(--space-6) 0;
+            text-align: left;
+            color: $text-tertiary;
           }
         }
-      }
-
-      .header-actions {
-        height: auto;
       }
     }
   }

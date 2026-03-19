@@ -3,6 +3,7 @@
   var Header = /* @__PURE__ */ (function() {
     let isPointerDown = false;
     let activated = null;
+    let scrollPosition = 0;
     const CSSVar = {
       HOVER_HEIGHT: "--header-nav-height",
       ON_WIDTH: "--header-nav-on-width",
@@ -33,7 +34,7 @@
             activated = activeItem[0];
           }
         }
-        el.topItems.forEach((item, idx) => {
+        el.topItems.forEach((item) => {
           if (item !== depth1) {
             item.classList.remove("active");
           }
@@ -62,7 +63,7 @@
         const depth2A = depth2LI.querySelector("a.depth2");
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (!depth3List) {
-          method.allCollapseDepth2();
+          method.collapseDepth2All();
         } else {
           if (!depth3List.parentElement.classList.contains("active")) {
             method.expandDepth2(depth2A);
@@ -74,46 +75,88 @@
         depth3A.parentElement.classList.toggle("active");
       },
       clickOpener: () => {
-        method.toggleSideMenu();
+        method.toggleTotalMenu();
+      },
+      transitionEnd: () => {
+        el.header.classList.remove("opened");
+        el.allnav.style.setProperty("height", "");
+        el.allnav.style.setProperty("display", "");
+        el.allnav.style.setProperty("transform", "");
       }
     };
     const method = {
-      allCollapseDepth2: () => {
-        const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
-        allDepth2Items.forEach((item) => {
-          item.classList.remove("active");
-        });
-      },
+      // 2뎁스 열기
       expandDepth2: (depth2A) => {
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (depth3List) {
-          method.allCollapseDepth2();
+          method.collapseDepth2All();
           depth2A.parentElement.classList.add("active");
         }
       },
+      // 2뎁스 닫기
       collapseDepth2: (depth2A) => {
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (depth3List) {
           depth2A.parentElement.classList.remove("active");
         }
       },
-      toggleSideMenu: () => {
-        el.header.classList.toggle("opened");
-        if (el.allnav) {
-          const opened = el.header.classList.contains("opened");
-          requestAnimationFrame(() => {
-            if (opened) {
-              el.allnav.style.setProperty("transform", "translateX(0)");
-              method.setVariableSideMenu();
-            } else {
-              el.allnav.style.setProperty("transform", "translateX(100%)");
-            }
-          });
+      // single open 위해 depth2 모두 닫기
+      collapseDepth2All: () => {
+        const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
+        allDepth2Items.forEach((item) => {
+          item.classList.remove("active");
+        });
+      },
+      // 전체메뉴 뒤 스크롤 방지
+      toggleScrollLock: (value) => {
+        const container = document.querySelector("#container");
+        const footer = document.querySelector("#footer");
+        if (value) {
+          scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          container.style.position = "fixed";
+          container.style.top = `-${scrollPosition}px`;
+          container.style.width = "100%";
+          footer.style.display = "none";
+        } else {
+          container.style.position = "";
+          container.style.top = "";
+          container.style.width = "";
+          footer.style.display = "";
+          window.scrollTo(0, scrollPosition);
         }
       },
-      setVariableTopMenu: () => {
+      // 전체 메뉴
+      toggleTotalMenu: () => {
+        if (!el.header.classList.contains("opened")) {
+          el.opener.setAttribute("aria-expanded", "true");
+          el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uB2EB\uAE30");
+          el.allnav.style.setProperty("display", "block");
+          method.setVariableAllNav();
+          method.toggleScrollLock(true);
+          el.header.classList.add("opened");
+          if (device !== "desktop") {
+            el.allnav.style.setProperty("transform", "translateX(0)");
+          }
+        } else {
+          el.opener.setAttribute("aria-expanded", "false");
+          el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uC5F4\uAE30");
+          el.allnav.removeEventListener("transitionend", handler.transitionEnd);
+          el.allnav.addEventListener("transitionend", handler.transitionEnd, {
+            once: true
+          });
+          method.toggleScrollLock(false);
+          if (device !== "desktop") {
+            el.allnav.style.setProperty("transform", "translateX(100%)");
+          } else {
+            el.allnav.style.setProperty("height", "0");
+          }
+        }
+      },
+      // topnav 변수 정의
+      setVariableTopNav: () => {
         if (!el.header) return;
         const { HOVER_HEIGHT, ON_WIDTH, OFF_WIDTH } = CSSVar;
+        el.topnav.style.setProperty("display", "block");
         const wrap = el.topnav.querySelector(".depth1-list");
         if (wrap) {
           el.header.style.removeProperty(HOVER_HEIGHT);
@@ -133,12 +176,19 @@
           el.topnav.style.setProperty(ON_WIDTH, `${(mw + 32) * menuLen}px`);
           el.topnav.style.setProperty(OFF_WIDTH, `${mw * menuLen}px`);
         }
+        el.topnav.style.setProperty("display", "");
       },
-      setVariableSideMenu: () => {
+      // allnav 변수 정의
+      setVariableAllNav: () => {
         if (!el.allnav) return;
-        el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
-          item.style.setProperty("--height", `${item.scrollHeight}px`);
-        });
+        if (device === "desktop") {
+          el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
+        } else {
+          el.allnav.style.removeProperty("--height");
+          el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+            item.style.setProperty("--height", `${item.scrollHeight}px`);
+          });
+        }
       }
     };
     const bind = () => {
@@ -169,9 +219,8 @@
       });
       if (device === "desktop") {
         el.header.addEventListener("mouseleave", handler.mouseleave);
-      } else {
-        el.opener.addEventListener("click", handler.clickOpener);
       }
+      el.opener.addEventListener("click", handler.clickOpener);
     };
     const unbind = () => {
       el.topItems.forEach((item) => {
@@ -188,9 +237,12 @@
       el.header.removeEventListener("mouseleave", handler.mouseleave);
       el.opener.removeEventListener("click", handler.clickOpener);
       el.header.classList.remove("opened");
-      el.allnav.style.setProperty("transform", "");
+      el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
+      scrollPosition = 0;
+      activated = null;
+      isPointerDown = false;
     };
     function breakpointChecker() {
       reInit();
@@ -223,13 +275,13 @@
     const init = () => {
       setProperty();
       bind();
-      method.setVariableTopMenu();
+      method.setVariableTopNav();
     };
     const reInit = () => {
       unbind();
       setProperty();
-      method.setVariableTopMenu();
       bind();
+      method.setVariableTopNav();
     };
     return {
       init,
@@ -897,7 +949,7 @@
     function bind() {
       window.addEventListener("scroll", scrollHandler);
       window.addEventListener("resize", resizeHandler);
-      breakpointDesktop = window.matchMedia("(min-width: 1200px)");
+      breakpointDesktop = window.matchMedia("(min-width: 1024px)");
       breakpointMobile = window.matchMedia("(max-width: 767px)");
       breakpointDesktop.addEventListener("change", breakpointHandler);
       breakpointMobile.addEventListener("change", breakpointHandler);
