@@ -1239,31 +1239,6 @@ body {
     margin-top: 50px;
   }
   #container .page > div:not(.full):not(.loading).title {
-    padding-bottom: 32px;
-  }
-  #container .page > div.full > * {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-@media (max-width: 767px) {
-  #container .page {
-    min-width: 360px;
-    padding-bottom: 56px;
-  }
-  #container .page > div:not(.full):not(.loading) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #container .page > div:not(.full):not(.loading).title:first-child + * {
-    margin-top: 0px;
-    /* &.search-box,
-      &.noti-box,
-      &.tab-wrapper {
-        margin-top: 0;
-      } */
-  }
-  #container .page > div:not(.full):not(.loading).title {
     height: 56px;
     padding: 0 0 0 60px !important;
     margin: 0 !important;
@@ -1297,6 +1272,28 @@ body {
     width: 24px;
     height: 24px;
     background: url(/static/images/icons/arrow-left.svg) no-repeat 0 0/100% auto;
+  }
+  #container .page > div.full > * {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (max-width: 767px) {
+  #container .page {
+    min-width: 360px;
+    padding-bottom: 56px;
+  }
+  #container .page > div:not(.full):not(.loading) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #container .page > div:not(.full):not(.loading).title:first-child + * {
+    margin-top: 0px;
+    /* &.search-box,
+      &.noti-box,
+      &.tab-wrapper {
+        margin-top: 0;
+      } */
   }
   #container .page > div.full > * {
     padding-left: 20px;
