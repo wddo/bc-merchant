@@ -234,7 +234,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding: 0 0 var(--space-40) 64px;
+  padding: 0 0 var(--space-40) var(--space-64);
 }
 .writing-stage .stage-item::before {
   content: "";
@@ -1158,9 +1158,6 @@
   }
   .writing-stage .stage-item .writing-box .intro-infor .text br {
     display: none;
-  }
-  .full-bg {
-    margin-bottom: 0 !important;
   }
   .cardtype {
     padding: var(--space-24) 0;
