@@ -90,6 +90,7 @@
         el.allnav.style.setProperty("height", "");
         el.allnav.style.setProperty("display", "");
         el.allnav.style.setProperty("transform", "");
+        console.log("transEndAllNav !!!");
         document.body.parentElement.style.removeProperty("overflow");
       }
     };
@@ -131,7 +132,6 @@
           scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
           document.body.parentElement.style.setProperty("overflow", "clip");
         } else {
-          document.body.parentElement.style.removeProperty("overflow");
           window.scrollTo(0, scrollPosition);
         }
       },
