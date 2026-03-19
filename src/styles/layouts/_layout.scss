@@ -16,8 +16,7 @@ body {
     top: 0;
     text-indent: -9999px;
 
-    &:focus,
-    &:active {
+    &:focus {
       display: block;
       position: absolute;
       top: 0;

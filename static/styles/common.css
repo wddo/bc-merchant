@@ -1134,7 +1134,7 @@ body {
   top: 0;
   text-indent: -9999px;
 }
-.skip_nav > a:focus, .skip_nav > a:active {
+.skip_nav > a:focus {
   display: block;
   position: absolute;
   top: 0;
