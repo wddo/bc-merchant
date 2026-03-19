@@ -13,7 +13,8 @@
       header: null,
       nav: null,
       opener: null,
-      allItems: null
+      allItems: null,
+      authList: null
     };
     const selectors = {
       header: ".header",
@@ -21,7 +22,8 @@
       allnav: ".header-all-nav",
       opener: "#menu-toggle",
       topItems: ".header-top-nav .depth1-list > li",
-      allItems: ".header-all-nav .depth1-list > li"
+      allItems: ".header-all-nav .depth1-list > li",
+      authList: ".header-auth"
     };
     const handler = {
       mouseenter: (e) => {
@@ -136,6 +138,7 @@
           el.header.classList.add("opened");
           if (device !== "desktop") {
             el.allnav.style.setProperty("transform", "translateX(0)");
+            el.authList.style.setProperty("transform", "translateX(0)");
           }
         } else {
           el.opener.setAttribute("aria-expanded", "false");
@@ -147,6 +150,7 @@
           method.toggleScrollLock(false);
           if (device !== "desktop") {
             el.allnav.style.setProperty("transform", "translateX(100%)");
+            el.authList.style.setProperty("transform", "translateX(100%)");
           } else {
             el.allnav.style.setProperty("height", "0");
           }
@@ -240,6 +244,7 @@
       el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
+      el.authList.removeAttribute("style");
       scrollPosition = 0;
       activated = null;
       isPointerDown = false;
@@ -255,6 +260,7 @@
       el.opener = el.header ? el.header.querySelector(selectors.opener) : null;
       el.topnav = el.header ? el.header.querySelector(selectors.topnav) : null;
       el.allnav = el.header ? el.header.querySelector(selectors.allnav) : null;
+      el.authList = el.header ? el.header.querySelector(selectors.authList) : null;
       cloneAllItemsToTopNav();
       el.topItems = el.header ? el.header.querySelectorAll(selectors.topItems) : null;
       el.allItems = el.header ? el.header.querySelectorAll(selectors.allItems) : null;

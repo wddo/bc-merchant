@@ -1,6 +1,7 @@
 @use "../abstracts" as *;
 
-$gnb-default-height: 71px;
+$gnb-default-height: 71px; // pc 1depth 높이
+$gnb-auth-height: 53px; // mo .header-auth 높이
 
 .header {
   .header-inner {
@@ -40,8 +41,7 @@ $gnb-default-height: 71px;
         li {
           @include font-token($font-body-2);
           position: relative;
-          display: flex;
-          align-items: center;
+          text-align: center;
           color: $text-tertiary;
 
           + li {
@@ -361,7 +361,39 @@ $gnb-default-height: 71px;
       }
 
       .header-util {
-        display: none;
+        padding: 0;
+
+        > ul {
+          display: none;
+
+          &.header-auth {
+            @at-root .header.opened#{&} {
+              transform: translateX(0);
+            }
+            display: flex;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: space-between;
+            padding: var(--space-8) var(--space-24) var(--space-16);
+            background-color: $bg-white;
+            z-index: 1;
+            transform: translateX(100%);
+            transition: transform $trans-time-short ease;
+          }
+
+          li {
+            flex: auto;
+            justify-content: center;
+
+            > a {
+              display: inline-block;
+              width: 100%;
+              padding: var(--space-4) 0;
+            }
+          }
+        }
       }
 
       .header-gnb {
@@ -415,7 +447,7 @@ $gnb-default-height: 71px;
       }
 
       @at-root .header.opened#{&} {
-        height: calc(100vh - $nav-height-md);
+        height: calc(100vh - $nav-height-md - $gnb-auth-height);
       }
 
       .depth1-list {
@@ -427,7 +459,13 @@ $gnb-default-height: 71px;
 
       .depth1-list > li {
         &::after {
-          margin-top: 16px;
+          margin-top: var(--space-16);
+        }
+
+        &:last-child {
+          &::after {
+            content: none;
+          }
         }
 
         .depth1 {
