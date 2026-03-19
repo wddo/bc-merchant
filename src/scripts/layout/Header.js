@@ -102,6 +102,8 @@ const Header = (function () {
       el.allnav.style.setProperty("display", "");
       el.allnav.style.setProperty("transform", "");
 
+      console.log("transEndAllNav !!!");
+
       document.body.parentElement.style.removeProperty("overflow");
     },
   };
@@ -167,7 +169,7 @@ const Header = (function () {
         container.style.width = "";
         footer.style.display = ""; */
 
-        document.body.parentElement.style.removeProperty("overflow");
+        //document.body.parentElement.style.removeProperty("overflow");
 
         // 이전 위치로 복귀
         window.scrollTo(0, scrollPosition);
