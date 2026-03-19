@@ -153,6 +153,7 @@ const Header = (function () {
     // 전체 메뉴
     toggleTotalMenu: () => {
       if (!el.header.classList.contains("opened")) {
+        // 열기
         el.opener.setAttribute("aria-expanded", "true");
         el.opener.setAttribute("aria-label", "전체 메뉴 닫기");
 
@@ -167,6 +168,7 @@ const Header = (function () {
           el.allnav.style.setProperty("transform", "translateX(0)");
         }
       } else {
+        // 닫기
         el.opener.setAttribute("aria-expanded", "false");
         el.opener.setAttribute("aria-label", "전체 메뉴 열기");
 
