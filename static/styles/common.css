@@ -1869,6 +1869,12 @@ body {
     height: 1em;
     background-color: var(--gray-60);
   }
+  #header.opened ~ #container .title {
+    padding: 0 0 0 var(--space-20) !important;
+  }
+  #header.opened ~ #container .title .btn-back {
+    display: none;
+  }
 }
 .footer {
   border-top: 1px solid var(--gray-60);
