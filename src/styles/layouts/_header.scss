@@ -3,6 +3,17 @@
 $gnb-default-height: 71px; // pc 1depth 높이
 $gnb-auth-height: 53px; // mo .header-auth 높이
 
+#header {
+  &.opened {
+    .header {    
+      position: relative;
+      height: 100vh;
+      overflow: auto;    
+    }
+  }
+}
+
+
 .header {
   .header-inner {
     // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
@@ -102,7 +113,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       height: $gnb-default-height; // 상단 메뉴 닫힘 높이
       transition: all $trans-time-short ease;
 
-      @at-root .header.opened#{&} {
+      @at-root #header.opened #{&} {
         display: none;
       }
 
@@ -237,7 +248,9 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         bottom: 6px;
       }
 
-      @at-root .header.opened#{&} {
+      // @at-root #header.opened#{&} {
+      // @at-root #{&}.opened {
+      @at-root #header.opened #{&} {
         @include icon("x");
 
         &::after,
@@ -257,7 +270,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     transform: none;
     transition: height $trans-time-medium ease;
 
-    @at-root .header.opened#{&} {
+    @at-root #header.opened #{&} {
       height: var(--height, 0);
     }
 
@@ -378,11 +391,12 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
 
       .header-logo {
-        width: auto;
-        height: auto;
-        margin: 0 auto 0 0;
-        flex-shrink: 0;
-        white-space: nowrap;
+        // width: auto;
+        // height: auto;
+        // margin: 0 auto 0 0;
+        // flex-shrink: 0;
+        // white-space: nowrap;
+        display:  none;
       }
 
       .header-top-nav {
@@ -418,7 +432,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         }
       }
 
-      @at-root .header.opened#{&} {
+      @at-root #header.opened #{&} {
         height: calc(100vh - $nav-height-md);
       }
 
@@ -576,4 +590,5 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
     }
   }
+
 }
