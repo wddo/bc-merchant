@@ -16,7 +16,6 @@ const Header = (function () {
     nav: null,
     opener: null,
     allItems: null,
-    authList: null,
   };
 
   const selectors = {
@@ -26,7 +25,6 @@ const Header = (function () {
     opener: "#menu-toggle",
     topItems: ".header-top-nav .depth1-list > li",
     allItems: ".header-all-nav .depth1-list > li",
-    authList: ".header-auth",
   };
 
   const handler = {
@@ -136,17 +134,21 @@ const Header = (function () {
         scrollPosition =
           window.pageYOffset || document.documentElement.scrollTop;
 
+        document.body.parentElement.style.setProperty("overflow", "clip");
+
         // 스크롤 잠금
-        container.style.position = "fixed";
+        /* container.style.position = "fixed";
         container.style.top = `-${scrollPosition}px`;
         container.style.width = "100%";
-        footer.style.display = "none";
+        footer.style.display = "none"; */
       } else {
         // 스크롤 잠금 해제
-        container.style.position = "";
+        /* container.style.position = "";
         container.style.top = "";
         container.style.width = "";
-        footer.style.display = "";
+        footer.style.display = ""; */
+
+        document.body.parentElement.style.removeProperty("overflow");
 
         // 이전 위치로 복귀
         window.scrollTo(0, scrollPosition);
@@ -168,7 +170,6 @@ const Header = (function () {
 
         if (device !== "desktop") {
           el.allnav.style.setProperty("transform", "translateX(0)");
-          el.authList.style.setProperty("transform", "translateX(0)");
         }
       } else {
         // 닫기
@@ -185,7 +186,6 @@ const Header = (function () {
         // transitionend 트리거
         if (device !== "desktop") {
           el.allnav.style.setProperty("transform", "translateX(100%)");
-          el.authList.style.setProperty("transform", "translateX(100%)");
         } else {
           el.allnav.style.setProperty("height", "0");
         }
@@ -305,7 +305,6 @@ const Header = (function () {
     el.allnav.removeAttribute("style");
     el.topnav.removeAttribute("style");
     el.header.removeAttribute("style");
-    el.authList.removeAttribute("style");
 
     scrollPosition = 0;
     activated = null;
@@ -327,9 +326,6 @@ const Header = (function () {
     el.opener = el.header ? el.header.querySelector(selectors.opener) : null;
     el.topnav = el.header ? el.header.querySelector(selectors.topnav) : null;
     el.allnav = el.header ? el.header.querySelector(selectors.allnav) : null;
-    el.authList = el.header
-      ? el.header.querySelector(selectors.authList)
-      : null;
 
     cloneAllItemsToTopNav(); // 개발용 xxx (제거 예정)
 

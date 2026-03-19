@@ -196,6 +196,10 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
     }
 
+    .bottom-wrapper {
+      display: none;
+    }
+
     .header-actions {
       display: flex;
       align-items: center;
@@ -361,39 +365,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
 
       .header-util {
-        padding: 0;
-
-        > ul {
-          display: none;
-
-          &.header-auth {
-            @at-root .header.opened#{&} {
-              transform: translateX(0);
-            }
-            display: flex;
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            justify-content: space-between;
-            padding: var(--space-8) var(--space-24) var(--space-16);
-            background-color: $bg-white;
-            z-index: 1;
-            transform: translateX(100%);
-            transition: transform $trans-time-short ease;
-          }
-
-          li {
-            flex: auto;
-            justify-content: center;
-
-            > a {
-              display: inline-block;
-              width: 100%;
-              padding: var(--space-4) 0;
-            }
-          }
-        }
+        display: none;
       }
 
       .header-gnb {
@@ -447,7 +419,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
 
       @at-root .header.opened#{&} {
-        height: calc(100vh - $nav-height-md - $gnb-auth-height);
+        height: calc(100vh - $nav-height-md);
       }
 
       .depth1-list {
@@ -556,6 +528,49 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
             padding: var(--space-6) 0;
             text-align: left;
             color: $text-tertiary;
+          }
+        }
+      }
+    }
+
+    .bottom-wrapper {
+      position: sticky;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .auth-list {
+        @include font-token($font-body-2);
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        padding: var(--space-8) var(--space-24) var(--space-16);
+        background-color: $bg-white;
+        text-align: center;
+
+        li {
+          display: flex;
+          flex: auto;
+          justify-content: center;
+          position: relative;
+
+          > a {
+            display: inline-block;
+            width: 100%;
+            padding: var(--space-4) 0;
+          }
+
+          + li {
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translateY(-50%);
+              width: 1px;
+              height: 1em;
+              background-color: $bg-gray-60;
+            }
           }
         }
       }
