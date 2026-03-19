@@ -1123,6 +1123,30 @@ body {
   height: 100%;
 }
 
+.skip_nav {
+  width: 100%;
+  height: 0;
+}
+.skip_nav > a {
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  top: 0;
+  text-indent: -9999px;
+}
+.skip_nav > a:focus, .skip_nav > a:active {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: var(--space-8) 0;
+  background-color: var(--gray-900);
+  color: var(--white);
+  text-indent: 0;
+  text-align: center;
+  z-index: 1100;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -1310,8 +1334,7 @@ body {
 }
 .header .header-inner .header-util > ul li {
   position: relative;
-  display: flex;
-  align-items: center;
+  text-align: center;
   color: var(--gray-600);
 }
 .header .header-inner .header-util > ul li + li::before {
@@ -1599,7 +1622,30 @@ body {
     content: none;
   }
   .header .header-inner .header-util {
+    padding: 0;
+  }
+  .header .header-inner .header-util > ul {
     display: none;
+  }
+  .header.opened.header .header-inner .header-util > ul.header-auth {
+    transform: translateX(0);
+  }
+  .header .header-inner .header-util > ul.header-auth {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: space-between;
+    padding: var(--space-12) var(--space-24) var(--space-20);
+    background-color: var(--white);
+    z-index: 1;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .header .header-inner .header-util > ul li {
+    flex: auto;
+    justify-content: center;
   }
   .header .header-inner .header-gnb {
     width: 100%;
@@ -1644,7 +1690,7 @@ body {
     content: none;
   }
   .header.opened.header .header-all-nav {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 56px - 53px);
   }
   .header .header-all-nav .depth1-list {
     gap: calc(var(--space-32) + 1px);
@@ -1653,7 +1699,10 @@ body {
     max-width: none;
   }
   .header .header-all-nav .depth1-list > li::after {
-    margin-top: 16px;
+    margin-top: var(--space-16);
+  }
+  .header .header-all-nav .depth1-list > li:last-child::after {
+    content: none;
   }
   .header .header-all-nav .depth1-list > li .depth1 {
     display: flex;
