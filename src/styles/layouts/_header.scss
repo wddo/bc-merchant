@@ -591,4 +591,15 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     }
   }
 
+  #header {
+    &.opened {
+      ~ #container .title {
+        padding: 0 0 0 var(--space-20) !important;
+        .btn-back {
+          display: none;
+        }
+      } 
+    }
+  }
 }
+
