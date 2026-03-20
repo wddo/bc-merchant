@@ -7,6 +7,7 @@ const Header = (function () {
 
   const CSSVar = {
     HOVER_HEIGHT: "--header-nav-height",
+    ALL_NAV_HEIGHT: "--header-all-nav-height",
     ON_WIDTH: "--header-nav-on-width",
     OFF_WIDTH: "--header-nav-off-width",
   };
@@ -223,8 +224,10 @@ const Header = (function () {
     setVariableAllNav: () => {
       if (!el.allnav) return;
 
+      const { ALL_NAV_HEIGHT } = CSSVar;
+
       if (isMobile) {
-        el.allnav.style.removeProperty("--height");
+        el.header.style.removeProperty(ALL_NAV_HEIGHT);
 
         el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
           // 개별 depth3 height 계산하여 변수로 저장 (모바일에서만 사용)
@@ -239,7 +242,10 @@ const Header = (function () {
         });
 
         // 전체 메뉴 height 계산하여 변수로 저장 (desktop에서만 사용)
-        el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
+        el.header.style.setProperty(
+          ALL_NAV_HEIGHT,
+          `${el.allnav.scrollHeight}px`,
+        );
       }
     },
     // mo 아코디언 expand 연결
@@ -310,6 +316,7 @@ const Header = (function () {
     el.allnav.removeAttribute("style");
     el.topnav.removeAttribute("style");
     el.header.removeAttribute("style");
+    document.documentElement.removeAttribute("style");
 
     scrollPosition = 0;
     activated = null;

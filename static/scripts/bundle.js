@@ -6,6 +6,7 @@
     let isMobile = device !== "desktop";
     const CSSVar = {
       HOVER_HEIGHT: "--header-nav-height",
+      ALL_NAV_HEIGHT: "--header-all-nav-height",
       ON_WIDTH: "--header-nav-on-width",
       OFF_WIDTH: "--header-nav-off-width"
     };
@@ -184,8 +185,9 @@
       // allnav 변수 정의
       setVariableAllNav: () => {
         if (!el.allnav) return;
+        const { ALL_NAV_HEIGHT } = CSSVar;
         if (isMobile) {
-          el.allnav.style.removeProperty("--height");
+          el.header.style.removeProperty(ALL_NAV_HEIGHT);
           el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
             if (!item.style.getPropertyValue("--height")) {
               item.style.setProperty("--height", `${item.scrollHeight}px`);
@@ -196,7 +198,10 @@
           el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
             item.style.removeProperty("--height");
           });
-          el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
+          el.header.style.setProperty(
+            ALL_NAV_HEIGHT,
+            `${el.allnav.scrollHeight}px`
+          );
         }
       },
       // mo 아코디언 expand 연결
@@ -252,6 +257,7 @@
       el.allnav.removeAttribute("style");
       el.topnav.removeAttribute("style");
       el.header.removeAttribute("style");
+      document.documentElement.removeAttribute("style");
       scrollPosition = 0;
       activated = null;
     };

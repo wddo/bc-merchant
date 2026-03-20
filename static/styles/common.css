@@ -1313,7 +1313,8 @@ body {
 
 #header.opened .header {
   position: relative;
-  height: 100vh;
+  height: auto;
+  max-height: 100vh;
   overflow: auto;
 }
 
@@ -1551,7 +1552,7 @@ body {
   transition: height 0.5s ease;
 }
 #header.opened .header .header-all-nav {
-  height: var(--height, 0);
+  height: var(--header-all-nav-height, 0);
 }
 
 .header .header-all-nav .tab-wrapper {
@@ -1642,6 +1643,9 @@ body {
 .header .header-all-nav .depth1-list > li .depth4-list {
   display: none;
 }
+.header .bottom-wrapper {
+  display: none;
+}
 
 @media (max-width: 1023px) {
   .header .header-inner {
@@ -1658,7 +1662,7 @@ body {
   .header .header-inner .header-gnb {
     width: 100%;
     margin: 0;
-    padding: 14px 20px;
+    padding: var(--space-16) 20px;
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
@@ -1820,6 +1824,7 @@ body {
 }
 @media (max-width: 1023px) {
   .header .bottom-wrapper {
+    display: block;
     position: sticky;
     left: 0;
     right: 0;
@@ -1865,6 +1870,9 @@ body {
     width: 1px;
     height: 1em;
     background-color: var(--gray-60);
+  }
+  #header.opened .header {
+    overflow: visible;
   }
   #header.opened ~ #container .title {
     padding: 0 0 0 var(--space-20) !important;

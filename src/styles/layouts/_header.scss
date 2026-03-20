@@ -7,7 +7,8 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
   &.opened {
     .header {
       position: relative;
-      height: 100vh;
+      height: auto;
+      max-height: 100vh;
       overflow: auto;
     }
   }
@@ -268,7 +269,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     transition: height $trans-time-medium ease;
 
     @at-root #header.opened #{&} {
-      height: var(--height, 0);
+      height: var(--header-all-nav-height, 0);
     }
 
     .tab-wrapper {
@@ -360,6 +361,10 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
     }
   }
+
+  .bottom-wrapper {
+    display: none;
+  }
 }
 
 // Tablet
@@ -381,7 +386,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       .header-gnb {
         width: 100%;
         margin: 0;
-        padding: 14px $page-side-sm;
+        padding: var(--space-16) $page-side-sm;
         align-items: center;
         justify-content: flex-end;
         gap: 20px;
@@ -545,6 +550,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     }
 
     .bottom-wrapper {
+      display: block;
       position: sticky;
       left: 0;
       right: 0;
@@ -589,6 +595,12 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
   }
 
   #header {
+    &.opened {
+      .header {
+        overflow: visible;
+      }
+    }
+
     &.opened {
       ~ #container .title {
         padding: 0 0 0 var(--space-20) !important;
