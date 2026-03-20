@@ -139,7 +139,7 @@ const Header = (function () {
     },
     // scroll lock
     lockScroll: () => {
-      document.documentElement.style.setProperty("overflow", "clip");
+      document.documentElement.style.setProperty("overflow", "hidden");
     },
     unlockScroll: () => {
       document.documentElement.style.removeProperty("overflow");

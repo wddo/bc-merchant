@@ -47,13 +47,16 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       > ul {
         display: flex;
         align-items: center;
-        gap: var(--space-16);
 
         li {
           @include font-token($font-body-2);
           position: relative;
           text-align: center;
           color: $text-tertiary;
+
+          &:not(:first-child) {
+            margin-left: var(--space-16);
+          }
 
           + li {
             &::before {
@@ -80,18 +83,17 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       display: flex;
       align-items: center;
       height: $gnb-default-height;
-      gap: var(--space-8);
 
       a {
         display: inline-flex;
         align-items: center;
-        gap: var(--space-8);
       }
 
       &-text {
         @include font-token($font-body-0-semi);
         position: relative;
         display: flex;
+        margin-left: var(--space-8);
         align-items: center;
         color: #343841;
 
@@ -180,13 +182,11 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
           display: flex;
           flex-direction: column;
           padding-top: var(--space-20);
-          gap: 0;
           width: 100%;
 
           .depth2 {
             @include font-token($font-body-2);
             display: inline-block;
-            width: 100%;
             padding: var(--space-6) 0;
             color: $text-primary;
 
@@ -278,7 +278,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     .depth1-list {
       display: flex;
       flex-direction: column;
-      gap: var(--space-40);
 
       // max-width + side * 2 로 전체를 늘린 후 padding 으로 줄이는 방식
       padding: 0 $page-side-lg 80px;
@@ -287,6 +286,10 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     }
 
     .depth1-list > li {
+      &:not(:first-child) {
+        margin-top: var(--space-40);
+      }
+
       &::after {
         content: "";
         position: absolute;
@@ -319,7 +322,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
 
       .depth2-list {
         display: flex;
-        gap: var(--space-24);
         flex-direction: row;
         padding-top: var(--space-20);
         justify-content: space-between;
@@ -392,16 +394,19 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         padding: var(--space-16) $page-side-sm;
         align-items: center;
         justify-content: flex-end;
-        gap: 20px;
       }
 
       .header-logo {
-        // width: auto;
-        // height: auto;
-        // margin: 0 auto 0 0;
-        // flex-shrink: 0;
-        // white-space: nowrap;
         display: none;
+        width: auto;
+        height: auto;
+        margin: 0 auto 0 0;
+        flex-shrink: 0;
+        white-space: nowrap;
+
+        @at-root #header:not(.sub) #{&} {
+          display: flex;
+        }
       }
 
       .header-top-nav {
@@ -441,13 +446,16 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       }
 
       .depth1-list {
-        gap: calc(var(--space-32) + 1px); // line 1px 추가
         padding: 0;
         margin: 0;
         max-width: none;
       }
 
       .depth1-list > li {
+        &:not(:first-child) {
+          margin-top: calc(var(--space-32) + 1px); // line 1px 추가
+        }
+
         &::after {
           margin-top: var(--space-16);
         }
@@ -471,7 +479,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         .depth2-list {
           justify-content: flex-start;
           flex-direction: column;
-          gap: 0;
           padding: 0;
         }
 

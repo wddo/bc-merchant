@@ -119,7 +119,7 @@
       },
       // scroll lock
       lockScroll: () => {
-        document.documentElement.style.setProperty("overflow", "clip");
+        document.documentElement.style.setProperty("overflow", "hidden");
       },
       unlockScroll: () => {
         document.documentElement.style.removeProperty("overflow");
@@ -960,6 +960,15 @@
   (function() {
     let breakpointDesktop = null;
     let breakpointMobile = null;
+    function setLayout() {
+      const h1 = document.querySelector("h1");
+      if (h1) {
+        const hidden = h1.classList.contains("hidden");
+        if (!hidden) {
+          document.querySelector("#header").classList.add("sub");
+        }
+      }
+    }
     function bind() {
       window.addEventListener("scroll", scrollHandler);
       window.addEventListener("resize", resizeHandler);
@@ -981,6 +990,7 @@
           pbui.selectmenu.init(".input-box select");
         }
       }
+      setLayout();
       bind();
       if (Header_default) Header_default.init();
       if (co_default) co_default.init();

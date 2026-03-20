@@ -11,6 +11,16 @@ export let device = null;
   let breakpointDesktop = null;
   let breakpointMobile = null;
 
+  function setLayout() {
+    const h1 = document.querySelector("h1");
+    if (h1) {
+      const hidden = h1.classList.contains("hidden");
+      if (!hidden) {
+        document.querySelector("#header").classList.add("sub");
+      }
+    }
+  }
+
   function bind() {
     window.addEventListener("scroll", scrollHandler);
     window.addEventListener("resize", resizeHandler);
@@ -39,6 +49,7 @@ export let device = null;
       }
     }
 
+    setLayout();
     bind();
 
     if (Header) Header.init();
