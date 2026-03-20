@@ -312,7 +312,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
           content: "";
           position: absolute;
           top: 50%;
-          transition: transform 0.3s ease;
+          transition: transform $trans-time-short ease;
           transform: translateY(-50%);
           @include icon("chevron-right-16", 20px);
         }
@@ -418,7 +418,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       right: 0;
       overflow-y: auto;
       transform: translateX(100%);
-      transition: transform 0.3s ease;
+      transition: transform $trans-time-short ease;
 
       .tab-wrapper {
         display: block;
@@ -488,7 +488,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
               top: 50%;
               height: auto;
               margin-top: 0;
-              transition: transform 0.3s ease;
+              transition: transform $trans-time-short ease;
               transform: translateY(-50%);
               @include icon("chevron-right-16", 16px);
             }
