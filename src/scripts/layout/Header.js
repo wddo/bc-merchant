@@ -165,11 +165,6 @@ const Header = (function () {
         method.lockScroll();
 
         el.header.parentElement.classList.add("opened");
-
-        if (isMobile) {
-          // transition 트리거
-          el.allnav.style.setProperty("transform", "translateX(0)");
-        }
       } else {
         // 닫기
         el.opener.setAttribute("aria-expanded", "false");
@@ -179,11 +174,7 @@ const Header = (function () {
         method.setTransitionEndOnce(el.allnav, handler.transEndAllNav);
 
         // transitionend 트리거
-        if (isMobile) {
-          el.allnav.style.setProperty("transform", "translateX(100%)");
-        } else {
-          el.allnav.style.setProperty("height", 0);
-        }
+        el.allnav.style.setProperty("height", "0");
       }
     },
     // topnav 변수 정의

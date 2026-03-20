@@ -141,19 +141,12 @@
           method.saveScroll();
           method.lockScroll();
           el.header.parentElement.classList.add("opened");
-          if (isMobile) {
-            el.allnav.style.setProperty("transform", "translateX(0)");
-          }
         } else {
           el.opener.setAttribute("aria-expanded", "false");
           el.opener.setAttribute("aria-label", "\uC804\uCCB4 \uBA54\uB274 \uC5F4\uAE30");
           method.restoreScroll();
           method.setTransitionEndOnce(el.allnav, handler.transEndAllNav);
-          if (isMobile) {
-            el.allnav.style.setProperty("transform", "translateX(100%)");
-          } else {
-            el.allnav.style.setProperty("height", 0);
-          }
+          el.allnav.style.setProperty("height", "0");
         }
       },
       // topnav 변수 정의

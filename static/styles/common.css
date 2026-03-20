@@ -1548,7 +1548,6 @@ body {
   height: 0;
   overflow-y: hidden;
   background-color: #fff;
-  transform: none;
   transition: height 0.5s ease;
 }
 #header.opened .header .header-all-nav {
@@ -1648,6 +1647,9 @@ body {
 }
 
 @media (max-width: 1023px) {
+  #header.opened .header {
+    overflow: visible;
+  }
   .header .header-inner {
     padding-left: 0;
     padding-right: 0;
@@ -1682,9 +1684,8 @@ body {
     top: 56px;
     left: 0;
     right: 0;
+    height: 0;
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
   }
   .header .header-all-nav .tab-wrapper {
     display: block;
@@ -1870,9 +1871,6 @@ body {
     width: 1px;
     height: 1em;
     background-color: var(--gray-60);
-  }
-  #header.opened .header {
-    overflow: visible;
   }
   #header.opened ~ #container .title {
     padding: 0 0 0 var(--space-20) !important;

@@ -265,7 +265,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
     height: 0;
     overflow-y: hidden;
     background-color: #fff;
-    transform: none;
     transition: height $trans-time-medium ease;
 
     @at-root #header.opened #{&} {
@@ -370,6 +369,10 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
 // Tablet
 @include respond-md {
   .header {
+    @at-root #header.opened #{&} {
+      overflow: visible;
+    }
+
     .header-inner {
       padding-left: 0;
       padding-right: 0;
@@ -416,9 +419,8 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
       top: $nav-height-md;
       left: 0;
       right: 0;
+      height: 0;
       overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform $trans-time-short ease;
 
       .tab-wrapper {
         display: block;
@@ -595,12 +597,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
   }
 
   #header {
-    &.opened {
-      .header {
-        overflow: visible;
-      }
-    }
-
     &.opened {
       ~ #container .title {
         padding: 0 0 0 var(--space-20) !important;
