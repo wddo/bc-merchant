@@ -247,8 +247,6 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         bottom: 6px;
       }
 
-      // @at-root #header.opened#{&} {
-      // @at-root #{&}.opened {
       @at-root #header.opened #{&} {
         @include icon("x");
 

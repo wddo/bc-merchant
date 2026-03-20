@@ -1,9 +1,9 @@
 import { device } from "@root";
 
 const Header = (function () {
-  // let isPointerDown = false; // focus 인지 click 인지 구별해 중복 이벤트 방지
   let activated = null; // 활성화 되어있는 index
   let scrollPosition = 0; // scroll lock 스크롤 위치 저장
+  let isMobile = device !== "desktop";
 
   const CSSVar = {
     HOVER_HEIGHT: "--header-nav-height",
@@ -65,22 +65,6 @@ const Header = (function () {
         }
       }
     },
-    /* focusinDepth2LI: (e) => {
-      // if (isPointerDown) return;
-
-      const depth2LI = e.currentTarget;
-      const depth2A = depth2LI.querySelector("a.depth2");
-      const depth3List = depth2A.parentElement.querySelector(".depth3-list");
-
-      if (!depth3List) {
-        // 하위 없으면 닫기만
-        method.collapseDepth2All();
-      } else {
-        if (!depth3List.parentElement.classList.contains("active")) {
-          method.expandDepth2(depth2A);
-        }
-      }
-    }, */
     clickDepth3: (e) => {
       const depth3A = e.currentTarget;
 
@@ -89,6 +73,7 @@ const Header = (function () {
     clickOpener: () => {
       method.toggleTotalMenu();
     },
+    // 2뎁스 닫힘 완료
     transEndDepth3: (e) => {
       const depth3List = e.currentTarget;
 
@@ -96,19 +81,24 @@ const Header = (function () {
         depth3List.style.setProperty("display", "none");
       }
     },
+    // 전체메뉴 닫힘 완료
     transEndAllNav: () => {
       el.header.parentElement.classList.remove("opened");
+
       el.allnav.style.setProperty("height", "");
       el.allnav.style.setProperty("display", "");
       el.allnav.style.setProperty("transform", "");
 
-      console.log("transEndAllNav !!!");
-
-      document.documentElement.style.removeProperty("overflow");
+      method.unlockScroll();
     },
   };
 
   const method = {
+    // 이벤트 transitionend once 등록 함수
+    setTransitionEndOnce(target, callback) {
+      target.removeEventListener("transitionend", callback);
+      target.addEventListener("transitionend", callback, { once: true });
+    },
     // 2뎁스 열기
     expandDepth2: (depth2A) => {
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
@@ -132,10 +122,7 @@ const Header = (function () {
       if (depth3List) {
         depth2A.parentElement.classList.remove("active");
 
-        depth3List.removeEventListener("transitionend", handler.transEndDepth3);
-        depth3List.addEventListener("transitionend", handler.transEndDepth3, {
-          once: true,
-        });
+        method.setTransitionEndOnce(depth3List, handler.transEndDepth3);
       }
     },
     // single open 위해 depth2 모두 닫기
@@ -149,18 +136,19 @@ const Header = (function () {
         }
       });
     },
-    // 전체메뉴 뒤 스크롤 방지
-    toggleScrollLock: (value) => {
-      if (value) {
-        // 현재 스크롤 위치 저장
-        scrollPosition =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        document.documentElement.style.setProperty("overflow", "clip");
-      } else {
-        // 이전 위치로 복귀
-        window.scrollTo(0, scrollPosition);
-      }
+    // scroll lock
+    lockScroll: () => {
+      document.documentElement.style.setProperty("overflow", "clip");
+    },
+    unlockScroll: () => {
+      document.documentElement.style.removeProperty("overflow");
+    },
+    // scroll memory
+    saveScroll: () => {
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    },
+    restoreScroll: () => {
+      window.scrollTo(0, scrollPosition);
     },
     // 전체 메뉴
     toggleTotalMenu: () => {
@@ -169,14 +157,16 @@ const Header = (function () {
         el.opener.setAttribute("aria-expanded", "true");
         el.opener.setAttribute("aria-label", "전체 메뉴 닫기");
 
-        el.allnav.style.setProperty("display", "block"); // transition 위해 선행
+        el.allnav.style.setProperty("display", "block"); // transition 전 block 처리
 
         method.setVariableAllNav();
-        method.toggleScrollLock(true);
+        method.saveScroll();
+        method.lockScroll();
 
         el.header.parentElement.classList.add("opened");
 
-        if (device !== "desktop") {
+        if (isMobile) {
+          // transition 트리거
           el.allnav.style.setProperty("transform", "translateX(0)");
         }
       } else {
@@ -184,18 +174,14 @@ const Header = (function () {
         el.opener.setAttribute("aria-expanded", "false");
         el.opener.setAttribute("aria-label", "전체 메뉴 열기");
 
-        el.allnav.removeEventListener("transitionend", handler.transEndAllNav);
-        el.allnav.addEventListener("transitionend", handler.transEndAllNav, {
-          once: true,
-        });
-
-        method.toggleScrollLock(false);
+        method.restoreScroll();
+        method.setTransitionEndOnce(el.allnav, handler.transEndAllNav);
 
         // transitionend 트리거
-        if (device !== "desktop") {
+        if (isMobile) {
           el.allnav.style.setProperty("transform", "translateX(100%)");
         } else {
-          el.allnav.style.setProperty("height", "0");
+          el.allnav.style.setProperty("height", 0);
         }
       }
     },
@@ -237,17 +223,23 @@ const Header = (function () {
     setVariableAllNav: () => {
       if (!el.allnav) return;
 
-      if (device === "desktop") {
-        el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
-      } else {
+      if (isMobile) {
         el.allnav.style.removeProperty("--height");
 
         el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+          // 개별 depth3 height 계산하여 변수로 저장 (모바일에서만 사용)
           if (!item.style.getPropertyValue("--height")) {
             item.style.setProperty("--height", `${item.scrollHeight}px`);
             item.style.setProperty("display", "none");
           }
         });
+      } else {
+        el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
+          item.style.removeProperty("--height");
+        });
+
+        // 전체 메뉴 height 계산하여 변수로 저장 (desktop에서만 사용)
+        el.allnav.style.setProperty("--height", `${el.allnav.scrollHeight}px`);
       }
     },
     // mo 아코디언 expand 연결
@@ -269,28 +261,15 @@ const Header = (function () {
 
   const bind = () => {
     el.topItems.forEach((item) => {
-      if (device === "desktop") {
+      if (!isMobile) {
         item.addEventListener("mouseenter", handler.mouseenter);
       }
     });
 
     el.allItems.forEach((item) => {
-      if (device !== "desktop") {
+      if (isMobile) {
         item.querySelectorAll("a.depth2").forEach((depth2) => {
           depth2.addEventListener("click", handler.clickDepth2);
-
-          /* depth2.parentElement.addEventListener(
-            "focusin",
-            handler.focusinDepth2LI,
-          );
-
-          depth2.parentElement.addEventListener("pointerdown", () => {
-            isPointerDown = true;
-          });
-
-          depth2.parentElement.addEventListener("click", () => {
-            isPointerDown = false;
-          }); */
         });
 
         item.querySelectorAll("a.depth3").forEach((depth3) => {
@@ -300,7 +279,7 @@ const Header = (function () {
     });
 
     // slide menu
-    if (device === "desktop") {
+    if (!isMobile) {
       // desktop only
       el.header.addEventListener("mouseleave", handler.mouseleave);
     }
@@ -334,7 +313,6 @@ const Header = (function () {
 
     scrollPosition = 0;
     activated = null;
-    //isPointerDown = false;
   };
 
   function breakpointChecker() {
@@ -342,8 +320,10 @@ const Header = (function () {
 
     if (device !== "desktop") {
       //console.log("breakpoint header not desktop !!!");
+      isMobile = true;
     } else {
       //console.log("breakpoint header desktop !!!");
+      isMobile = false;
     }
   }
 
