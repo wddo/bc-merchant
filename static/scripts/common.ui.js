@@ -262,7 +262,7 @@ const pbui = (function () {
           el.$popup.trigger("closebefore", el);
 
           this.state = Popup.STATE_CLOSE;
-          el.$opener?.focus();
+          if (el.$opener) el.$opener.focus();
           el.$opener = null;
           method.hide();
           pbut.scrollUnLock();
@@ -616,7 +616,7 @@ const pbui = (function () {
           }
           $(el.doc).off("keydown.alert", handler.keydown);
 
-          el.opener?.focus();
+          if (el.opener) el.opener.focus();
           el.opener = null;
         },
 
@@ -639,11 +639,11 @@ const pbui = (function () {
         },
 
         show: () => {
-          el.$alert?.addClass("open").attr("aria-hidden", false);
+          if (el.$alert) el.$alert.addClass("open").attr("aria-hidden", false);
         },
 
         hide: () => {
-          el.$alert?.removeClass("open").attr("aria-hidden", true);
+          if (el.$alert) el.$alert.removeClass("open").attr("aria-hidden", true);
         },
       };
 
