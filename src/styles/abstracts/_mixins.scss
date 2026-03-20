@@ -43,9 +43,12 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
 
   > li {
+    &:not(:first-child) {
+      margin-top: var(--space-12);
+    }
+
     @include font-token($font-body-1);
 
     @include respond-sm {

@@ -117,13 +117,13 @@ a[class*="ico-"] {
 
   dl {
     display: flex;
-    gap: var(--space-12);
 
     > dt {
       align-self: flex-start;
     }
 
     > dd {
+      margin-left: var(--space-12);
       text-align: right;
     }
   }
@@ -189,9 +189,12 @@ a[class*="ico-"] {
 
   .list-noti {
     margin-top: var(--space-12);
-    gap: var(--space-6);
 
     li {
+      &:first-child {
+        margin-top: var(--space-6);
+      }
+
       // font 14 -> 16 되며 주석처리 - 추후 완전 제거
       // @include font-token($font-body-1);
       color: $text-tertiary;
