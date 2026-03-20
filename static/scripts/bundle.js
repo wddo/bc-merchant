@@ -91,7 +91,7 @@
         el.allnav.style.setProperty("display", "");
         el.allnav.style.setProperty("transform", "");
         console.log("transEndAllNav !!!");
-        document.body.parentElement.style.removeProperty("overflow");
+        document.documentElement.style.removeProperty("overflow");
       }
     };
     const method = {
@@ -99,11 +99,13 @@
       expandDepth2: (depth2A) => {
         const depth3List = depth2A.parentElement.querySelector(".depth3-list");
         if (depth3List) {
-          method.collapseDepth2All();
-          depth3List.style.setProperty("display", "block");
-          setTimeout(() => {
-            depth2A.parentElement.classList.add("active");
-          }, 30);
+          method.collapseDepth2All(depth2A);
+          requestAnimationFrame(() => {
+            depth3List.style.setProperty("display", "block");
+            requestAnimationFrame(() => {
+              depth2A.parentElement.classList.add("active");
+            });
+          });
         }
       },
       // 2뎁스 닫기
@@ -118,19 +120,19 @@
         }
       },
       // single open 위해 depth2 모두 닫기
-      collapseDepth2All: () => {
-        const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
-        allDepth2Items.forEach((item) => {
-          item.classList.remove("active");
+      collapseDepth2All: (currentDepth2A) => {
+        const depth2 = el.allnav.querySelectorAll("li.active > .depth2");
+        depth2.forEach((item) => {
+          if (item !== currentDepth2A) {
+            method.collapseDepth2(item);
+          }
         });
       },
       // 전체메뉴 뒤 스크롤 방지
       toggleScrollLock: (value) => {
-        const container = document.querySelector("#container");
-        const footer = document.querySelector("#footer");
         if (value) {
           scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-          document.body.parentElement.style.setProperty("overflow", "clip");
+          document.documentElement.style.setProperty("overflow", "clip");
         } else {
           window.scrollTo(0, scrollPosition);
         }
@@ -196,8 +198,10 @@
         } else {
           el.allnav.style.removeProperty("--height");
           el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
-            item.style.setProperty("--height", `${item.scrollHeight}px`);
-            item.style.setProperty("display", "none");
+            if (!item.style.getPropertyValue("--height")) {
+              item.style.setProperty("--height", `${item.scrollHeight}px`);
+              item.style.setProperty("display", "none");
+            }
           });
         }
       },

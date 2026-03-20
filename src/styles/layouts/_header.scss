@@ -5,14 +5,13 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
 
 #header {
   &.opened {
-    .header {    
+    .header {
       position: relative;
       height: 100vh;
-      overflow: auto;    
+      overflow: auto;
     }
   }
 }
-
 
 .header {
   .header-inner {
@@ -396,7 +395,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         // margin: 0 auto 0 0;
         // flex-shrink: 0;
         // white-space: nowrap;
-        display:  none;
+        display: none;
       }
 
       .header-top-nav {
@@ -598,8 +597,7 @@ $gnb-auth-height: 53px; // mo .header-auth 높이
         .btn-back {
           display: none;
         }
-      } 
+      }
     }
   }
 }
-

@@ -104,7 +104,7 @@ const Header = (function () {
 
       console.log("transEndAllNav !!!");
 
-      document.body.parentElement.style.removeProperty("overflow");
+      document.documentElement.style.removeProperty("overflow");
     },
   };
 
@@ -114,14 +114,15 @@ const Header = (function () {
       const depth3List = depth2A.parentElement.querySelector(".depth3-list");
 
       if (depth3List) {
-        method.collapseDepth2All(); // 전부 닫고
+        method.collapseDepth2All(depth2A); // 전부 닫고
 
-        depth3List.style.setProperty("display", "block");
+        requestAnimationFrame(() => {
+          depth3List.style.setProperty("display", "block");
 
-        //requestAnimationFrame
-        setTimeout(() => {
-          depth2A.parentElement.classList.add("active");
-        }, 30);
+          requestAnimationFrame(() => {
+            depth2A.parentElement.classList.add("active");
+          });
+        });
       }
     },
     // 2뎁스 닫기
@@ -138,39 +139,25 @@ const Header = (function () {
       }
     },
     // single open 위해 depth2 모두 닫기
-    collapseDepth2All: () => {
-      const allDepth2Items = el.allnav.querySelectorAll(".depth2-list > li");
+    collapseDepth2All: (currentDepth2A) => {
+      const depth2 = el.allnav.querySelectorAll("li.active > .depth2");
 
-      allDepth2Items.forEach((item) => {
-        item.classList.remove("active");
+      depth2.forEach((item) => {
+        // 현재 클릭한 아이템은 제외하고 닫기
+        if (item !== currentDepth2A) {
+          method.collapseDepth2(item);
+        }
       });
     },
     // 전체메뉴 뒤 스크롤 방지
     toggleScrollLock: (value) => {
-      const container = document.querySelector("#container");
-      const footer = document.querySelector("#footer");
-
       if (value) {
         // 현재 스크롤 위치 저장
         scrollPosition =
           window.pageYOffset || document.documentElement.scrollTop;
 
-        document.body.parentElement.style.setProperty("overflow", "clip");
-
-        // 스크롤 잠금
-        /* container.style.position = "fixed";
-        container.style.top = `-${scrollPosition}px`;
-        container.style.width = "100%";
-        footer.style.display = "none"; */
+        document.documentElement.style.setProperty("overflow", "clip");
       } else {
-        // 스크롤 잠금 해제
-        /* container.style.position = "";
-        container.style.top = "";
-        container.style.width = "";
-        footer.style.display = ""; */
-
-        //document.body.parentElement.style.removeProperty("overflow");
-
         // 이전 위치로 복귀
         window.scrollTo(0, scrollPosition);
       }
@@ -256,8 +243,10 @@ const Header = (function () {
         el.allnav.style.removeProperty("--height");
 
         el.allnav.querySelectorAll(".depth3-list").forEach((item) => {
-          item.style.setProperty("--height", `${item.scrollHeight}px`);
-          item.style.setProperty("display", "none");
+          if (!item.style.getPropertyValue("--height")) {
+            item.style.setProperty("--height", `${item.scrollHeight}px`);
+            item.style.setProperty("display", "none");
+          }
         });
       }
     },
