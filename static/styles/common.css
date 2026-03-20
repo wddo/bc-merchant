@@ -616,11 +616,11 @@ a[class*=ico-]::before {
   font-weight: 400;
 }
 
-.list-dash > li > [class^=list-],
-.list-ref > li > [class^=list-],
-.list-noti > li > [class^=list-],
-.list-ast > li > [class^=list-] {
-  gap: var(--space-4);
+.list-dash > li > [class^=list-] > li:not(:first-child),
+.list-ref > li > [class^=list-] > li:not(:first-child),
+.list-noti > li > [class^=list-] > li:not(:first-child),
+.list-ast > li > [class^=list-] > li:not(:first-child) {
+  margin-top: var(--space-4);
 }
 .list-dash > li > [class^=list-]:first-child,
 .list-ref > li > [class^=list-]:first-child,

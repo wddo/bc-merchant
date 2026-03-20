@@ -96,7 +96,9 @@ a[class*="ico-"] {
 .list-noti,
 .list-ast {
   > li > [class^="list-"] {
-    gap: var(--space-4);
+    > li:not(:first-child) {
+      margin-top: var(--space-4);
+    }
 
     &:first-child {
       margin-top: var(--space-6);

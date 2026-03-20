@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: var(--space-16);
 }
 .step-section + .step-section {
   margin-top: var(--space-56);
@@ -44,12 +43,18 @@
 }
 .step-section .step-body {
   width: 100%;
+  margin-left: var(--space-16);
+}
+@media (max-width: 767px) {
+  .step-section .step-body {
+    margin-left: 0;
+  }
 }
 .step-section .accordion {
   margin-top: var(--space-24);
 }
-.step-section .accordion .accordion-cont > .list-ref {
-  gap: var(--space-4);
+.step-section .accordion .accordion-cont > .list-ref > li:not(:first-child) {
+  margin-top: var(--space-4);
 }
 @media (max-width: 767px) {
   .step-section .accordion {
@@ -115,7 +120,6 @@ a[class*=ico-] {
 .merchant-guide .pg-item {
   display: flex;
   flex-direction: column;
-  gap: 0;
   padding: var(--space-24) var(--space-20);
   background-color: var(--white);
   border-radius: var(--radius-16);
@@ -124,7 +128,6 @@ a[class*=ico-] {
   .merchant-guide .pg-item {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-16);
     padding: var(--space-16) var(--space-20);
   }
 }
@@ -135,6 +138,7 @@ a[class*=ico-] {
 @media (max-width: 767px) {
   .merchant-guide .pg-content {
     flex: 1;
+    margin-left: var(--space-16);
   }
 }
 .merchant-guide .pg-logo {
@@ -193,9 +197,11 @@ a[class*=ico-] {
 .merchant-guide .pg-url a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-4);
   color: inherit;
   text-decoration: none;
+}
+.merchant-guide .pg-url a::after {
+  margin-left: var(--space-6);
 }
 .merchant-guide .pg-tel {
   margin-top: var(--space-2);
@@ -211,16 +217,22 @@ a[class*=ico-] {
 }
 .merchant-modify section {
   display: flex;
-  gap: var(--space-48);
 }
 @media (max-width: 767px) {
   .merchant-modify section {
     flex-direction: column;
-    gap: var(--space-20);
   }
 }
 .merchant-modify section > * {
   flex: 1;
+}
+.merchant-modify section > *:not(:first-child) {
+  margin: 0 0 0 var(--space-48);
+}
+@media (max-width: 767px) {
+  .merchant-modify section > *:not(:first-child) {
+    margin: var(--space-20) 0 0 0;
+  }
 }
 .merchant-modify section + section {
   margin-top: var(--space-56);
@@ -233,24 +245,32 @@ a[class*=ico-] {
 .merchant-modify section .info-area {
   display: flex;
   flex-direction: column;
-  gap: var(--space-24);
   max-width: 400px;
   word-break: keep-all;
 }
 @media (max-width: 767px) {
   .merchant-modify section .info-area {
-    gap: var(--space-20);
     max-width: none;
+  }
+}
+.merchant-modify section .info-area > *:not(:first-child) {
+  margin-top: var(--space-24);
+}
+@media (max-width: 767px) {
+  .merchant-modify section .info-area > *:not(:first-child) {
+    margin-top: var(--space-20);
   }
 }
 .merchant-modify section .info-area .info-head {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+}
+.merchant-modify section .info-area .info-desc {
+  margin-top: var(--space-12);
 }
 @media (max-width: 767px) {
-  .merchant-modify section .info-area .info-head {
-    gap: var(--space-8);
+  .merchant-modify section .info-area .info-desc {
+    margin-top: var(--space-8);
   }
 }
 .merchant-modify section .info-area .info-desc p {
@@ -277,7 +297,6 @@ a[class*=ico-] {
   .merchant-modify section .info-area .contact-box .def-cols-auto {
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
   }
   .merchant-modify section .info-area .contact-box .def-cols-auto > div {
     display: flex;
@@ -288,7 +307,6 @@ a[class*=ico-] {
   .merchant-modify section .info-area .contact-box .def-cols-auto > div dl {
     display: flex;
     flex-direction: column;
-    gap: 2px;
     margin: 0 0 var(--space-12) 0;
   }
   .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dt,
@@ -312,6 +330,7 @@ a[class*=ico-] {
 }
 @media (max-width: 767px) {
   .merchant-modify section .info-area .contact-box .def-cols-auto > div dl dd {
+    margin-top: 2px;
     text-align: left;
   }
   .merchant-modify section .info-area .contact-box .def-cols-auto > div:nth-child(even) dl {
@@ -354,7 +373,9 @@ a[class*=ico-] {
 }
 .merchant-modify section .info-area .list-ref {
   color: var(--gray-600);
-  gap: 0;
+}
+.merchant-modify section .info-area .list-ref > li:not(:first-child) {
+  margin-top: 0;
 }
 .merchant-modify section .info-area ._btn-wrap {
   justify-content: flex-start;
@@ -395,11 +416,13 @@ a[class*=ico-] {
 .merchant-required .required-box {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
   padding: var(--space-32) var(--space-40);
   margin-bottom: var(--space-56);
   background-color: var(--gray-20);
   border-radius: var(--radius-16);
+}
+.merchant-required .required-box > *:not(:first-child) {
+  margin-top: var(--space-16);
 }
 @media (max-width: 767px) {
   .merchant-required .required-box {
@@ -411,7 +434,6 @@ a[class*=ico-] {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.72px;
-  margin: 0;
   color: var(--gray-500);
 }
 @media (max-width: 767px) {
