@@ -102,7 +102,9 @@
 .faq {
   .accordion {
     .accordion-header {
-      gap: var(--space-20);
+      &:not(:first-child) {
+        margin-left: var(--space-20);
+      }
     }
     .accordion-cont {
       .is-warning {
@@ -124,7 +126,10 @@
     flex-direction: column;
     align-items: flex-start;
     flex: 1;
-    gap: var(--space-2);
+
+    .list-title {
+      margin-top: var(--space-2);
+    }
   }
 
   .list-no,
@@ -172,8 +177,11 @@
       @include respond-sm {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-4);
         padding: var(--space-16) 0;
+
+        & > *:not(:first-child) {
+          margin-top: var(--space-4);
+        }
       }
 
       .list-no {
@@ -197,8 +205,11 @@
           width: 100%;
           flex-direction: column;
           align-items: flex-start;
-          gap: var(--space-4);
           margin: 0;
+
+          > a {
+            margin-top: var(--space-4);
+          }
         }
 
         a.list-title {
@@ -292,11 +303,6 @@
       display: flex;
       align-items: center;
       border-top: 1px solid $line-gray-60;
-      gap: 0;
-
-      @include respond-sm {
-        gap: var(--space-12);
-      }
 
       &.is-disabled {
         dd {
@@ -326,6 +332,8 @@
 
       @include respond-sm {
         @include ellipsis(2, 3em);
+
+        margin-left: var(--space-12);
       }
     }
   }
@@ -337,12 +345,27 @@
 .form-room {
   display: flex;
   flex-direction: column;
-  gap: var(--space-56);
   margin-top: var(--space-56);
+
+  > *:not(:first-child) {
+    margin-top: var(--space-56);
+  }
+
+  @include respond-sm {
+    margin-top: var(--space-24);
+
+    > *:not(:first-child) {
+      margin-top: var(--space-40);
+    }
+  }
 
   .form-group {
     h2 {
       margin-bottom: var(--space-24);
+
+      @include respond-sm {
+        margin-bottom: var(--space-12);
+      }
     }
   }
 
@@ -351,15 +374,31 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-16);
 
+    @include respond-md {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond-sm {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: var(--space-12);
+    }
+
     > li {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: var(--space-16);
       min-height: 156px;
       padding: var(--space-24) var(--space-20) var(--space-20);
       background-color: $bg-gray-20;
       border-radius: var(--radius-16);
+
+      @include respond-sm {
+        min-height: 120px;
+      }
+
+      & > *:not(:first-child) {
+        margin-top: var(--space-16);
+      }
 
       .form-name {
         @include font-token($font-body-1);
@@ -388,10 +427,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-12);
   padding: var(--space-100) 0;
   margin-top: var(--space-56);
   background-color: $bg-white;
+
+  & > *:not(:first-child) {
+    margin-top: var(--space-12);
+  }
 
   @include respond-sm {
     margin-top: var(--space-40);
@@ -409,41 +451,5 @@
 
   ._btn-wrap {
     margin-top: var(--space-12);
-  }
-}
-
-// =========================
-// 페이지 테블릿 전용
-// =========================
-@include respond-md {
-  .form-room {
-    .form-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-}
-
-// =========================
-// 페이지 모바일 전용
-// =========================
-@include respond-sm {
-  .form-room {
-    gap: var(--space-40);
-    margin-top: var(--space-24);
-    .form-group {
-      h2 {
-        margin-bottom: var(--space-12);
-      }
-    }
-
-    .form-list {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-
-      > li {
-        min-height: 120px;
-      }
-
-      gap: var(--space-12);
-    }
   }
 }
